@@ -1,10 +1,10 @@
 # s2client-proto-typescript
 
-This is a version of the StarCraft 2 API for [TypeScript](https://www.typescriptlang.org/). It uses [protobuf-ts](https://github.com/timostamm/protobuf-ts) to convert the official proto files to TypeScript interfaces, enums, and serialization methods.
+This is a version of the StarCraft 2 API for [TypeScript](https://www.typescriptlang.org/). It uses [protobuf-ts](https://github.com/timostamm/protobuf-ts) to convert [the official proto files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) to TypeScript interfaces, enums, and serialization methods.
 
 TODO: explain the difference between `s2client-proto-typescript` and `s2client-api-typescript`.
 
-This project is similar to [@node-sc2/proto](https://github.com/node-sc2/proto), which is written in JavaScript and uses `pbjs` to convert the official proto files to JSON.
+This project is similar to [@node-sc2/proto](https://github.com/node-sc2/proto), which is written in JavaScript and uses `pbjs` to convert the official proto files to JSON (instead of TypeScript).
 
 <br>
 
@@ -30,7 +30,7 @@ async function main() {
 
 ### 2) StarCraft 2 API Interfaces and Enums
 
-The [official StarCraft 2 protocol files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) contain the interfaces and enums that are used in its API. These are automatically converted to TypeScript with the [protobuf-ts](https://github.com/timostamm/protobuf-ts) tool and are exported for your use.
+The [official StarCraft 2 protocol files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) contain the interfaces and enums that are used in its API. These are automatically converted to TypeScript with the [protobuf-ts](https://github.com/timostamm/protobuf-ts) tool and are exported from this library your use.
 
 ```ts
 import { Race } from "s2client-proto-typescript";
