@@ -1,4 +1,3 @@
-import { PartialMessage } from "@protobuf-ts/runtime";
 import WebSocket from "ws";
 import { WEBSOCKET_URL } from "../constants";
 import { RequestType } from "../enums/RequestType";
@@ -170,14 +169,16 @@ export class SC2ProtocolClient {
       this.requestResolvers.set(id, resolve as RequestResolver);
     });
 
-    console.log(`Sending ${requestType} over WebSocket:`, requestObject);
-    const partialRequest = {
+    const request = {
       id,
       request: {
+        // Even though "oneofKind" is a synthetic field, it is necessary to specify it for the
+        // "toBinary" method to work properly
+        oneofKind: requestType,
         [requestType]: requestObject,
       },
-    } as unknown as PartialMessage<Request>;
-    const request = Request.create(partialRequest);
+    } as unknown as Request;
+    console.log("Sending WebSocket data:", request);
     const binaryData = Request.toBinary(request);
     this.ws.send(binaryData);
 
@@ -205,8 +206,7 @@ export class SC2ProtocolClient {
   }
 
   startReplay(request: RequestStartReplay): Promise<ResponseStartReplay> {
-    const promise = this.send(RequestType.StartReplay, request);
-    return promise;
+    return this.send(RequestType.StartReplay, request);
   }
 
   leaveGame(request: RequestLeaveGame): Promise<ResponseLeaveGame> {

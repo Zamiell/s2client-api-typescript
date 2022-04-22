@@ -1,27 +1,31 @@
 {
-  "name": "s2client-proto-typescript",
+  "name": "s2client-api-typescript",
   "version": "0.0.1",
-  "description": "The StarCraft 2 API protocol for TypeScript",
-  "homepage": "https://github.com/Zamiell/s2client-proto-typescript#readme",
+  "description": "The StarCraft 2 API for TypeScript",
+  "homepage": "https://github.com/Zamiell/s2client-api-typescript#readme",
   "bugs": {
-    "url": "https://github.com/Zamiell/s2client-proto-typescript/issues"
+    "url": "https://github.com/Zamiell/s2client-api-typescript/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zamiell/s2client-proto-typescript.git"
+    "url": "git+https://github.com/Zamiell/s2client-api-typescript.git"
   },
   "license": "MIT",
   "author": "Zamiell",
   "main": "dist/index",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/main"
   },
   "dependencies": {
     "@protobuf-ts/plugin": "^2.4.0",
     "@protobuf-ts/runtime": "^2.4.0",
+    "find-process": "^1.4.7",
+    "source-map-support": "^0.5.21",
     "ws": "^8.5.0"
   },
   "devDependencies": {
+    "@types/source-map-support": "^0.5.4",
     "@types/ws": "^8.5.3",
     "isaacscript-lint": "^1.0.99",
     "isaacscript-tsconfig": "^1.1.9",

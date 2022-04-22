@@ -1,10 +1,8 @@
-# s2client-proto-typescript
+# s2client-api-typescript
 
 This is a version of the StarCraft 2 API for [TypeScript](https://www.typescriptlang.org/). It uses [protobuf-ts](https://github.com/timostamm/protobuf-ts) to convert [the official protocol files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) to TypeScript interfaces, enums, and serialization methods.
 
-TODO: explain the difference between `s2client-proto-typescript` and `s2client-api-typescript`.
-
-This project is similar to [@node-sc2/proto](https://github.com/node-sc2/proto), which is written in JavaScript and uses `pbjs` to convert the official proto files to JSON (instead of TypeScript).
+This project is similar to [@node-sc2/core](https://github.com/node-sc2/core) and [@node-sc2/proto](https://github.com/node-sc2/proto), which are written in JavaScript and use `pbjs` to convert the official proto files to JSON (instead of TypeScript).
 
 <br>
 
@@ -17,7 +15,7 @@ This library provides two main things:
 This is an abstraction that can be used to communicate with StarCraft 2.
 
 ```ts
-import { SC2ProtocolClient } from "s2client-proto-typescript";
+import { SC2ProtocolClient } from "s2client-api-typescript";
 
 async function main() {
   const client = new SC2ProtocolClient();
@@ -33,7 +31,7 @@ async function main() {
 The [official StarCraft 2 protocol files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) contain the interfaces and enums that are used in its API. These are automatically converted to TypeScript with the [protobuf-ts](https://github.com/timostamm/protobuf-ts) tool and are exported from this library your use.
 
 ```ts
-import { Race } from "s2client-proto-typescript";
+import { Race } from "s2client-api-typescript";
 
 const MY_RACE = Race.Protoss;
 ```
@@ -42,4 +40,4 @@ const MY_RACE = Race.Protoss;
 
 ## Docs
 
-See the [automatically generated TypeDoc documentation](https://zamiell.github.io/s2client-proto-typescript/modules.html) for every API interface/enum that this library provides.
+See the [automatically generated TypeDoc documentation](https://zamiell.github.io/s2client-api-typescript/modules.html) for every API interface/enum that this library provides.
