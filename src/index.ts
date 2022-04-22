@@ -1,3 +1,11 @@
 export * from "./classes/SC2ProtocolClient";
-// export * from "./proto/s2clientprotocol/common";
-// export * from "./proto/sc2api";
+export * from "./proto/s2clientprotocol/common";
+export * from "./proto/s2clientprotocol/data";
+export * from "./proto/s2clientprotocol/debug";
+export * from "./proto/s2clientprotocol/error";
+export * from "./proto/s2clientprotocol/query";
+export * from "./proto/s2clientprotocol/raw";
+export * from "./proto/s2clientprotocol/score";
+export * from "./proto/s2clientprotocol/spatial";
+export * from "./proto/s2clientprotocol/ui";
+export * from "./proto/sc2api";

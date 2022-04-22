@@ -1,4 +1,4 @@
-This directory contains the files from: https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol
+This directory contains the StarCraft 2 protocol files from: https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol
 
 The "sc2api.proto" file had to be moved to the parent directory in order for import path resolution to work properly.
 
@@ -8,4 +8,6 @@ e.g.
 import "s2clientprotocol/common.proto";
 ```
 
-We use the [ts-proto](https://github.com/stephenh/ts-proto) tool to compile the official SC2 API protocol (i.e. the ".proto" files) into TypeScript. See "generate.bat" for documentation on how this was done.
+The [protobuf-ts](https://github.com/timostamm/protobuf-ts) tool was used to compile the official SC2 API protocol (i.e. the ".proto" files) into TypeScript. (Before this, I tried using [ts-proto](https://github.com/stephenh/ts-proto) and [ts-protoc-gen](https://github.com/improbable-eng/ts-protoc-gen), but neither produced working code, which seemed to have something to do with choking on the "optional" keyword.)
+
+See "compile_proto.sh" for the specific invocation used.

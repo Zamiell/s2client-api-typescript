@@ -16,5 +16,12 @@ module.exports = {
   },
 
   // We modify the linting rules from the base for some specific things
-  rules: {},
+  rules: {
+    "jsdoc/check-tag-names": [
+      "warn",
+      {
+        definedTags: ["generated"],
+      },
+    ],
+  },
 };
