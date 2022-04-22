@@ -24,7 +24,8 @@
   "devDependencies": {
     "@types/ws": "^8.5.3",
     "isaacscript-lint": "^1.0.99",
-    "isaacscript-tsconfig": "^1.1.9"
+    "isaacscript-tsconfig": "^1.1.9",
+    "typedoc": "^0.22.15"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.6",

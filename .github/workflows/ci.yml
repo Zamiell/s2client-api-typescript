@@ -6,9 +6,6 @@ jobs:
   build_and_lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Install xmllint (which the "lint.sh" script uses)
-        run: sudo apt-get install libxml2-utils -y
-
       - name: Checkout the repository
         uses: actions/checkout@v2
 
@@ -35,6 +32,17 @@ jobs:
 
       - name: Perform automated checks
         run: bash lint.sh
+
+      - name: Create the docs locally in CI
+        if: github.event_name != 'pull_request'
+        run: bash docs.sh
+
+      - name: Deploy 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: docs
 
   # To enable CI failure notifications over Discord, add a "DISCORD_WEBHOOK" secret to the
   # repository equal to the URL for the webhook, and then uncomment the lines below

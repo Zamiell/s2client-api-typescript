@@ -1,6 +1,6 @@
 # s2client-proto-typescript
 
-This is a version of the StarCraft 2 API for [TypeScript](https://www.typescriptlang.org/). It uses [protobuf-ts](https://github.com/timostamm/protobuf-ts) to convert [the official proto files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) to TypeScript interfaces, enums, and serialization methods.
+This is a version of the StarCraft 2 API for [TypeScript](https://www.typescriptlang.org/). It uses [protobuf-ts](https://github.com/timostamm/protobuf-ts) to convert [the official protocol files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) to TypeScript interfaces, enums, and serialization methods.
 
 TODO: explain the difference between `s2client-proto-typescript` and `s2client-api-typescript`.
 
@@ -37,3 +37,9 @@ import { Race } from "s2client-proto-typescript";
 
 const MY_RACE = Race.Protoss;
 ```
+
+<br>
+
+## Docs
+
+See the [automatically generated TypeDoc documentation](https://zamiell.github.io/s2client-proto-typescript/modules.html) for every API interface/enum that this library provides.
