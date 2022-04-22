@@ -73,7 +73,10 @@ export class SC2ProtocolClient {
   /** The "ws" library is used to handle the underlying WebSocket connection to StarCraft 2. */
   private ws: WebSocket | null = null;
 
-  /** An object is used to detect when the WebSocket connection has successfully connected. */
+  /**
+   * A `DeferredTask` object is used to detect when the WebSocket connection has successfully
+   * connected.
+   */
   private connecting = new DeferredTask();
 
   /** Starts at 0 and is incremented with each request sent to StarCraft 2. */
@@ -148,7 +151,7 @@ export class SC2ProtocolClient {
     await this.connecting.finished();
   }
 
-  private async send<T extends RequestType>(
+  private send<T extends RequestType>(
     requestType: T,
     requestObject: RequestTypeToRequestObject[T],
   ): Promise<RequestTypeToResponseObject[T]> {
@@ -189,117 +192,92 @@ export class SC2ProtocolClient {
   // https://stackoverflow.com/questions/59217826/how-can-i-programmatically-create-class-functions-in-typescript
   // However, the added code complexity is not worth it
 
-  async createGame(request: RequestCreateGame): Promise<ResponseCreateGame> {
-    const promise = this.send(RequestType.CreateGame, request);
-    return promise;
+  createGame(request: RequestCreateGame): Promise<ResponseCreateGame> {
+    return this.send(RequestType.CreateGame, request);
   }
 
-  async joinGame(request: RequestJoinGame): Promise<ResponseJoinGame> {
-    const promise = this.send(RequestType.JoinGame, request);
-    return promise;
+  joinGame(request: RequestJoinGame): Promise<ResponseJoinGame> {
+    return this.send(RequestType.JoinGame, request);
   }
 
-  async restartGame(request: RequestRestartGame): Promise<ResponseRestartGame> {
-    const promise = this.send(RequestType.RestartGame, request);
-    return promise;
+  restartGame(request: RequestRestartGame): Promise<ResponseRestartGame> {
+    return this.send(RequestType.RestartGame, request);
   }
 
-  async startReplay(request: RequestStartReplay): Promise<ResponseStartReplay> {
+  startReplay(request: RequestStartReplay): Promise<ResponseStartReplay> {
     const promise = this.send(RequestType.StartReplay, request);
     return promise;
   }
 
-  async leaveGame(request: RequestLeaveGame): Promise<ResponseLeaveGame> {
-    const promise = this.send(RequestType.LeaveGame, request);
-    return promise;
+  leaveGame(request: RequestLeaveGame): Promise<ResponseLeaveGame> {
+    return this.send(RequestType.LeaveGame, request);
   }
 
-  async quickSave(request: RequestQuickSave): Promise<ResponseQuickSave> {
-    const promise = this.send(RequestType.QuickSave, request);
-    return promise;
+  quickSave(request: RequestQuickSave): Promise<ResponseQuickSave> {
+    return this.send(RequestType.QuickSave, request);
   }
 
-  async quickLoad(request: RequestQuickLoad): Promise<ResponseQuickLoad> {
-    const promise = this.send(RequestType.QuickLoad, request);
-    return promise;
+  quickLoad(request: RequestQuickLoad): Promise<ResponseQuickLoad> {
+    return this.send(RequestType.QuickLoad, request);
   }
 
-  async quit(request: RequestQuit): Promise<ResponseQuit> {
-    const promise = this.send(RequestType.Quit, request);
-    return promise;
+  quit(request: RequestQuit): Promise<ResponseQuit> {
+    return this.send(RequestType.Quit, request);
   }
 
-  async gameInfo(request: RequestGameInfo): Promise<ResponseGameInfo> {
-    const promise = this.send(RequestType.GameInfo, request);
-    return promise;
+  gameInfo(request: RequestGameInfo): Promise<ResponseGameInfo> {
+    return this.send(RequestType.GameInfo, request);
   }
 
-  async observation(request: RequestObservation): Promise<ResponseObservation> {
-    const promise = this.send(RequestType.Observation, request);
-    return promise;
+  observation(request: RequestObservation): Promise<ResponseObservation> {
+    return this.send(RequestType.Observation, request);
   }
 
-  async action(request: RequestAction): Promise<ResponseAction> {
-    const promise = this.send(RequestType.Action, request);
-    return promise;
+  action(request: RequestAction): Promise<ResponseAction> {
+    return this.send(RequestType.Action, request);
   }
 
-  async obsAction(
-    request: RequestObserverAction,
-  ): Promise<ResponseObserverAction> {
-    const promise = this.send(RequestType.ObsAction, request);
-    return promise;
+  obsAction(request: RequestObserverAction): Promise<ResponseObserverAction> {
+    return this.send(RequestType.ObsAction, request);
   }
 
-  async step(request: RequestStep): Promise<ResponseStep> {
-    const promise = this.send(RequestType.Step, request);
-    return promise;
+  step(request: RequestStep): Promise<ResponseStep> {
+    return this.send(RequestType.Step, request);
   }
 
-  async data(request: RequestData): Promise<ResponseData> {
-    const promise = this.send(RequestType.Data, request);
-    return promise;
+  data(request: RequestData): Promise<ResponseData> {
+    return this.send(RequestType.Data, request);
   }
 
-  async query(request: RequestQuery): Promise<ResponseQuery> {
-    const promise = this.send(RequestType.Query, request);
-    return promise;
+  query(request: RequestQuery): Promise<ResponseQuery> {
+    return this.send(RequestType.Query, request);
   }
 
-  async saveReplay(request: RequestSaveReplay): Promise<ResponseSaveReplay> {
-    const promise = this.send(RequestType.SaveReplay, request);
-    return promise;
+  saveReplay(request: RequestSaveReplay): Promise<ResponseSaveReplay> {
+    return this.send(RequestType.SaveReplay, request);
   }
 
-  async replayInfo(request: RequestReplayInfo): Promise<ResponseReplayInfo> {
-    const promise = this.send(RequestType.ReplayInfo, request);
-    return promise;
+  replayInfo(request: RequestReplayInfo): Promise<ResponseReplayInfo> {
+    return this.send(RequestType.ReplayInfo, request);
   }
 
-  async availableMaps(
-    request: RequestAvailableMaps,
-  ): Promise<ResponseAvailableMaps> {
-    const promise = this.send(RequestType.AvailableMaps, request);
-    return promise;
+  availableMaps(request: RequestAvailableMaps): Promise<ResponseAvailableMaps> {
+    return this.send(RequestType.AvailableMaps, request);
   }
 
-  async saveMap(request: RequestSaveMap): Promise<ResponseSaveMap> {
-    const promise = this.send(RequestType.SaveMap, request);
-    return promise;
+  saveMap(request: RequestSaveMap): Promise<ResponseSaveMap> {
+    return this.send(RequestType.SaveMap, request);
   }
 
-  async mapCommand(request: RequestMapCommand): Promise<ResponseMapCommand> {
-    const promise = this.send(RequestType.MapCommand, request);
-    return promise;
+  mapCommand(request: RequestMapCommand): Promise<ResponseMapCommand> {
+    return this.send(RequestType.MapCommand, request);
   }
 
-  async ping(request: RequestPing): Promise<ResponsePing> {
-    const promise = this.send(RequestType.Ping, request);
-    return promise;
+  ping(request: RequestPing): Promise<ResponsePing> {
+    return this.send(RequestType.Ping, request);
   }
 
-  async debug(request: RequestDebug): Promise<ResponseDebug> {
-    const promise = this.send(RequestType.Debug, request);
-    return promise;
+  debug(request: RequestDebug): Promise<ResponseDebug> {
+    return this.send(RequestType.Debug, request);
   }
 }
