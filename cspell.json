@@ -1,10 +1,30 @@
 {
     "version": "0.2",
     "words": [
-        "deno",
+        "battlenet",
+        "bufferutil",
+        "Calldown",
+        "clientprotocol",
+        "Cooldown",
+        "Couldnt",
+        "Destructibles",
+        "gameplay",
+        "isaacscript",
+        "ldelim",
+        "Lockdown",
+        "Mothership",
+        "multiplay",
+        "Nydus",
         "pbjs",
         "proto",
         "protobuf",
-        "Varint"
+        "protoc",
+        "Psionic",
+        "Reinitializes",
+        "Terrazine",
+        "Uncommandable",
+        "Varint",
+        "Vespene",
+        "Zamiell"
     ]
 }

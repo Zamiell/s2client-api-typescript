@@ -1,4 +1,4 @@
-# s2client-proto-deno
+# s2client-proto-typescript
 
 This is a version of the StarCraft 2 API protocol for [TypeScript](https://www.typescriptlang.org/).
 

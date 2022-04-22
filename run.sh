@@ -6,5 +6,6 @@ set -e # Exit on any errors
 # https://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# https://www.npmjs.com/package/pbjs
-npx pbjs "$DIR/s2clientprotocol/*.proto" --ts "$DIR/sc2api.ts"
+cd "$DIR"
+npm run build
+npm run start
