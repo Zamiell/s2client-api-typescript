@@ -14,9 +14,9 @@ import { Point2D } from "./common";
 import { RectangleI } from "./common";
 import { ImageData } from "./common";
 import { Size2DI } from "./common";
-// 
+//
 // Start
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.StartRaw
@@ -47,9 +47,9 @@ export interface StartRaw {
      */
     startLocations: Point2D[]; // Possible start locations for players.
 }
-// 
+//
 // Observation
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationRaw
@@ -273,7 +273,7 @@ export interface Unit {
     /**
      * @generated from protobuf field: optional bool is_on_screen = 12;
      */
-    isOnScreen?: boolean; // Visible and within the camera frustrum.
+    isOnScreen?: boolean; // Visible and within the camera frustum.
     /**
      * @generated from protobuf field: optional bool is_blip = 13;
      */
@@ -385,11 +385,11 @@ export interface Unit {
     /**
      * @generated from protobuf field: optional int32 buff_duration_remain = 43;
      */
-    buffDurationRemain?: number; // How long a buff or unit is still around (eg mule, broodling, chronoboost).
+    buffDurationRemain?: number; // How long a buff or unit is still around (e.g. MULE, Broodling, Chrono Boost).
     /**
      * @generated from protobuf field: optional int32 buff_duration_max = 44;
      */
-    buffDurationMax?: number; // How long the buff or unit is still around (eg mule, broodling, chronoboost).
+    buffDurationMax?: number; // How long the buff or unit is still around (e.g. MULE, Broodling, Chrono Boost).
     /**
      * @generated from protobuf field: repeated SC2APIProtocol.RallyTarget rally_targets = 45;
      */
@@ -442,9 +442,9 @@ export interface Effect {
      */
     radius?: number;
 }
-// 
+//
 // Action
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ActionRaw

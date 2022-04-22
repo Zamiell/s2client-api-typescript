@@ -12,9 +12,9 @@ import { MessageType } from "@protobuf-ts/runtime";
 import { RectangleI } from "./common";
 import { PointI } from "./common";
 import { ImageData } from "./common";
-// 
+//
 // Observation - Feature Layer
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationFeatureLayer
@@ -88,7 +88,7 @@ export interface FeatureLayers {
     /**
      * @generated from protobuf field: optional SC2APIProtocol.ImageData player_relative = 11;
      */
-    playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4] 
+    playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4]
     /**
      * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_density_aa = 14;
      */
@@ -100,7 +100,7 @@ export interface FeatureLayers {
     /**
      * @generated from protobuf field: optional SC2APIProtocol.ImageData effects = 20;
      */
-    effects?: ImageData; // uint8. Visuals of persistent abilities. (eg. Psistorm)
+    effects?: ImageData; // uint8. Visuals of persistent abilities. (eg. Psionic Storm)
     /**
      * @generated from protobuf field: optional SC2APIProtocol.ImageData hallucinations = 21;
      */
@@ -169,7 +169,7 @@ export interface FeatureLayersMinimap {
     /**
      * @generated from protobuf field: optional SC2APIProtocol.ImageData player_relative = 6;
      */
-    playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4] 
+    playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4]
     /**
      * @generated from protobuf field: optional SC2APIProtocol.ImageData selected = 7;
      */
@@ -193,9 +193,9 @@ export interface FeatureLayersMinimap {
      */
     unitType?: ImageData; // int32. Unique identifier for type of unit.
 }
-// 
+//
 // Observation - Rendered
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationRender
@@ -210,9 +210,9 @@ export interface ObservationRender {
      */
     minimap?: ImageData;
 }
-// 
+//
 // Action
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSpatial

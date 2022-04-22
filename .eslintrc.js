@@ -15,6 +15,8 @@ module.exports = {
     project: "./tsconfig.eslint.json",
   },
 
+  ignorePatterns: ["src/proto/**/*.ts"],
+
   // We modify the linting rules from the base for some specific things
   rules: {
     "jsdoc/check-tag-names": [

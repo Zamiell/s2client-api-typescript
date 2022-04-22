@@ -4,8 +4,11 @@
         "Abil",
         "Autocast",
         "battlenet",
+        "broodling",
         "bufferutil",
+        "buildable",
         "Calldown",
+        "Chrono",
         "clientprotocol",
         "Cooldown",
         "Couldnt",
@@ -18,11 +21,13 @@
         "multiplay",
         "Nydus",
         "oneof",
+        "pathable",
         "pathing",
         "pbjs",
         "proto",
         "protobuf",
         "protoc",
+        "Protoss",
         "Psionic",
         "queueable",
         "Reinitializes",
@@ -36,6 +41,7 @@
         "Uncommandable",
         "Varint",
         "Vespene",
-        "Zamiell"
+        "Zamiell",
+        "Zerg"
     ]
 }
