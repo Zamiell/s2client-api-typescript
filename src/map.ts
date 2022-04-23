@@ -1,4 +1,5 @@
 import path from "path";
+import { GAME_NAME } from "./constants";
 import * as file from "./file";
 import { getStarCraft2Directory } from "./launch";
 
@@ -14,5 +15,5 @@ export function getMapPath(mapName: string): string {
     return mapPath;
   }
 
-  throw new Error(`Failed to find StarCraft 2 map: ${mapName}`);
+  throw new Error(`Failed to find ${GAME_NAME} map: ${mapName}`);
 }

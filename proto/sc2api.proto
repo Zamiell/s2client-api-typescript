@@ -223,7 +223,7 @@ message RequestJoinGame {
 }
 
 message PortSet {
-  optional int32 game_port = 1;             // Game right now needs two internal ports to establish a multiplay game on the local host.
+  optional int32 game_port = 1;             // Game right now needs two internal ports to establish a multiplayer game on the local host.
   optional int32 base_port = 2;
 }
 

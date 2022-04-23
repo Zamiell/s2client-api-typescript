@@ -1,10 +1,10 @@
 import sourceMapSupport from "source-map-support";
-import { SC2ProtocolClient } from "./classes/SC2ProtocolClient";
-import { DEFAULT_MAP_NAME } from "./constants";
+import { SC2Client } from "./classes/SC2Client";
+import { BOT_RACE, DEFAULT_MAP_NAME } from "./constants";
 import { launchStarCraft2 } from "./launch";
 import { getMapPath } from "./map";
 import { Race } from "./proto/s2clientprotocol/common";
-import { AIBuild, Difficulty, PlayerType } from "./proto/sc2api";
+import { Difficulty, PlayerType, Status } from "./proto/sc2api";
 
 main().catch((err) => {
   console.error("Failed to run the program:", err);
@@ -15,10 +15,20 @@ async function main() {
 
   await launchStarCraft2();
 
-  const client = new SC2ProtocolClient();
-  await client.connect();
+  const client = new SC2Client();
+  const status = await client.connect();
 
-  const response = await client.createGame({
+  console.log(`Starting status: ${Status[status]}`);
+  if (status === Status.launched) {
+    await createNewGame(client);
+    await joinGame(client);
+  } else if (status === Status.init_game) {
+    await joinGame(client);
+  }
+}
+
+async function createNewGame(client: SC2Client) {
+  await client.createGame({
     map: {
       oneofKind: "localMap",
       localMap: {
@@ -28,7 +38,7 @@ async function main() {
     playerSetup: [
       {
         type: PlayerType.Participant,
-        race: Race.Protoss,
+        race: BOT_RACE,
         playerName: "Zamiel",
       },
       {
@@ -36,12 +46,17 @@ async function main() {
         race: Race.Random,
         difficulty: Difficulty.Medium,
         playerName: "Computer",
-        aiBuild: AIBuild.RandomBuild,
       },
     ],
-    disableFog: false,
-    randomSeed: 0,
-    realtime: false,
   });
-  console.log(response);
+}
+
+async function joinGame(client: SC2Client) {
+  await client.joinGame({
+    participation: {
+      oneofKind: "race",
+      race: BOT_RACE,
+    },
+    clientPorts: [],
+  });
 }

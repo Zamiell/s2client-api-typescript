@@ -31,7 +31,7 @@ import { StartRaw } from "./s2clientprotocol/raw";
 import { Race } from "./s2clientprotocol/common";
 import { ResponseQuery } from "./s2clientprotocol/query";
 import { RequestQuery } from "./s2clientprotocol/query";
-// 
+//
 // Notes:
 //  Single player flow:
 //    1) Call Request.create_game with a valid single player map (a multiplayer map will end right away).
@@ -44,9 +44,9 @@ import { RequestQuery } from "./s2clientprotocol/query";
 //    4) Wait for a response from both clients. They can now play/step.
 //    5) Steps should be synchronized. One client may time out if they are not. Multiple step sizes are ok.
 //    4) Call Request.leave at any point or when the game ends. Observations will not be valid after this.
-// 
+//
 // States:
-// 
+//
 // ------------------|---------------------------------------------------|-----------------------|
 //  Request         | Valid in State                                    | Transition to State   |
 // ------------------|---------------------------------------------------|-----------------------|
@@ -88,16 +88,16 @@ import { RequestQuery } from "./s2clientprotocol/query";
 // ping             | any                                               |                       |
 // debug            | in_game                                           | various               |
 // ------------------|---------------------------------------------------|-----------------------|
-// 
+//
 // * In multiplayer, these require synchronization between clients.
-// 
+//
 // Notes:
 //      - if a request fails, the game remains in the current state.
-// 
+//
 
-// 
+//
 // Request/Response
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.Request
@@ -587,7 +587,7 @@ export interface PortSet {
     /**
      * @generated from protobuf field: optional int32 game_port = 1;
      */
-    gamePort?: number; // Game right now needs two internal ports to establish a multiplay game on the local host.
+    gamePort?: number; // Game right now needs two internal ports to establish a multiplayer game on the local host.
     /**
      * @generated from protobuf field: optional int32 base_port = 2;
      */
@@ -1496,9 +1496,9 @@ export interface PlayerInfo {
      */
     playerName?: string;
 }
-// 
+//
 // During Game
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.PlayerCommon
@@ -1808,9 +1808,9 @@ export enum Status {
      */
     unknown = 99
 }
-// 
+//
 // Game Setup
-// 
+//
 
 /**
  * @generated from protobuf enum SC2APIProtocol.Difficulty

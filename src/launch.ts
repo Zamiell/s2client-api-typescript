@@ -6,6 +6,7 @@ import {
   DEFAULT_DISPLAY_MODE,
   DEFAULT_HOSTNAME,
   DEFAULT_PORT,
+  GAME_NAME,
 } from "./constants";
 import * as file from "./file";
 import { debug, error } from "./utils";
@@ -41,7 +42,7 @@ export async function launchStarCraft2(): Promise<void> {
     return;
   }
 
-  debug("Launching a new StarCraft 2 process.");
+  debug(`Launching a new ${GAME_NAME} process.`);
   const executablePath = getStarCraft2ExecutablePath();
   const starCraft2Directory = getStarCraft2Directory();
 
@@ -65,7 +66,7 @@ export async function launchStarCraft2(): Promise<void> {
   starCraft2Process.unref();
 
   await waitUntilStarCraft2IsOpen();
-  debug("StarCraft 2 is launched successfully.");
+  debug(`${GAME_NAME} is launched successfully.`);
 }
 
 /** Specifically checks for versions of StarCraft 2 that are listening on the WebSocket port. */

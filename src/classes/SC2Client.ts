@@ -1,6 +1,7 @@
 import WebSocket from "ws";
-import { WEBSOCKET_URL } from "../constants";
+import { GAME_NAME, WEBSOCKET_URL } from "../constants";
 import { RequestType } from "../enums/RequestType";
+import { REQUEST_TYPE_TO_ERROR_ENUM } from "../objects/requestTypeToErrorEnum";
 import { RequestQuery, ResponseQuery } from "../proto/s2clientprotocol/query";
 import {
   Request,
@@ -47,6 +48,7 @@ import {
   ResponseSaveReplay,
   ResponseStartReplay,
   ResponseStep,
+  Status,
 } from "../proto/sc2api";
 import { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject";
 import { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject";
@@ -68,7 +70,7 @@ type RequestResolver = (value: ResponseObject) => void;
  *
  * Before using this class, you must connect to the game with the `connect` method.
  */
-export class SC2ProtocolClient {
+export class SC2Client {
   /** The "ws" library is used to handle the underlying WebSocket connection to StarCraft 2. */
   private ws: WebSocket | null = null;
 
@@ -93,7 +95,22 @@ export class SC2ProtocolClient {
    */
   private requestResolvers = new Map<number, RequestResolver>();
 
-  async connect(): Promise<void> {
+  /**
+   * The status of StarCraft 2 is returned with each API response object and we record it.
+   * This is useful so that end-users can query for what the current status of StarCraft 2 is.
+   *
+   * For example, they might want to skip creating a game if a game is already created.
+   */
+  private lastStatus = Status.unknown;
+
+  /**
+   * Connects to StarCraft 2 via a WebSocket connection.
+   *
+   * You must use this method before using any of the other methods on this class.
+   *
+   * @returns The current status of StarCraft 2 (e.g. whether it is in a game, in a replay, etc.).
+   */
+  async connect(): Promise<Status> {
     this.ws = new WebSocket(WEBSOCKET_URL);
 
     this.ws.on("open", () => {
@@ -114,28 +131,57 @@ export class SC2ProtocolClient {
       const response = Response.fromBinary(uint8Array);
       debug("Got a WebSocket message:", response);
 
+      // The first error field is located at the base of the response
       if (response.error === undefined) {
         throw new Error(
-          `Got a response from StarCraft 2 without an "error" field: ${response}`,
+          `Got a response from ${GAME_NAME} without an "error" field: ${response}`,
         );
       }
 
       if (response.error.length > 0) {
         throw new Error(
-          `Got a response from StarCraft 2 with an error: ${response.error}`,
+          `Got a response from ${GAME_NAME} with an error: ${response.error}`,
         );
       }
 
+      // Record the status
+      if (response.status === undefined) {
+        throw new Error(
+          `Got a response from ${GAME_NAME} without a "status" field: ${response}`,
+        );
+      }
+      this.lastStatus = response.status;
+
+      // The second error field is located within the sub-response object
+      const requestType = response.response.oneofKind as RequestType;
+      const subResponse = response.response as Record<string, unknown>;
+      const responseData = subResponse[requestType] as Record<string, unknown>;
+      const errorNumber = responseData.error as number | undefined;
+      if (errorNumber !== undefined) {
+        const errorEnum = REQUEST_TYPE_TO_ERROR_ENUM[requestType];
+        if (errorEnum === undefined) {
+          throw new Error(
+            `Failed to find the error enum corresponding to the following request type: ${requestType}`,
+          );
+        }
+
+        const errorString = errorEnum[errorNumber];
+        throw new Error(
+          `Got a response from ${GAME_NAME} for the "${requestType}" command with the following error: ${errorString} (${errorNumber})`,
+        );
+      }
+
+      // Retrieve the corresponding request resolver
       if (response.id === undefined) {
         throw new Error(
-          `Got a response from StarCraft 2 without an "id" field: ${response}`,
+          `Got a response from ${GAME_NAME} without an "id" field: ${response}`,
         );
       }
 
       const requestResolver = this.requestResolvers.get(response.id);
       if (requestResolver === undefined) {
         throw new Error(
-          `Got a response from StarCraft 2 with no corresponding request resolver: ${response}`,
+          `Got a response from ${GAME_NAME} with no corresponding request resolver: ${response}`,
         );
       }
       this.requestResolvers.delete(response.id);
@@ -148,6 +194,13 @@ export class SC2ProtocolClient {
     });
 
     await this.connecting.finished();
+
+    // In order to get the current status of the game (for the purposes of populating the
+    // "lastStatus" field), we must send any arbitrary request
+    // Thus, we resort to sending a ping
+    await this.ping();
+
+    return this.lastStatus;
   }
 
   private send<T extends RequestType>(
@@ -156,7 +209,7 @@ export class SC2ProtocolClient {
   ): Promise<RequestTypeToResponseObject[T]> {
     if (this.ws === null) {
       throw new Error(
-        "Failed to send data since the WebSocket connection was not initialized.",
+        `Failed to send data since the WebSocket connection was not initialized. Did you already connect to ${GAME_NAME} with the "connect" method?`,
       );
     }
 
@@ -185,6 +238,11 @@ export class SC2ProtocolClient {
     return promise;
   }
 
+  /** Returns the status of StarCraft 2, according to the last `Response` object received. */
+  getStatus(): Status {
+    return this.lastStatus;
+  }
+
   // ------------------------
   // Methods for API commands
   // ------------------------
@@ -192,6 +250,8 @@ export class SC2ProtocolClient {
   // Class methods can be created programmatically:
   // https://stackoverflow.com/questions/59217826/how-can-i-programmatically-create-class-functions-in-typescript
   // However, the added code complexity is not worth it
+
+  // Only methods with empty interfaces for request objects are given a default value
 
   createGame(request: RequestCreateGame): Promise<ResponseCreateGame> {
     return this.send(RequestType.CreateGame, request);
@@ -201,7 +261,7 @@ export class SC2ProtocolClient {
     return this.send(RequestType.JoinGame, request);
   }
 
-  restartGame(request: RequestRestartGame): Promise<ResponseRestartGame> {
+  restartGame(request: RequestRestartGame = {}): Promise<ResponseRestartGame> {
     return this.send(RequestType.RestartGame, request);
   }
 
@@ -209,23 +269,23 @@ export class SC2ProtocolClient {
     return this.send(RequestType.StartReplay, request);
   }
 
-  leaveGame(request: RequestLeaveGame): Promise<ResponseLeaveGame> {
+  leaveGame(request: RequestLeaveGame = {}): Promise<ResponseLeaveGame> {
     return this.send(RequestType.LeaveGame, request);
   }
 
-  quickSave(request: RequestQuickSave): Promise<ResponseQuickSave> {
+  quickSave(request: RequestQuickSave = {}): Promise<ResponseQuickSave> {
     return this.send(RequestType.QuickSave, request);
   }
 
-  quickLoad(request: RequestQuickLoad): Promise<ResponseQuickLoad> {
+  quickLoad(request: RequestQuickLoad = {}): Promise<ResponseQuickLoad> {
     return this.send(RequestType.QuickLoad, request);
   }
 
-  quit(request: RequestQuit): Promise<ResponseQuit> {
+  quit(request: RequestQuit = {}): Promise<ResponseQuit> {
     return this.send(RequestType.Quit, request);
   }
 
-  gameInfo(request: RequestGameInfo): Promise<ResponseGameInfo> {
+  gameInfo(request: RequestGameInfo = {}): Promise<ResponseGameInfo> {
     return this.send(RequestType.GameInfo, request);
   }
 
@@ -253,7 +313,7 @@ export class SC2ProtocolClient {
     return this.send(RequestType.Query, request);
   }
 
-  saveReplay(request: RequestSaveReplay): Promise<ResponseSaveReplay> {
+  saveReplay(request: RequestSaveReplay = {}): Promise<ResponseSaveReplay> {
     return this.send(RequestType.SaveReplay, request);
   }
 
@@ -261,7 +321,9 @@ export class SC2ProtocolClient {
     return this.send(RequestType.ReplayInfo, request);
   }
 
-  availableMaps(request: RequestAvailableMaps): Promise<ResponseAvailableMaps> {
+  availableMaps(
+    request: RequestAvailableMaps = {},
+  ): Promise<ResponseAvailableMaps> {
     return this.send(RequestType.AvailableMaps, request);
   }
 
@@ -273,7 +335,7 @@ export class SC2ProtocolClient {
     return this.send(RequestType.MapCommand, request);
   }
 
-  ping(request: RequestPing): Promise<ResponsePing> {
+  ping(request: RequestPing = {}): Promise<ResponsePing> {
     return this.send(RequestType.Ping, request);
   }
 

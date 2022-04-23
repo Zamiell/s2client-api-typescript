@@ -10,15 +10,15 @@ This project is similar to [@node-sc2/core](https://github.com/node-sc2/core) an
 
 This library provides two main things:
 
-### 1) The `SC2ProtocolClient` Class
+### 1) The `SC2Client` Class
 
 This is an abstraction that can be used to communicate with StarCraft 2.
 
 ```ts
-import { SC2ProtocolClient } from "s2client-api-typescript";
+import { SC2Client } from "s2client-api-typescript";
 
 async function main() {
-  const client = new SC2ProtocolClient();
+  const client = new SC2Client();
   await client.connect(); // Establishes a WebSocket connection with the game
 
   const pingResponse = await client.ping();
