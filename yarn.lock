@@ -1410,7 +1410,7 @@ cspell-trie-lib@6.26.3:
     "@cspell/cspell-types" "6.26.3"
     gensequence "^4.0.3"
 
-cspell@^6.24.0:
+cspell@^6.26.3:
   version "6.26.3"
   resolved "https://registry.yarnpkg.com/cspell/-/cspell-6.26.3.tgz#f778de51a01e77c0c5aa060e0c0b197d1aa14619"
   integrity sha512-h7p8JpWSFhgNbsJLlpjzMCQ0k6TuhX/M5JcrED14x17CuZR7ad29lQDRF0Un82Wxhd8hJNxZubV9IBdWZA7Qig==
@@ -1678,10 +1678,10 @@ eslint-config-airbnb-typescript@^17.0.0:
   dependencies:
     eslint-config-airbnb-base "^15.0.0"
 
-eslint-config-isaacscript@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-isaacscript/-/eslint-config-isaacscript-3.4.1.tgz#c0dffda3d21c155c875b3e1601fd44af2feeb14e"
-  integrity sha512-zSrtH4ptm2PHkeGSoR6NFAhXvl/C9HXHRhSg0iWCKDubtNDzAMw36jC2k8mjQZwXw/E04x4/EAMhxkMHibYZ+g==
+eslint-config-isaacscript@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-isaacscript/-/eslint-config-isaacscript-3.5.0.tgz#c5970ed0c54502797e640f80e08f6bbd9a890c97"
+  integrity sha512-UgSu9rrU6/YQ5ItAlH5q/fw+C8XszmxGHBXDAT8Ufvbl1WmyyygyeiNVPl+w7BJQBz+GOJw+CbMfP2Iet23lqg==
 
 eslint-config-prettier@^8.6.0:
   version "8.6.0"
@@ -2729,21 +2729,21 @@ isaacscript-common-ts@^10.0.0:
   resolved "https://registry.yarnpkg.com/isaacscript-common-ts/-/isaacscript-common-ts-10.0.0.tgz#f1037ad8856ef37860964b2987b913aa2e289280"
   integrity sha512-lacHMi0+2ovSuMrtz253XjvDX1i4bER5eNbWsRBTOQp56ZTX5aGC9zKg6GyaDULTfwL/K/bD1mVG69qvsAqChQ==
 
-isaacscript-lint@^4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/isaacscript-lint/-/isaacscript-lint-4.11.0.tgz#10d0ac9dad38981b982b4e452852a296737e8d70"
-  integrity sha512-OuniYPJVksoiqoQ1v3An/DD2mTWM/0TTB+v5rV8gUmagzPhH9B/QI6Xu7IkPUSHEhyIkgg6PP3uGfn/zQCd+mg==
+isaacscript-lint@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/isaacscript-lint/-/isaacscript-lint-4.12.0.tgz#36835f91fa53b533bb1e1432d58aaadaa45b6eb9"
+  integrity sha512-sD794ZEtI9Kk4cOmhUOWZc4UpGPbmIQC5yJBwo+po+ITkCSF8mECUFlkFeo6TEJ/kdOlVLoLkx0QHlFM+498qg==
   dependencies:
     "@prettier/plugin-xml" "^2.2.0"
     "@tsconfig/recommended" "^1.0.2"
     "@typescript-eslint/eslint-plugin" "^5.52.0"
     "@typescript-eslint/parser" "^5.52.0"
-    cspell "^6.24.0"
+    cspell "^6.26.3"
     cspell-check-unused-words "^1.0.4"
     eslint "^8.34.0"
     eslint-config-airbnb-base "^15.0.0"
     eslint-config-airbnb-typescript "^17.0.0"
-    eslint-config-isaacscript "^3.4.1"
+    eslint-config-isaacscript "^3.5.0"
     eslint-config-prettier "^8.6.0"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-import "^2.27.5"

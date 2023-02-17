@@ -6,8 +6,11 @@ import {
   DEFAULT_HOSTNAME,
   DEFAULT_PORT,
   GAME_NAME,
-} from "../constants";
-import { getStarCraft2Directory, getStarCraft2ExecutablePath } from "../utils";
+} from "../constants.js";
+import {
+  getStarCraft2Directory,
+  getStarCraft2ExecutablePath,
+} from "../utils.js";
 
 /**
  * Helper function to launch StarCraft 2 and wait until it is open. Flags are provided to enable the

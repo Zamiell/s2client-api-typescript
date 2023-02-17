@@ -1,5 +1,5 @@
-import { RequestType } from "../enums/RequestType";
-import { ResponseQuery } from "../proto/s2clientprotocol/query";
+import { RequestType } from "../enums/RequestType.js";
+import { ResponseQuery } from "../proto/s2clientprotocol/query.js";
 import {
   ResponseAction,
   ResponseAvailableMaps,
@@ -22,7 +22,7 @@ import {
   ResponseSaveReplay,
   ResponseStartReplay,
   ResponseStep,
-} from "../proto/sc2api";
+} from "../proto/sc2api.js";
 
 export interface RequestTypeToResponseObject {
   [RequestType.CreateGame]: ResponseCreateGame;

@@ -1,4 +1,4 @@
-import { RequestTypeToResponseObject } from "./RequestTypeToResponseObject";
+import { RequestTypeToResponseObject } from "./RequestTypeToResponseObject.js";
 
 export type ResponseObject =
   RequestTypeToResponseObject[keyof RequestTypeToResponseObject];

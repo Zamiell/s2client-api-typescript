@@ -1,8 +1,12 @@
 import WebSocket from "ws";
-import { GAME_NAME, WEBSOCKET_URL } from "../constants";
-import { RequestType } from "../enums/RequestType";
-import { REQUEST_TYPE_TO_ERROR_ENUM } from "../objects/requestTypeToErrorEnum";
-import { RequestQuery, ResponseQuery } from "../proto/s2clientprotocol/query";
+import { DEFAULT_HOSTNAME, DEFAULT_PORT, GAME_NAME } from "../constants.js";
+import { RequestType } from "../enums/RequestType.js";
+import { StarCraft2ClientOptions } from "../interfaces/StarCraft2ClientOptions.js";
+import { REQUEST_TYPE_TO_ERROR_ENUM } from "../objects/requestTypeToErrorEnum.js";
+import {
+  RequestQuery,
+  ResponseQuery,
+} from "../proto/s2clientprotocol/query.js";
 import {
   Request,
   RequestAction,
@@ -49,13 +53,15 @@ import {
   ResponseStartReplay,
   ResponseStep,
   Status,
-} from "../proto/sc2api";
-import { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject";
-import { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject";
-import { ResponseObject } from "../types/ResponseObject";
-import { DeferredTask } from "./DeferredTask";
+} from "../proto/sc2api.js";
+import { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject.js";
+import { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject.js";
+import { ResponseObject } from "../types/ResponseObject.js";
+import { DeferredTask } from "./DeferredTask.js";
 
 type RequestResolver = (value: ResponseObject) => void;
+
+const SC2_API_PATH = "sc2api";
 
 /**
  * Communication is performed with StarCraft 2 through a WebSocket connection. A `Request` object is
@@ -104,8 +110,8 @@ export class StarCraft2Client {
 
   private verbose: boolean;
 
-  constructor(verbose = false) {
-    this.verbose = verbose;
+  constructor(options: StarCraft2ClientOptions = {}) {
+    this.verbose = options.verbose ?? false;
   }
 
   /**
@@ -113,14 +119,20 @@ export class StarCraft2Client {
    *
    * You must use this method before using any of the other methods on this class.
    *
+   * @param hostname Optional. If not specified, 127.0.0.1 will be used.
+   * @param port Optional. If not specified, 5000 will be used.
    * @returns The current status of StarCraft 2 (e.g. whether it is in a game, in a replay, etc.).
    */
-  async connect(): Promise<Status> {
-    this.ws = new WebSocket(WEBSOCKET_URL);
+  async connect(
+    hostname = DEFAULT_HOSTNAME,
+    port = DEFAULT_PORT,
+  ): Promise<Status> {
+    const websocketURL = `ws://${hostname}:${port}/${SC2_API_PATH}`;
+    this.ws = new WebSocket(websocketURL);
 
     this.ws.on("open", () => {
       console.log(
-        `${GAME_NAME} WebSocket connection established: ${WEBSOCKET_URL}`,
+        `${GAME_NAME} WebSocket connection established: ${websocketURL}`,
       );
       this.connecting.finish();
     });

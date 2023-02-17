@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { GAME_NAME } from "../constants";
-import { getStarCraft2Directory } from "../utils";
+import { GAME_NAME } from "../constants.js";
+import { getStarCraft2Directory } from "../utils.js";
 
 const MAPS_DIRECTORY = "Maps";
 const MAP_FILE_SUFFIX = ".SC2Map";

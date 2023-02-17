@@ -1,4 +1,4 @@
-import { RequestType } from "../enums/RequestType";
+import { RequestType } from "../enums/RequestType.js";
 import {
   ResponseCreateGame_Error,
   ResponseJoinGame_Error,
@@ -7,7 +7,7 @@ import {
   ResponseRestartGame_Error,
   ResponseSaveMap_Error,
   ResponseStartReplay_Error,
-} from "../proto/sc2api";
+} from "../proto/sc2api.js";
 
 type Enum = Record<number | string, number | string>;
 

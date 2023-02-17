@@ -1,5 +1,5 @@
-import { RequestType } from "../enums/RequestType";
-import { RequestQuery } from "../proto/s2clientprotocol/query";
+import { RequestType } from "../enums/RequestType.js";
+import { RequestQuery } from "../proto/s2clientprotocol/query.js";
 import {
   RequestAction,
   RequestAvailableMaps,
@@ -22,7 +22,7 @@ import {
   RequestSaveReplay,
   RequestStartReplay,
   RequestStep,
-} from "../proto/sc2api";
+} from "../proto/sc2api.js";
 
 export interface RequestTypeToRequestObject {
   [RequestType.CreateGame]: RequestCreateGame;
