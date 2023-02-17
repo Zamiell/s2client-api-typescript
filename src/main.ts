@@ -4,7 +4,12 @@ import { BOT_RACE, DEFAULT_MAP_NAME } from "./constants";
 import { launchStarCraft2 } from "./launch";
 import { getMapPath } from "./map";
 import { Race } from "./proto/s2clientprotocol/common";
-import { Difficulty, PlayerType, Status } from "./proto/sc2api";
+import {
+  Difficulty,
+  PlayerType,
+  RequestJoinGame,
+  Status,
+} from "./proto/sc2api";
 
 main().catch((err) => {
   console.error("Failed to run the program:", err);
@@ -20,13 +25,17 @@ async function main() {
 
   console.log(`Starting status: ${Status[status]}`);
   if (status === Status.launched) {
+    /*
     await createNewGame(client);
     await joinGame(client);
+    */
+    await startReplay(client);
   } else if (status === Status.init_game) {
     await joinGame(client);
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function createNewGame(client: SC2Client) {
   await client.createGame({
     map: {
@@ -57,6 +66,24 @@ async function joinGame(client: SC2Client) {
       oneofKind: "race",
       race: BOT_RACE,
     },
-    clientPorts: [],
+    options: {
+      /*
+      raw: true,
+      rawCropToPlayableArea: true,
+      */
+    },
+  } as unknown as RequestJoinGame);
+}
+
+async function startReplay(client: SC2Client) {
+  await client.startReplay({
+    replay: {
+      oneofKind: "replayPath",
+      replayPath: REPLAY_PATH,
+    },
+    options: {},
   });
 }
+
+const REPLAY_PATH =
+  "C:\\Users\\james\\Documents\\StarCraft II\\Replays\\Multiplayer\\Berlingrad AIE.SC2Replay";

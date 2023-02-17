@@ -1,6 +1,6 @@
-import path from "path";
+import * as path from "node:path";
 import { GAME_NAME } from "./constants";
-import * as file from "./file";
+import { fileExists } from "./file";
 import { getStarCraft2Directory } from "./launch";
 
 const MAPS_DIRECTORY = "Maps";
@@ -11,7 +11,7 @@ export function getMapPath(mapName: string): string {
   const mapFilename = mapName + MAP_FILE_SUFFIX;
   const mapPath = path.join(starCraft2Directory, MAPS_DIRECTORY, mapFilename);
 
-  if (file.exists(mapPath)) {
+  if (fileExists(mapPath)) {
     return mapPath;
   }
 

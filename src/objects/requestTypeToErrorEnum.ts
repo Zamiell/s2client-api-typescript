@@ -11,9 +11,7 @@ import {
 
 type Enum = Record<number | string, number | string>;
 
-export const REQUEST_TYPE_TO_ERROR_ENUM: {
-  readonly [key in RequestType]: Enum | undefined;
-} = {
+export const REQUEST_TYPE_TO_ERROR_ENUM = {
   [RequestType.CreateGame]: ResponseCreateGame_Error,
   [RequestType.JoinGame]: ResponseJoinGame_Error,
   [RequestType.RestartGame]: ResponseRestartGame_Error,
@@ -36,4 +34,4 @@ export const REQUEST_TYPE_TO_ERROR_ENUM: {
   [RequestType.MapCommand]: ResponseMapCommand_Error,
   [RequestType.Ping]: undefined,
   [RequestType.Debug]: undefined,
-};
+} as const satisfies Record<RequestType, Enum | undefined>;

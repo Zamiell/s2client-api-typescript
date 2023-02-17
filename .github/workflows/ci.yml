@@ -7,31 +7,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          # The default version is 14
-          # The ESLint config requires Node 16 to work properly
-          node-version: "16"
+          node-version: lts/*
 
       - name: Retrieve the cached "node_modules" directory (if present)
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node-cache
         with:
           path: node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: node-modules-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies (if the cached directory was not found)
         if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Test to see if the project compiles
         run: bash build.sh
 
       - name: Perform automated checks
         run: bash lint.sh
+
+      # @template-customization-start
 
       - name: Create the docs locally in CI
         if: github.event_name != 'pull_request'
@@ -44,19 +44,20 @@ jobs:
           branch: gh-pages
           folder: docs
 
-  # To enable CI failure notifications over Discord, add a "DISCORD_WEBHOOK" secret to the
-  # repository equal to the URL for the webhook, and then uncomment the lines below
+      # @template-customization-end
 
-  #discord:
-  #  name: Discord Failure Notification
-  #  needs: [build_and_lint]
-  #  if: always() # This is needed to always run this job, even if the other jobs fail
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: technote-space/workflow-conclusion-action@v2
-  #    - if: ${{ secrets.DISCORD_WEBHOOK }} != '' && env.WORKFLOW_CONCLUSION != 'success' && env.WORKFLOW_CONCLUSION != 'cancelled'
-  #      uses: sarisia/actions-status-discord@v1
-  #      with:
-  #        webhook: ${{ secrets.DISCORD_WEBHOOK }}
-  #        status: ${{ env.WORKFLOW_CONCLUSION }}
-  #        title: ""
+  # @template-customization-start
+  discord:
+    name: Discord Failure Notification
+    needs: [build_and_lint]
+    if: always() # This is needed to always run this job, even if the other jobs fail.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v3
+      - if: env.WORKFLOW_CONCLUSION != 'success' && env.WORKFLOW_CONCLUSION != 'cancelled'
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ env.WORKFLOW_CONCLUSION }}
+          title: ""
+  # @template-customization-end

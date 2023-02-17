@@ -1,7 +1,7 @@
-import fs from "fs";
+import * as fs from "node:fs";
 import { error } from "./utils";
 
-export function exists(filePath: string, verbose = false): boolean {
+export function fileExists(filePath: string, verbose = false): boolean {
   if (verbose) {
     console.log(`Checking to see if the following path exists: ${filePath}`);
   }
@@ -20,7 +20,7 @@ export function exists(filePath: string, verbose = false): boolean {
   return pathExists;
 }
 
-export function read(filePath: string, verbose = false): string {
+export function readFile(filePath: string, verbose = false): string {
   if (verbose) {
     console.log(`Reading a file: ${filePath}`);
   }

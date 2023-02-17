@@ -1,14 +1,14 @@
-import { spawn } from "child_process";
 import findProcess from "find-process";
-import os from "os";
-import path from "path";
+import { spawn } from "node:child_process";
+import * as os from "node:os";
+import * as path from "node:path";
 import {
   DEFAULT_DISPLAY_MODE,
   DEFAULT_HOSTNAME,
   DEFAULT_PORT,
   GAME_NAME,
 } from "./constants";
-import * as file from "./file";
+import { readFile } from "./file";
 import { debug, error } from "./utils";
 
 const PLATFORM = os.platform();
@@ -73,21 +73,22 @@ export async function launchStarCraft2(): Promise<void> {
 async function isStarCraft2Open(): Promise<boolean> {
   const processes = await findProcess("port", DEFAULT_PORT);
 
-  // Sometimes, the process can show up as PID 0 for an old TIME_WAIT process
+  // Sometimes, the process can show up as PID 0 for an old TIME_WAIT process.
   const validProcesses = processes.filter((process) => process.pid !== 0);
 
   return validProcesses.length > 0;
 }
 
 function getStarCraft2ExecutablePath() {
-  // The location of the StarCraft 2 executable is contained within the "ExecuteInfo.txt" file
-  const executeInfo = file.read(EXECUTE_INFO_PATH);
+  // The location of the StarCraft 2 executable is contained within the "ExecuteInfo.txt" file.
+  const executeInfo = readFile(EXECUTE_INFO_PATH);
   const lines = executeInfo.split("\n"); // Even on Windows, this file has LF line endings
-  if (lines.length === 0) {
+  const firstLine = lines[0];
+  if (firstLine === undefined) {
     error(`Failed to split the "${EXECUTE_INFO_PATH}" file: ${executeInfo}`);
   }
 
-  const trimmedFirstLine = lines[0].trim();
+  const trimmedFirstLine = firstLine.trim();
   const match = trimmedFirstLine.trim().match(/^executable = (.+)$/);
   if (match === null) {
     error(`Failed to parse the "${EXECUTE_INFO_PATH}" file: ${executeInfo}`);

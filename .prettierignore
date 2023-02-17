@@ -1,1 +1,12 @@
+# Compiled output
+dist
+
+# Package manager lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# @template-customization-start
+# Files generated from "protobuf-ts"
 src/proto/**/*.ts
+# @template-customization-end

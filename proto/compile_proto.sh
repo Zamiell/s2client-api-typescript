@@ -8,4 +8,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 REPO_ROOT="$DIR/.."
 cd "$REPO_ROOT"
-npx protoc --ts_out "src/proto" --proto_path "proto" "proto/sc2api.proto" "proto/s2clientprotocol/*.proto"
+
+# "--ts_nocheck" is necessary to prevent errors with "override".
+npx protoc --ts_opt "ts_nocheck" --ts_opt "eslint_disable" --ts_out "src/proto" --proto_path "proto" "proto/sc2api.proto" "proto/s2clientprotocol/*.proto"
