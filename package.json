@@ -1,6 +1,6 @@
 {
   "name": "s2client-api-typescript",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The StarCraft 2 API for TypeScript",
   "homepage": "https://github.com/Zamiell/s2client-api-typescript#readme",
   "bugs": {
