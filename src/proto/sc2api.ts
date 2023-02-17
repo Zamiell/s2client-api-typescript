@@ -626,7 +626,8 @@ export interface RequestJoinGame {
   /**
    * @generated from protobuf field: repeated SC2APIProtocol.PortSet client_ports = 5;
    */
-  clientPorts: PortSet[]; // Do not set in the single-player case. These are the ports clients will use to initialize communication.
+  // EDITED FROM VANILLA - Added optional operator.
+  clientPorts?: PortSet[]; // Do not set in the single-player case. These are the ports clients will use to initialize communication.
   /**
    * Currently only a singe client is supported.
    *
