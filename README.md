@@ -1,5 +1,9 @@
 # s2client-api-typescript
 
+[![npm version](https://img.shields.io/npm/v/s2client-api-typescript.svg)](https://www.npmjs.com/package/s2client-api-typescript)
+
+<!-- markdownlint-disable MD033 -->
+
 This is a version of the StarCraft 2 API for [TypeScript](https://www.typescriptlang.org/). It uses [protobuf-ts](https://github.com/timostamm/protobuf-ts) to convert [the official protocol files](https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol) to TypeScript interfaces, enums, and serialization methods.
 
 This project is similar to [@node-sc2/core](https://github.com/node-sc2/core) and [@node-sc2/proto](https://github.com/node-sc2/proto), which are written in JavaScript and use `pbjs` to convert the official proto files to JSON (instead of TypeScript).
