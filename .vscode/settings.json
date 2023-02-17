@@ -46,9 +46,6 @@
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.importModuleSpecifier": "relative",
 
-  // @template-ignore-next-line
-  "typescript.preferences.autoImportFileExcludePatterns": ["**/index*"],
-
   // Automatically run the formatter when certain files are saved.
   "[javascript]": {
     "editor.codeActionsOnSave": ["source.fixAll.eslint"],
