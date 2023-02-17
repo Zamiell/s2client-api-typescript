@@ -19,7 +19,8 @@
 <p><a href="https://www.npmjs.com/package/s2client-api-typescript"><img src="https://img.shields.io/npm/v/s2client-api-typescript.svg" alt="npm version"></a></p>
 <!-- markdownlint-disable MD033 -->
 
-<p>This is a version of the StarCraft 2 API for <a href="https://www.typescriptlang.org/">TypeScript</a>. It uses <a href="https://github.com/timostamm/protobuf-ts">protobuf-ts</a> to convert <a href="https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol">the official protocol files</a> to TypeScript interfaces, enums, and serialization methods.</p>
+<p>This is a package that allows you to communicate with the <a href="https://starcraft2.com/en-us/">StarCraft 2</a> API with a bot written in <a href="https://www.typescriptlang.org/">TypeScript</a>.</p>
+<p>It uses <a href="https://github.com/timostamm/protobuf-ts">protobuf-ts</a> to convert <a href="https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol">the official protocol files</a> to TypeScript interfaces, enums, and serialization methods.</p>
 <p>This project is similar to <a href="https://github.com/node-sc2/core">@node-sc2/core</a> and <a href="https://github.com/node-sc2/proto">@node-sc2/proto</a>, which are written in JavaScript and use <code>pbjs</code> to convert the official proto files to JSON (instead of TypeScript).</p>
 <br>
 
@@ -27,28 +28,39 @@
 <a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
   <h2>Usage</h2>
 </a>
-<p>This library provides two main things:</p>
+<p>This library provides several things:</p>
 
 <a href="#1-the-starcraft2client-class" id="1-the-starcraft2client-class" style="color: inherit; text-decoration: none;">
   <h3>1) The <code>StarCraft2Client</code> Class</h3>
 </a>
-<p>This is an abstraction that can be used to communicate with StarCraft 2.</p>
+<p>StarCraft 2 exposes its API via a <a href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> server built-in to the game. (It is only available if you launch the game with some specific flags.) The <code>StarCraft2Client</code> class is an abstraction that can be used to easily send messages over the WebSocket connection.</p>
+<p>For example:</p>
 <pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">StarCraft2Client</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;s2client-api-typescript&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">async</span><span class="hl-1"> </span><span class="hl-4">function</span><span class="hl-1"> </span><span class="hl-5">main</span><span class="hl-1">() {</span><br/><span class="hl-1">  </span><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">client</span><span class="hl-1"> = </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-5">StarCraft2Client</span><span class="hl-1">();</span><br/><span class="hl-1">  </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">client</span><span class="hl-1">.</span><span class="hl-5">connect</span><span class="hl-1">(); </span><span class="hl-7">// Establishes a WebSocket connection with the game.</span><br/><br/><span class="hl-1">  </span><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">pingResponse</span><span class="hl-1"> = </span><span class="hl-0">await</span><span class="hl-1"> </span><span class="hl-2">client</span><span class="hl-1">.</span><span class="hl-5">ping</span><span class="hl-1">();</span><br/><span class="hl-1">  </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-2">pingResponse</span><span class="hl-1">);</span><br/><span class="hl-1">}</span>
 </code></pre>
 
 <a href="#2-starcraft-2-api-interfaces-and-enums" id="2-starcraft-2-api-interfaces-and-enums" style="color: inherit; text-decoration: none;">
   <h3>2) StarCraft 2 API Interfaces and Enums</h3>
 </a>
-<p>The <a href="https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol">official StarCraft 2 protocol files</a> contain the interfaces and enums that are used in its API. These are automatically converted to TypeScript with the <a href="https://github.com/timostamm/protobuf-ts">protobuf-ts</a> tool and are exported from this library your use.</p>
+<p>The <a href="https://github.com/Blizzard/s2client-proto/tree/master/s2clientprotocol">official StarCraft 2 protocol files</a> contain the interfaces and enums that are used in the API. These are automatically converted to TypeScript with the <a href="https://github.com/timostamm/protobuf-ts">protobuf-ts</a> tool and are exported from this library your use.</p>
 <pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">Race</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;s2client-api-typescript&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">MY_RACE</span><span class="hl-1"> = </span><span class="hl-2">Race</span><span class="hl-1">.</span><span class="hl-2">Protoss</span><span class="hl-1">;</span>
 </code></pre>
+
+<a href="#3-helper-functions" id="3-helper-functions" style="color: inherit; text-decoration: none;">
+  <h3>3) Helper Functions</h3>
+</a>
+<p>When writing your bot, this library offers some helper functions that can get you up and running faster:</p>
+<ul>
+<li><code>launchStarCraft2</code></li>
+<li><code>getMapPath</code></li>
+</ul>
+<p>The helper functions are described in more detail in the documentation; see below.</p>
 <br>
 
 
 <a href="#docs" id="docs" style="color: inherit; text-decoration: none;">
   <h2>Docs</h2>
 </a>
-<p>See the <a href="https://zamiell.github.io/s2client-api-typescript/modules.html">automatically generated TypeDoc documentation</a> for every API interface/enum that this library provides.</p>
+<p>See the <a href="https://zamiell.github.io/s2client-api-typescript/modules.html">automatically generated TypeDoc documentation</a> for every export that this library provides.</p>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
@@ -90,9 +102,11 @@
 <li class="tsd-kind-enum"><a href="enums/DebugSetUnitValue_UnitValue.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Debug<wbr/>Set<wbr/>Unit<wbr/>Value_<wbr/>Unit<wbr/>Value</a></li>
 <li class="tsd-kind-enum"><a href="enums/DebugTestProcess_Test.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Debug<wbr/>Test<wbr/>Process_<wbr/>Test</a></li>
 <li class="tsd-kind-enum"><a href="enums/Difficulty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Difficulty</a></li>
+<li class="tsd-kind-enum"><a href="enums/DisplayMode.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Display<wbr/>Mode</a></li>
 <li class="tsd-kind-enum"><a href="enums/DisplayType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Display<wbr/>Type</a></li>
 <li class="tsd-kind-enum"><a href="enums/PlayerType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Player<wbr/>Type</a></li>
 <li class="tsd-kind-enum"><a href="enums/Race.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Race</a></li>
+<li class="tsd-kind-enum"><a href="enums/RequestType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Request<wbr/>Type</a></li>
 <li class="tsd-kind-enum"><a href="enums/ResponseCreateGame_Error.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Response<wbr/>Create<wbr/>Game_<wbr/>Error</a></li>
 <li class="tsd-kind-enum"><a href="enums/ResponseJoinGame_Error.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Response<wbr/>Join<wbr/>Game_<wbr/>Error</a></li>
 <li class="tsd-kind-enum"><a href="enums/ResponseMapCommand_Error.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-8-path"></use><use href="#icon-8-text"></use></svg>Response<wbr/>Map<wbr/>Command_<wbr/>Error</a></li>
@@ -396,7 +410,9 @@
 <li class="tsd-kind-variable"><a href="variables/UnitTypeData-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>Unit<wbr/>Type<wbr/>Data</a></li>
 <li class="tsd-kind-variable"><a href="variables/UpgradeData-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>Upgrade<wbr/>Data</a></li>
 <li class="tsd-kind-variable"><a href="variables/VitalScoreDetails-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>Vital<wbr/>Score<wbr/>Details</a></li>
-<li class="tsd-kind-variable"><a href="variables/Weapon-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>Weapon</a></li></ul></nav></div></div>
+<li class="tsd-kind-variable"><a href="variables/Weapon-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>Weapon</a></li>
+<li class="tsd-kind-function"><a href="functions/getMapPath.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>get<wbr/>Map<wbr/>Path</a></li>
+<li class="tsd-kind-function"><a href="functions/launchStarCraft2.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>launch<wbr/>Star<wbr/>Craft2</a></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="assets/main.js"></script></body></html>
