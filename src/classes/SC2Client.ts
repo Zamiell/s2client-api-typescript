@@ -53,7 +53,7 @@ import {
 import { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject";
 import { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject";
 import { ResponseObject } from "../types/ResponseObject";
-import { debug } from "../utils";
+import { log } from "../utils";
 import { DeferredTask } from "./DeferredTask";
 
 type RequestResolver = (value: ResponseObject) => void;
@@ -114,12 +114,12 @@ export class SC2Client {
     this.ws = new WebSocket(WEBSOCKET_URL);
 
     this.ws.on("open", () => {
-      debug(`WebSocket connection established: ${WEBSOCKET_URL}`);
+      log(`WebSocket connection established: ${WEBSOCKET_URL}`);
       this.connecting.finish();
     });
 
     this.ws.on("close", () => {
-      debug("WebSocket connection closed.");
+      log("WebSocket connection closed.");
     });
 
     this.ws.on("message", (data: Buffer) => {
@@ -130,7 +130,7 @@ export class SC2Client {
       // Messages from StarCraft 2 are sent as binary data; we must decode it to a JavaScript
       // object.
       const response = Response.fromBinary(uint8Array);
-      debug("Got a WebSocket message:", response);
+      log("Got a WebSocket message:", response);
 
       // The first error field is located at the base of the response.
       if (response.error.length > 0) {
@@ -207,9 +207,9 @@ export class SC2Client {
       );
     }
 
-    // After sending a Request object with a certain ID, StarCraft 2 will eventually respond with a
-    // matching Response object. First, create a Promise that will be resolved when the matching
-    // Response object is received.
+    // After sending a `Request` object with a certain ID, StarCraft 2 will eventually respond with
+    // a matching `Response` object. First, create a promise that will be resolved when the matching
+    // `Response` object is received.
     const id = this.IDCounter;
     this.IDCounter++;
     const promise = new Promise<RequestTypeToResponseObject[T]>((resolve) => {
@@ -243,7 +243,7 @@ export class SC2Client {
 
   // Class methods can be created programmatically:
   // https://stackoverflow.com/questions/59217826/how-can-i-programmatically-create-class-functions-in-typescript
-  // However, the added code complexity is not worth it
+  // However, the added code complexity is not worth it.
 
   // Only methods with empty interfaces for request objects are given a default value.
 
