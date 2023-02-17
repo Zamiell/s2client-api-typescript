@@ -20,14 +20,5 @@ module.exports = {
 
   rules: {
     // Insert changed or disabled rules here, if necessary.
-    // @template-customization-start
-    "jsdoc/check-tag-names": [
-      "warn",
-      {
-        definedTags: ["generated"],
-      },
-    ],
-    "no-await-in-loop": "off",
-    // @template-customization-end
   },
 };
