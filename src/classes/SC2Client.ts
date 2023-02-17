@@ -72,7 +72,7 @@ type RequestResolver = (value: ResponseObject) => void;
  */
 export class SC2Client {
   /** The "ws" library is used to handle the underlying WebSocket connection to StarCraft 2. */
-  private ws: WebSocket | null = null;
+  private ws: WebSocket | undefined;
 
   /**
    * A `DeferredTask` object is used to detect when the WebSocket connection has successfully
@@ -201,7 +201,7 @@ export class SC2Client {
     requestType: T,
     requestObject: RequestTypeToRequestObject[T],
   ): Promise<RequestTypeToResponseObject[T]> {
-    if (this.ws === null) {
+    if (this.ws === undefined) {
       throw new Error(
         `Failed to send data since the WebSocket connection was not initialized. Did you already connect to ${GAME_NAME} with the "connect" method?`,
       );
@@ -225,7 +225,10 @@ export class SC2Client {
         [requestType]: requestObject,
       },
     } as unknown as Request;
-    console.log("Sending WebSocket data:", request);
+    console.log(
+      "Sending WebSocket data:",
+      JSON.stringify(request, undefined, 2),
+    );
     const binaryData = Request.toBinary(request);
     this.ws.send(binaryData);
 
@@ -247,93 +250,103 @@ export class SC2Client {
 
   // Only methods with empty interfaces for request objects are given a default value.
 
-  createGame(request: RequestCreateGame): Promise<ResponseCreateGame> {
+  public createGame(request: RequestCreateGame): Promise<ResponseCreateGame> {
     return this.send(RequestType.CreateGame, request);
   }
 
-  joinGame(request: RequestJoinGame): Promise<ResponseJoinGame> {
+  public joinGame(request: RequestJoinGame): Promise<ResponseJoinGame> {
     return this.send(RequestType.JoinGame, request);
   }
 
-  restartGame(request: RequestRestartGame = {}): Promise<ResponseRestartGame> {
+  public restartGame(
+    request: RequestRestartGame = {},
+  ): Promise<ResponseRestartGame> {
     return this.send(RequestType.RestartGame, request);
   }
 
-  startReplay(request: RequestStartReplay): Promise<ResponseStartReplay> {
+  public startReplay(
+    request: RequestStartReplay,
+  ): Promise<ResponseStartReplay> {
     return this.send(RequestType.StartReplay, request);
   }
 
-  leaveGame(request: RequestLeaveGame = {}): Promise<ResponseLeaveGame> {
+  public leaveGame(request: RequestLeaveGame = {}): Promise<ResponseLeaveGame> {
     return this.send(RequestType.LeaveGame, request);
   }
 
-  quickSave(request: RequestQuickSave = {}): Promise<ResponseQuickSave> {
+  public quickSave(request: RequestQuickSave = {}): Promise<ResponseQuickSave> {
     return this.send(RequestType.QuickSave, request);
   }
 
-  quickLoad(request: RequestQuickLoad = {}): Promise<ResponseQuickLoad> {
+  public quickLoad(request: RequestQuickLoad = {}): Promise<ResponseQuickLoad> {
     return this.send(RequestType.QuickLoad, request);
   }
 
-  quit(request: RequestQuit = {}): Promise<ResponseQuit> {
+  public quit(request: RequestQuit = {}): Promise<ResponseQuit> {
     return this.send(RequestType.Quit, request);
   }
 
-  gameInfo(request: RequestGameInfo = {}): Promise<ResponseGameInfo> {
+  public gameInfo(request: RequestGameInfo = {}): Promise<ResponseGameInfo> {
     return this.send(RequestType.GameInfo, request);
   }
 
-  observation(request: RequestObservation): Promise<ResponseObservation> {
+  public observation(
+    request: RequestObservation,
+  ): Promise<ResponseObservation> {
     return this.send(RequestType.Observation, request);
   }
 
-  action(request: RequestAction): Promise<ResponseAction> {
+  public action(request: RequestAction): Promise<ResponseAction> {
     return this.send(RequestType.Action, request);
   }
 
-  obsAction(request: RequestObserverAction): Promise<ResponseObserverAction> {
+  public obsAction(
+    request: RequestObserverAction,
+  ): Promise<ResponseObserverAction> {
     return this.send(RequestType.ObsAction, request);
   }
 
-  step(request: RequestStep): Promise<ResponseStep> {
+  public step(request: RequestStep): Promise<ResponseStep> {
     return this.send(RequestType.Step, request);
   }
 
-  data(request: RequestData): Promise<ResponseData> {
+  public data(request: RequestData): Promise<ResponseData> {
     return this.send(RequestType.Data, request);
   }
 
-  query(request: RequestQuery): Promise<ResponseQuery> {
+  public query(request: RequestQuery): Promise<ResponseQuery> {
     return this.send(RequestType.Query, request);
   }
 
-  saveReplay(request: RequestSaveReplay = {}): Promise<ResponseSaveReplay> {
+  public saveReplay(
+    request: RequestSaveReplay = {},
+  ): Promise<ResponseSaveReplay> {
     return this.send(RequestType.SaveReplay, request);
   }
 
-  replayInfo(request: RequestReplayInfo): Promise<ResponseReplayInfo> {
+  public replayInfo(request: RequestReplayInfo): Promise<ResponseReplayInfo> {
     return this.send(RequestType.ReplayInfo, request);
   }
 
-  availableMaps(
+  public availableMaps(
     request: RequestAvailableMaps = {},
   ): Promise<ResponseAvailableMaps> {
     return this.send(RequestType.AvailableMaps, request);
   }
 
-  saveMap(request: RequestSaveMap): Promise<ResponseSaveMap> {
+  public saveMap(request: RequestSaveMap): Promise<ResponseSaveMap> {
     return this.send(RequestType.SaveMap, request);
   }
 
-  mapCommand(request: RequestMapCommand): Promise<ResponseMapCommand> {
+  public mapCommand(request: RequestMapCommand): Promise<ResponseMapCommand> {
     return this.send(RequestType.MapCommand, request);
   }
 
-  ping(request: RequestPing = {}): Promise<ResponsePing> {
+  public ping(request: RequestPing = {}): Promise<ResponsePing> {
     return this.send(RequestType.Ping, request);
   }
 
-  debug(request: RequestDebug): Promise<ResponseDebug> {
+  public debug(request: RequestDebug): Promise<ResponseDebug> {
     return this.send(RequestType.Debug, request);
   }
 }

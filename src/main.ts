@@ -25,17 +25,14 @@ async function main() {
 
   console.log(`Starting status: ${Status[status]}`);
   if (status === Status.launched) {
-    /*
     await createNewGame(client);
     await joinGame(client);
-    */
-    await startReplay(client);
+    /// await startReplay(client);
   } else if (status === Status.init_game) {
     await joinGame(client);
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function createNewGame(client: SC2Client) {
   await client.createGame({
     map: {
@@ -66,22 +63,18 @@ async function joinGame(client: SC2Client) {
       oneofKind: "race",
       race: BOT_RACE,
     },
-    options: {
-      /*
-      raw: true,
-      rawCropToPlayableArea: true,
-      */
-    },
-  } as unknown as RequestJoinGame);
+    options: {},
+  } as RequestJoinGame);
 }
 
+/** Does not seem to work; getting error "MissingOptions". */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function startReplay(client: SC2Client) {
   await client.startReplay({
     replay: {
       oneofKind: "replayPath",
       replayPath: REPLAY_PATH,
     },
-    options: {},
   });
 }
 
