@@ -20,6 +20,7 @@
   "dependencies": {
     "@protobuf-ts/runtime": "^2.8.2",
     "bufferutil": "^4.0.7",
+    "find-process": "^1.4.7",
     "source-map-support": "^0.5.21",
     "utf-8-validate": "^6.0.2",
     "ws": "^8.12.1"
