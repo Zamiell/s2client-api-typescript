@@ -3,129 +3,141 @@
 // @generated from protobuf file "s2clientprotocol/debug.proto" (package "SC2APIProtocol", syntax proto2)
 // tslint:disable
 // @ts-nocheck
-import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
-import type { IBinaryWriter } from "@protobuf-ts/runtime";
-import { WireType } from "@protobuf-ts/runtime";
-import type { BinaryReadOptions } from "@protobuf-ts/runtime";
-import type { IBinaryReader } from "@protobuf-ts/runtime";
-import { UnknownFieldHandler } from "@protobuf-ts/runtime";
-import type { PartialMessage } from "@protobuf-ts/runtime";
-import { reflectionMergePartial } from "@protobuf-ts/runtime";
-import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
-import { MessageType } from "@protobuf-ts/runtime";
-import { Point2D } from "./common";
-import { Point } from "./common";
+import type {
+  BinaryReadOptions,
+  BinaryWriteOptions,
+  IBinaryReader,
+  IBinaryWriter,
+  PartialMessage,
+} from "@protobuf-ts/runtime";
+import {
+  MessageType,
+  MESSAGE_TYPE,
+  reflectionMergePartial,
+  UnknownFieldHandler,
+  WireType,
+} from "@protobuf-ts/runtime";
+import { Point, Point2D } from "./common";
 /**
  * Issue various useful commands to the game engine.
  *
  * @generated from protobuf message SC2APIProtocol.DebugCommand
  */
 export interface DebugCommand {
-    /**
-     * @generated from protobuf oneof: command
-     */
-    command: {
+  /**
+   * @generated from protobuf oneof: command
+   */
+  command:
+    | {
         oneofKind: "draw";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugDraw draw = 1;
          */
         draw: DebugDraw;
-    } | {
+      }
+    | {
         oneofKind: "gameState";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugGameState game_state = 2;
          */
         gameState: DebugGameState;
-    } | {
+      }
+    | {
         oneofKind: "createUnit";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugCreateUnit create_unit = 3;
          */
         createUnit: DebugCreateUnit;
-    } | {
+      }
+    | {
         oneofKind: "killUnit";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugKillUnit kill_unit = 4;
          */
         killUnit: DebugKillUnit;
-    } | {
+      }
+    | {
         oneofKind: "testProcess";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugTestProcess test_process = 5;
          */
         testProcess: DebugTestProcess;
-    } | {
+      }
+    | {
         oneofKind: "score";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugSetScore score = 6;
          */
         score: DebugSetScore; // Useful only for single-player "curriculum" maps.
-    } | {
+      }
+    | {
         oneofKind: "endGame";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugEndGame end_game = 7;
          */
         endGame: DebugEndGame;
-    } | {
+      }
+    | {
         oneofKind: "unitValue";
         /**
          * @generated from protobuf field: SC2APIProtocol.DebugSetUnitValue unit_value = 8;
          */
         unitValue: DebugSetUnitValue;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
+      };
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugDraw
  */
 export interface DebugDraw {
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.DebugText text = 1;
-     */
-    text: DebugText[];
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.DebugLine lines = 2;
-     */
-    lines: DebugLine[];
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.DebugBox boxes = 3;
-     */
-    boxes: DebugBox[];
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.DebugSphere spheres = 4;
-     */
-    spheres: DebugSphere[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.DebugText text = 1;
+   */
+  text: DebugText[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.DebugLine lines = 2;
+   */
+  lines: DebugLine[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.DebugBox boxes = 3;
+   */
+  boxes: DebugBox[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.DebugSphere spheres = 4;
+   */
+  spheres: DebugSphere[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.Line
  */
 export interface Line {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point p0 = 1;
-     */
-    p0?: Point;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point p1 = 2;
-     */
-    p1?: Point;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point p0 = 1;
+   */
+  p0?: Point;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point p1 = 2;
+   */
+  p1?: Point;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.Color
  */
 export interface Color {
-    /**
-     * @generated from protobuf field: optional uint32 r = 1;
-     */
-    r?: number;
-    /**
-     * @generated from protobuf field: optional uint32 g = 2;
-     */
-    g?: number;
-    /**
-     * @generated from protobuf field: optional uint32 b = 3;
-     */
-    b?: number;
+  /**
+   * @generated from protobuf field: optional uint32 r = 1;
+   */
+  r?: number;
+  /**
+   * @generated from protobuf field: optional uint32 g = 2;
+   */
+  g?: number;
+  /**
+   * @generated from protobuf field: optional uint32 b = 3;
+   */
+  b?: number;
 }
 /**
  * Display debug text on screen.
@@ -133,26 +145,26 @@ export interface Color {
  * @generated from protobuf message SC2APIProtocol.DebugText
  */
 export interface DebugText {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
-     */
-    color?: Color;
-    /**
-     * @generated from protobuf field: optional string text = 2;
-     */
-    text?: string; // Text to display.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point virtual_pos = 3;
-     */
-    virtualPos?: Point; // Virtualized position in 2D (the screen is 0..1, 0..1 for any resolution).
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point world_pos = 4;
-     */
-    worldPos?: Point; // Position in the world.
-    /**
-     * @generated from protobuf field: optional uint32 size = 5;
-     */
-    size?: number; // Pixel height of the text. Defaults to 8px.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
+   */
+  color?: Color;
+  /**
+   * @generated from protobuf field: optional string text = 2;
+   */
+  text?: string; // Text to display.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point virtual_pos = 3;
+   */
+  virtualPos?: Point; // Virtualized position in 2D (the screen is 0..1, 0..1 for any resolution).
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point world_pos = 4;
+   */
+  worldPos?: Point; // Position in the world.
+  /**
+   * @generated from protobuf field: optional uint32 size = 5;
+   */
+  size?: number; // Pixel height of the text. Defaults to 8px.
 }
 /**
  * Display debug lines on screen.
@@ -160,14 +172,14 @@ export interface DebugText {
  * @generated from protobuf message SC2APIProtocol.DebugLine
  */
 export interface DebugLine {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
-     */
-    color?: Color;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Line line = 2;
-     */
-    line?: Line; // World space line.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
+   */
+  color?: Color;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Line line = 2;
+   */
+  line?: Line; // World space line.
 }
 /**
  * Display debug boxes on screen.
@@ -175,18 +187,18 @@ export interface DebugLine {
  * @generated from protobuf message SC2APIProtocol.DebugBox
  */
 export interface DebugBox {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
-     */
-    color?: Color;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point min = 2;
-     */
-    min?: Point;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point max = 3;
-     */
-    max?: Point;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
+   */
+  color?: Color;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point min = 2;
+   */
+  min?: Point;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point max = 3;
+   */
+  max?: Point;
 }
 /**
  * Display debug spheres on screen.
@@ -194,330 +206,466 @@ export interface DebugBox {
  * @generated from protobuf message SC2APIProtocol.DebugSphere
  */
 export interface DebugSphere {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
-     */
-    color?: Color;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point p = 2;
-     */
-    p?: Point;
-    /**
-     * @generated from protobuf field: optional float r = 3;
-     */
-    r?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Color color = 1;
+   */
+  color?: Color;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point p = 2;
+   */
+  p?: Point;
+  /**
+   * @generated from protobuf field: optional float r = 3;
+   */
+  r?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugCreateUnit
  */
 export interface DebugCreateUnit {
-    /**
-     * @generated from protobuf field: optional uint32 unit_type = 1;
-     */
-    unitType?: number;
-    /**
-     * @generated from protobuf field: optional int32 owner = 2;
-     */
-    owner?: number;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point2D pos = 3;
-     */
-    pos?: Point2D;
-    /**
-     * @generated from protobuf field: optional uint32 quantity = 4;
-     */
-    quantity?: number;
+  /**
+   * @generated from protobuf field: optional uint32 unit_type = 1;
+   */
+  unitType?: number;
+  /**
+   * @generated from protobuf field: optional int32 owner = 2;
+   */
+  owner?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point2D pos = 3;
+   */
+  pos?: Point2D;
+  /**
+   * @generated from protobuf field: optional uint32 quantity = 4;
+   */
+  quantity?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugKillUnit
  */
 export interface DebugKillUnit {
-    /**
-     * @generated from protobuf field: repeated uint64 tag = 1;
-     */
-    tag: bigint[];
+  /**
+   * @generated from protobuf field: repeated uint64 tag = 1;
+   */
+  tag: bigint[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugTestProcess
  */
 export interface DebugTestProcess {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.DebugTestProcess.Test test = 1;
-     */
-    test?: DebugTestProcess_Test;
-    /**
-     * @generated from protobuf field: optional int32 delay_ms = 2;
-     */
-    delayMs?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.DebugTestProcess.Test test = 1;
+   */
+  test?: DebugTestProcess_Test;
+  /**
+   * @generated from protobuf field: optional int32 delay_ms = 2;
+   */
+  delayMs?: number;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.DebugTestProcess.Test
  */
 export enum DebugTestProcess_Test {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: hang = 1;
-     */
-    hang = 1,
-    /**
-     * @generated from protobuf enum value: crash = 2;
-     */
-    crash = 2,
-    /**
-     * @generated from protobuf enum value: exit = 3;
-     */
-    exit = 3
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: hang = 1;
+   */
+  hang = 1,
+  /**
+   * @generated from protobuf enum value: crash = 2;
+   */
+  crash = 2,
+  /**
+   * @generated from protobuf enum value: exit = 3;
+   */
+  exit = 3,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugSetScore
  */
 export interface DebugSetScore {
-    /**
-     * @generated from protobuf field: optional float score = 1;
-     */
-    score?: number;
+  /**
+   * @generated from protobuf field: optional float score = 1;
+   */
+  score?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugEndGame
  */
 export interface DebugEndGame {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.DebugEndGame.EndResult end_result = 1;
-     */
-    endResult?: DebugEndGame_EndResult;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.DebugEndGame.EndResult end_result = 1;
+   */
+  endResult?: DebugEndGame_EndResult;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.DebugEndGame.EndResult
  */
 export enum DebugEndGame_EndResult {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Default if nothing is set. The current player admits defeat.
-     *
-     * @generated from protobuf enum value: Surrender = 1;
-     */
-    Surrender = 1,
-    /**
-     * @generated from protobuf enum value: DeclareVictory = 2;
-     */
-    DeclareVictory = 2
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Default if nothing is set. The current player admits defeat.
+   *
+   * @generated from protobuf enum value: Surrender = 1;
+   */
+  Surrender = 1,
+  /**
+   * @generated from protobuf enum value: DeclareVictory = 2;
+   */
+  DeclareVictory = 2,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DebugSetUnitValue
  */
 export interface DebugSetUnitValue {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.DebugSetUnitValue.UnitValue unit_value = 1;
-     */
-    unitValue?: DebugSetUnitValue_UnitValue;
-    /**
-     * @generated from protobuf field: optional float value = 2;
-     */
-    value?: number;
-    /**
-     * @generated from protobuf field: optional uint64 unit_tag = 3;
-     */
-    unitTag?: bigint;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.DebugSetUnitValue.UnitValue unit_value = 1;
+   */
+  unitValue?: DebugSetUnitValue_UnitValue;
+  /**
+   * @generated from protobuf field: optional float value = 2;
+   */
+  value?: number;
+  /**
+   * @generated from protobuf field: optional uint64 unit_tag = 3;
+   */
+  unitTag?: bigint;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.DebugSetUnitValue.UnitValue
  */
 export enum DebugSetUnitValue_UnitValue {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: Energy = 1;
-     */
-    Energy = 1,
-    /**
-     * @generated from protobuf enum value: Life = 2;
-     */
-    Life = 2,
-    /**
-     * @generated from protobuf enum value: Shields = 3;
-     */
-    Shields = 3
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: Energy = 1;
+   */
+  Energy = 1,
+  /**
+   * @generated from protobuf enum value: Life = 2;
+   */
+  Life = 2,
+  /**
+   * @generated from protobuf enum value: Shields = 3;
+   */
+  Shields = 3,
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.DebugGameState
  */
 export enum DebugGameState {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: show_map = 1;
-     */
-    show_map = 1,
-    /**
-     * @generated from protobuf enum value: control_enemy = 2;
-     */
-    control_enemy = 2,
-    /**
-     * @generated from protobuf enum value: food = 3;
-     */
-    food = 3,
-    /**
-     * @generated from protobuf enum value: free = 4;
-     */
-    free = 4,
-    /**
-     * @generated from protobuf enum value: all_resources = 5;
-     */
-    all_resources = 5,
-    /**
-     * @generated from protobuf enum value: god = 6;
-     */
-    god = 6,
-    /**
-     * @generated from protobuf enum value: minerals = 7;
-     */
-    minerals = 7,
-    /**
-     * @generated from protobuf enum value: gas = 8;
-     */
-    gas = 8,
-    /**
-     * @generated from protobuf enum value: cooldown = 9;
-     */
-    cooldown = 9,
-    /**
-     * @generated from protobuf enum value: tech_tree = 10;
-     */
-    tech_tree = 10,
-    /**
-     * @generated from protobuf enum value: upgrade = 11;
-     */
-    upgrade = 11,
-    /**
-     * @generated from protobuf enum value: fast_build = 12;
-     */
-    fast_build = 12
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: show_map = 1;
+   */
+  show_map = 1,
+  /**
+   * @generated from protobuf enum value: control_enemy = 2;
+   */
+  control_enemy = 2,
+  /**
+   * @generated from protobuf enum value: food = 3;
+   */
+  food = 3,
+  /**
+   * @generated from protobuf enum value: free = 4;
+   */
+  free = 4,
+  /**
+   * @generated from protobuf enum value: all_resources = 5;
+   */
+  all_resources = 5,
+  /**
+   * @generated from protobuf enum value: god = 6;
+   */
+  god = 6,
+  /**
+   * @generated from protobuf enum value: minerals = 7;
+   */
+  minerals = 7,
+  /**
+   * @generated from protobuf enum value: gas = 8;
+   */
+  gas = 8,
+  /**
+   * @generated from protobuf enum value: cooldown = 9;
+   */
+  cooldown = 9,
+  /**
+   * @generated from protobuf enum value: tech_tree = 10;
+   */
+  tech_tree = 10,
+  /**
+   * @generated from protobuf enum value: upgrade = 11;
+   */
+  upgrade = 11,
+  /**
+   * @generated from protobuf enum value: fast_build = 12;
+   */
+  fast_build = 12,
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugCommand$Type extends MessageType<DebugCommand> {
-    constructor() {
-        super("SC2APIProtocol.DebugCommand", [
-            { no: 1, name: "draw", kind: "message", oneof: "command", T: () => DebugDraw },
-            { no: 2, name: "game_state", kind: "enum", oneof: "command", T: () => ["SC2APIProtocol.DebugGameState", DebugGameState] },
-            { no: 3, name: "create_unit", kind: "message", oneof: "command", T: () => DebugCreateUnit },
-            { no: 4, name: "kill_unit", kind: "message", oneof: "command", T: () => DebugKillUnit },
-            { no: 5, name: "test_process", kind: "message", oneof: "command", T: () => DebugTestProcess },
-            { no: 6, name: "score", kind: "message", oneof: "command", T: () => DebugSetScore },
-            { no: 7, name: "end_game", kind: "message", oneof: "command", T: () => DebugEndGame },
-            { no: 8, name: "unit_value", kind: "message", oneof: "command", T: () => DebugSetUnitValue }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugCommand", [
+      {
+        no: 1,
+        name: "draw",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugDraw,
+      },
+      {
+        no: 2,
+        name: "game_state",
+        kind: "enum",
+        oneof: "command",
+        T: () => ["SC2APIProtocol.DebugGameState", DebugGameState],
+      },
+      {
+        no: 3,
+        name: "create_unit",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugCreateUnit,
+      },
+      {
+        no: 4,
+        name: "kill_unit",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugKillUnit,
+      },
+      {
+        no: 5,
+        name: "test_process",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugTestProcess,
+      },
+      {
+        no: 6,
+        name: "score",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugSetScore,
+      },
+      {
+        no: 7,
+        name: "end_game",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugEndGame,
+      },
+      {
+        no: 8,
+        name: "unit_value",
+        kind: "message",
+        oneof: "command",
+        T: () => DebugSetUnitValue,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugCommand>): DebugCommand {
+    const message = { command: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugCommand>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugCommand,
+  ): DebugCommand {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* SC2APIProtocol.DebugDraw draw */ 1:
+          message.command = {
+            oneofKind: "draw",
+            draw: DebugDraw.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).draw,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.DebugGameState game_state */ 2:
+          message.command = {
+            oneofKind: "gameState",
+            gameState: reader.int32(),
+          };
+          break;
+        case /* SC2APIProtocol.DebugCreateUnit create_unit */ 3:
+          message.command = {
+            oneofKind: "createUnit",
+            createUnit: DebugCreateUnit.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).createUnit,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.DebugKillUnit kill_unit */ 4:
+          message.command = {
+            oneofKind: "killUnit",
+            killUnit: DebugKillUnit.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).killUnit,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.DebugTestProcess test_process */ 5:
+          message.command = {
+            oneofKind: "testProcess",
+            testProcess: DebugTestProcess.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).testProcess,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.DebugSetScore score */ 6:
+          message.command = {
+            oneofKind: "score",
+            score: DebugSetScore.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).score,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.DebugEndGame end_game */ 7:
+          message.command = {
+            oneofKind: "endGame",
+            endGame: DebugEndGame.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).endGame,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.DebugSetUnitValue unit_value */ 8:
+          message.command = {
+            oneofKind: "unitValue",
+            unitValue: DebugSetUnitValue.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.command as any).unitValue,
+            ),
+          };
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugCommand>): DebugCommand {
-        const message = { command: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugCommand>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugCommand): DebugCommand {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* SC2APIProtocol.DebugDraw draw */ 1:
-                    message.command = {
-                        oneofKind: "draw",
-                        draw: DebugDraw.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).draw)
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugGameState game_state */ 2:
-                    message.command = {
-                        oneofKind: "gameState",
-                        gameState: reader.int32()
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugCreateUnit create_unit */ 3:
-                    message.command = {
-                        oneofKind: "createUnit",
-                        createUnit: DebugCreateUnit.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).createUnit)
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugKillUnit kill_unit */ 4:
-                    message.command = {
-                        oneofKind: "killUnit",
-                        killUnit: DebugKillUnit.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).killUnit)
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugTestProcess test_process */ 5:
-                    message.command = {
-                        oneofKind: "testProcess",
-                        testProcess: DebugTestProcess.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).testProcess)
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugSetScore score */ 6:
-                    message.command = {
-                        oneofKind: "score",
-                        score: DebugSetScore.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).score)
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugEndGame end_game */ 7:
-                    message.command = {
-                        oneofKind: "endGame",
-                        endGame: DebugEndGame.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).endGame)
-                    };
-                    break;
-                case /* SC2APIProtocol.DebugSetUnitValue unit_value */ 8:
-                    message.command = {
-                        oneofKind: "unitValue",
-                        unitValue: DebugSetUnitValue.internalBinaryRead(reader, reader.uint32(), options, (message.command as any).unitValue)
-                    };
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugCommand, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* SC2APIProtocol.DebugDraw draw = 1; */
-        if (message.command.oneofKind === "draw")
-            DebugDraw.internalBinaryWrite(message.command.draw, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.DebugGameState game_state = 2; */
-        if (message.command.oneofKind === "gameState")
-            writer.tag(2, WireType.Varint).int32(message.command.gameState);
-        /* SC2APIProtocol.DebugCreateUnit create_unit = 3; */
-        if (message.command.oneofKind === "createUnit")
-            DebugCreateUnit.internalBinaryWrite(message.command.createUnit, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.DebugKillUnit kill_unit = 4; */
-        if (message.command.oneofKind === "killUnit")
-            DebugKillUnit.internalBinaryWrite(message.command.killUnit, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.DebugTestProcess test_process = 5; */
-        if (message.command.oneofKind === "testProcess")
-            DebugTestProcess.internalBinaryWrite(message.command.testProcess, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.DebugSetScore score = 6; */
-        if (message.command.oneofKind === "score")
-            DebugSetScore.internalBinaryWrite(message.command.score, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.DebugEndGame end_game = 7; */
-        if (message.command.oneofKind === "endGame")
-            DebugEndGame.internalBinaryWrite(message.command.endGame, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.DebugSetUnitValue unit_value = 8; */
-        if (message.command.oneofKind === "unitValue")
-            DebugSetUnitValue.internalBinaryWrite(message.command.unitValue, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugCommand,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* SC2APIProtocol.DebugDraw draw = 1; */
+    if (message.command.oneofKind === "draw")
+      DebugDraw.internalBinaryWrite(
+        message.command.draw,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.DebugGameState game_state = 2; */
+    if (message.command.oneofKind === "gameState")
+      writer.tag(2, WireType.Varint).int32(message.command.gameState);
+    /* SC2APIProtocol.DebugCreateUnit create_unit = 3; */
+    if (message.command.oneofKind === "createUnit")
+      DebugCreateUnit.internalBinaryWrite(
+        message.command.createUnit,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.DebugKillUnit kill_unit = 4; */
+    if (message.command.oneofKind === "killUnit")
+      DebugKillUnit.internalBinaryWrite(
+        message.command.killUnit,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.DebugTestProcess test_process = 5; */
+    if (message.command.oneofKind === "testProcess")
+      DebugTestProcess.internalBinaryWrite(
+        message.command.testProcess,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.DebugSetScore score = 6; */
+    if (message.command.oneofKind === "score")
+      DebugSetScore.internalBinaryWrite(
+        message.command.score,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.DebugEndGame end_game = 7; */
+    if (message.command.oneofKind === "endGame")
+      DebugEndGame.internalBinaryWrite(
+        message.command.endGame,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.DebugSetUnitValue unit_value = 8; */
+    if (message.command.oneofKind === "unitValue")
+      DebugSetUnitValue.internalBinaryWrite(
+        message.command.unitValue,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugCommand
@@ -525,67 +673,140 @@ class DebugCommand$Type extends MessageType<DebugCommand> {
 export const DebugCommand = new DebugCommand$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugDraw$Type extends MessageType<DebugDraw> {
-    constructor() {
-        super("SC2APIProtocol.DebugDraw", [
-            { no: 1, name: "text", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => DebugText },
-            { no: 2, name: "lines", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => DebugLine },
-            { no: 3, name: "boxes", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => DebugBox },
-            { no: 4, name: "spheres", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => DebugSphere }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugDraw", [
+      {
+        no: 1,
+        name: "text",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => DebugText,
+      },
+      {
+        no: 2,
+        name: "lines",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => DebugLine,
+      },
+      {
+        no: 3,
+        name: "boxes",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => DebugBox,
+      },
+      {
+        no: 4,
+        name: "spheres",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => DebugSphere,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugDraw>): DebugDraw {
+    const message = { text: [], lines: [], boxes: [], spheres: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugDraw>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugDraw,
+  ): DebugDraw {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated SC2APIProtocol.DebugText text */ 1:
+          message.text.push(
+            DebugText.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* repeated SC2APIProtocol.DebugLine lines */ 2:
+          message.lines.push(
+            DebugLine.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* repeated SC2APIProtocol.DebugBox boxes */ 3:
+          message.boxes.push(
+            DebugBox.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* repeated SC2APIProtocol.DebugSphere spheres */ 4:
+          message.spheres.push(
+            DebugSphere.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugDraw>): DebugDraw {
-        const message = { text: [], lines: [], boxes: [], spheres: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugDraw>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugDraw): DebugDraw {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated SC2APIProtocol.DebugText text */ 1:
-                    message.text.push(DebugText.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* repeated SC2APIProtocol.DebugLine lines */ 2:
-                    message.lines.push(DebugLine.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* repeated SC2APIProtocol.DebugBox boxes */ 3:
-                    message.boxes.push(DebugBox.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* repeated SC2APIProtocol.DebugSphere spheres */ 4:
-                    message.spheres.push(DebugSphere.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugDraw, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated SC2APIProtocol.DebugText text = 1; */
-        for (let i = 0; i < message.text.length; i++)
-            DebugText.internalBinaryWrite(message.text[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.DebugLine lines = 2; */
-        for (let i = 0; i < message.lines.length; i++)
-            DebugLine.internalBinaryWrite(message.lines[i], writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.DebugBox boxes = 3; */
-        for (let i = 0; i < message.boxes.length; i++)
-            DebugBox.internalBinaryWrite(message.boxes[i], writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.DebugSphere spheres = 4; */
-        for (let i = 0; i < message.spheres.length; i++)
-            DebugSphere.internalBinaryWrite(message.spheres[i], writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugDraw,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated SC2APIProtocol.DebugText text = 1; */
+    for (let i = 0; i < message.text.length; i++)
+      DebugText.internalBinaryWrite(
+        message.text[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.DebugLine lines = 2; */
+    for (let i = 0; i < message.lines.length; i++)
+      DebugLine.internalBinaryWrite(
+        message.lines[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.DebugBox boxes = 3; */
+    for (let i = 0; i < message.boxes.length; i++)
+      DebugBox.internalBinaryWrite(
+        message.boxes[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.DebugSphere spheres = 4; */
+    for (let i = 0; i < message.spheres.length; i++)
+      DebugSphere.internalBinaryWrite(
+        message.spheres[i],
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugDraw
@@ -593,53 +814,95 @@ class DebugDraw$Type extends MessageType<DebugDraw> {
 export const DebugDraw = new DebugDraw$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Line$Type extends MessageType<Line> {
-    constructor() {
-        super("SC2APIProtocol.Line", [
-            { no: 1, name: "p0", kind: "message", T: () => Point },
-            { no: 2, name: "p1", kind: "message", T: () => Point }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.Line", [
+      { no: 1, name: "p0", kind: "message", T: () => Point },
+      { no: 2, name: "p1", kind: "message", T: () => Point },
+    ]);
+  }
+  create(value?: PartialMessage<Line>): Line {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined) reflectionMergePartial<Line>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Line,
+  ): Line {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Point p0 */ 1:
+          message.p0 = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.p0,
+          );
+          break;
+        case /* optional SC2APIProtocol.Point p1 */ 2:
+          message.p1 = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.p1,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<Line>): Line {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Line>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Line): Line {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Point p0 */ 1:
-                    message.p0 = Point.internalBinaryRead(reader, reader.uint32(), options, message.p0);
-                    break;
-                case /* optional SC2APIProtocol.Point p1 */ 2:
-                    message.p1 = Point.internalBinaryRead(reader, reader.uint32(), options, message.p1);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Line, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Point p0 = 1; */
-        if (message.p0)
-            Point.internalBinaryWrite(message.p0, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Point p1 = 2; */
-        if (message.p1)
-            Point.internalBinaryWrite(message.p1, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: Line,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Point p0 = 1; */
+    if (message.p0)
+      Point.internalBinaryWrite(
+        message.p0,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Point p1 = 2; */
+    if (message.p1)
+      Point.internalBinaryWrite(
+        message.p1,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.Line
@@ -647,60 +910,103 @@ class Line$Type extends MessageType<Line> {
 export const Line = new Line$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Color$Type extends MessageType<Color> {
-    constructor() {
-        super("SC2APIProtocol.Color", [
-            { no: 1, name: "r", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "g", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "b", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.Color", [
+      {
+        no: 1,
+        name: "r",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "g",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 3,
+        name: "b",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<Color>): Color {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<Color>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Color,
+  ): Color {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 r */ 1:
+          message.r = reader.uint32();
+          break;
+        case /* optional uint32 g */ 2:
+          message.g = reader.uint32();
+          break;
+        case /* optional uint32 b */ 3:
+          message.b = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<Color>): Color {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Color>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Color): Color {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 r */ 1:
-                    message.r = reader.uint32();
-                    break;
-                case /* optional uint32 g */ 2:
-                    message.g = reader.uint32();
-                    break;
-                case /* optional uint32 b */ 3:
-                    message.b = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Color, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 r = 1; */
-        if (message.r !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.r);
-        /* optional uint32 g = 2; */
-        if (message.g !== undefined)
-            writer.tag(2, WireType.Varint).uint32(message.g);
-        /* optional uint32 b = 3; */
-        if (message.b !== undefined)
-            writer.tag(3, WireType.Varint).uint32(message.b);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: Color,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 r = 1; */
+    if (message.r !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.r);
+    /* optional uint32 g = 2; */
+    if (message.g !== undefined)
+      writer.tag(2, WireType.Varint).uint32(message.g);
+    /* optional uint32 b = 3; */
+    if (message.b !== undefined)
+      writer.tag(3, WireType.Varint).uint32(message.b);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.Color
@@ -708,74 +1014,138 @@ class Color$Type extends MessageType<Color> {
 export const Color = new Color$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugText$Type extends MessageType<DebugText> {
-    constructor() {
-        super("SC2APIProtocol.DebugText", [
-            { no: 1, name: "color", kind: "message", T: () => Color },
-            { no: 2, name: "text", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "virtual_pos", kind: "message", T: () => Point },
-            { no: 4, name: "world_pos", kind: "message", T: () => Point },
-            { no: 5, name: "size", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugText", [
+      { no: 1, name: "color", kind: "message", T: () => Color },
+      {
+        no: 2,
+        name: "text",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      { no: 3, name: "virtual_pos", kind: "message", T: () => Point },
+      { no: 4, name: "world_pos", kind: "message", T: () => Point },
+      {
+        no: 5,
+        name: "size",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugText>): DebugText {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugText>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugText,
+  ): DebugText {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Color color */ 1:
+          message.color = Color.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.color,
+          );
+          break;
+        case /* optional string text */ 2:
+          message.text = reader.string();
+          break;
+        case /* optional SC2APIProtocol.Point virtual_pos */ 3:
+          message.virtualPos = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.virtualPos,
+          );
+          break;
+        case /* optional SC2APIProtocol.Point world_pos */ 4:
+          message.worldPos = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.worldPos,
+          );
+          break;
+        case /* optional uint32 size */ 5:
+          message.size = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugText>): DebugText {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugText>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugText): DebugText {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Color color */ 1:
-                    message.color = Color.internalBinaryRead(reader, reader.uint32(), options, message.color);
-                    break;
-                case /* optional string text */ 2:
-                    message.text = reader.string();
-                    break;
-                case /* optional SC2APIProtocol.Point virtual_pos */ 3:
-                    message.virtualPos = Point.internalBinaryRead(reader, reader.uint32(), options, message.virtualPos);
-                    break;
-                case /* optional SC2APIProtocol.Point world_pos */ 4:
-                    message.worldPos = Point.internalBinaryRead(reader, reader.uint32(), options, message.worldPos);
-                    break;
-                case /* optional uint32 size */ 5:
-                    message.size = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugText, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Color color = 1; */
-        if (message.color)
-            Color.internalBinaryWrite(message.color, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional string text = 2; */
-        if (message.text !== undefined)
-            writer.tag(2, WireType.LengthDelimited).string(message.text);
-        /* optional SC2APIProtocol.Point virtual_pos = 3; */
-        if (message.virtualPos)
-            Point.internalBinaryWrite(message.virtualPos, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Point world_pos = 4; */
-        if (message.worldPos)
-            Point.internalBinaryWrite(message.worldPos, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* optional uint32 size = 5; */
-        if (message.size !== undefined)
-            writer.tag(5, WireType.Varint).uint32(message.size);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugText,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Color color = 1; */
+    if (message.color)
+      Color.internalBinaryWrite(
+        message.color,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional string text = 2; */
+    if (message.text !== undefined)
+      writer.tag(2, WireType.LengthDelimited).string(message.text);
+    /* optional SC2APIProtocol.Point virtual_pos = 3; */
+    if (message.virtualPos)
+      Point.internalBinaryWrite(
+        message.virtualPos,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Point world_pos = 4; */
+    if (message.worldPos)
+      Point.internalBinaryWrite(
+        message.worldPos,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional uint32 size = 5; */
+    if (message.size !== undefined)
+      writer.tag(5, WireType.Varint).uint32(message.size);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugText
@@ -783,53 +1153,96 @@ class DebugText$Type extends MessageType<DebugText> {
 export const DebugText = new DebugText$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugLine$Type extends MessageType<DebugLine> {
-    constructor() {
-        super("SC2APIProtocol.DebugLine", [
-            { no: 1, name: "color", kind: "message", T: () => Color },
-            { no: 2, name: "line", kind: "message", T: () => Line }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugLine", [
+      { no: 1, name: "color", kind: "message", T: () => Color },
+      { no: 2, name: "line", kind: "message", T: () => Line },
+    ]);
+  }
+  create(value?: PartialMessage<DebugLine>): DebugLine {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugLine>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugLine,
+  ): DebugLine {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Color color */ 1:
+          message.color = Color.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.color,
+          );
+          break;
+        case /* optional SC2APIProtocol.Line line */ 2:
+          message.line = Line.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.line,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugLine>): DebugLine {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugLine>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugLine): DebugLine {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Color color */ 1:
-                    message.color = Color.internalBinaryRead(reader, reader.uint32(), options, message.color);
-                    break;
-                case /* optional SC2APIProtocol.Line line */ 2:
-                    message.line = Line.internalBinaryRead(reader, reader.uint32(), options, message.line);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugLine, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Color color = 1; */
-        if (message.color)
-            Color.internalBinaryWrite(message.color, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Line line = 2; */
-        if (message.line)
-            Line.internalBinaryWrite(message.line, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugLine,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Color color = 1; */
+    if (message.color)
+      Color.internalBinaryWrite(
+        message.color,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Line line = 2; */
+    if (message.line)
+      Line.internalBinaryWrite(
+        message.line,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugLine
@@ -837,60 +1250,112 @@ class DebugLine$Type extends MessageType<DebugLine> {
 export const DebugLine = new DebugLine$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugBox$Type extends MessageType<DebugBox> {
-    constructor() {
-        super("SC2APIProtocol.DebugBox", [
-            { no: 1, name: "color", kind: "message", T: () => Color },
-            { no: 2, name: "min", kind: "message", T: () => Point },
-            { no: 3, name: "max", kind: "message", T: () => Point }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugBox", [
+      { no: 1, name: "color", kind: "message", T: () => Color },
+      { no: 2, name: "min", kind: "message", T: () => Point },
+      { no: 3, name: "max", kind: "message", T: () => Point },
+    ]);
+  }
+  create(value?: PartialMessage<DebugBox>): DebugBox {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugBox>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugBox,
+  ): DebugBox {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Color color */ 1:
+          message.color = Color.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.color,
+          );
+          break;
+        case /* optional SC2APIProtocol.Point min */ 2:
+          message.min = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.min,
+          );
+          break;
+        case /* optional SC2APIProtocol.Point max */ 3:
+          message.max = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.max,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugBox>): DebugBox {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugBox>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugBox): DebugBox {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Color color */ 1:
-                    message.color = Color.internalBinaryRead(reader, reader.uint32(), options, message.color);
-                    break;
-                case /* optional SC2APIProtocol.Point min */ 2:
-                    message.min = Point.internalBinaryRead(reader, reader.uint32(), options, message.min);
-                    break;
-                case /* optional SC2APIProtocol.Point max */ 3:
-                    message.max = Point.internalBinaryRead(reader, reader.uint32(), options, message.max);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugBox, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Color color = 1; */
-        if (message.color)
-            Color.internalBinaryWrite(message.color, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Point min = 2; */
-        if (message.min)
-            Point.internalBinaryWrite(message.min, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Point max = 3; */
-        if (message.max)
-            Point.internalBinaryWrite(message.max, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugBox,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Color color = 1; */
+    if (message.color)
+      Color.internalBinaryWrite(
+        message.color,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Point min = 2; */
+    if (message.min)
+      Point.internalBinaryWrite(
+        message.min,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Point max = 3; */
+    if (message.max)
+      Point.internalBinaryWrite(
+        message.max,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugBox
@@ -898,60 +1363,108 @@ class DebugBox$Type extends MessageType<DebugBox> {
 export const DebugBox = new DebugBox$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugSphere$Type extends MessageType<DebugSphere> {
-    constructor() {
-        super("SC2APIProtocol.DebugSphere", [
-            { no: 1, name: "color", kind: "message", T: () => Color },
-            { no: 2, name: "p", kind: "message", T: () => Point },
-            { no: 3, name: "r", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugSphere", [
+      { no: 1, name: "color", kind: "message", T: () => Color },
+      { no: 2, name: "p", kind: "message", T: () => Point },
+      {
+        no: 3,
+        name: "r",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugSphere>): DebugSphere {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugSphere>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugSphere,
+  ): DebugSphere {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Color color */ 1:
+          message.color = Color.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.color,
+          );
+          break;
+        case /* optional SC2APIProtocol.Point p */ 2:
+          message.p = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.p,
+          );
+          break;
+        case /* optional float r */ 3:
+          message.r = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugSphere>): DebugSphere {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugSphere>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugSphere): DebugSphere {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Color color */ 1:
-                    message.color = Color.internalBinaryRead(reader, reader.uint32(), options, message.color);
-                    break;
-                case /* optional SC2APIProtocol.Point p */ 2:
-                    message.p = Point.internalBinaryRead(reader, reader.uint32(), options, message.p);
-                    break;
-                case /* optional float r */ 3:
-                    message.r = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugSphere, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Color color = 1; */
-        if (message.color)
-            Color.internalBinaryWrite(message.color, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Point p = 2; */
-        if (message.p)
-            Point.internalBinaryWrite(message.p, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional float r = 3; */
-        if (message.r !== undefined)
-            writer.tag(3, WireType.Bit32).float(message.r);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugSphere,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Color color = 1; */
+    if (message.color)
+      Color.internalBinaryWrite(
+        message.color,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Point p = 2; */
+    if (message.p)
+      Point.internalBinaryWrite(
+        message.p,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional float r = 3; */
+    if (message.r !== undefined) writer.tag(3, WireType.Bit32).float(message.r);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugSphere
@@ -959,67 +1472,119 @@ class DebugSphere$Type extends MessageType<DebugSphere> {
 export const DebugSphere = new DebugSphere$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugCreateUnit$Type extends MessageType<DebugCreateUnit> {
-    constructor() {
-        super("SC2APIProtocol.DebugCreateUnit", [
-            { no: 1, name: "unit_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "owner", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 3, name: "pos", kind: "message", T: () => Point2D },
-            { no: 4, name: "quantity", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugCreateUnit", [
+      {
+        no: 1,
+        name: "unit_type",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "owner",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      { no: 3, name: "pos", kind: "message", T: () => Point2D },
+      {
+        no: 4,
+        name: "quantity",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugCreateUnit>): DebugCreateUnit {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugCreateUnit>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugCreateUnit,
+  ): DebugCreateUnit {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 unit_type */ 1:
+          message.unitType = reader.uint32();
+          break;
+        case /* optional int32 owner */ 2:
+          message.owner = reader.int32();
+          break;
+        case /* optional SC2APIProtocol.Point2D pos */ 3:
+          message.pos = Point2D.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pos,
+          );
+          break;
+        case /* optional uint32 quantity */ 4:
+          message.quantity = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugCreateUnit>): DebugCreateUnit {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugCreateUnit>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugCreateUnit): DebugCreateUnit {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 unit_type */ 1:
-                    message.unitType = reader.uint32();
-                    break;
-                case /* optional int32 owner */ 2:
-                    message.owner = reader.int32();
-                    break;
-                case /* optional SC2APIProtocol.Point2D pos */ 3:
-                    message.pos = Point2D.internalBinaryRead(reader, reader.uint32(), options, message.pos);
-                    break;
-                case /* optional uint32 quantity */ 4:
-                    message.quantity = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugCreateUnit, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 unit_type = 1; */
-        if (message.unitType !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.unitType);
-        /* optional int32 owner = 2; */
-        if (message.owner !== undefined)
-            writer.tag(2, WireType.Varint).int32(message.owner);
-        /* optional SC2APIProtocol.Point2D pos = 3; */
-        if (message.pos)
-            Point2D.internalBinaryWrite(message.pos, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional uint32 quantity = 4; */
-        if (message.quantity !== undefined)
-            writer.tag(4, WireType.Varint).uint32(message.quantity);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugCreateUnit,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 unit_type = 1; */
+    if (message.unitType !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.unitType);
+    /* optional int32 owner = 2; */
+    if (message.owner !== undefined)
+      writer.tag(2, WireType.Varint).int32(message.owner);
+    /* optional SC2APIProtocol.Point2D pos = 3; */
+    if (message.pos)
+      Point2D.internalBinaryWrite(
+        message.pos,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional uint32 quantity = 4; */
+    if (message.quantity !== undefined)
+      writer.tag(4, WireType.Varint).uint32(message.quantity);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugCreateUnit
@@ -1027,50 +1592,81 @@ class DebugCreateUnit$Type extends MessageType<DebugCreateUnit> {
 export const DebugCreateUnit = new DebugCreateUnit$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugKillUnit$Type extends MessageType<DebugKillUnit> {
-    constructor() {
-        super("SC2APIProtocol.DebugKillUnit", [
-            { no: 1, name: "tag", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugKillUnit", [
+      {
+        no: 1,
+        name: "tag",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugKillUnit>): DebugKillUnit {
+    const message = { tag: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugKillUnit>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugKillUnit,
+  ): DebugKillUnit {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated uint64 tag */ 1:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.tag.push(reader.uint64().toBigInt());
+          else message.tag.push(reader.uint64().toBigInt());
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugKillUnit>): DebugKillUnit {
-        const message = { tag: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugKillUnit>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugKillUnit): DebugKillUnit {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated uint64 tag */ 1:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.tag.push(reader.uint64().toBigInt());
-                    else
-                        message.tag.push(reader.uint64().toBigInt());
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugKillUnit, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated uint64 tag = 1; */
-        for (let i = 0; i < message.tag.length; i++)
-            writer.tag(1, WireType.Varint).uint64(message.tag[i]);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugKillUnit,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated uint64 tag = 1; */
+    for (let i = 0; i < message.tag.length; i++)
+      writer.tag(1, WireType.Varint).uint64(message.tag[i]);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugKillUnit
@@ -1078,53 +1674,93 @@ class DebugKillUnit$Type extends MessageType<DebugKillUnit> {
 export const DebugKillUnit = new DebugKillUnit$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugTestProcess$Type extends MessageType<DebugTestProcess> {
-    constructor() {
-        super("SC2APIProtocol.DebugTestProcess", [
-            { no: 1, name: "test", kind: "enum", opt: true, T: () => ["SC2APIProtocol.DebugTestProcess.Test", DebugTestProcess_Test] },
-            { no: 2, name: "delay_ms", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugTestProcess", [
+      {
+        no: 1,
+        name: "test",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.DebugTestProcess.Test",
+          DebugTestProcess_Test,
+        ],
+      },
+      {
+        no: 2,
+        name: "delay_ms",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugTestProcess>): DebugTestProcess {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugTestProcess>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugTestProcess,
+  ): DebugTestProcess {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.DebugTestProcess.Test test */ 1:
+          message.test = reader.int32();
+          break;
+        case /* optional int32 delay_ms */ 2:
+          message.delayMs = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugTestProcess>): DebugTestProcess {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugTestProcess>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugTestProcess): DebugTestProcess {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.DebugTestProcess.Test test */ 1:
-                    message.test = reader.int32();
-                    break;
-                case /* optional int32 delay_ms */ 2:
-                    message.delayMs = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugTestProcess, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.DebugTestProcess.Test test = 1; */
-        if (message.test !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.test);
-        /* optional int32 delay_ms = 2; */
-        if (message.delayMs !== undefined)
-            writer.tag(2, WireType.Varint).int32(message.delayMs);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugTestProcess,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.DebugTestProcess.Test test = 1; */
+    if (message.test !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.test);
+    /* optional int32 delay_ms = 2; */
+    if (message.delayMs !== undefined)
+      writer.tag(2, WireType.Varint).int32(message.delayMs);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugTestProcess
@@ -1132,46 +1768,77 @@ class DebugTestProcess$Type extends MessageType<DebugTestProcess> {
 export const DebugTestProcess = new DebugTestProcess$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugSetScore$Type extends MessageType<DebugSetScore> {
-    constructor() {
-        super("SC2APIProtocol.DebugSetScore", [
-            { no: 1, name: "score", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugSetScore", [
+      {
+        no: 1,
+        name: "score",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugSetScore>): DebugSetScore {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugSetScore>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugSetScore,
+  ): DebugSetScore {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional float score */ 1:
+          message.score = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugSetScore>): DebugSetScore {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugSetScore>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugSetScore): DebugSetScore {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional float score */ 1:
-                    message.score = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugSetScore, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional float score = 1; */
-        if (message.score !== undefined)
-            writer.tag(1, WireType.Bit32).float(message.score);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugSetScore,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional float score = 1; */
+    if (message.score !== undefined)
+      writer.tag(1, WireType.Bit32).float(message.score);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugSetScore
@@ -1179,46 +1846,80 @@ class DebugSetScore$Type extends MessageType<DebugSetScore> {
 export const DebugSetScore = new DebugSetScore$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugEndGame$Type extends MessageType<DebugEndGame> {
-    constructor() {
-        super("SC2APIProtocol.DebugEndGame", [
-            { no: 1, name: "end_result", kind: "enum", opt: true, T: () => ["SC2APIProtocol.DebugEndGame.EndResult", DebugEndGame_EndResult] }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugEndGame", [
+      {
+        no: 1,
+        name: "end_result",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.DebugEndGame.EndResult",
+          DebugEndGame_EndResult,
+        ],
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugEndGame>): DebugEndGame {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugEndGame>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugEndGame,
+  ): DebugEndGame {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.DebugEndGame.EndResult end_result */ 1:
+          message.endResult = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugEndGame>): DebugEndGame {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugEndGame>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugEndGame): DebugEndGame {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.DebugEndGame.EndResult end_result */ 1:
-                    message.endResult = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugEndGame, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.DebugEndGame.EndResult end_result = 1; */
-        if (message.endResult !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.endResult);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugEndGame,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.DebugEndGame.EndResult end_result = 1; */
+    if (message.endResult !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.endResult);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugEndGame
@@ -1226,60 +1927,107 @@ class DebugEndGame$Type extends MessageType<DebugEndGame> {
 export const DebugEndGame = new DebugEndGame$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DebugSetUnitValue$Type extends MessageType<DebugSetUnitValue> {
-    constructor() {
-        super("SC2APIProtocol.DebugSetUnitValue", [
-            { no: 1, name: "unit_value", kind: "enum", opt: true, T: () => ["SC2APIProtocol.DebugSetUnitValue.UnitValue", DebugSetUnitValue_UnitValue] },
-            { no: 2, name: "value", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 3, name: "unit_tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DebugSetUnitValue", [
+      {
+        no: 1,
+        name: "unit_value",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.DebugSetUnitValue.UnitValue",
+          DebugSetUnitValue_UnitValue,
+        ],
+      },
+      {
+        no: 2,
+        name: "value",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 3,
+        name: "unit_tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DebugSetUnitValue>): DebugSetUnitValue {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DebugSetUnitValue>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DebugSetUnitValue,
+  ): DebugSetUnitValue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.DebugSetUnitValue.UnitValue unit_value */ 1:
+          message.unitValue = reader.int32();
+          break;
+        case /* optional float value */ 2:
+          message.value = reader.float();
+          break;
+        case /* optional uint64 unit_tag */ 3:
+          message.unitTag = reader.uint64().toBigInt();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DebugSetUnitValue>): DebugSetUnitValue {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DebugSetUnitValue>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DebugSetUnitValue): DebugSetUnitValue {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.DebugSetUnitValue.UnitValue unit_value */ 1:
-                    message.unitValue = reader.int32();
-                    break;
-                case /* optional float value */ 2:
-                    message.value = reader.float();
-                    break;
-                case /* optional uint64 unit_tag */ 3:
-                    message.unitTag = reader.uint64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DebugSetUnitValue, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.DebugSetUnitValue.UnitValue unit_value = 1; */
-        if (message.unitValue !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.unitValue);
-        /* optional float value = 2; */
-        if (message.value !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.value);
-        /* optional uint64 unit_tag = 3; */
-        if (message.unitTag !== undefined)
-            writer.tag(3, WireType.Varint).uint64(message.unitTag);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DebugSetUnitValue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.DebugSetUnitValue.UnitValue unit_value = 1; */
+    if (message.unitValue !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.unitValue);
+    /* optional float value = 2; */
+    if (message.value !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.value);
+    /* optional uint64 unit_tag = 3; */
+    if (message.unitTag !== undefined)
+      writer.tag(3, WireType.Varint).uint64(message.unitTag);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DebugSetUnitValue

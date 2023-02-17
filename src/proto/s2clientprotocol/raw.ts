@@ -3,701 +3,793 @@
 // @generated from protobuf file "s2clientprotocol/raw.proto" (package "SC2APIProtocol", syntax proto2)
 // tslint:disable
 // @ts-nocheck
-import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
-import type { IBinaryWriter } from "@protobuf-ts/runtime";
-import { WireType } from "@protobuf-ts/runtime";
-import type { BinaryReadOptions } from "@protobuf-ts/runtime";
-import type { IBinaryReader } from "@protobuf-ts/runtime";
-import { UnknownFieldHandler } from "@protobuf-ts/runtime";
-import type { PartialMessage } from "@protobuf-ts/runtime";
-import { reflectionMergePartial } from "@protobuf-ts/runtime";
-import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
-import { MessageType } from "@protobuf-ts/runtime";
-import { Point } from "./common";
-import { Point2D } from "./common";
-import { RectangleI } from "./common";
-import { ImageData } from "./common";
-import { Size2DI } from "./common";
-// 
+import type {
+  BinaryReadOptions,
+  BinaryWriteOptions,
+  IBinaryReader,
+  IBinaryWriter,
+  PartialMessage,
+} from "@protobuf-ts/runtime";
+import {
+  MessageType,
+  MESSAGE_TYPE,
+  reflectionMergePartial,
+  UnknownFieldHandler,
+  WireType,
+} from "@protobuf-ts/runtime";
+import { ImageData, Point, Point2D, RectangleI, Size2DI } from "./common";
+//
 // Start
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.StartRaw
  */
 export interface StartRaw {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Size2DI map_size = 1;
-     */
-    mapSize?: Size2DI; // Width and height of the map.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData pathing_grid = 2;
-     */
-    pathingGrid?: ImageData; // 1 bit bitmap of the pathing grid.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData terrain_height = 3;
-     */
-    terrainHeight?: ImageData; // 1 byte bitmap of the terrain height.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData placement_grid = 4;
-     */
-    placementGrid?: ImageData; // 1 bit bitmap of the building placement grid.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.RectangleI playable_area = 5;
-     */
-    playableArea?: RectangleI; // The playable cells.
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.Point2D start_locations = 6;
-     */
-    startLocations: Point2D[]; // Possible start locations for players.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Size2DI map_size = 1;
+   */
+  mapSize?: Size2DI; // Width and height of the map.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData pathing_grid = 2;
+   */
+  pathingGrid?: ImageData; // 1 bit bitmap of the pathing grid.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData terrain_height = 3;
+   */
+  terrainHeight?: ImageData; // 1 byte bitmap of the terrain height.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData placement_grid = 4;
+   */
+  placementGrid?: ImageData; // 1 bit bitmap of the building placement grid.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.RectangleI playable_area = 5;
+   */
+  playableArea?: RectangleI; // The playable cells.
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.Point2D start_locations = 6;
+   */
+  startLocations: Point2D[]; // Possible start locations for players.
 }
-// 
+//
 // Observation
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationRaw
  */
 export interface ObservationRaw {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.PlayerRaw player = 1;
-     */
-    player?: PlayerRaw;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.Unit units = 2;
-     */
-    units: Unit[];
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.MapState map_state = 3;
-     */
-    mapState?: MapState; // Fog of war, creep and so on. Board stuff that changes per frame.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Event event = 4;
-     */
-    event?: Event;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.Effect effects = 5;
-     */
-    effects: Effect[];
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.RadarRing radar = 6;
-     */
-    radar: RadarRing[];
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.PlayerRaw player = 1;
+   */
+  player?: PlayerRaw;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.Unit units = 2;
+   */
+  units: Unit[];
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.MapState map_state = 3;
+   */
+  mapState?: MapState; // Fog of war, creep and so on. Board stuff that changes per frame.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Event event = 4;
+   */
+  event?: Event;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.Effect effects = 5;
+   */
+  effects: Effect[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.RadarRing radar = 6;
+   */
+  radar: RadarRing[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.RadarRing
  */
 export interface RadarRing {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point pos = 1;
-     */
-    pos?: Point;
-    /**
-     * @generated from protobuf field: optional float radius = 2;
-     */
-    radius?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point pos = 1;
+   */
+  pos?: Point;
+  /**
+   * @generated from protobuf field: optional float radius = 2;
+   */
+  radius?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.PowerSource
  */
 export interface PowerSource {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point pos = 1;
-     */
-    pos?: Point;
-    /**
-     * @generated from protobuf field: optional float radius = 2;
-     */
-    radius?: number;
-    /**
-     * @generated from protobuf field: optional uint64 tag = 3;
-     */
-    tag?: bigint;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point pos = 1;
+   */
+  pos?: Point;
+  /**
+   * @generated from protobuf field: optional float radius = 2;
+   */
+  radius?: number;
+  /**
+   * @generated from protobuf field: optional uint64 tag = 3;
+   */
+  tag?: bigint;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.PlayerRaw
  */
 export interface PlayerRaw {
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.PowerSource power_sources = 1;
-     */
-    powerSources: PowerSource[];
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point camera = 2;
-     */
-    camera?: Point;
-    /**
-     * @generated from protobuf field: repeated uint32 upgrade_ids = 3;
-     */
-    upgradeIds: number[]; // TODO: Add to UI observation?
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.PowerSource power_sources = 1;
+   */
+  powerSources: PowerSource[];
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point camera = 2;
+   */
+  camera?: Point;
+  /**
+   * @generated from protobuf field: repeated uint32 upgrade_ids = 3;
+   */
+  upgradeIds: number[]; // TODO: Add to UI observation?
 }
 /**
  * @generated from protobuf message SC2APIProtocol.UnitOrder
  */
 export interface UnitOrder {
-    /**
-     * @generated from protobuf field: optional uint32 ability_id = 1;
-     */
-    abilityId?: number;
-    /**
-     * @generated from protobuf oneof: target
-     */
-    target: {
+  /**
+   * @generated from protobuf field: optional uint32 ability_id = 1;
+   */
+  abilityId?: number;
+  /**
+   * @generated from protobuf oneof: target
+   */
+  target:
+    | {
         oneofKind: "targetWorldSpacePos";
         /**
          * @generated from protobuf field: SC2APIProtocol.Point target_world_space_pos = 2;
          */
         targetWorldSpacePos: Point;
-    } | {
+      }
+    | {
         oneofKind: "targetUnitTag";
         /**
          * @generated from protobuf field: uint64 target_unit_tag = 3;
          */
         targetUnitTag: bigint;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
-    /**
-     * @generated from protobuf field: optional float progress = 4;
-     */
-    progress?: number; // Progress of train abilities. Range: [0.0, 1.0]
+      };
+  /**
+   * @generated from protobuf field: optional float progress = 4;
+   */
+  progress?: number; // Progress of train abilities. Range: [0.0, 1.0]
 }
 /**
  * @generated from protobuf message SC2APIProtocol.PassengerUnit
  */
 export interface PassengerUnit {
-    /**
-     * @generated from protobuf field: optional uint64 tag = 1;
-     */
-    tag?: bigint;
-    /**
-     * @generated from protobuf field: optional float health = 2;
-     */
-    health?: number;
-    /**
-     * @generated from protobuf field: optional float health_max = 3;
-     */
-    healthMax?: number;
-    /**
-     * @generated from protobuf field: optional float shield = 4;
-     */
-    shield?: number;
-    /**
-     * @generated from protobuf field: optional float shield_max = 7;
-     */
-    shieldMax?: number;
-    /**
-     * @generated from protobuf field: optional float energy = 5;
-     */
-    energy?: number;
-    /**
-     * @generated from protobuf field: optional float energy_max = 8;
-     */
-    energyMax?: number;
-    /**
-     * @generated from protobuf field: optional uint32 unit_type = 6;
-     */
-    unitType?: number;
+  /**
+   * @generated from protobuf field: optional uint64 tag = 1;
+   */
+  tag?: bigint;
+  /**
+   * @generated from protobuf field: optional float health = 2;
+   */
+  health?: number;
+  /**
+   * @generated from protobuf field: optional float health_max = 3;
+   */
+  healthMax?: number;
+  /**
+   * @generated from protobuf field: optional float shield = 4;
+   */
+  shield?: number;
+  /**
+   * @generated from protobuf field: optional float shield_max = 7;
+   */
+  shieldMax?: number;
+  /**
+   * @generated from protobuf field: optional float energy = 5;
+   */
+  energy?: number;
+  /**
+   * @generated from protobuf field: optional float energy_max = 8;
+   */
+  energyMax?: number;
+  /**
+   * @generated from protobuf field: optional uint32 unit_type = 6;
+   */
+  unitType?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.RallyTarget
  */
 export interface RallyTarget {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point point = 1;
-     */
-    point?: Point; // Will always be filled.
-    /**
-     * @generated from protobuf field: optional uint64 tag = 2;
-     */
-    tag?: bigint; // Only if it's targeting a unit.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point point = 1;
+   */
+  point?: Point; // Will always be filled.
+  /**
+   * @generated from protobuf field: optional uint64 tag = 2;
+   */
+  tag?: bigint; // Only if it's targeting a unit.
 }
 /**
  * @generated from protobuf message SC2APIProtocol.Unit
  */
 export interface Unit {
-    /**
-     * Fields are populated based on type/alliance
-     *
-     * @generated from protobuf field: optional SC2APIProtocol.DisplayType display_type = 1;
-     */
-    displayType?: DisplayType;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Alliance alliance = 2;
-     */
-    alliance?: Alliance;
-    /**
-     * @generated from protobuf field: optional uint64 tag = 3;
-     */
-    tag?: bigint; // Unique identifier for a unit
-    /**
-     * @generated from protobuf field: optional uint32 unit_type = 4;
-     */
-    unitType?: number;
-    /**
-     * @generated from protobuf field: optional int32 owner = 5;
-     */
-    owner?: number;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point pos = 6;
-     */
-    pos?: Point;
-    /**
-     * @generated from protobuf field: optional float facing = 7;
-     */
-    facing?: number;
-    /**
-     * @generated from protobuf field: optional float radius = 8;
-     */
-    radius?: number;
-    /**
-     * @generated from protobuf field: optional float build_progress = 9;
-     */
-    buildProgress?: number; // Range: [0.0, 1.0]
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.CloakState cloak = 10;
-     */
-    cloak?: CloakState;
-    /**
-     * @generated from protobuf field: repeated uint32 buff_ids = 27;
-     */
-    buffIds: number[];
-    /**
-     * @generated from protobuf field: optional float detect_range = 31;
-     */
-    detectRange?: number;
-    /**
-     * @generated from protobuf field: optional float radar_range = 32;
-     */
-    radarRange?: number;
-    /**
-     * @generated from protobuf field: optional bool is_selected = 11;
-     */
-    isSelected?: boolean;
-    /**
-     * @generated from protobuf field: optional bool is_on_screen = 12;
-     */
-    isOnScreen?: boolean; // Visible and within the camera frustum.
-    /**
-     * @generated from protobuf field: optional bool is_blip = 13;
-     */
-    isBlip?: boolean; // Detected by sensor tower
-    /**
-     * @generated from protobuf field: optional bool is_powered = 35;
-     */
-    isPowered?: boolean;
-    /**
-     * @generated from protobuf field: optional bool is_active = 39;
-     */
-    isActive?: boolean; // Building is training/researching (ie animated).
-    /**
-     * @generated from protobuf field: optional int32 attack_upgrade_level = 40;
-     */
-    attackUpgradeLevel?: number;
-    /**
-     * @generated from protobuf field: optional int32 armor_upgrade_level = 41;
-     */
-    armorUpgradeLevel?: number;
-    /**
-     * @generated from protobuf field: optional int32 shield_upgrade_level = 42;
-     */
-    shieldUpgradeLevel?: number;
-    /**
-     * Not populated for snapshots
-     *
-     * @generated from protobuf field: optional float health = 14;
-     */
-    health?: number;
-    /**
-     * @generated from protobuf field: optional float health_max = 15;
-     */
-    healthMax?: number;
-    /**
-     * @generated from protobuf field: optional float shield = 16;
-     */
-    shield?: number;
-    /**
-     * @generated from protobuf field: optional float shield_max = 36;
-     */
-    shieldMax?: number;
-    /**
-     * @generated from protobuf field: optional float energy = 17;
-     */
-    energy?: number;
-    /**
-     * @generated from protobuf field: optional float energy_max = 37;
-     */
-    energyMax?: number;
-    /**
-     * @generated from protobuf field: optional int32 mineral_contents = 18;
-     */
-    mineralContents?: number;
-    /**
-     * @generated from protobuf field: optional int32 vespene_contents = 19;
-     */
-    vespeneContents?: number;
-    /**
-     * @generated from protobuf field: optional bool is_flying = 20;
-     */
-    isFlying?: boolean;
-    /**
-     * @generated from protobuf field: optional bool is_burrowed = 21;
-     */
-    isBurrowed?: boolean;
-    /**
-     * @generated from protobuf field: optional bool is_hallucination = 38;
-     */
-    isHallucination?: boolean; // Unit is your own or detected as a hallucination.
-    /**
-     * Not populated for enemies
-     *
-     * @generated from protobuf field: repeated SC2APIProtocol.UnitOrder orders = 22;
-     */
-    orders: UnitOrder[];
-    /**
-     * @generated from protobuf field: optional uint64 add_on_tag = 23;
-     */
-    addOnTag?: bigint;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.PassengerUnit passengers = 24;
-     */
-    passengers: PassengerUnit[];
-    /**
-     * @generated from protobuf field: optional int32 cargo_space_taken = 25;
-     */
-    cargoSpaceTaken?: number;
-    /**
-     * @generated from protobuf field: optional int32 cargo_space_max = 26;
-     */
-    cargoSpaceMax?: number;
-    /**
-     * @generated from protobuf field: optional int32 assigned_harvesters = 28;
-     */
-    assignedHarvesters?: number;
-    /**
-     * @generated from protobuf field: optional int32 ideal_harvesters = 29;
-     */
-    idealHarvesters?: number;
-    /**
-     * @generated from protobuf field: optional float weapon_cooldown = 30;
-     */
-    weaponCooldown?: number;
-    /**
-     * @generated from protobuf field: optional uint64 engaged_target_tag = 34;
-     */
-    engagedTargetTag?: bigint;
-    /**
-     * @generated from protobuf field: optional int32 buff_duration_remain = 43;
-     */
-    buffDurationRemain?: number; // How long a buff or unit is still around (e.g. MULE, Broodling, Chrono Boost).
-    /**
-     * @generated from protobuf field: optional int32 buff_duration_max = 44;
-     */
-    buffDurationMax?: number; // How long the buff or unit is still around (e.g. MULE, Broodling, Chrono Boost).
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.RallyTarget rally_targets = 45;
-     */
-    rallyTargets: RallyTarget[];
+  /**
+   * Fields are populated based on type/alliance
+   *
+   * @generated from protobuf field: optional SC2APIProtocol.DisplayType display_type = 1;
+   */
+  displayType?: DisplayType;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Alliance alliance = 2;
+   */
+  alliance?: Alliance;
+  /**
+   * @generated from protobuf field: optional uint64 tag = 3;
+   */
+  tag?: bigint; // Unique identifier for a unit
+  /**
+   * @generated from protobuf field: optional uint32 unit_type = 4;
+   */
+  unitType?: number;
+  /**
+   * @generated from protobuf field: optional int32 owner = 5;
+   */
+  owner?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point pos = 6;
+   */
+  pos?: Point;
+  /**
+   * @generated from protobuf field: optional float facing = 7;
+   */
+  facing?: number;
+  /**
+   * @generated from protobuf field: optional float radius = 8;
+   */
+  radius?: number;
+  /**
+   * @generated from protobuf field: optional float build_progress = 9;
+   */
+  buildProgress?: number; // Range: [0.0, 1.0]
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.CloakState cloak = 10;
+   */
+  cloak?: CloakState;
+  /**
+   * @generated from protobuf field: repeated uint32 buff_ids = 27;
+   */
+  buffIds: number[];
+  /**
+   * @generated from protobuf field: optional float detect_range = 31;
+   */
+  detectRange?: number;
+  /**
+   * @generated from protobuf field: optional float radar_range = 32;
+   */
+  radarRange?: number;
+  /**
+   * @generated from protobuf field: optional bool is_selected = 11;
+   */
+  isSelected?: boolean;
+  /**
+   * @generated from protobuf field: optional bool is_on_screen = 12;
+   */
+  isOnScreen?: boolean; // Visible and within the camera frustum.
+  /**
+   * @generated from protobuf field: optional bool is_blip = 13;
+   */
+  isBlip?: boolean; // Detected by sensor tower
+  /**
+   * @generated from protobuf field: optional bool is_powered = 35;
+   */
+  isPowered?: boolean;
+  /**
+   * @generated from protobuf field: optional bool is_active = 39;
+   */
+  isActive?: boolean; // Building is training/researching (ie animated).
+  /**
+   * @generated from protobuf field: optional int32 attack_upgrade_level = 40;
+   */
+  attackUpgradeLevel?: number;
+  /**
+   * @generated from protobuf field: optional int32 armor_upgrade_level = 41;
+   */
+  armorUpgradeLevel?: number;
+  /**
+   * @generated from protobuf field: optional int32 shield_upgrade_level = 42;
+   */
+  shieldUpgradeLevel?: number;
+  /**
+   * Not populated for snapshots
+   *
+   * @generated from protobuf field: optional float health = 14;
+   */
+  health?: number;
+  /**
+   * @generated from protobuf field: optional float health_max = 15;
+   */
+  healthMax?: number;
+  /**
+   * @generated from protobuf field: optional float shield = 16;
+   */
+  shield?: number;
+  /**
+   * @generated from protobuf field: optional float shield_max = 36;
+   */
+  shieldMax?: number;
+  /**
+   * @generated from protobuf field: optional float energy = 17;
+   */
+  energy?: number;
+  /**
+   * @generated from protobuf field: optional float energy_max = 37;
+   */
+  energyMax?: number;
+  /**
+   * @generated from protobuf field: optional int32 mineral_contents = 18;
+   */
+  mineralContents?: number;
+  /**
+   * @generated from protobuf field: optional int32 vespene_contents = 19;
+   */
+  vespeneContents?: number;
+  /**
+   * @generated from protobuf field: optional bool is_flying = 20;
+   */
+  isFlying?: boolean;
+  /**
+   * @generated from protobuf field: optional bool is_burrowed = 21;
+   */
+  isBurrowed?: boolean;
+  /**
+   * @generated from protobuf field: optional bool is_hallucination = 38;
+   */
+  isHallucination?: boolean; // Unit is your own or detected as a hallucination.
+  /**
+   * Not populated for enemies
+   *
+   * @generated from protobuf field: repeated SC2APIProtocol.UnitOrder orders = 22;
+   */
+  orders: UnitOrder[];
+  /**
+   * @generated from protobuf field: optional uint64 add_on_tag = 23;
+   */
+  addOnTag?: bigint;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.PassengerUnit passengers = 24;
+   */
+  passengers: PassengerUnit[];
+  /**
+   * @generated from protobuf field: optional int32 cargo_space_taken = 25;
+   */
+  cargoSpaceTaken?: number;
+  /**
+   * @generated from protobuf field: optional int32 cargo_space_max = 26;
+   */
+  cargoSpaceMax?: number;
+  /**
+   * @generated from protobuf field: optional int32 assigned_harvesters = 28;
+   */
+  assignedHarvesters?: number;
+  /**
+   * @generated from protobuf field: optional int32 ideal_harvesters = 29;
+   */
+  idealHarvesters?: number;
+  /**
+   * @generated from protobuf field: optional float weapon_cooldown = 30;
+   */
+  weaponCooldown?: number;
+  /**
+   * @generated from protobuf field: optional uint64 engaged_target_tag = 34;
+   */
+  engagedTargetTag?: bigint;
+  /**
+   * @generated from protobuf field: optional int32 buff_duration_remain = 43;
+   */
+  buffDurationRemain?: number; // How long a buff or unit is still around (e.g. MULE, Broodling, Chrono Boost).
+  /**
+   * @generated from protobuf field: optional int32 buff_duration_max = 44;
+   */
+  buffDurationMax?: number; // How long the buff or unit is still around (e.g. MULE, Broodling, Chrono Boost).
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.RallyTarget rally_targets = 45;
+   */
+  rallyTargets: RallyTarget[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.MapState
  */
 export interface MapState {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData visibility = 1;
-     */
-    visibility?: ImageData; // 1 byte visibility layer.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData creep = 2;
-     */
-    creep?: ImageData; // 1 bit creep layer.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData visibility = 1;
+   */
+  visibility?: ImageData; // 1 byte visibility layer.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData creep = 2;
+   */
+  creep?: ImageData; // 1 bit creep layer.
 }
 /**
  * @generated from protobuf message SC2APIProtocol.Event
  */
 export interface Event {
-    /**
-     * @generated from protobuf field: repeated uint64 dead_units = 1;
-     */
-    deadUnits: bigint[];
+  /**
+   * @generated from protobuf field: repeated uint64 dead_units = 1;
+   */
+  deadUnits: bigint[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.Effect
  */
 export interface Effect {
-    /**
-     * @generated from protobuf field: optional uint32 effect_id = 1;
-     */
-    effectId?: number;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.Point2D pos = 2;
-     */
-    pos: Point2D[]; // Effect may impact multiple locations. (eg. Lurker attack)
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Alliance alliance = 3;
-     */
-    alliance?: Alliance;
-    /**
-     * @generated from protobuf field: optional int32 owner = 4;
-     */
-    owner?: number;
-    /**
-     * @generated from protobuf field: optional float radius = 5;
-     */
-    radius?: number;
+  /**
+   * @generated from protobuf field: optional uint32 effect_id = 1;
+   */
+  effectId?: number;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.Point2D pos = 2;
+   */
+  pos: Point2D[]; // Effect may impact multiple locations. (eg. Lurker attack)
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Alliance alliance = 3;
+   */
+  alliance?: Alliance;
+  /**
+   * @generated from protobuf field: optional int32 owner = 4;
+   */
+  owner?: number;
+  /**
+   * @generated from protobuf field: optional float radius = 5;
+   */
+  radius?: number;
 }
-// 
+//
 // Action
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ActionRaw
  */
 export interface ActionRaw {
-    /**
-     * @generated from protobuf oneof: action
-     */
-    action: {
+  /**
+   * @generated from protobuf oneof: action
+   */
+  action:
+    | {
         oneofKind: "unitCommand";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionRawUnitCommand unit_command = 1;
          */
         unitCommand: ActionRawUnitCommand;
-    } | {
+      }
+    | {
         oneofKind: "cameraMove";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionRawCameraMove camera_move = 2;
          */
         cameraMove: ActionRawCameraMove;
-    } | {
+      }
+    | {
         oneofKind: "toggleAutocast";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionRawToggleAutocast toggle_autocast = 3;
          */
         toggleAutocast: ActionRawToggleAutocast;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
+      };
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionRawUnitCommand
  */
 export interface ActionRawUnitCommand {
-    /**
-     * @generated from protobuf field: optional int32 ability_id = 1;
-     */
-    abilityId?: number;
-    /**
-     * @generated from protobuf oneof: target
-     */
-    target: {
+  /**
+   * @generated from protobuf field: optional int32 ability_id = 1;
+   */
+  abilityId?: number;
+  /**
+   * @generated from protobuf oneof: target
+   */
+  target:
+    | {
         oneofKind: "targetWorldSpacePos";
         /**
          * @generated from protobuf field: SC2APIProtocol.Point2D target_world_space_pos = 2;
          */
         targetWorldSpacePos: Point2D;
-    } | {
+      }
+    | {
         oneofKind: "targetUnitTag";
         /**
          * @generated from protobuf field: uint64 target_unit_tag = 3;
          */
         targetUnitTag: bigint;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
-    /**
-     * @generated from protobuf field: repeated uint64 unit_tags = 4;
-     */
-    unitTags: bigint[];
-    /**
-     * @generated from protobuf field: optional bool queue_command = 5;
-     */
-    queueCommand?: boolean;
+      };
+  /**
+   * @generated from protobuf field: repeated uint64 unit_tags = 4;
+   */
+  unitTags: bigint[];
+  /**
+   * @generated from protobuf field: optional bool queue_command = 5;
+   */
+  queueCommand?: boolean;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionRawCameraMove
  */
 export interface ActionRawCameraMove {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Point center_world_space = 1;
-     */
-    centerWorldSpace?: Point;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Point center_world_space = 1;
+   */
+  centerWorldSpace?: Point;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionRawToggleAutocast
  */
 export interface ActionRawToggleAutocast {
-    /**
-     * @generated from protobuf field: optional int32 ability_id = 1;
-     */
-    abilityId?: number;
-    /**
-     * @generated from protobuf field: repeated uint64 unit_tags = 2;
-     */
-    unitTags: bigint[];
+  /**
+   * @generated from protobuf field: optional int32 ability_id = 1;
+   */
+  abilityId?: number;
+  /**
+   * @generated from protobuf field: repeated uint64 unit_tags = 2;
+   */
+  unitTags: bigint[];
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.DisplayType
  */
 export enum DisplayType {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Fully visible
-     *
-     * @generated from protobuf enum value: Visible = 1;
-     */
-    Visible = 1,
-    /**
-     * Dimmed version of unit left behind after entering fog of war
-     *
-     * @generated from protobuf enum value: Snapshot = 2;
-     */
-    Snapshot = 2,
-    /**
-     * Fully hidden
-     *
-     * @generated from protobuf enum value: Hidden = 3;
-     */
-    Hidden = 3,
-    /**
-     * Building that hasn't started construction.
-     *
-     * @generated from protobuf enum value: Placeholder = 4;
-     */
-    Placeholder = 4
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Fully visible
+   *
+   * @generated from protobuf enum value: Visible = 1;
+   */
+  Visible = 1,
+  /**
+   * Dimmed version of unit left behind after entering fog of war
+   *
+   * @generated from protobuf enum value: Snapshot = 2;
+   */
+  Snapshot = 2,
+  /**
+   * Fully hidden
+   *
+   * @generated from protobuf enum value: Hidden = 3;
+   */
+  Hidden = 3,
+  /**
+   * Building that hasn't started construction.
+   *
+   * @generated from protobuf enum value: Placeholder = 4;
+   */
+  Placeholder = 4,
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.Alliance
  */
 export enum Alliance {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: Self = 1;
-     */
-    Self = 1,
-    /**
-     * @generated from protobuf enum value: Ally = 2;
-     */
-    Ally = 2,
-    /**
-     * @generated from protobuf enum value: Neutral = 3;
-     */
-    Neutral = 3,
-    /**
-     * @generated from protobuf enum value: Enemy = 4;
-     */
-    Enemy = 4
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: Self = 1;
+   */
+  Self = 1,
+  /**
+   * @generated from protobuf enum value: Ally = 2;
+   */
+  Ally = 2,
+  /**
+   * @generated from protobuf enum value: Neutral = 3;
+   */
+  Neutral = 3,
+  /**
+   * @generated from protobuf enum value: Enemy = 4;
+   */
+  Enemy = 4,
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.CloakState
  */
 export enum CloakState {
-    /**
-     * Under the fog, so unknown whether it's cloaked or not.
-     *
-     * @generated from protobuf enum value: CloakedUnknown = 0;
-     */
-    CloakedUnknown = 0,
-    /**
-     * @generated from protobuf enum value: Cloaked = 1;
-     */
-    Cloaked = 1,
-    /**
-     * @generated from protobuf enum value: CloakedDetected = 2;
-     */
-    CloakedDetected = 2,
-    /**
-     * @generated from protobuf enum value: NotCloaked = 3;
-     */
-    NotCloaked = 3,
-    /**
-     * @generated from protobuf enum value: CloakedAllied = 4;
-     */
-    CloakedAllied = 4
+  /**
+   * Under the fog, so unknown whether it's cloaked or not.
+   *
+   * @generated from protobuf enum value: CloakedUnknown = 0;
+   */
+  CloakedUnknown = 0,
+  /**
+   * @generated from protobuf enum value: Cloaked = 1;
+   */
+  Cloaked = 1,
+  /**
+   * @generated from protobuf enum value: CloakedDetected = 2;
+   */
+  CloakedDetected = 2,
+  /**
+   * @generated from protobuf enum value: NotCloaked = 3;
+   */
+  NotCloaked = 3,
+  /**
+   * @generated from protobuf enum value: CloakedAllied = 4;
+   */
+  CloakedAllied = 4,
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class StartRaw$Type extends MessageType<StartRaw> {
-    constructor() {
-        super("SC2APIProtocol.StartRaw", [
-            { no: 1, name: "map_size", kind: "message", T: () => Size2DI },
-            { no: 2, name: "pathing_grid", kind: "message", T: () => ImageData },
-            { no: 3, name: "terrain_height", kind: "message", T: () => ImageData },
-            { no: 4, name: "placement_grid", kind: "message", T: () => ImageData },
-            { no: 5, name: "playable_area", kind: "message", T: () => RectangleI },
-            { no: 6, name: "start_locations", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Point2D }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.StartRaw", [
+      { no: 1, name: "map_size", kind: "message", T: () => Size2DI },
+      { no: 2, name: "pathing_grid", kind: "message", T: () => ImageData },
+      { no: 3, name: "terrain_height", kind: "message", T: () => ImageData },
+      { no: 4, name: "placement_grid", kind: "message", T: () => ImageData },
+      { no: 5, name: "playable_area", kind: "message", T: () => RectangleI },
+      {
+        no: 6,
+        name: "start_locations",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => Point2D,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<StartRaw>): StartRaw {
+    const message = { startLocations: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<StartRaw>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: StartRaw,
+  ): StartRaw {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Size2DI map_size */ 1:
+          message.mapSize = Size2DI.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.mapSize,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData pathing_grid */ 2:
+          message.pathingGrid = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pathingGrid,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData terrain_height */ 3:
+          message.terrainHeight = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.terrainHeight,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData placement_grid */ 4:
+          message.placementGrid = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.placementGrid,
+          );
+          break;
+        case /* optional SC2APIProtocol.RectangleI playable_area */ 5:
+          message.playableArea = RectangleI.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.playableArea,
+          );
+          break;
+        case /* repeated SC2APIProtocol.Point2D start_locations */ 6:
+          message.startLocations.push(
+            Point2D.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<StartRaw>): StartRaw {
-        const message = { startLocations: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<StartRaw>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: StartRaw): StartRaw {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Size2DI map_size */ 1:
-                    message.mapSize = Size2DI.internalBinaryRead(reader, reader.uint32(), options, message.mapSize);
-                    break;
-                case /* optional SC2APIProtocol.ImageData pathing_grid */ 2:
-                    message.pathingGrid = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.pathingGrid);
-                    break;
-                case /* optional SC2APIProtocol.ImageData terrain_height */ 3:
-                    message.terrainHeight = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.terrainHeight);
-                    break;
-                case /* optional SC2APIProtocol.ImageData placement_grid */ 4:
-                    message.placementGrid = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.placementGrid);
-                    break;
-                case /* optional SC2APIProtocol.RectangleI playable_area */ 5:
-                    message.playableArea = RectangleI.internalBinaryRead(reader, reader.uint32(), options, message.playableArea);
-                    break;
-                case /* repeated SC2APIProtocol.Point2D start_locations */ 6:
-                    message.startLocations.push(Point2D.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: StartRaw, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Size2DI map_size = 1; */
-        if (message.mapSize)
-            Size2DI.internalBinaryWrite(message.mapSize, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData pathing_grid = 2; */
-        if (message.pathingGrid)
-            ImageData.internalBinaryWrite(message.pathingGrid, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData terrain_height = 3; */
-        if (message.terrainHeight)
-            ImageData.internalBinaryWrite(message.terrainHeight, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData placement_grid = 4; */
-        if (message.placementGrid)
-            ImageData.internalBinaryWrite(message.placementGrid, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.RectangleI playable_area = 5; */
-        if (message.playableArea)
-            RectangleI.internalBinaryWrite(message.playableArea, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.Point2D start_locations = 6; */
-        for (let i = 0; i < message.startLocations.length; i++)
-            Point2D.internalBinaryWrite(message.startLocations[i], writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: StartRaw,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Size2DI map_size = 1; */
+    if (message.mapSize)
+      Size2DI.internalBinaryWrite(
+        message.mapSize,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData pathing_grid = 2; */
+    if (message.pathingGrid)
+      ImageData.internalBinaryWrite(
+        message.pathingGrid,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData terrain_height = 3; */
+    if (message.terrainHeight)
+      ImageData.internalBinaryWrite(
+        message.terrainHeight,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData placement_grid = 4; */
+    if (message.placementGrid)
+      ImageData.internalBinaryWrite(
+        message.placementGrid,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.RectangleI playable_area = 5; */
+    if (message.playableArea)
+      RectangleI.internalBinaryWrite(
+        message.playableArea,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.Point2D start_locations = 6; */
+    for (let i = 0; i < message.startLocations.length; i++)
+      Point2D.internalBinaryWrite(
+        message.startLocations[i],
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.StartRaw
@@ -705,81 +797,169 @@ class StartRaw$Type extends MessageType<StartRaw> {
 export const StartRaw = new StartRaw$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ObservationRaw$Type extends MessageType<ObservationRaw> {
-    constructor() {
-        super("SC2APIProtocol.ObservationRaw", [
-            { no: 1, name: "player", kind: "message", T: () => PlayerRaw },
-            { no: 2, name: "units", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Unit },
-            { no: 3, name: "map_state", kind: "message", T: () => MapState },
-            { no: 4, name: "event", kind: "message", T: () => Event },
-            { no: 5, name: "effects", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Effect },
-            { no: 6, name: "radar", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => RadarRing }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ObservationRaw", [
+      { no: 1, name: "player", kind: "message", T: () => PlayerRaw },
+      {
+        no: 2,
+        name: "units",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => Unit,
+      },
+      { no: 3, name: "map_state", kind: "message", T: () => MapState },
+      { no: 4, name: "event", kind: "message", T: () => Event },
+      {
+        no: 5,
+        name: "effects",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => Effect,
+      },
+      {
+        no: 6,
+        name: "radar",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => RadarRing,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ObservationRaw>): ObservationRaw {
+    const message = { units: [], effects: [], radar: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ObservationRaw>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ObservationRaw,
+  ): ObservationRaw {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.PlayerRaw player */ 1:
+          message.player = PlayerRaw.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.player,
+          );
+          break;
+        case /* repeated SC2APIProtocol.Unit units */ 2:
+          message.units.push(
+            Unit.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional SC2APIProtocol.MapState map_state */ 3:
+          message.mapState = MapState.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.mapState,
+          );
+          break;
+        case /* optional SC2APIProtocol.Event event */ 4:
+          message.event = Event.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.event,
+          );
+          break;
+        case /* repeated SC2APIProtocol.Effect effects */ 5:
+          message.effects.push(
+            Effect.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* repeated SC2APIProtocol.RadarRing radar */ 6:
+          message.radar.push(
+            RadarRing.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ObservationRaw>): ObservationRaw {
-        const message = { units: [], effects: [], radar: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ObservationRaw>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ObservationRaw): ObservationRaw {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.PlayerRaw player */ 1:
-                    message.player = PlayerRaw.internalBinaryRead(reader, reader.uint32(), options, message.player);
-                    break;
-                case /* repeated SC2APIProtocol.Unit units */ 2:
-                    message.units.push(Unit.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional SC2APIProtocol.MapState map_state */ 3:
-                    message.mapState = MapState.internalBinaryRead(reader, reader.uint32(), options, message.mapState);
-                    break;
-                case /* optional SC2APIProtocol.Event event */ 4:
-                    message.event = Event.internalBinaryRead(reader, reader.uint32(), options, message.event);
-                    break;
-                case /* repeated SC2APIProtocol.Effect effects */ 5:
-                    message.effects.push(Effect.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* repeated SC2APIProtocol.RadarRing radar */ 6:
-                    message.radar.push(RadarRing.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ObservationRaw, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.PlayerRaw player = 1; */
-        if (message.player)
-            PlayerRaw.internalBinaryWrite(message.player, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.Unit units = 2; */
-        for (let i = 0; i < message.units.length; i++)
-            Unit.internalBinaryWrite(message.units[i], writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.MapState map_state = 3; */
-        if (message.mapState)
-            MapState.internalBinaryWrite(message.mapState, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Event event = 4; */
-        if (message.event)
-            Event.internalBinaryWrite(message.event, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.Effect effects = 5; */
-        for (let i = 0; i < message.effects.length; i++)
-            Effect.internalBinaryWrite(message.effects[i], writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.RadarRing radar = 6; */
-        for (let i = 0; i < message.radar.length; i++)
-            RadarRing.internalBinaryWrite(message.radar[i], writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ObservationRaw,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.PlayerRaw player = 1; */
+    if (message.player)
+      PlayerRaw.internalBinaryWrite(
+        message.player,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.Unit units = 2; */
+    for (let i = 0; i < message.units.length; i++)
+      Unit.internalBinaryWrite(
+        message.units[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.MapState map_state = 3; */
+    if (message.mapState)
+      MapState.internalBinaryWrite(
+        message.mapState,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Event event = 4; */
+    if (message.event)
+      Event.internalBinaryWrite(
+        message.event,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.Effect effects = 5; */
+    for (let i = 0; i < message.effects.length; i++)
+      Effect.internalBinaryWrite(
+        message.effects[i],
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.RadarRing radar = 6; */
+    for (let i = 0; i < message.radar.length; i++)
+      RadarRing.internalBinaryWrite(
+        message.radar[i],
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ObservationRaw
@@ -787,53 +967,93 @@ class ObservationRaw$Type extends MessageType<ObservationRaw> {
 export const ObservationRaw = new ObservationRaw$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class RadarRing$Type extends MessageType<RadarRing> {
-    constructor() {
-        super("SC2APIProtocol.RadarRing", [
-            { no: 1, name: "pos", kind: "message", T: () => Point },
-            { no: 2, name: "radius", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.RadarRing", [
+      { no: 1, name: "pos", kind: "message", T: () => Point },
+      {
+        no: 2,
+        name: "radius",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<RadarRing>): RadarRing {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<RadarRing>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RadarRing,
+  ): RadarRing {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Point pos */ 1:
+          message.pos = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pos,
+          );
+          break;
+        case /* optional float radius */ 2:
+          message.radius = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<RadarRing>): RadarRing {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<RadarRing>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: RadarRing): RadarRing {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Point pos */ 1:
-                    message.pos = Point.internalBinaryRead(reader, reader.uint32(), options, message.pos);
-                    break;
-                case /* optional float radius */ 2:
-                    message.radius = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: RadarRing, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Point pos = 1; */
-        if (message.pos)
-            Point.internalBinaryWrite(message.pos, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional float radius = 2; */
-        if (message.radius !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.radius);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: RadarRing,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Point pos = 1; */
+    if (message.pos)
+      Point.internalBinaryWrite(
+        message.pos,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional float radius = 2; */
+    if (message.radius !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.radius);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.RadarRing
@@ -841,60 +1061,107 @@ class RadarRing$Type extends MessageType<RadarRing> {
 export const RadarRing = new RadarRing$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class PowerSource$Type extends MessageType<PowerSource> {
-    constructor() {
-        super("SC2APIProtocol.PowerSource", [
-            { no: 1, name: "pos", kind: "message", T: () => Point },
-            { no: 2, name: "radius", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 3, name: "tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.PowerSource", [
+      { no: 1, name: "pos", kind: "message", T: () => Point },
+      {
+        no: 2,
+        name: "radius",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 3,
+        name: "tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<PowerSource>): PowerSource {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<PowerSource>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PowerSource,
+  ): PowerSource {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Point pos */ 1:
+          message.pos = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pos,
+          );
+          break;
+        case /* optional float radius */ 2:
+          message.radius = reader.float();
+          break;
+        case /* optional uint64 tag */ 3:
+          message.tag = reader.uint64().toBigInt();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<PowerSource>): PowerSource {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<PowerSource>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PowerSource): PowerSource {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Point pos */ 1:
-                    message.pos = Point.internalBinaryRead(reader, reader.uint32(), options, message.pos);
-                    break;
-                case /* optional float radius */ 2:
-                    message.radius = reader.float();
-                    break;
-                case /* optional uint64 tag */ 3:
-                    message.tag = reader.uint64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: PowerSource, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Point pos = 1; */
-        if (message.pos)
-            Point.internalBinaryWrite(message.pos, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional float radius = 2; */
-        if (message.radius !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.radius);
-        /* optional uint64 tag = 3; */
-        if (message.tag !== undefined)
-            writer.tag(3, WireType.Varint).uint64(message.tag);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: PowerSource,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Point pos = 1; */
+    if (message.pos)
+      Point.internalBinaryWrite(
+        message.pos,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional float radius = 2; */
+    if (message.radius !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.radius);
+    /* optional uint64 tag = 3; */
+    if (message.tag !== undefined)
+      writer.tag(3, WireType.Varint).uint64(message.tag);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.PowerSource
@@ -902,64 +1169,115 @@ class PowerSource$Type extends MessageType<PowerSource> {
 export const PowerSource = new PowerSource$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class PlayerRaw$Type extends MessageType<PlayerRaw> {
-    constructor() {
-        super("SC2APIProtocol.PlayerRaw", [
-            { no: 1, name: "power_sources", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => PowerSource },
-            { no: 2, name: "camera", kind: "message", T: () => Point },
-            { no: 3, name: "upgrade_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.PlayerRaw", [
+      {
+        no: 1,
+        name: "power_sources",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => PowerSource,
+      },
+      { no: 2, name: "camera", kind: "message", T: () => Point },
+      {
+        no: 3,
+        name: "upgrade_ids",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<PlayerRaw>): PlayerRaw {
+    const message = { powerSources: [], upgradeIds: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<PlayerRaw>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PlayerRaw,
+  ): PlayerRaw {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated SC2APIProtocol.PowerSource power_sources */ 1:
+          message.powerSources.push(
+            PowerSource.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional SC2APIProtocol.Point camera */ 2:
+          message.camera = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.camera,
+          );
+          break;
+        case /* repeated uint32 upgrade_ids */ 3:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.upgradeIds.push(reader.uint32());
+          else message.upgradeIds.push(reader.uint32());
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<PlayerRaw>): PlayerRaw {
-        const message = { powerSources: [], upgradeIds: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<PlayerRaw>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PlayerRaw): PlayerRaw {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated SC2APIProtocol.PowerSource power_sources */ 1:
-                    message.powerSources.push(PowerSource.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional SC2APIProtocol.Point camera */ 2:
-                    message.camera = Point.internalBinaryRead(reader, reader.uint32(), options, message.camera);
-                    break;
-                case /* repeated uint32 upgrade_ids */ 3:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.upgradeIds.push(reader.uint32());
-                    else
-                        message.upgradeIds.push(reader.uint32());
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: PlayerRaw, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated SC2APIProtocol.PowerSource power_sources = 1; */
-        for (let i = 0; i < message.powerSources.length; i++)
-            PowerSource.internalBinaryWrite(message.powerSources[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Point camera = 2; */
-        if (message.camera)
-            Point.internalBinaryWrite(message.camera, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* repeated uint32 upgrade_ids = 3; */
-        for (let i = 0; i < message.upgradeIds.length; i++)
-            writer.tag(3, WireType.Varint).uint32(message.upgradeIds[i]);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: PlayerRaw,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated SC2APIProtocol.PowerSource power_sources = 1; */
+    for (let i = 0; i < message.powerSources.length; i++)
+      PowerSource.internalBinaryWrite(
+        message.powerSources[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Point camera = 2; */
+    if (message.camera)
+      Point.internalBinaryWrite(
+        message.camera,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated uint32 upgrade_ids = 3; */
+    for (let i = 0; i < message.upgradeIds.length; i++)
+      writer.tag(3, WireType.Varint).uint32(message.upgradeIds[i]);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.PlayerRaw
@@ -967,73 +1285,132 @@ class PlayerRaw$Type extends MessageType<PlayerRaw> {
 export const PlayerRaw = new PlayerRaw$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class UnitOrder$Type extends MessageType<UnitOrder> {
-    constructor() {
-        super("SC2APIProtocol.UnitOrder", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "target_world_space_pos", kind: "message", oneof: "target", T: () => Point },
-            { no: 3, name: "target_unit_tag", kind: "scalar", oneof: "target", T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "progress", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.UnitOrder", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "target_world_space_pos",
+        kind: "message",
+        oneof: "target",
+        T: () => Point,
+      },
+      {
+        no: 3,
+        name: "target_unit_tag",
+        kind: "scalar",
+        oneof: "target",
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 4,
+        name: "progress",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<UnitOrder>): UnitOrder {
+    const message = { target: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<UnitOrder>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: UnitOrder,
+  ): UnitOrder {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 ability_id */ 1:
+          message.abilityId = reader.uint32();
+          break;
+        case /* SC2APIProtocol.Point target_world_space_pos */ 2:
+          message.target = {
+            oneofKind: "targetWorldSpacePos",
+            targetWorldSpacePos: Point.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.target as any).targetWorldSpacePos,
+            ),
+          };
+          break;
+        case /* uint64 target_unit_tag */ 3:
+          message.target = {
+            oneofKind: "targetUnitTag",
+            targetUnitTag: reader.uint64().toBigInt(),
+          };
+          break;
+        case /* optional float progress */ 4:
+          message.progress = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<UnitOrder>): UnitOrder {
-        const message = { target: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UnitOrder>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UnitOrder): UnitOrder {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 ability_id */ 1:
-                    message.abilityId = reader.uint32();
-                    break;
-                case /* SC2APIProtocol.Point target_world_space_pos */ 2:
-                    message.target = {
-                        oneofKind: "targetWorldSpacePos",
-                        targetWorldSpacePos: Point.internalBinaryRead(reader, reader.uint32(), options, (message.target as any).targetWorldSpacePos)
-                    };
-                    break;
-                case /* uint64 target_unit_tag */ 3:
-                    message.target = {
-                        oneofKind: "targetUnitTag",
-                        targetUnitTag: reader.uint64().toBigInt()
-                    };
-                    break;
-                case /* optional float progress */ 4:
-                    message.progress = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UnitOrder, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.abilityId);
-        /* SC2APIProtocol.Point target_world_space_pos = 2; */
-        if (message.target.oneofKind === "targetWorldSpacePos")
-            Point.internalBinaryWrite(message.target.targetWorldSpacePos, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* uint64 target_unit_tag = 3; */
-        if (message.target.oneofKind === "targetUnitTag")
-            writer.tag(3, WireType.Varint).uint64(message.target.targetUnitTag);
-        /* optional float progress = 4; */
-        if (message.progress !== undefined)
-            writer.tag(4, WireType.Bit32).float(message.progress);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: UnitOrder,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.abilityId);
+    /* SC2APIProtocol.Point target_world_space_pos = 2; */
+    if (message.target.oneofKind === "targetWorldSpacePos")
+      Point.internalBinaryWrite(
+        message.target.targetWorldSpacePos,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* uint64 target_unit_tag = 3; */
+    if (message.target.oneofKind === "targetUnitTag")
+      writer.tag(3, WireType.Varint).uint64(message.target.targetUnitTag);
+    /* optional float progress = 4; */
+    if (message.progress !== undefined)
+      writer.tag(4, WireType.Bit32).float(message.progress);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.UnitOrder
@@ -1041,95 +1418,169 @@ class UnitOrder$Type extends MessageType<UnitOrder> {
 export const UnitOrder = new UnitOrder$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class PassengerUnit$Type extends MessageType<PassengerUnit> {
-    constructor() {
-        super("SC2APIProtocol.PassengerUnit", [
-            { no: 1, name: "tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 2, name: "health", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 3, name: "health_max", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 4, name: "shield", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 7, name: "shield_max", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 5, name: "energy", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 8, name: "energy_max", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 6, name: "unit_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.PassengerUnit", [
+      {
+        no: 1,
+        name: "tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 2,
+        name: "health",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 3,
+        name: "health_max",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 4,
+        name: "shield",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 7,
+        name: "shield_max",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 5,
+        name: "energy",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 8,
+        name: "energy_max",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 6,
+        name: "unit_type",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<PassengerUnit>): PassengerUnit {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<PassengerUnit>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: PassengerUnit,
+  ): PassengerUnit {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint64 tag */ 1:
+          message.tag = reader.uint64().toBigInt();
+          break;
+        case /* optional float health */ 2:
+          message.health = reader.float();
+          break;
+        case /* optional float health_max */ 3:
+          message.healthMax = reader.float();
+          break;
+        case /* optional float shield */ 4:
+          message.shield = reader.float();
+          break;
+        case /* optional float shield_max */ 7:
+          message.shieldMax = reader.float();
+          break;
+        case /* optional float energy */ 5:
+          message.energy = reader.float();
+          break;
+        case /* optional float energy_max */ 8:
+          message.energyMax = reader.float();
+          break;
+        case /* optional uint32 unit_type */ 6:
+          message.unitType = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<PassengerUnit>): PassengerUnit {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<PassengerUnit>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: PassengerUnit): PassengerUnit {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint64 tag */ 1:
-                    message.tag = reader.uint64().toBigInt();
-                    break;
-                case /* optional float health */ 2:
-                    message.health = reader.float();
-                    break;
-                case /* optional float health_max */ 3:
-                    message.healthMax = reader.float();
-                    break;
-                case /* optional float shield */ 4:
-                    message.shield = reader.float();
-                    break;
-                case /* optional float shield_max */ 7:
-                    message.shieldMax = reader.float();
-                    break;
-                case /* optional float energy */ 5:
-                    message.energy = reader.float();
-                    break;
-                case /* optional float energy_max */ 8:
-                    message.energyMax = reader.float();
-                    break;
-                case /* optional uint32 unit_type */ 6:
-                    message.unitType = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: PassengerUnit, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint64 tag = 1; */
-        if (message.tag !== undefined)
-            writer.tag(1, WireType.Varint).uint64(message.tag);
-        /* optional float health = 2; */
-        if (message.health !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.health);
-        /* optional float health_max = 3; */
-        if (message.healthMax !== undefined)
-            writer.tag(3, WireType.Bit32).float(message.healthMax);
-        /* optional float shield = 4; */
-        if (message.shield !== undefined)
-            writer.tag(4, WireType.Bit32).float(message.shield);
-        /* optional float shield_max = 7; */
-        if (message.shieldMax !== undefined)
-            writer.tag(7, WireType.Bit32).float(message.shieldMax);
-        /* optional float energy = 5; */
-        if (message.energy !== undefined)
-            writer.tag(5, WireType.Bit32).float(message.energy);
-        /* optional float energy_max = 8; */
-        if (message.energyMax !== undefined)
-            writer.tag(8, WireType.Bit32).float(message.energyMax);
-        /* optional uint32 unit_type = 6; */
-        if (message.unitType !== undefined)
-            writer.tag(6, WireType.Varint).uint32(message.unitType);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: PassengerUnit,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint64 tag = 1; */
+    if (message.tag !== undefined)
+      writer.tag(1, WireType.Varint).uint64(message.tag);
+    /* optional float health = 2; */
+    if (message.health !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.health);
+    /* optional float health_max = 3; */
+    if (message.healthMax !== undefined)
+      writer.tag(3, WireType.Bit32).float(message.healthMax);
+    /* optional float shield = 4; */
+    if (message.shield !== undefined)
+      writer.tag(4, WireType.Bit32).float(message.shield);
+    /* optional float shield_max = 7; */
+    if (message.shieldMax !== undefined)
+      writer.tag(7, WireType.Bit32).float(message.shieldMax);
+    /* optional float energy = 5; */
+    if (message.energy !== undefined)
+      writer.tag(5, WireType.Bit32).float(message.energy);
+    /* optional float energy_max = 8; */
+    if (message.energyMax !== undefined)
+      writer.tag(8, WireType.Bit32).float(message.energyMax);
+    /* optional uint32 unit_type = 6; */
+    if (message.unitType !== undefined)
+      writer.tag(6, WireType.Varint).uint32(message.unitType);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.PassengerUnit
@@ -1137,53 +1588,94 @@ class PassengerUnit$Type extends MessageType<PassengerUnit> {
 export const PassengerUnit = new PassengerUnit$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class RallyTarget$Type extends MessageType<RallyTarget> {
-    constructor() {
-        super("SC2APIProtocol.RallyTarget", [
-            { no: 1, name: "point", kind: "message", T: () => Point },
-            { no: 2, name: "tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.RallyTarget", [
+      { no: 1, name: "point", kind: "message", T: () => Point },
+      {
+        no: 2,
+        name: "tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<RallyTarget>): RallyTarget {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<RallyTarget>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: RallyTarget,
+  ): RallyTarget {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Point point */ 1:
+          message.point = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.point,
+          );
+          break;
+        case /* optional uint64 tag */ 2:
+          message.tag = reader.uint64().toBigInt();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<RallyTarget>): RallyTarget {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<RallyTarget>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: RallyTarget): RallyTarget {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Point point */ 1:
-                    message.point = Point.internalBinaryRead(reader, reader.uint32(), options, message.point);
-                    break;
-                case /* optional uint64 tag */ 2:
-                    message.tag = reader.uint64().toBigInt();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: RallyTarget, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Point point = 1; */
-        if (message.point)
-            Point.internalBinaryWrite(message.point, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional uint64 tag = 2; */
-        if (message.tag !== undefined)
-            writer.tag(2, WireType.Varint).uint64(message.tag);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: RallyTarget,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Point point = 1; */
+    if (message.point)
+      Point.internalBinaryWrite(
+        message.point,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional uint64 tag = 2; */
+    if (message.tag !== undefined)
+      writer.tag(2, WireType.Varint).uint64(message.tag);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.RallyTarget
@@ -1191,351 +1683,667 @@ class RallyTarget$Type extends MessageType<RallyTarget> {
 export const RallyTarget = new RallyTarget$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Unit$Type extends MessageType<Unit> {
-    constructor() {
-        super("SC2APIProtocol.Unit", [
-            { no: 1, name: "display_type", kind: "enum", opt: true, T: () => ["SC2APIProtocol.DisplayType", DisplayType] },
-            { no: 2, name: "alliance", kind: "enum", opt: true, T: () => ["SC2APIProtocol.Alliance", Alliance] },
-            { no: 3, name: "tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "unit_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "owner", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "pos", kind: "message", T: () => Point },
-            { no: 7, name: "facing", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 8, name: "radius", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 9, name: "build_progress", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 10, name: "cloak", kind: "enum", opt: true, T: () => ["SC2APIProtocol.CloakState", CloakState] },
-            { no: 27, name: "buff_ids", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 31, name: "detect_range", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 32, name: "radar_range", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 11, name: "is_selected", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 12, name: "is_on_screen", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 13, name: "is_blip", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 35, name: "is_powered", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 39, name: "is_active", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 40, name: "attack_upgrade_level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 41, name: "armor_upgrade_level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 42, name: "shield_upgrade_level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 14, name: "health", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 15, name: "health_max", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 16, name: "shield", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 36, name: "shield_max", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 17, name: "energy", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 37, name: "energy_max", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 18, name: "mineral_contents", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 19, name: "vespene_contents", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 20, name: "is_flying", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 21, name: "is_burrowed", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 38, name: "is_hallucination", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 22, name: "orders", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => UnitOrder },
-            { no: 23, name: "add_on_tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 24, name: "passengers", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => PassengerUnit },
-            { no: 25, name: "cargo_space_taken", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 26, name: "cargo_space_max", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 28, name: "assigned_harvesters", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 29, name: "ideal_harvesters", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 30, name: "weapon_cooldown", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 34, name: "engaged_target_tag", kind: "scalar", opt: true, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 43, name: "buff_duration_remain", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 44, name: "buff_duration_max", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 45, name: "rally_targets", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => RallyTarget }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.Unit", [
+      {
+        no: 1,
+        name: "display_type",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.DisplayType", DisplayType],
+      },
+      {
+        no: 2,
+        name: "alliance",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.Alliance", Alliance],
+      },
+      {
+        no: 3,
+        name: "tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 4,
+        name: "unit_type",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 5,
+        name: "owner",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      { no: 6, name: "pos", kind: "message", T: () => Point },
+      {
+        no: 7,
+        name: "facing",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 8,
+        name: "radius",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 9,
+        name: "build_progress",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 10,
+        name: "cloak",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.CloakState", CloakState],
+      },
+      {
+        no: 27,
+        name: "buff_ids",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 31,
+        name: "detect_range",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 32,
+        name: "radar_range",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 11,
+        name: "is_selected",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 12,
+        name: "is_on_screen",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 13,
+        name: "is_blip",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 35,
+        name: "is_powered",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 39,
+        name: "is_active",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 40,
+        name: "attack_upgrade_level",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 41,
+        name: "armor_upgrade_level",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 42,
+        name: "shield_upgrade_level",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 14,
+        name: "health",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 15,
+        name: "health_max",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 16,
+        name: "shield",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 36,
+        name: "shield_max",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 17,
+        name: "energy",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 37,
+        name: "energy_max",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 18,
+        name: "mineral_contents",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 19,
+        name: "vespene_contents",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 20,
+        name: "is_flying",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 21,
+        name: "is_burrowed",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 38,
+        name: "is_hallucination",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 22,
+        name: "orders",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => UnitOrder,
+      },
+      {
+        no: 23,
+        name: "add_on_tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 24,
+        name: "passengers",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => PassengerUnit,
+      },
+      {
+        no: 25,
+        name: "cargo_space_taken",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 26,
+        name: "cargo_space_max",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 28,
+        name: "assigned_harvesters",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 29,
+        name: "ideal_harvesters",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 30,
+        name: "weapon_cooldown",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 34,
+        name: "engaged_target_tag",
+        kind: "scalar",
+        opt: true,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 43,
+        name: "buff_duration_remain",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 44,
+        name: "buff_duration_max",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 45,
+        name: "rally_targets",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => RallyTarget,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<Unit>): Unit {
+    const message = {
+      buffIds: [],
+      orders: [],
+      passengers: [],
+      rallyTargets: [],
+    };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined) reflectionMergePartial<Unit>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Unit,
+  ): Unit {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.DisplayType display_type */ 1:
+          message.displayType = reader.int32();
+          break;
+        case /* optional SC2APIProtocol.Alliance alliance */ 2:
+          message.alliance = reader.int32();
+          break;
+        case /* optional uint64 tag */ 3:
+          message.tag = reader.uint64().toBigInt();
+          break;
+        case /* optional uint32 unit_type */ 4:
+          message.unitType = reader.uint32();
+          break;
+        case /* optional int32 owner */ 5:
+          message.owner = reader.int32();
+          break;
+        case /* optional SC2APIProtocol.Point pos */ 6:
+          message.pos = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pos,
+          );
+          break;
+        case /* optional float facing */ 7:
+          message.facing = reader.float();
+          break;
+        case /* optional float radius */ 8:
+          message.radius = reader.float();
+          break;
+        case /* optional float build_progress */ 9:
+          message.buildProgress = reader.float();
+          break;
+        case /* optional SC2APIProtocol.CloakState cloak */ 10:
+          message.cloak = reader.int32();
+          break;
+        case /* repeated uint32 buff_ids */ 27:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.buffIds.push(reader.uint32());
+          else message.buffIds.push(reader.uint32());
+          break;
+        case /* optional float detect_range */ 31:
+          message.detectRange = reader.float();
+          break;
+        case /* optional float radar_range */ 32:
+          message.radarRange = reader.float();
+          break;
+        case /* optional bool is_selected */ 11:
+          message.isSelected = reader.bool();
+          break;
+        case /* optional bool is_on_screen */ 12:
+          message.isOnScreen = reader.bool();
+          break;
+        case /* optional bool is_blip */ 13:
+          message.isBlip = reader.bool();
+          break;
+        case /* optional bool is_powered */ 35:
+          message.isPowered = reader.bool();
+          break;
+        case /* optional bool is_active */ 39:
+          message.isActive = reader.bool();
+          break;
+        case /* optional int32 attack_upgrade_level */ 40:
+          message.attackUpgradeLevel = reader.int32();
+          break;
+        case /* optional int32 armor_upgrade_level */ 41:
+          message.armorUpgradeLevel = reader.int32();
+          break;
+        case /* optional int32 shield_upgrade_level */ 42:
+          message.shieldUpgradeLevel = reader.int32();
+          break;
+        case /* optional float health */ 14:
+          message.health = reader.float();
+          break;
+        case /* optional float health_max */ 15:
+          message.healthMax = reader.float();
+          break;
+        case /* optional float shield */ 16:
+          message.shield = reader.float();
+          break;
+        case /* optional float shield_max */ 36:
+          message.shieldMax = reader.float();
+          break;
+        case /* optional float energy */ 17:
+          message.energy = reader.float();
+          break;
+        case /* optional float energy_max */ 37:
+          message.energyMax = reader.float();
+          break;
+        case /* optional int32 mineral_contents */ 18:
+          message.mineralContents = reader.int32();
+          break;
+        case /* optional int32 vespene_contents */ 19:
+          message.vespeneContents = reader.int32();
+          break;
+        case /* optional bool is_flying */ 20:
+          message.isFlying = reader.bool();
+          break;
+        case /* optional bool is_burrowed */ 21:
+          message.isBurrowed = reader.bool();
+          break;
+        case /* optional bool is_hallucination */ 38:
+          message.isHallucination = reader.bool();
+          break;
+        case /* repeated SC2APIProtocol.UnitOrder orders */ 22:
+          message.orders.push(
+            UnitOrder.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional uint64 add_on_tag */ 23:
+          message.addOnTag = reader.uint64().toBigInt();
+          break;
+        case /* repeated SC2APIProtocol.PassengerUnit passengers */ 24:
+          message.passengers.push(
+            PassengerUnit.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional int32 cargo_space_taken */ 25:
+          message.cargoSpaceTaken = reader.int32();
+          break;
+        case /* optional int32 cargo_space_max */ 26:
+          message.cargoSpaceMax = reader.int32();
+          break;
+        case /* optional int32 assigned_harvesters */ 28:
+          message.assignedHarvesters = reader.int32();
+          break;
+        case /* optional int32 ideal_harvesters */ 29:
+          message.idealHarvesters = reader.int32();
+          break;
+        case /* optional float weapon_cooldown */ 30:
+          message.weaponCooldown = reader.float();
+          break;
+        case /* optional uint64 engaged_target_tag */ 34:
+          message.engagedTargetTag = reader.uint64().toBigInt();
+          break;
+        case /* optional int32 buff_duration_remain */ 43:
+          message.buffDurationRemain = reader.int32();
+          break;
+        case /* optional int32 buff_duration_max */ 44:
+          message.buffDurationMax = reader.int32();
+          break;
+        case /* repeated SC2APIProtocol.RallyTarget rally_targets */ 45:
+          message.rallyTargets.push(
+            RallyTarget.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<Unit>): Unit {
-        const message = { buffIds: [], orders: [], passengers: [], rallyTargets: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Unit>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Unit): Unit {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.DisplayType display_type */ 1:
-                    message.displayType = reader.int32();
-                    break;
-                case /* optional SC2APIProtocol.Alliance alliance */ 2:
-                    message.alliance = reader.int32();
-                    break;
-                case /* optional uint64 tag */ 3:
-                    message.tag = reader.uint64().toBigInt();
-                    break;
-                case /* optional uint32 unit_type */ 4:
-                    message.unitType = reader.uint32();
-                    break;
-                case /* optional int32 owner */ 5:
-                    message.owner = reader.int32();
-                    break;
-                case /* optional SC2APIProtocol.Point pos */ 6:
-                    message.pos = Point.internalBinaryRead(reader, reader.uint32(), options, message.pos);
-                    break;
-                case /* optional float facing */ 7:
-                    message.facing = reader.float();
-                    break;
-                case /* optional float radius */ 8:
-                    message.radius = reader.float();
-                    break;
-                case /* optional float build_progress */ 9:
-                    message.buildProgress = reader.float();
-                    break;
-                case /* optional SC2APIProtocol.CloakState cloak */ 10:
-                    message.cloak = reader.int32();
-                    break;
-                case /* repeated uint32 buff_ids */ 27:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.buffIds.push(reader.uint32());
-                    else
-                        message.buffIds.push(reader.uint32());
-                    break;
-                case /* optional float detect_range */ 31:
-                    message.detectRange = reader.float();
-                    break;
-                case /* optional float radar_range */ 32:
-                    message.radarRange = reader.float();
-                    break;
-                case /* optional bool is_selected */ 11:
-                    message.isSelected = reader.bool();
-                    break;
-                case /* optional bool is_on_screen */ 12:
-                    message.isOnScreen = reader.bool();
-                    break;
-                case /* optional bool is_blip */ 13:
-                    message.isBlip = reader.bool();
-                    break;
-                case /* optional bool is_powered */ 35:
-                    message.isPowered = reader.bool();
-                    break;
-                case /* optional bool is_active */ 39:
-                    message.isActive = reader.bool();
-                    break;
-                case /* optional int32 attack_upgrade_level */ 40:
-                    message.attackUpgradeLevel = reader.int32();
-                    break;
-                case /* optional int32 armor_upgrade_level */ 41:
-                    message.armorUpgradeLevel = reader.int32();
-                    break;
-                case /* optional int32 shield_upgrade_level */ 42:
-                    message.shieldUpgradeLevel = reader.int32();
-                    break;
-                case /* optional float health */ 14:
-                    message.health = reader.float();
-                    break;
-                case /* optional float health_max */ 15:
-                    message.healthMax = reader.float();
-                    break;
-                case /* optional float shield */ 16:
-                    message.shield = reader.float();
-                    break;
-                case /* optional float shield_max */ 36:
-                    message.shieldMax = reader.float();
-                    break;
-                case /* optional float energy */ 17:
-                    message.energy = reader.float();
-                    break;
-                case /* optional float energy_max */ 37:
-                    message.energyMax = reader.float();
-                    break;
-                case /* optional int32 mineral_contents */ 18:
-                    message.mineralContents = reader.int32();
-                    break;
-                case /* optional int32 vespene_contents */ 19:
-                    message.vespeneContents = reader.int32();
-                    break;
-                case /* optional bool is_flying */ 20:
-                    message.isFlying = reader.bool();
-                    break;
-                case /* optional bool is_burrowed */ 21:
-                    message.isBurrowed = reader.bool();
-                    break;
-                case /* optional bool is_hallucination */ 38:
-                    message.isHallucination = reader.bool();
-                    break;
-                case /* repeated SC2APIProtocol.UnitOrder orders */ 22:
-                    message.orders.push(UnitOrder.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional uint64 add_on_tag */ 23:
-                    message.addOnTag = reader.uint64().toBigInt();
-                    break;
-                case /* repeated SC2APIProtocol.PassengerUnit passengers */ 24:
-                    message.passengers.push(PassengerUnit.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional int32 cargo_space_taken */ 25:
-                    message.cargoSpaceTaken = reader.int32();
-                    break;
-                case /* optional int32 cargo_space_max */ 26:
-                    message.cargoSpaceMax = reader.int32();
-                    break;
-                case /* optional int32 assigned_harvesters */ 28:
-                    message.assignedHarvesters = reader.int32();
-                    break;
-                case /* optional int32 ideal_harvesters */ 29:
-                    message.idealHarvesters = reader.int32();
-                    break;
-                case /* optional float weapon_cooldown */ 30:
-                    message.weaponCooldown = reader.float();
-                    break;
-                case /* optional uint64 engaged_target_tag */ 34:
-                    message.engagedTargetTag = reader.uint64().toBigInt();
-                    break;
-                case /* optional int32 buff_duration_remain */ 43:
-                    message.buffDurationRemain = reader.int32();
-                    break;
-                case /* optional int32 buff_duration_max */ 44:
-                    message.buffDurationMax = reader.int32();
-                    break;
-                case /* repeated SC2APIProtocol.RallyTarget rally_targets */ 45:
-                    message.rallyTargets.push(RallyTarget.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Unit, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.DisplayType display_type = 1; */
-        if (message.displayType !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.displayType);
-        /* optional SC2APIProtocol.Alliance alliance = 2; */
-        if (message.alliance !== undefined)
-            writer.tag(2, WireType.Varint).int32(message.alliance);
-        /* optional uint64 tag = 3; */
-        if (message.tag !== undefined)
-            writer.tag(3, WireType.Varint).uint64(message.tag);
-        /* optional uint32 unit_type = 4; */
-        if (message.unitType !== undefined)
-            writer.tag(4, WireType.Varint).uint32(message.unitType);
-        /* optional int32 owner = 5; */
-        if (message.owner !== undefined)
-            writer.tag(5, WireType.Varint).int32(message.owner);
-        /* optional SC2APIProtocol.Point pos = 6; */
-        if (message.pos)
-            Point.internalBinaryWrite(message.pos, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* optional float facing = 7; */
-        if (message.facing !== undefined)
-            writer.tag(7, WireType.Bit32).float(message.facing);
-        /* optional float radius = 8; */
-        if (message.radius !== undefined)
-            writer.tag(8, WireType.Bit32).float(message.radius);
-        /* optional float build_progress = 9; */
-        if (message.buildProgress !== undefined)
-            writer.tag(9, WireType.Bit32).float(message.buildProgress);
-        /* optional SC2APIProtocol.CloakState cloak = 10; */
-        if (message.cloak !== undefined)
-            writer.tag(10, WireType.Varint).int32(message.cloak);
-        /* repeated uint32 buff_ids = 27; */
-        for (let i = 0; i < message.buffIds.length; i++)
-            writer.tag(27, WireType.Varint).uint32(message.buffIds[i]);
-        /* optional float detect_range = 31; */
-        if (message.detectRange !== undefined)
-            writer.tag(31, WireType.Bit32).float(message.detectRange);
-        /* optional float radar_range = 32; */
-        if (message.radarRange !== undefined)
-            writer.tag(32, WireType.Bit32).float(message.radarRange);
-        /* optional bool is_selected = 11; */
-        if (message.isSelected !== undefined)
-            writer.tag(11, WireType.Varint).bool(message.isSelected);
-        /* optional bool is_on_screen = 12; */
-        if (message.isOnScreen !== undefined)
-            writer.tag(12, WireType.Varint).bool(message.isOnScreen);
-        /* optional bool is_blip = 13; */
-        if (message.isBlip !== undefined)
-            writer.tag(13, WireType.Varint).bool(message.isBlip);
-        /* optional bool is_powered = 35; */
-        if (message.isPowered !== undefined)
-            writer.tag(35, WireType.Varint).bool(message.isPowered);
-        /* optional bool is_active = 39; */
-        if (message.isActive !== undefined)
-            writer.tag(39, WireType.Varint).bool(message.isActive);
-        /* optional int32 attack_upgrade_level = 40; */
-        if (message.attackUpgradeLevel !== undefined)
-            writer.tag(40, WireType.Varint).int32(message.attackUpgradeLevel);
-        /* optional int32 armor_upgrade_level = 41; */
-        if (message.armorUpgradeLevel !== undefined)
-            writer.tag(41, WireType.Varint).int32(message.armorUpgradeLevel);
-        /* optional int32 shield_upgrade_level = 42; */
-        if (message.shieldUpgradeLevel !== undefined)
-            writer.tag(42, WireType.Varint).int32(message.shieldUpgradeLevel);
-        /* optional float health = 14; */
-        if (message.health !== undefined)
-            writer.tag(14, WireType.Bit32).float(message.health);
-        /* optional float health_max = 15; */
-        if (message.healthMax !== undefined)
-            writer.tag(15, WireType.Bit32).float(message.healthMax);
-        /* optional float shield = 16; */
-        if (message.shield !== undefined)
-            writer.tag(16, WireType.Bit32).float(message.shield);
-        /* optional float shield_max = 36; */
-        if (message.shieldMax !== undefined)
-            writer.tag(36, WireType.Bit32).float(message.shieldMax);
-        /* optional float energy = 17; */
-        if (message.energy !== undefined)
-            writer.tag(17, WireType.Bit32).float(message.energy);
-        /* optional float energy_max = 37; */
-        if (message.energyMax !== undefined)
-            writer.tag(37, WireType.Bit32).float(message.energyMax);
-        /* optional int32 mineral_contents = 18; */
-        if (message.mineralContents !== undefined)
-            writer.tag(18, WireType.Varint).int32(message.mineralContents);
-        /* optional int32 vespene_contents = 19; */
-        if (message.vespeneContents !== undefined)
-            writer.tag(19, WireType.Varint).int32(message.vespeneContents);
-        /* optional bool is_flying = 20; */
-        if (message.isFlying !== undefined)
-            writer.tag(20, WireType.Varint).bool(message.isFlying);
-        /* optional bool is_burrowed = 21; */
-        if (message.isBurrowed !== undefined)
-            writer.tag(21, WireType.Varint).bool(message.isBurrowed);
-        /* optional bool is_hallucination = 38; */
-        if (message.isHallucination !== undefined)
-            writer.tag(38, WireType.Varint).bool(message.isHallucination);
-        /* repeated SC2APIProtocol.UnitOrder orders = 22; */
-        for (let i = 0; i < message.orders.length; i++)
-            UnitOrder.internalBinaryWrite(message.orders[i], writer.tag(22, WireType.LengthDelimited).fork(), options).join();
-        /* optional uint64 add_on_tag = 23; */
-        if (message.addOnTag !== undefined)
-            writer.tag(23, WireType.Varint).uint64(message.addOnTag);
-        /* repeated SC2APIProtocol.PassengerUnit passengers = 24; */
-        for (let i = 0; i < message.passengers.length; i++)
-            PassengerUnit.internalBinaryWrite(message.passengers[i], writer.tag(24, WireType.LengthDelimited).fork(), options).join();
-        /* optional int32 cargo_space_taken = 25; */
-        if (message.cargoSpaceTaken !== undefined)
-            writer.tag(25, WireType.Varint).int32(message.cargoSpaceTaken);
-        /* optional int32 cargo_space_max = 26; */
-        if (message.cargoSpaceMax !== undefined)
-            writer.tag(26, WireType.Varint).int32(message.cargoSpaceMax);
-        /* optional int32 assigned_harvesters = 28; */
-        if (message.assignedHarvesters !== undefined)
-            writer.tag(28, WireType.Varint).int32(message.assignedHarvesters);
-        /* optional int32 ideal_harvesters = 29; */
-        if (message.idealHarvesters !== undefined)
-            writer.tag(29, WireType.Varint).int32(message.idealHarvesters);
-        /* optional float weapon_cooldown = 30; */
-        if (message.weaponCooldown !== undefined)
-            writer.tag(30, WireType.Bit32).float(message.weaponCooldown);
-        /* optional uint64 engaged_target_tag = 34; */
-        if (message.engagedTargetTag !== undefined)
-            writer.tag(34, WireType.Varint).uint64(message.engagedTargetTag);
-        /* optional int32 buff_duration_remain = 43; */
-        if (message.buffDurationRemain !== undefined)
-            writer.tag(43, WireType.Varint).int32(message.buffDurationRemain);
-        /* optional int32 buff_duration_max = 44; */
-        if (message.buffDurationMax !== undefined)
-            writer.tag(44, WireType.Varint).int32(message.buffDurationMax);
-        /* repeated SC2APIProtocol.RallyTarget rally_targets = 45; */
-        for (let i = 0; i < message.rallyTargets.length; i++)
-            RallyTarget.internalBinaryWrite(message.rallyTargets[i], writer.tag(45, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: Unit,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.DisplayType display_type = 1; */
+    if (message.displayType !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.displayType);
+    /* optional SC2APIProtocol.Alliance alliance = 2; */
+    if (message.alliance !== undefined)
+      writer.tag(2, WireType.Varint).int32(message.alliance);
+    /* optional uint64 tag = 3; */
+    if (message.tag !== undefined)
+      writer.tag(3, WireType.Varint).uint64(message.tag);
+    /* optional uint32 unit_type = 4; */
+    if (message.unitType !== undefined)
+      writer.tag(4, WireType.Varint).uint32(message.unitType);
+    /* optional int32 owner = 5; */
+    if (message.owner !== undefined)
+      writer.tag(5, WireType.Varint).int32(message.owner);
+    /* optional SC2APIProtocol.Point pos = 6; */
+    if (message.pos)
+      Point.internalBinaryWrite(
+        message.pos,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional float facing = 7; */
+    if (message.facing !== undefined)
+      writer.tag(7, WireType.Bit32).float(message.facing);
+    /* optional float radius = 8; */
+    if (message.radius !== undefined)
+      writer.tag(8, WireType.Bit32).float(message.radius);
+    /* optional float build_progress = 9; */
+    if (message.buildProgress !== undefined)
+      writer.tag(9, WireType.Bit32).float(message.buildProgress);
+    /* optional SC2APIProtocol.CloakState cloak = 10; */
+    if (message.cloak !== undefined)
+      writer.tag(10, WireType.Varint).int32(message.cloak);
+    /* repeated uint32 buff_ids = 27; */
+    for (let i = 0; i < message.buffIds.length; i++)
+      writer.tag(27, WireType.Varint).uint32(message.buffIds[i]);
+    /* optional float detect_range = 31; */
+    if (message.detectRange !== undefined)
+      writer.tag(31, WireType.Bit32).float(message.detectRange);
+    /* optional float radar_range = 32; */
+    if (message.radarRange !== undefined)
+      writer.tag(32, WireType.Bit32).float(message.radarRange);
+    /* optional bool is_selected = 11; */
+    if (message.isSelected !== undefined)
+      writer.tag(11, WireType.Varint).bool(message.isSelected);
+    /* optional bool is_on_screen = 12; */
+    if (message.isOnScreen !== undefined)
+      writer.tag(12, WireType.Varint).bool(message.isOnScreen);
+    /* optional bool is_blip = 13; */
+    if (message.isBlip !== undefined)
+      writer.tag(13, WireType.Varint).bool(message.isBlip);
+    /* optional bool is_powered = 35; */
+    if (message.isPowered !== undefined)
+      writer.tag(35, WireType.Varint).bool(message.isPowered);
+    /* optional bool is_active = 39; */
+    if (message.isActive !== undefined)
+      writer.tag(39, WireType.Varint).bool(message.isActive);
+    /* optional int32 attack_upgrade_level = 40; */
+    if (message.attackUpgradeLevel !== undefined)
+      writer.tag(40, WireType.Varint).int32(message.attackUpgradeLevel);
+    /* optional int32 armor_upgrade_level = 41; */
+    if (message.armorUpgradeLevel !== undefined)
+      writer.tag(41, WireType.Varint).int32(message.armorUpgradeLevel);
+    /* optional int32 shield_upgrade_level = 42; */
+    if (message.shieldUpgradeLevel !== undefined)
+      writer.tag(42, WireType.Varint).int32(message.shieldUpgradeLevel);
+    /* optional float health = 14; */
+    if (message.health !== undefined)
+      writer.tag(14, WireType.Bit32).float(message.health);
+    /* optional float health_max = 15; */
+    if (message.healthMax !== undefined)
+      writer.tag(15, WireType.Bit32).float(message.healthMax);
+    /* optional float shield = 16; */
+    if (message.shield !== undefined)
+      writer.tag(16, WireType.Bit32).float(message.shield);
+    /* optional float shield_max = 36; */
+    if (message.shieldMax !== undefined)
+      writer.tag(36, WireType.Bit32).float(message.shieldMax);
+    /* optional float energy = 17; */
+    if (message.energy !== undefined)
+      writer.tag(17, WireType.Bit32).float(message.energy);
+    /* optional float energy_max = 37; */
+    if (message.energyMax !== undefined)
+      writer.tag(37, WireType.Bit32).float(message.energyMax);
+    /* optional int32 mineral_contents = 18; */
+    if (message.mineralContents !== undefined)
+      writer.tag(18, WireType.Varint).int32(message.mineralContents);
+    /* optional int32 vespene_contents = 19; */
+    if (message.vespeneContents !== undefined)
+      writer.tag(19, WireType.Varint).int32(message.vespeneContents);
+    /* optional bool is_flying = 20; */
+    if (message.isFlying !== undefined)
+      writer.tag(20, WireType.Varint).bool(message.isFlying);
+    /* optional bool is_burrowed = 21; */
+    if (message.isBurrowed !== undefined)
+      writer.tag(21, WireType.Varint).bool(message.isBurrowed);
+    /* optional bool is_hallucination = 38; */
+    if (message.isHallucination !== undefined)
+      writer.tag(38, WireType.Varint).bool(message.isHallucination);
+    /* repeated SC2APIProtocol.UnitOrder orders = 22; */
+    for (let i = 0; i < message.orders.length; i++)
+      UnitOrder.internalBinaryWrite(
+        message.orders[i],
+        writer.tag(22, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional uint64 add_on_tag = 23; */
+    if (message.addOnTag !== undefined)
+      writer.tag(23, WireType.Varint).uint64(message.addOnTag);
+    /* repeated SC2APIProtocol.PassengerUnit passengers = 24; */
+    for (let i = 0; i < message.passengers.length; i++)
+      PassengerUnit.internalBinaryWrite(
+        message.passengers[i],
+        writer.tag(24, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional int32 cargo_space_taken = 25; */
+    if (message.cargoSpaceTaken !== undefined)
+      writer.tag(25, WireType.Varint).int32(message.cargoSpaceTaken);
+    /* optional int32 cargo_space_max = 26; */
+    if (message.cargoSpaceMax !== undefined)
+      writer.tag(26, WireType.Varint).int32(message.cargoSpaceMax);
+    /* optional int32 assigned_harvesters = 28; */
+    if (message.assignedHarvesters !== undefined)
+      writer.tag(28, WireType.Varint).int32(message.assignedHarvesters);
+    /* optional int32 ideal_harvesters = 29; */
+    if (message.idealHarvesters !== undefined)
+      writer.tag(29, WireType.Varint).int32(message.idealHarvesters);
+    /* optional float weapon_cooldown = 30; */
+    if (message.weaponCooldown !== undefined)
+      writer.tag(30, WireType.Bit32).float(message.weaponCooldown);
+    /* optional uint64 engaged_target_tag = 34; */
+    if (message.engagedTargetTag !== undefined)
+      writer.tag(34, WireType.Varint).uint64(message.engagedTargetTag);
+    /* optional int32 buff_duration_remain = 43; */
+    if (message.buffDurationRemain !== undefined)
+      writer.tag(43, WireType.Varint).int32(message.buffDurationRemain);
+    /* optional int32 buff_duration_max = 44; */
+    if (message.buffDurationMax !== undefined)
+      writer.tag(44, WireType.Varint).int32(message.buffDurationMax);
+    /* repeated SC2APIProtocol.RallyTarget rally_targets = 45; */
+    for (let i = 0; i < message.rallyTargets.length; i++)
+      RallyTarget.internalBinaryWrite(
+        message.rallyTargets[i],
+        writer.tag(45, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.Unit
@@ -1543,53 +2351,96 @@ class Unit$Type extends MessageType<Unit> {
 export const Unit = new Unit$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class MapState$Type extends MessageType<MapState> {
-    constructor() {
-        super("SC2APIProtocol.MapState", [
-            { no: 1, name: "visibility", kind: "message", T: () => ImageData },
-            { no: 2, name: "creep", kind: "message", T: () => ImageData }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.MapState", [
+      { no: 1, name: "visibility", kind: "message", T: () => ImageData },
+      { no: 2, name: "creep", kind: "message", T: () => ImageData },
+    ]);
+  }
+  create(value?: PartialMessage<MapState>): MapState {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<MapState>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MapState,
+  ): MapState {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ImageData visibility */ 1:
+          message.visibility = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.visibility,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData creep */ 2:
+          message.creep = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.creep,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<MapState>): MapState {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<MapState>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: MapState): MapState {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ImageData visibility */ 1:
-                    message.visibility = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.visibility);
-                    break;
-                case /* optional SC2APIProtocol.ImageData creep */ 2:
-                    message.creep = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.creep);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: MapState, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ImageData visibility = 1; */
-        if (message.visibility)
-            ImageData.internalBinaryWrite(message.visibility, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData creep = 2; */
-        if (message.creep)
-            ImageData.internalBinaryWrite(message.creep, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: MapState,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ImageData visibility = 1; */
+    if (message.visibility)
+      ImageData.internalBinaryWrite(
+        message.visibility,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData creep = 2; */
+    if (message.creep)
+      ImageData.internalBinaryWrite(
+        message.creep,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.MapState
@@ -1597,50 +2448,81 @@ class MapState$Type extends MessageType<MapState> {
 export const MapState = new MapState$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Event$Type extends MessageType<Event> {
-    constructor() {
-        super("SC2APIProtocol.Event", [
-            { no: 1, name: "dead_units", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.Event", [
+      {
+        no: 1,
+        name: "dead_units",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<Event>): Event {
+    const message = { deadUnits: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<Event>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Event,
+  ): Event {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated uint64 dead_units */ 1:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.deadUnits.push(reader.uint64().toBigInt());
+          else message.deadUnits.push(reader.uint64().toBigInt());
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<Event>): Event {
-        const message = { deadUnits: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Event>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Event): Event {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated uint64 dead_units */ 1:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.deadUnits.push(reader.uint64().toBigInt());
-                    else
-                        message.deadUnits.push(reader.uint64().toBigInt());
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Event, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated uint64 dead_units = 1; */
-        for (let i = 0; i < message.deadUnits.length; i++)
-            writer.tag(1, WireType.Varint).uint64(message.deadUnits[i]);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: Event,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated uint64 dead_units = 1; */
+    for (let i = 0; i < message.deadUnits.length; i++)
+      writer.tag(1, WireType.Varint).uint64(message.deadUnits[i]);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.Event
@@ -1648,74 +2530,135 @@ class Event$Type extends MessageType<Event> {
 export const Event = new Event$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Effect$Type extends MessageType<Effect> {
-    constructor() {
-        super("SC2APIProtocol.Effect", [
-            { no: 1, name: "effect_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "pos", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Point2D },
-            { no: 3, name: "alliance", kind: "enum", opt: true, T: () => ["SC2APIProtocol.Alliance", Alliance] },
-            { no: 4, name: "owner", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "radius", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.Effect", [
+      {
+        no: 1,
+        name: "effect_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "pos",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => Point2D,
+      },
+      {
+        no: 3,
+        name: "alliance",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.Alliance", Alliance],
+      },
+      {
+        no: 4,
+        name: "owner",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 5,
+        name: "radius",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<Effect>): Effect {
+    const message = { pos: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<Effect>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Effect,
+  ): Effect {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 effect_id */ 1:
+          message.effectId = reader.uint32();
+          break;
+        case /* repeated SC2APIProtocol.Point2D pos */ 2:
+          message.pos.push(
+            Point2D.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional SC2APIProtocol.Alliance alliance */ 3:
+          message.alliance = reader.int32();
+          break;
+        case /* optional int32 owner */ 4:
+          message.owner = reader.int32();
+          break;
+        case /* optional float radius */ 5:
+          message.radius = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<Effect>): Effect {
-        const message = { pos: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Effect>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Effect): Effect {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 effect_id */ 1:
-                    message.effectId = reader.uint32();
-                    break;
-                case /* repeated SC2APIProtocol.Point2D pos */ 2:
-                    message.pos.push(Point2D.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional SC2APIProtocol.Alliance alliance */ 3:
-                    message.alliance = reader.int32();
-                    break;
-                case /* optional int32 owner */ 4:
-                    message.owner = reader.int32();
-                    break;
-                case /* optional float radius */ 5:
-                    message.radius = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Effect, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 effect_id = 1; */
-        if (message.effectId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.effectId);
-        /* repeated SC2APIProtocol.Point2D pos = 2; */
-        for (let i = 0; i < message.pos.length; i++)
-            Point2D.internalBinaryWrite(message.pos[i], writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.Alliance alliance = 3; */
-        if (message.alliance !== undefined)
-            writer.tag(3, WireType.Varint).int32(message.alliance);
-        /* optional int32 owner = 4; */
-        if (message.owner !== undefined)
-            writer.tag(4, WireType.Varint).int32(message.owner);
-        /* optional float radius = 5; */
-        if (message.radius !== undefined)
-            writer.tag(5, WireType.Bit32).float(message.radius);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: Effect,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 effect_id = 1; */
+    if (message.effectId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.effectId);
+    /* repeated SC2APIProtocol.Point2D pos = 2; */
+    for (let i = 0; i < message.pos.length; i++)
+      Point2D.internalBinaryWrite(
+        message.pos[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.Alliance alliance = 3; */
+    if (message.alliance !== undefined)
+      writer.tag(3, WireType.Varint).int32(message.alliance);
+    /* optional int32 owner = 4; */
+    if (message.owner !== undefined)
+      writer.tag(4, WireType.Varint).int32(message.owner);
+    /* optional float radius = 5; */
+    if (message.radius !== undefined)
+      writer.tag(5, WireType.Bit32).float(message.radius);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.Effect
@@ -1723,69 +2666,139 @@ class Effect$Type extends MessageType<Effect> {
 export const Effect = new Effect$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionRaw$Type extends MessageType<ActionRaw> {
-    constructor() {
-        super("SC2APIProtocol.ActionRaw", [
-            { no: 1, name: "unit_command", kind: "message", oneof: "action", T: () => ActionRawUnitCommand },
-            { no: 2, name: "camera_move", kind: "message", oneof: "action", T: () => ActionRawCameraMove },
-            { no: 3, name: "toggle_autocast", kind: "message", oneof: "action", T: () => ActionRawToggleAutocast }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionRaw", [
+      {
+        no: 1,
+        name: "unit_command",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionRawUnitCommand,
+      },
+      {
+        no: 2,
+        name: "camera_move",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionRawCameraMove,
+      },
+      {
+        no: 3,
+        name: "toggle_autocast",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionRawToggleAutocast,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionRaw>): ActionRaw {
+    const message = { action: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionRaw>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionRaw,
+  ): ActionRaw {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* SC2APIProtocol.ActionRawUnitCommand unit_command */ 1:
+          message.action = {
+            oneofKind: "unitCommand",
+            unitCommand: ActionRawUnitCommand.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).unitCommand,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionRawCameraMove camera_move */ 2:
+          message.action = {
+            oneofKind: "cameraMove",
+            cameraMove: ActionRawCameraMove.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).cameraMove,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionRawToggleAutocast toggle_autocast */ 3:
+          message.action = {
+            oneofKind: "toggleAutocast",
+            toggleAutocast: ActionRawToggleAutocast.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).toggleAutocast,
+            ),
+          };
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionRaw>): ActionRaw {
-        const message = { action: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionRaw>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionRaw): ActionRaw {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* SC2APIProtocol.ActionRawUnitCommand unit_command */ 1:
-                    message.action = {
-                        oneofKind: "unitCommand",
-                        unitCommand: ActionRawUnitCommand.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).unitCommand)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionRawCameraMove camera_move */ 2:
-                    message.action = {
-                        oneofKind: "cameraMove",
-                        cameraMove: ActionRawCameraMove.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).cameraMove)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionRawToggleAutocast toggle_autocast */ 3:
-                    message.action = {
-                        oneofKind: "toggleAutocast",
-                        toggleAutocast: ActionRawToggleAutocast.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).toggleAutocast)
-                    };
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionRaw, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* SC2APIProtocol.ActionRawUnitCommand unit_command = 1; */
-        if (message.action.oneofKind === "unitCommand")
-            ActionRawUnitCommand.internalBinaryWrite(message.action.unitCommand, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionRawCameraMove camera_move = 2; */
-        if (message.action.oneofKind === "cameraMove")
-            ActionRawCameraMove.internalBinaryWrite(message.action.cameraMove, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionRawToggleAutocast toggle_autocast = 3; */
-        if (message.action.oneofKind === "toggleAutocast")
-            ActionRawToggleAutocast.internalBinaryWrite(message.action.toggleAutocast, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionRaw,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* SC2APIProtocol.ActionRawUnitCommand unit_command = 1; */
+    if (message.action.oneofKind === "unitCommand")
+      ActionRawUnitCommand.internalBinaryWrite(
+        message.action.unitCommand,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionRawCameraMove camera_move = 2; */
+    if (message.action.oneofKind === "cameraMove")
+      ActionRawCameraMove.internalBinaryWrite(
+        message.action.cameraMove,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionRawToggleAutocast toggle_autocast = 3; */
+    if (message.action.oneofKind === "toggleAutocast")
+      ActionRawToggleAutocast.internalBinaryWrite(
+        message.action.toggleAutocast,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionRaw
@@ -1793,84 +2806,149 @@ class ActionRaw$Type extends MessageType<ActionRaw> {
 export const ActionRaw = new ActionRaw$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionRawUnitCommand$Type extends MessageType<ActionRawUnitCommand> {
-    constructor() {
-        super("SC2APIProtocol.ActionRawUnitCommand", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "target_world_space_pos", kind: "message", oneof: "target", T: () => Point2D },
-            { no: 3, name: "target_unit_tag", kind: "scalar", oneof: "target", T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 4, name: "unit_tags", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ },
-            { no: 5, name: "queue_command", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionRawUnitCommand", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 2,
+        name: "target_world_space_pos",
+        kind: "message",
+        oneof: "target",
+        T: () => Point2D,
+      },
+      {
+        no: 3,
+        name: "target_unit_tag",
+        kind: "scalar",
+        oneof: "target",
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 4,
+        name: "unit_tags",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+      {
+        no: 5,
+        name: "queue_command",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionRawUnitCommand>): ActionRawUnitCommand {
+    const message = { target: { oneofKind: undefined }, unitTags: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionRawUnitCommand>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionRawUnitCommand,
+  ): ActionRawUnitCommand {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional int32 ability_id */ 1:
+          message.abilityId = reader.int32();
+          break;
+        case /* SC2APIProtocol.Point2D target_world_space_pos */ 2:
+          message.target = {
+            oneofKind: "targetWorldSpacePos",
+            targetWorldSpacePos: Point2D.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.target as any).targetWorldSpacePos,
+            ),
+          };
+          break;
+        case /* uint64 target_unit_tag */ 3:
+          message.target = {
+            oneofKind: "targetUnitTag",
+            targetUnitTag: reader.uint64().toBigInt(),
+          };
+          break;
+        case /* repeated uint64 unit_tags */ 4:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.unitTags.push(reader.uint64().toBigInt());
+          else message.unitTags.push(reader.uint64().toBigInt());
+          break;
+        case /* optional bool queue_command */ 5:
+          message.queueCommand = reader.bool();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionRawUnitCommand>): ActionRawUnitCommand {
-        const message = { target: { oneofKind: undefined }, unitTags: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionRawUnitCommand>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionRawUnitCommand): ActionRawUnitCommand {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional int32 ability_id */ 1:
-                    message.abilityId = reader.int32();
-                    break;
-                case /* SC2APIProtocol.Point2D target_world_space_pos */ 2:
-                    message.target = {
-                        oneofKind: "targetWorldSpacePos",
-                        targetWorldSpacePos: Point2D.internalBinaryRead(reader, reader.uint32(), options, (message.target as any).targetWorldSpacePos)
-                    };
-                    break;
-                case /* uint64 target_unit_tag */ 3:
-                    message.target = {
-                        oneofKind: "targetUnitTag",
-                        targetUnitTag: reader.uint64().toBigInt()
-                    };
-                    break;
-                case /* repeated uint64 unit_tags */ 4:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unitTags.push(reader.uint64().toBigInt());
-                    else
-                        message.unitTags.push(reader.uint64().toBigInt());
-                    break;
-                case /* optional bool queue_command */ 5:
-                    message.queueCommand = reader.bool();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionRawUnitCommand, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional int32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.abilityId);
-        /* SC2APIProtocol.Point2D target_world_space_pos = 2; */
-        if (message.target.oneofKind === "targetWorldSpacePos")
-            Point2D.internalBinaryWrite(message.target.targetWorldSpacePos, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* uint64 target_unit_tag = 3; */
-        if (message.target.oneofKind === "targetUnitTag")
-            writer.tag(3, WireType.Varint).uint64(message.target.targetUnitTag);
-        /* repeated uint64 unit_tags = 4; */
-        for (let i = 0; i < message.unitTags.length; i++)
-            writer.tag(4, WireType.Varint).uint64(message.unitTags[i]);
-        /* optional bool queue_command = 5; */
-        if (message.queueCommand !== undefined)
-            writer.tag(5, WireType.Varint).bool(message.queueCommand);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionRawUnitCommand,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional int32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.abilityId);
+    /* SC2APIProtocol.Point2D target_world_space_pos = 2; */
+    if (message.target.oneofKind === "targetWorldSpacePos")
+      Point2D.internalBinaryWrite(
+        message.target.targetWorldSpacePos,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* uint64 target_unit_tag = 3; */
+    if (message.target.oneofKind === "targetUnitTag")
+      writer.tag(3, WireType.Varint).uint64(message.target.targetUnitTag);
+    /* repeated uint64 unit_tags = 4; */
+    for (let i = 0; i < message.unitTags.length; i++)
+      writer.tag(4, WireType.Varint).uint64(message.unitTags[i]);
+    /* optional bool queue_command = 5; */
+    if (message.queueCommand !== undefined)
+      writer.tag(5, WireType.Varint).bool(message.queueCommand);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionRawUnitCommand
@@ -1878,46 +2956,80 @@ class ActionRawUnitCommand$Type extends MessageType<ActionRawUnitCommand> {
 export const ActionRawUnitCommand = new ActionRawUnitCommand$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionRawCameraMove$Type extends MessageType<ActionRawCameraMove> {
-    constructor() {
-        super("SC2APIProtocol.ActionRawCameraMove", [
-            { no: 1, name: "center_world_space", kind: "message", T: () => Point }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionRawCameraMove", [
+      { no: 1, name: "center_world_space", kind: "message", T: () => Point },
+    ]);
+  }
+  create(value?: PartialMessage<ActionRawCameraMove>): ActionRawCameraMove {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionRawCameraMove>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionRawCameraMove,
+  ): ActionRawCameraMove {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Point center_world_space */ 1:
+          message.centerWorldSpace = Point.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.centerWorldSpace,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionRawCameraMove>): ActionRawCameraMove {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionRawCameraMove>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionRawCameraMove): ActionRawCameraMove {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Point center_world_space */ 1:
-                    message.centerWorldSpace = Point.internalBinaryRead(reader, reader.uint32(), options, message.centerWorldSpace);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionRawCameraMove, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Point center_world_space = 1; */
-        if (message.centerWorldSpace)
-            Point.internalBinaryWrite(message.centerWorldSpace, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionRawCameraMove,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Point center_world_space = 1; */
+    if (message.centerWorldSpace)
+      Point.internalBinaryWrite(
+        message.centerWorldSpace,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionRawCameraMove
@@ -1925,57 +3037,96 @@ class ActionRawCameraMove$Type extends MessageType<ActionRawCameraMove> {
 export const ActionRawCameraMove = new ActionRawCameraMove$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionRawToggleAutocast$Type extends MessageType<ActionRawToggleAutocast> {
-    constructor() {
-        super("SC2APIProtocol.ActionRawToggleAutocast", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "unit_tags", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 4 /*ScalarType.UINT64*/, L: 0 /*LongType.BIGINT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionRawToggleAutocast", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 2,
+        name: "unit_tags",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 4 /*ScalarType.UINT64*/,
+        L: 0 /*LongType.BIGINT*/,
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionRawToggleAutocast>,
+  ): ActionRawToggleAutocast {
+    const message = { unitTags: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionRawToggleAutocast>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionRawToggleAutocast,
+  ): ActionRawToggleAutocast {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional int32 ability_id */ 1:
+          message.abilityId = reader.int32();
+          break;
+        case /* repeated uint64 unit_tags */ 2:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.unitTags.push(reader.uint64().toBigInt());
+          else message.unitTags.push(reader.uint64().toBigInt());
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionRawToggleAutocast>): ActionRawToggleAutocast {
-        const message = { unitTags: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionRawToggleAutocast>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionRawToggleAutocast): ActionRawToggleAutocast {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional int32 ability_id */ 1:
-                    message.abilityId = reader.int32();
-                    break;
-                case /* repeated uint64 unit_tags */ 2:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.unitTags.push(reader.uint64().toBigInt());
-                    else
-                        message.unitTags.push(reader.uint64().toBigInt());
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionRawToggleAutocast, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional int32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.abilityId);
-        /* repeated uint64 unit_tags = 2; */
-        for (let i = 0; i < message.unitTags.length; i++)
-            writer.tag(2, WireType.Varint).uint64(message.unitTags[i]);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionRawToggleAutocast,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional int32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.abilityId);
+    /* repeated uint64 unit_tags = 2; */
+    for (let i = 0; i < message.unitTags.length; i++)
+      writer.tag(2, WireType.Varint).uint64(message.unitTags[i]);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionRawToggleAutocast

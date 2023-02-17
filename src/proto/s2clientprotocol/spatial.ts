@@ -3,404 +3,464 @@
 // @generated from protobuf file "s2clientprotocol/spatial.proto" (package "SC2APIProtocol", syntax proto2)
 // tslint:disable
 // @ts-nocheck
-import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
-import type { IBinaryWriter } from "@protobuf-ts/runtime";
-import { WireType } from "@protobuf-ts/runtime";
-import type { BinaryReadOptions } from "@protobuf-ts/runtime";
-import type { IBinaryReader } from "@protobuf-ts/runtime";
-import { UnknownFieldHandler } from "@protobuf-ts/runtime";
-import type { PartialMessage } from "@protobuf-ts/runtime";
-import { reflectionMergePartial } from "@protobuf-ts/runtime";
-import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
-import { MessageType } from "@protobuf-ts/runtime";
-import { RectangleI } from "./common";
-import { PointI } from "./common";
-import { ImageData } from "./common";
-// 
+import type {
+  BinaryReadOptions,
+  BinaryWriteOptions,
+  IBinaryReader,
+  IBinaryWriter,
+  PartialMessage,
+} from "@protobuf-ts/runtime";
+import {
+  MessageType,
+  MESSAGE_TYPE,
+  reflectionMergePartial,
+  UnknownFieldHandler,
+  WireType,
+} from "@protobuf-ts/runtime";
+import { ImageData, PointI, RectangleI } from "./common";
+//
 // Observation - Feature Layer
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationFeatureLayer
  */
 export interface ObservationFeatureLayer {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.FeatureLayers renders = 1;
-     */
-    renders?: FeatureLayers;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.FeatureLayersMinimap minimap_renders = 2;
-     */
-    minimapRenders?: FeatureLayersMinimap;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.FeatureLayers renders = 1;
+   */
+  renders?: FeatureLayers;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.FeatureLayersMinimap minimap_renders = 2;
+   */
+  minimapRenders?: FeatureLayersMinimap;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.FeatureLayers
  */
 export interface FeatureLayers {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData height_map = 1;
-     */
-    heightMap?: ImageData; // uint8. Terrain height. World space units of [-200, 200] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData visibility_map = 2;
-     */
-    visibilityMap?: ImageData; // uint8. 0=Hidden, 1=Fogged, 2=Visible, 3=FullHidden
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData creep = 3;
-     */
-    creep?: ImageData; // 1-bit. Zerg creep.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData power = 4;
-     */
-    power?: ImageData; // 1-bit. Protoss power.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData player_id = 5;
-     */
-    playerId?: ImageData; // uint8. Participants: [1, 15] Neutral: 16
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_type = 6;
-     */
-    unitType?: ImageData; // int32. Unique identifier for type of unit.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData selected = 7;
-     */
-    selected?: ImageData; // 1-bit. Selected units.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_hit_points = 8;
-     */
-    unitHitPoints?: ImageData; // int32.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_hit_points_ratio = 17;
-     */
-    unitHitPointsRatio?: ImageData; // uint8. Ratio of current health to max health. [0%, 100%] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_energy = 9;
-     */
-    unitEnergy?: ImageData; // int32.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_energy_ratio = 18;
-     */
-    unitEnergyRatio?: ImageData; // uint8. Ratio of current energy to max energy. [0%, 100%] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_shields = 10;
-     */
-    unitShields?: ImageData; // int32.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_shields_ratio = 19;
-     */
-    unitShieldsRatio?: ImageData; // uint8. Ratio of current shields to max shields. [0%, 100%] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData player_relative = 11;
-     */
-    playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4] 
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_density_aa = 14;
-     */
-    unitDensityAa?: ImageData; // uint8. Density of units overlapping a pixel, anti-aliased. [0.0, 16.0f] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_density = 15;
-     */
-    unitDensity?: ImageData; // uint8. Count of units overlapping a pixel.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData effects = 20;
-     */
-    effects?: ImageData; // uint8. Visuals of persistent abilities. (eg. Psistorm)
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData hallucinations = 21;
-     */
-    hallucinations?: ImageData; // 1-bit. Whether the unit here is a hallucination.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData cloaked = 22;
-     */
-    cloaked?: ImageData; // 1-bit. Whether the unit here is cloaked. Hidden units will show up too, but with less details in other layers.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData blip = 23;
-     */
-    blip?: ImageData; // 1-bit. Whether the unit here is a blip.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData buffs = 24;
-     */
-    buffs?: ImageData; // int32. One of the buffs applied to this unit. Extras are ignored.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData buff_duration = 26;
-     */
-    buffDuration?: ImageData; // uint8. Ratio of buff remaining. [0%, 100%] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData active = 25;
-     */
-    active?: ImageData; // 1-bit. Whether the unit here is active.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData build_progress = 27;
-     */
-    buildProgress?: ImageData; // uint8. How far along the building is building something. [0%, 100%] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData buildable = 28;
-     */
-    buildable?: ImageData; // 1-bit. Whether a building can be built here.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData pathable = 29;
-     */
-    pathable?: ImageData; // 1-bit. Whether a unit can walk here.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData placeholder = 30;
-     */
-    placeholder?: ImageData; // 1-bit. Whether the unit here is a placeholder building to be constructed.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData height_map = 1;
+   */
+  heightMap?: ImageData; // uint8. Terrain height. World space units of [-200, 200] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData visibility_map = 2;
+   */
+  visibilityMap?: ImageData; // uint8. 0=Hidden, 1=Fogged, 2=Visible, 3=FullHidden
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData creep = 3;
+   */
+  creep?: ImageData; // 1-bit. Zerg creep.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData power = 4;
+   */
+  power?: ImageData; // 1-bit. Protoss power.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData player_id = 5;
+   */
+  playerId?: ImageData; // uint8. Participants: [1, 15] Neutral: 16
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_type = 6;
+   */
+  unitType?: ImageData; // int32. Unique identifier for type of unit.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData selected = 7;
+   */
+  selected?: ImageData; // 1-bit. Selected units.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_hit_points = 8;
+   */
+  unitHitPoints?: ImageData; // int32.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_hit_points_ratio = 17;
+   */
+  unitHitPointsRatio?: ImageData; // uint8. Ratio of current health to max health. [0%, 100%] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_energy = 9;
+   */
+  unitEnergy?: ImageData; // int32.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_energy_ratio = 18;
+   */
+  unitEnergyRatio?: ImageData; // uint8. Ratio of current energy to max energy. [0%, 100%] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_shields = 10;
+   */
+  unitShields?: ImageData; // int32.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_shields_ratio = 19;
+   */
+  unitShieldsRatio?: ImageData; // uint8. Ratio of current shields to max shields. [0%, 100%] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData player_relative = 11;
+   */
+  playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4]
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_density_aa = 14;
+   */
+  unitDensityAa?: ImageData; // uint8. Density of units overlapping a pixel, anti-aliased. [0.0, 16.0f] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_density = 15;
+   */
+  unitDensity?: ImageData; // uint8. Count of units overlapping a pixel.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData effects = 20;
+   */
+  effects?: ImageData; // uint8. Visuals of persistent abilities. (eg. Psistorm)
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData hallucinations = 21;
+   */
+  hallucinations?: ImageData; // 1-bit. Whether the unit here is a hallucination.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData cloaked = 22;
+   */
+  cloaked?: ImageData; // 1-bit. Whether the unit here is cloaked. Hidden units will show up too, but with less details in other layers.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData blip = 23;
+   */
+  blip?: ImageData; // 1-bit. Whether the unit here is a blip.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData buffs = 24;
+   */
+  buffs?: ImageData; // int32. One of the buffs applied to this unit. Extras are ignored.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData buff_duration = 26;
+   */
+  buffDuration?: ImageData; // uint8. Ratio of buff remaining. [0%, 100%] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData active = 25;
+   */
+  active?: ImageData; // 1-bit. Whether the unit here is active.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData build_progress = 27;
+   */
+  buildProgress?: ImageData; // uint8. How far along the building is building something. [0%, 100%] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData buildable = 28;
+   */
+  buildable?: ImageData; // 1-bit. Whether a building can be built here.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData pathable = 29;
+   */
+  pathable?: ImageData; // 1-bit. Whether a unit can walk here.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData placeholder = 30;
+   */
+  placeholder?: ImageData; // 1-bit. Whether the unit here is a placeholder building to be constructed.
 }
 /**
  * @generated from protobuf message SC2APIProtocol.FeatureLayersMinimap
  */
 export interface FeatureLayersMinimap {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData height_map = 1;
-     */
-    heightMap?: ImageData; // uint8. Terrain height. World space units of [-200, 200] encoded into [0, 255].
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData visibility_map = 2;
-     */
-    visibilityMap?: ImageData; // uint8. 0=Hidden, 1=Fogged, 2=Visible, 3=FullHidden
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData creep = 3;
-     */
-    creep?: ImageData; // 1-bit. Zerg creep.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData camera = 4;
-     */
-    camera?: ImageData; // 1-bit. Area covered by the camera.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData player_id = 5;
-     */
-    playerId?: ImageData; // uint8. Participants: [1, 15] Neutral: 16
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData player_relative = 6;
-     */
-    playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4] 
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData selected = 7;
-     */
-    selected?: ImageData; // 1-bit. Selected units.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData alerts = 9;
-     */
-    alerts?: ImageData; // 1-bit. Shows 'UnitAttacked' alert location.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData buildable = 10;
-     */
-    buildable?: ImageData; // 1-bit. Whether a building can be built here.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData pathable = 11;
-     */
-    pathable?: ImageData; // 1-bit. Whether a unit can walk here.
-    /**
-     * Cheat layers, enable with SpatialCameraSetup.allow_cheating_layers.
-     *
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_type = 8;
-     */
-    unitType?: ImageData; // int32. Unique identifier for type of unit.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData height_map = 1;
+   */
+  heightMap?: ImageData; // uint8. Terrain height. World space units of [-200, 200] encoded into [0, 255].
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData visibility_map = 2;
+   */
+  visibilityMap?: ImageData; // uint8. 0=Hidden, 1=Fogged, 2=Visible, 3=FullHidden
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData creep = 3;
+   */
+  creep?: ImageData; // 1-bit. Zerg creep.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData camera = 4;
+   */
+  camera?: ImageData; // 1-bit. Area covered by the camera.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData player_id = 5;
+   */
+  playerId?: ImageData; // uint8. Participants: [1, 15] Neutral: 16
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData player_relative = 6;
+   */
+  playerRelative?: ImageData; // uint8. See "Alliance" enum in raw.proto. Range: [1, 4]
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData selected = 7;
+   */
+  selected?: ImageData; // 1-bit. Selected units.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData alerts = 9;
+   */
+  alerts?: ImageData; // 1-bit. Shows 'UnitAttacked' alert location.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData buildable = 10;
+   */
+  buildable?: ImageData; // 1-bit. Whether a building can be built here.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData pathable = 11;
+   */
+  pathable?: ImageData; // 1-bit. Whether a unit can walk here.
+  /**
+   * Cheat layers, enable with SpatialCameraSetup.allow_cheating_layers.
+   *
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData unit_type = 8;
+   */
+  unitType?: ImageData; // int32. Unique identifier for type of unit.
 }
-// 
+//
 // Observation - Rendered
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationRender
  */
 export interface ObservationRender {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData map = 1;
-     */
-    map?: ImageData;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ImageData minimap = 2;
-     */
-    minimap?: ImageData;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData map = 1;
+   */
+  map?: ImageData;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ImageData minimap = 2;
+   */
+  minimap?: ImageData;
 }
-// 
+//
 // Action
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSpatial
  */
 export interface ActionSpatial {
-    /**
-     * @generated from protobuf oneof: action
-     */
-    action: {
+  /**
+   * @generated from protobuf oneof: action
+   */
+  action:
+    | {
         oneofKind: "unitCommand";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSpatialUnitCommand unit_command = 1;
          */
         unitCommand: ActionSpatialUnitCommand;
-    } | {
+      }
+    | {
         oneofKind: "cameraMove";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSpatialCameraMove camera_move = 2;
          */
         cameraMove: ActionSpatialCameraMove;
-    } | {
+      }
+    | {
         oneofKind: "unitSelectionPoint";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSpatialUnitSelectionPoint unit_selection_point = 3;
          */
         unitSelectionPoint: ActionSpatialUnitSelectionPoint;
-    } | {
+      }
+    | {
         oneofKind: "unitSelectionRect";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSpatialUnitSelectionRect unit_selection_rect = 4;
          */
         unitSelectionRect: ActionSpatialUnitSelectionRect;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
+      };
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSpatialUnitCommand
  */
 export interface ActionSpatialUnitCommand {
-    /**
-     * @generated from protobuf field: optional int32 ability_id = 1;
-     */
-    abilityId?: number;
-    /**
-     * @generated from protobuf oneof: target
-     */
-    target: {
+  /**
+   * @generated from protobuf field: optional int32 ability_id = 1;
+   */
+  abilityId?: number;
+  /**
+   * @generated from protobuf oneof: target
+   */
+  target:
+    | {
         oneofKind: "targetScreenCoord";
         /**
          * @generated from protobuf field: SC2APIProtocol.PointI target_screen_coord = 2;
          */
         targetScreenCoord: PointI;
-    } | {
+      }
+    | {
         oneofKind: "targetMinimapCoord";
         /**
          * @generated from protobuf field: SC2APIProtocol.PointI target_minimap_coord = 3;
          */
         targetMinimapCoord: PointI;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
-    /**
-     * @generated from protobuf field: optional bool queue_command = 4;
-     */
-    queueCommand?: boolean; // Equivalent to shift+command.
+      };
+  /**
+   * @generated from protobuf field: optional bool queue_command = 4;
+   */
+  queueCommand?: boolean; // Equivalent to shift+command.
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSpatialCameraMove
  */
 export interface ActionSpatialCameraMove {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.PointI center_minimap = 1;
-     */
-    centerMinimap?: PointI; // Simulates a click on the minimap to move the camera.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.PointI center_minimap = 1;
+   */
+  centerMinimap?: PointI; // Simulates a click on the minimap to move the camera.
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSpatialUnitSelectionPoint
  */
 export interface ActionSpatialUnitSelectionPoint {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.PointI selection_screen_coord = 1;
-     */
-    selectionScreenCoord?: PointI;
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type type = 2;
-     */
-    type?: ActionSpatialUnitSelectionPoint_Type;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.PointI selection_screen_coord = 1;
+   */
+  selectionScreenCoord?: PointI;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type type = 2;
+   */
+  type?: ActionSpatialUnitSelectionPoint_Type;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type
  */
 export enum ActionSpatialUnitSelectionPoint_Type {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Equivalent to normal click. Changes selection to unit.
-     *
-     * @generated from protobuf enum value: Select = 1;
-     */
-    Select = 1,
-    /**
-     * Equivalent to shift+click. Toggle selection of unit.
-     *
-     * @generated from protobuf enum value: Toggle = 2;
-     */
-    Toggle = 2,
-    /**
-     * Equivalent to control+click. Selects all units of a given type.
-     *
-     * @generated from protobuf enum value: AllType = 3;
-     */
-    AllType = 3,
-    /**
-     * Equivalent to shift+control+click. Selects all units of a given type.
-     *
-     * @generated from protobuf enum value: AddAllType = 4;
-     */
-    AddAllType = 4
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Equivalent to normal click. Changes selection to unit.
+   *
+   * @generated from protobuf enum value: Select = 1;
+   */
+  Select = 1,
+  /**
+   * Equivalent to shift+click. Toggle selection of unit.
+   *
+   * @generated from protobuf enum value: Toggle = 2;
+   */
+  Toggle = 2,
+  /**
+   * Equivalent to control+click. Selects all units of a given type.
+   *
+   * @generated from protobuf enum value: AllType = 3;
+   */
+  AllType = 3,
+  /**
+   * Equivalent to shift+control+click. Selects all units of a given type.
+   *
+   * @generated from protobuf enum value: AddAllType = 4;
+   */
+  AddAllType = 4,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSpatialUnitSelectionRect
  */
 export interface ActionSpatialUnitSelectionRect {
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.RectangleI selection_screen_coord = 1;
-     */
-    selectionScreenCoord: RectangleI[]; // Eventually this should not be an array, but a single field (multiple would be cheating).
-    /**
-     * @generated from protobuf field: optional bool selection_add = 2;
-     */
-    selectionAdd?: boolean; // Equivalent to shift+drag. Adds units to selection.
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.RectangleI selection_screen_coord = 1;
+   */
+  selectionScreenCoord: RectangleI[]; // Eventually this should not be an array, but a single field (multiple would be cheating).
+  /**
+   * @generated from protobuf field: optional bool selection_add = 2;
+   */
+  selectionAdd?: boolean; // Equivalent to shift+drag. Adds units to selection.
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class ObservationFeatureLayer$Type extends MessageType<ObservationFeatureLayer> {
-    constructor() {
-        super("SC2APIProtocol.ObservationFeatureLayer", [
-            { no: 1, name: "renders", kind: "message", T: () => FeatureLayers },
-            { no: 2, name: "minimap_renders", kind: "message", T: () => FeatureLayersMinimap }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ObservationFeatureLayer", [
+      { no: 1, name: "renders", kind: "message", T: () => FeatureLayers },
+      {
+        no: 2,
+        name: "minimap_renders",
+        kind: "message",
+        T: () => FeatureLayersMinimap,
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ObservationFeatureLayer>,
+  ): ObservationFeatureLayer {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ObservationFeatureLayer>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ObservationFeatureLayer,
+  ): ObservationFeatureLayer {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.FeatureLayers renders */ 1:
+          message.renders = FeatureLayers.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.renders,
+          );
+          break;
+        case /* optional SC2APIProtocol.FeatureLayersMinimap minimap_renders */ 2:
+          message.minimapRenders = FeatureLayersMinimap.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.minimapRenders,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ObservationFeatureLayer>): ObservationFeatureLayer {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ObservationFeatureLayer>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ObservationFeatureLayer): ObservationFeatureLayer {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.FeatureLayers renders */ 1:
-                    message.renders = FeatureLayers.internalBinaryRead(reader, reader.uint32(), options, message.renders);
-                    break;
-                case /* optional SC2APIProtocol.FeatureLayersMinimap minimap_renders */ 2:
-                    message.minimapRenders = FeatureLayersMinimap.internalBinaryRead(reader, reader.uint32(), options, message.minimapRenders);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ObservationFeatureLayer, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.FeatureLayers renders = 1; */
-        if (message.renders)
-            FeatureLayers.internalBinaryWrite(message.renders, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.FeatureLayersMinimap minimap_renders = 2; */
-        if (message.minimapRenders)
-            FeatureLayersMinimap.internalBinaryWrite(message.minimapRenders, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ObservationFeatureLayer,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.FeatureLayers renders = 1; */
+    if (message.renders)
+      FeatureLayers.internalBinaryWrite(
+        message.renders,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.FeatureLayersMinimap minimap_renders = 2; */
+    if (message.minimapRenders)
+      FeatureLayersMinimap.internalBinaryWrite(
+        message.minimapRenders,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ObservationFeatureLayer
@@ -408,228 +468,511 @@ class ObservationFeatureLayer$Type extends MessageType<ObservationFeatureLayer> 
 export const ObservationFeatureLayer = new ObservationFeatureLayer$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class FeatureLayers$Type extends MessageType<FeatureLayers> {
-    constructor() {
-        super("SC2APIProtocol.FeatureLayers", [
-            { no: 1, name: "height_map", kind: "message", T: () => ImageData },
-            { no: 2, name: "visibility_map", kind: "message", T: () => ImageData },
-            { no: 3, name: "creep", kind: "message", T: () => ImageData },
-            { no: 4, name: "power", kind: "message", T: () => ImageData },
-            { no: 5, name: "player_id", kind: "message", T: () => ImageData },
-            { no: 6, name: "unit_type", kind: "message", T: () => ImageData },
-            { no: 7, name: "selected", kind: "message", T: () => ImageData },
-            { no: 8, name: "unit_hit_points", kind: "message", T: () => ImageData },
-            { no: 17, name: "unit_hit_points_ratio", kind: "message", T: () => ImageData },
-            { no: 9, name: "unit_energy", kind: "message", T: () => ImageData },
-            { no: 18, name: "unit_energy_ratio", kind: "message", T: () => ImageData },
-            { no: 10, name: "unit_shields", kind: "message", T: () => ImageData },
-            { no: 19, name: "unit_shields_ratio", kind: "message", T: () => ImageData },
-            { no: 11, name: "player_relative", kind: "message", T: () => ImageData },
-            { no: 14, name: "unit_density_aa", kind: "message", T: () => ImageData },
-            { no: 15, name: "unit_density", kind: "message", T: () => ImageData },
-            { no: 20, name: "effects", kind: "message", T: () => ImageData },
-            { no: 21, name: "hallucinations", kind: "message", T: () => ImageData },
-            { no: 22, name: "cloaked", kind: "message", T: () => ImageData },
-            { no: 23, name: "blip", kind: "message", T: () => ImageData },
-            { no: 24, name: "buffs", kind: "message", T: () => ImageData },
-            { no: 26, name: "buff_duration", kind: "message", T: () => ImageData },
-            { no: 25, name: "active", kind: "message", T: () => ImageData },
-            { no: 27, name: "build_progress", kind: "message", T: () => ImageData },
-            { no: 28, name: "buildable", kind: "message", T: () => ImageData },
-            { no: 29, name: "pathable", kind: "message", T: () => ImageData },
-            { no: 30, name: "placeholder", kind: "message", T: () => ImageData }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.FeatureLayers", [
+      { no: 1, name: "height_map", kind: "message", T: () => ImageData },
+      { no: 2, name: "visibility_map", kind: "message", T: () => ImageData },
+      { no: 3, name: "creep", kind: "message", T: () => ImageData },
+      { no: 4, name: "power", kind: "message", T: () => ImageData },
+      { no: 5, name: "player_id", kind: "message", T: () => ImageData },
+      { no: 6, name: "unit_type", kind: "message", T: () => ImageData },
+      { no: 7, name: "selected", kind: "message", T: () => ImageData },
+      { no: 8, name: "unit_hit_points", kind: "message", T: () => ImageData },
+      {
+        no: 17,
+        name: "unit_hit_points_ratio",
+        kind: "message",
+        T: () => ImageData,
+      },
+      { no: 9, name: "unit_energy", kind: "message", T: () => ImageData },
+      {
+        no: 18,
+        name: "unit_energy_ratio",
+        kind: "message",
+        T: () => ImageData,
+      },
+      { no: 10, name: "unit_shields", kind: "message", T: () => ImageData },
+      {
+        no: 19,
+        name: "unit_shields_ratio",
+        kind: "message",
+        T: () => ImageData,
+      },
+      { no: 11, name: "player_relative", kind: "message", T: () => ImageData },
+      { no: 14, name: "unit_density_aa", kind: "message", T: () => ImageData },
+      { no: 15, name: "unit_density", kind: "message", T: () => ImageData },
+      { no: 20, name: "effects", kind: "message", T: () => ImageData },
+      { no: 21, name: "hallucinations", kind: "message", T: () => ImageData },
+      { no: 22, name: "cloaked", kind: "message", T: () => ImageData },
+      { no: 23, name: "blip", kind: "message", T: () => ImageData },
+      { no: 24, name: "buffs", kind: "message", T: () => ImageData },
+      { no: 26, name: "buff_duration", kind: "message", T: () => ImageData },
+      { no: 25, name: "active", kind: "message", T: () => ImageData },
+      { no: 27, name: "build_progress", kind: "message", T: () => ImageData },
+      { no: 28, name: "buildable", kind: "message", T: () => ImageData },
+      { no: 29, name: "pathable", kind: "message", T: () => ImageData },
+      { no: 30, name: "placeholder", kind: "message", T: () => ImageData },
+    ]);
+  }
+  create(value?: PartialMessage<FeatureLayers>): FeatureLayers {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<FeatureLayers>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FeatureLayers,
+  ): FeatureLayers {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ImageData height_map */ 1:
+          message.heightMap = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.heightMap,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData visibility_map */ 2:
+          message.visibilityMap = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.visibilityMap,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData creep */ 3:
+          message.creep = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.creep,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData power */ 4:
+          message.power = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.power,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData player_id */ 5:
+          message.playerId = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.playerId,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_type */ 6:
+          message.unitType = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitType,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData selected */ 7:
+          message.selected = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.selected,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_hit_points */ 8:
+          message.unitHitPoints = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitHitPoints,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_hit_points_ratio */ 17:
+          message.unitHitPointsRatio = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitHitPointsRatio,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_energy */ 9:
+          message.unitEnergy = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitEnergy,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_energy_ratio */ 18:
+          message.unitEnergyRatio = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitEnergyRatio,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_shields */ 10:
+          message.unitShields = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitShields,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_shields_ratio */ 19:
+          message.unitShieldsRatio = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitShieldsRatio,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData player_relative */ 11:
+          message.playerRelative = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.playerRelative,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_density_aa */ 14:
+          message.unitDensityAa = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitDensityAa,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_density */ 15:
+          message.unitDensity = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitDensity,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData effects */ 20:
+          message.effects = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.effects,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData hallucinations */ 21:
+          message.hallucinations = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.hallucinations,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData cloaked */ 22:
+          message.cloaked = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.cloaked,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData blip */ 23:
+          message.blip = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.blip,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData buffs */ 24:
+          message.buffs = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.buffs,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData buff_duration */ 26:
+          message.buffDuration = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.buffDuration,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData active */ 25:
+          message.active = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.active,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData build_progress */ 27:
+          message.buildProgress = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.buildProgress,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData buildable */ 28:
+          message.buildable = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.buildable,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData pathable */ 29:
+          message.pathable = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pathable,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData placeholder */ 30:
+          message.placeholder = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.placeholder,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<FeatureLayers>): FeatureLayers {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<FeatureLayers>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: FeatureLayers): FeatureLayers {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ImageData height_map */ 1:
-                    message.heightMap = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.heightMap);
-                    break;
-                case /* optional SC2APIProtocol.ImageData visibility_map */ 2:
-                    message.visibilityMap = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.visibilityMap);
-                    break;
-                case /* optional SC2APIProtocol.ImageData creep */ 3:
-                    message.creep = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.creep);
-                    break;
-                case /* optional SC2APIProtocol.ImageData power */ 4:
-                    message.power = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.power);
-                    break;
-                case /* optional SC2APIProtocol.ImageData player_id */ 5:
-                    message.playerId = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.playerId);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_type */ 6:
-                    message.unitType = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitType);
-                    break;
-                case /* optional SC2APIProtocol.ImageData selected */ 7:
-                    message.selected = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.selected);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_hit_points */ 8:
-                    message.unitHitPoints = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitHitPoints);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_hit_points_ratio */ 17:
-                    message.unitHitPointsRatio = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitHitPointsRatio);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_energy */ 9:
-                    message.unitEnergy = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitEnergy);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_energy_ratio */ 18:
-                    message.unitEnergyRatio = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitEnergyRatio);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_shields */ 10:
-                    message.unitShields = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitShields);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_shields_ratio */ 19:
-                    message.unitShieldsRatio = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitShieldsRatio);
-                    break;
-                case /* optional SC2APIProtocol.ImageData player_relative */ 11:
-                    message.playerRelative = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.playerRelative);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_density_aa */ 14:
-                    message.unitDensityAa = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitDensityAa);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_density */ 15:
-                    message.unitDensity = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitDensity);
-                    break;
-                case /* optional SC2APIProtocol.ImageData effects */ 20:
-                    message.effects = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.effects);
-                    break;
-                case /* optional SC2APIProtocol.ImageData hallucinations */ 21:
-                    message.hallucinations = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.hallucinations);
-                    break;
-                case /* optional SC2APIProtocol.ImageData cloaked */ 22:
-                    message.cloaked = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.cloaked);
-                    break;
-                case /* optional SC2APIProtocol.ImageData blip */ 23:
-                    message.blip = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.blip);
-                    break;
-                case /* optional SC2APIProtocol.ImageData buffs */ 24:
-                    message.buffs = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.buffs);
-                    break;
-                case /* optional SC2APIProtocol.ImageData buff_duration */ 26:
-                    message.buffDuration = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.buffDuration);
-                    break;
-                case /* optional SC2APIProtocol.ImageData active */ 25:
-                    message.active = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.active);
-                    break;
-                case /* optional SC2APIProtocol.ImageData build_progress */ 27:
-                    message.buildProgress = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.buildProgress);
-                    break;
-                case /* optional SC2APIProtocol.ImageData buildable */ 28:
-                    message.buildable = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.buildable);
-                    break;
-                case /* optional SC2APIProtocol.ImageData pathable */ 29:
-                    message.pathable = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.pathable);
-                    break;
-                case /* optional SC2APIProtocol.ImageData placeholder */ 30:
-                    message.placeholder = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.placeholder);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: FeatureLayers, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ImageData height_map = 1; */
-        if (message.heightMap)
-            ImageData.internalBinaryWrite(message.heightMap, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData visibility_map = 2; */
-        if (message.visibilityMap)
-            ImageData.internalBinaryWrite(message.visibilityMap, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData creep = 3; */
-        if (message.creep)
-            ImageData.internalBinaryWrite(message.creep, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData power = 4; */
-        if (message.power)
-            ImageData.internalBinaryWrite(message.power, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData player_id = 5; */
-        if (message.playerId)
-            ImageData.internalBinaryWrite(message.playerId, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_type = 6; */
-        if (message.unitType)
-            ImageData.internalBinaryWrite(message.unitType, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData selected = 7; */
-        if (message.selected)
-            ImageData.internalBinaryWrite(message.selected, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_hit_points = 8; */
-        if (message.unitHitPoints)
-            ImageData.internalBinaryWrite(message.unitHitPoints, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_hit_points_ratio = 17; */
-        if (message.unitHitPointsRatio)
-            ImageData.internalBinaryWrite(message.unitHitPointsRatio, writer.tag(17, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_energy = 9; */
-        if (message.unitEnergy)
-            ImageData.internalBinaryWrite(message.unitEnergy, writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_energy_ratio = 18; */
-        if (message.unitEnergyRatio)
-            ImageData.internalBinaryWrite(message.unitEnergyRatio, writer.tag(18, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_shields = 10; */
-        if (message.unitShields)
-            ImageData.internalBinaryWrite(message.unitShields, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_shields_ratio = 19; */
-        if (message.unitShieldsRatio)
-            ImageData.internalBinaryWrite(message.unitShieldsRatio, writer.tag(19, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData player_relative = 11; */
-        if (message.playerRelative)
-            ImageData.internalBinaryWrite(message.playerRelative, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_density_aa = 14; */
-        if (message.unitDensityAa)
-            ImageData.internalBinaryWrite(message.unitDensityAa, writer.tag(14, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_density = 15; */
-        if (message.unitDensity)
-            ImageData.internalBinaryWrite(message.unitDensity, writer.tag(15, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData effects = 20; */
-        if (message.effects)
-            ImageData.internalBinaryWrite(message.effects, writer.tag(20, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData hallucinations = 21; */
-        if (message.hallucinations)
-            ImageData.internalBinaryWrite(message.hallucinations, writer.tag(21, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData cloaked = 22; */
-        if (message.cloaked)
-            ImageData.internalBinaryWrite(message.cloaked, writer.tag(22, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData blip = 23; */
-        if (message.blip)
-            ImageData.internalBinaryWrite(message.blip, writer.tag(23, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData buffs = 24; */
-        if (message.buffs)
-            ImageData.internalBinaryWrite(message.buffs, writer.tag(24, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData buff_duration = 26; */
-        if (message.buffDuration)
-            ImageData.internalBinaryWrite(message.buffDuration, writer.tag(26, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData active = 25; */
-        if (message.active)
-            ImageData.internalBinaryWrite(message.active, writer.tag(25, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData build_progress = 27; */
-        if (message.buildProgress)
-            ImageData.internalBinaryWrite(message.buildProgress, writer.tag(27, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData buildable = 28; */
-        if (message.buildable)
-            ImageData.internalBinaryWrite(message.buildable, writer.tag(28, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData pathable = 29; */
-        if (message.pathable)
-            ImageData.internalBinaryWrite(message.pathable, writer.tag(29, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData placeholder = 30; */
-        if (message.placeholder)
-            ImageData.internalBinaryWrite(message.placeholder, writer.tag(30, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: FeatureLayers,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ImageData height_map = 1; */
+    if (message.heightMap)
+      ImageData.internalBinaryWrite(
+        message.heightMap,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData visibility_map = 2; */
+    if (message.visibilityMap)
+      ImageData.internalBinaryWrite(
+        message.visibilityMap,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData creep = 3; */
+    if (message.creep)
+      ImageData.internalBinaryWrite(
+        message.creep,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData power = 4; */
+    if (message.power)
+      ImageData.internalBinaryWrite(
+        message.power,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData player_id = 5; */
+    if (message.playerId)
+      ImageData.internalBinaryWrite(
+        message.playerId,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_type = 6; */
+    if (message.unitType)
+      ImageData.internalBinaryWrite(
+        message.unitType,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData selected = 7; */
+    if (message.selected)
+      ImageData.internalBinaryWrite(
+        message.selected,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_hit_points = 8; */
+    if (message.unitHitPoints)
+      ImageData.internalBinaryWrite(
+        message.unitHitPoints,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_hit_points_ratio = 17; */
+    if (message.unitHitPointsRatio)
+      ImageData.internalBinaryWrite(
+        message.unitHitPointsRatio,
+        writer.tag(17, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_energy = 9; */
+    if (message.unitEnergy)
+      ImageData.internalBinaryWrite(
+        message.unitEnergy,
+        writer.tag(9, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_energy_ratio = 18; */
+    if (message.unitEnergyRatio)
+      ImageData.internalBinaryWrite(
+        message.unitEnergyRatio,
+        writer.tag(18, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_shields = 10; */
+    if (message.unitShields)
+      ImageData.internalBinaryWrite(
+        message.unitShields,
+        writer.tag(10, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_shields_ratio = 19; */
+    if (message.unitShieldsRatio)
+      ImageData.internalBinaryWrite(
+        message.unitShieldsRatio,
+        writer.tag(19, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData player_relative = 11; */
+    if (message.playerRelative)
+      ImageData.internalBinaryWrite(
+        message.playerRelative,
+        writer.tag(11, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_density_aa = 14; */
+    if (message.unitDensityAa)
+      ImageData.internalBinaryWrite(
+        message.unitDensityAa,
+        writer.tag(14, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_density = 15; */
+    if (message.unitDensity)
+      ImageData.internalBinaryWrite(
+        message.unitDensity,
+        writer.tag(15, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData effects = 20; */
+    if (message.effects)
+      ImageData.internalBinaryWrite(
+        message.effects,
+        writer.tag(20, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData hallucinations = 21; */
+    if (message.hallucinations)
+      ImageData.internalBinaryWrite(
+        message.hallucinations,
+        writer.tag(21, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData cloaked = 22; */
+    if (message.cloaked)
+      ImageData.internalBinaryWrite(
+        message.cloaked,
+        writer.tag(22, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData blip = 23; */
+    if (message.blip)
+      ImageData.internalBinaryWrite(
+        message.blip,
+        writer.tag(23, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData buffs = 24; */
+    if (message.buffs)
+      ImageData.internalBinaryWrite(
+        message.buffs,
+        writer.tag(24, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData buff_duration = 26; */
+    if (message.buffDuration)
+      ImageData.internalBinaryWrite(
+        message.buffDuration,
+        writer.tag(26, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData active = 25; */
+    if (message.active)
+      ImageData.internalBinaryWrite(
+        message.active,
+        writer.tag(25, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData build_progress = 27; */
+    if (message.buildProgress)
+      ImageData.internalBinaryWrite(
+        message.buildProgress,
+        writer.tag(27, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData buildable = 28; */
+    if (message.buildable)
+      ImageData.internalBinaryWrite(
+        message.buildable,
+        writer.tag(28, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData pathable = 29; */
+    if (message.pathable)
+      ImageData.internalBinaryWrite(
+        message.pathable,
+        writer.tag(29, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData placeholder = 30; */
+    if (message.placeholder)
+      ImageData.internalBinaryWrite(
+        message.placeholder,
+        writer.tag(30, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.FeatureLayers
@@ -637,116 +980,240 @@ class FeatureLayers$Type extends MessageType<FeatureLayers> {
 export const FeatureLayers = new FeatureLayers$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class FeatureLayersMinimap$Type extends MessageType<FeatureLayersMinimap> {
-    constructor() {
-        super("SC2APIProtocol.FeatureLayersMinimap", [
-            { no: 1, name: "height_map", kind: "message", T: () => ImageData },
-            { no: 2, name: "visibility_map", kind: "message", T: () => ImageData },
-            { no: 3, name: "creep", kind: "message", T: () => ImageData },
-            { no: 4, name: "camera", kind: "message", T: () => ImageData },
-            { no: 5, name: "player_id", kind: "message", T: () => ImageData },
-            { no: 6, name: "player_relative", kind: "message", T: () => ImageData },
-            { no: 7, name: "selected", kind: "message", T: () => ImageData },
-            { no: 9, name: "alerts", kind: "message", T: () => ImageData },
-            { no: 10, name: "buildable", kind: "message", T: () => ImageData },
-            { no: 11, name: "pathable", kind: "message", T: () => ImageData },
-            { no: 8, name: "unit_type", kind: "message", T: () => ImageData }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.FeatureLayersMinimap", [
+      { no: 1, name: "height_map", kind: "message", T: () => ImageData },
+      { no: 2, name: "visibility_map", kind: "message", T: () => ImageData },
+      { no: 3, name: "creep", kind: "message", T: () => ImageData },
+      { no: 4, name: "camera", kind: "message", T: () => ImageData },
+      { no: 5, name: "player_id", kind: "message", T: () => ImageData },
+      { no: 6, name: "player_relative", kind: "message", T: () => ImageData },
+      { no: 7, name: "selected", kind: "message", T: () => ImageData },
+      { no: 9, name: "alerts", kind: "message", T: () => ImageData },
+      { no: 10, name: "buildable", kind: "message", T: () => ImageData },
+      { no: 11, name: "pathable", kind: "message", T: () => ImageData },
+      { no: 8, name: "unit_type", kind: "message", T: () => ImageData },
+    ]);
+  }
+  create(value?: PartialMessage<FeatureLayersMinimap>): FeatureLayersMinimap {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<FeatureLayersMinimap>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: FeatureLayersMinimap,
+  ): FeatureLayersMinimap {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ImageData height_map */ 1:
+          message.heightMap = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.heightMap,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData visibility_map */ 2:
+          message.visibilityMap = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.visibilityMap,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData creep */ 3:
+          message.creep = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.creep,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData camera */ 4:
+          message.camera = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.camera,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData player_id */ 5:
+          message.playerId = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.playerId,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData player_relative */ 6:
+          message.playerRelative = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.playerRelative,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData selected */ 7:
+          message.selected = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.selected,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData alerts */ 9:
+          message.alerts = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.alerts,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData buildable */ 10:
+          message.buildable = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.buildable,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData pathable */ 11:
+          message.pathable = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.pathable,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData unit_type */ 8:
+          message.unitType = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unitType,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<FeatureLayersMinimap>): FeatureLayersMinimap {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<FeatureLayersMinimap>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: FeatureLayersMinimap): FeatureLayersMinimap {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ImageData height_map */ 1:
-                    message.heightMap = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.heightMap);
-                    break;
-                case /* optional SC2APIProtocol.ImageData visibility_map */ 2:
-                    message.visibilityMap = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.visibilityMap);
-                    break;
-                case /* optional SC2APIProtocol.ImageData creep */ 3:
-                    message.creep = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.creep);
-                    break;
-                case /* optional SC2APIProtocol.ImageData camera */ 4:
-                    message.camera = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.camera);
-                    break;
-                case /* optional SC2APIProtocol.ImageData player_id */ 5:
-                    message.playerId = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.playerId);
-                    break;
-                case /* optional SC2APIProtocol.ImageData player_relative */ 6:
-                    message.playerRelative = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.playerRelative);
-                    break;
-                case /* optional SC2APIProtocol.ImageData selected */ 7:
-                    message.selected = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.selected);
-                    break;
-                case /* optional SC2APIProtocol.ImageData alerts */ 9:
-                    message.alerts = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.alerts);
-                    break;
-                case /* optional SC2APIProtocol.ImageData buildable */ 10:
-                    message.buildable = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.buildable);
-                    break;
-                case /* optional SC2APIProtocol.ImageData pathable */ 11:
-                    message.pathable = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.pathable);
-                    break;
-                case /* optional SC2APIProtocol.ImageData unit_type */ 8:
-                    message.unitType = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.unitType);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: FeatureLayersMinimap, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ImageData height_map = 1; */
-        if (message.heightMap)
-            ImageData.internalBinaryWrite(message.heightMap, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData visibility_map = 2; */
-        if (message.visibilityMap)
-            ImageData.internalBinaryWrite(message.visibilityMap, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData creep = 3; */
-        if (message.creep)
-            ImageData.internalBinaryWrite(message.creep, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData camera = 4; */
-        if (message.camera)
-            ImageData.internalBinaryWrite(message.camera, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData player_id = 5; */
-        if (message.playerId)
-            ImageData.internalBinaryWrite(message.playerId, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData player_relative = 6; */
-        if (message.playerRelative)
-            ImageData.internalBinaryWrite(message.playerRelative, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData selected = 7; */
-        if (message.selected)
-            ImageData.internalBinaryWrite(message.selected, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData alerts = 9; */
-        if (message.alerts)
-            ImageData.internalBinaryWrite(message.alerts, writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData buildable = 10; */
-        if (message.buildable)
-            ImageData.internalBinaryWrite(message.buildable, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData pathable = 11; */
-        if (message.pathable)
-            ImageData.internalBinaryWrite(message.pathable, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData unit_type = 8; */
-        if (message.unitType)
-            ImageData.internalBinaryWrite(message.unitType, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: FeatureLayersMinimap,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ImageData height_map = 1; */
+    if (message.heightMap)
+      ImageData.internalBinaryWrite(
+        message.heightMap,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData visibility_map = 2; */
+    if (message.visibilityMap)
+      ImageData.internalBinaryWrite(
+        message.visibilityMap,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData creep = 3; */
+    if (message.creep)
+      ImageData.internalBinaryWrite(
+        message.creep,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData camera = 4; */
+    if (message.camera)
+      ImageData.internalBinaryWrite(
+        message.camera,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData player_id = 5; */
+    if (message.playerId)
+      ImageData.internalBinaryWrite(
+        message.playerId,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData player_relative = 6; */
+    if (message.playerRelative)
+      ImageData.internalBinaryWrite(
+        message.playerRelative,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData selected = 7; */
+    if (message.selected)
+      ImageData.internalBinaryWrite(
+        message.selected,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData alerts = 9; */
+    if (message.alerts)
+      ImageData.internalBinaryWrite(
+        message.alerts,
+        writer.tag(9, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData buildable = 10; */
+    if (message.buildable)
+      ImageData.internalBinaryWrite(
+        message.buildable,
+        writer.tag(10, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData pathable = 11; */
+    if (message.pathable)
+      ImageData.internalBinaryWrite(
+        message.pathable,
+        writer.tag(11, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData unit_type = 8; */
+    if (message.unitType)
+      ImageData.internalBinaryWrite(
+        message.unitType,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.FeatureLayersMinimap
@@ -754,53 +1221,96 @@ class FeatureLayersMinimap$Type extends MessageType<FeatureLayersMinimap> {
 export const FeatureLayersMinimap = new FeatureLayersMinimap$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ObservationRender$Type extends MessageType<ObservationRender> {
-    constructor() {
-        super("SC2APIProtocol.ObservationRender", [
-            { no: 1, name: "map", kind: "message", T: () => ImageData },
-            { no: 2, name: "minimap", kind: "message", T: () => ImageData }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ObservationRender", [
+      { no: 1, name: "map", kind: "message", T: () => ImageData },
+      { no: 2, name: "minimap", kind: "message", T: () => ImageData },
+    ]);
+  }
+  create(value?: PartialMessage<ObservationRender>): ObservationRender {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ObservationRender>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ObservationRender,
+  ): ObservationRender {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ImageData map */ 1:
+          message.map = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.map,
+          );
+          break;
+        case /* optional SC2APIProtocol.ImageData minimap */ 2:
+          message.minimap = ImageData.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.minimap,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ObservationRender>): ObservationRender {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ObservationRender>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ObservationRender): ObservationRender {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ImageData map */ 1:
-                    message.map = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.map);
-                    break;
-                case /* optional SC2APIProtocol.ImageData minimap */ 2:
-                    message.minimap = ImageData.internalBinaryRead(reader, reader.uint32(), options, message.minimap);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ObservationRender, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ImageData map = 1; */
-        if (message.map)
-            ImageData.internalBinaryWrite(message.map, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ImageData minimap = 2; */
-        if (message.minimap)
-            ImageData.internalBinaryWrite(message.minimap, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ObservationRender,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ImageData map = 1; */
+    if (message.map)
+      ImageData.internalBinaryWrite(
+        message.map,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ImageData minimap = 2; */
+    if (message.minimap)
+      ImageData.internalBinaryWrite(
+        message.minimap,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ObservationRender
@@ -808,79 +1318,166 @@ class ObservationRender$Type extends MessageType<ObservationRender> {
 export const ObservationRender = new ObservationRender$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSpatial$Type extends MessageType<ActionSpatial> {
-    constructor() {
-        super("SC2APIProtocol.ActionSpatial", [
-            { no: 1, name: "unit_command", kind: "message", oneof: "action", T: () => ActionSpatialUnitCommand },
-            { no: 2, name: "camera_move", kind: "message", oneof: "action", T: () => ActionSpatialCameraMove },
-            { no: 3, name: "unit_selection_point", kind: "message", oneof: "action", T: () => ActionSpatialUnitSelectionPoint },
-            { no: 4, name: "unit_selection_rect", kind: "message", oneof: "action", T: () => ActionSpatialUnitSelectionRect }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSpatial", [
+      {
+        no: 1,
+        name: "unit_command",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSpatialUnitCommand,
+      },
+      {
+        no: 2,
+        name: "camera_move",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSpatialCameraMove,
+      },
+      {
+        no: 3,
+        name: "unit_selection_point",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSpatialUnitSelectionPoint,
+      },
+      {
+        no: 4,
+        name: "unit_selection_rect",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSpatialUnitSelectionRect,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionSpatial>): ActionSpatial {
+    const message = { action: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSpatial>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSpatial,
+  ): ActionSpatial {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* SC2APIProtocol.ActionSpatialUnitCommand unit_command */ 1:
+          message.action = {
+            oneofKind: "unitCommand",
+            unitCommand: ActionSpatialUnitCommand.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).unitCommand,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSpatialCameraMove camera_move */ 2:
+          message.action = {
+            oneofKind: "cameraMove",
+            cameraMove: ActionSpatialCameraMove.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).cameraMove,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSpatialUnitSelectionPoint unit_selection_point */ 3:
+          message.action = {
+            oneofKind: "unitSelectionPoint",
+            unitSelectionPoint:
+              ActionSpatialUnitSelectionPoint.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.action as any).unitSelectionPoint,
+              ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSpatialUnitSelectionRect unit_selection_rect */ 4:
+          message.action = {
+            oneofKind: "unitSelectionRect",
+            unitSelectionRect:
+              ActionSpatialUnitSelectionRect.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.action as any).unitSelectionRect,
+              ),
+          };
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSpatial>): ActionSpatial {
-        const message = { action: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSpatial>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSpatial): ActionSpatial {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* SC2APIProtocol.ActionSpatialUnitCommand unit_command */ 1:
-                    message.action = {
-                        oneofKind: "unitCommand",
-                        unitCommand: ActionSpatialUnitCommand.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).unitCommand)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSpatialCameraMove camera_move */ 2:
-                    message.action = {
-                        oneofKind: "cameraMove",
-                        cameraMove: ActionSpatialCameraMove.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).cameraMove)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSpatialUnitSelectionPoint unit_selection_point */ 3:
-                    message.action = {
-                        oneofKind: "unitSelectionPoint",
-                        unitSelectionPoint: ActionSpatialUnitSelectionPoint.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).unitSelectionPoint)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSpatialUnitSelectionRect unit_selection_rect */ 4:
-                    message.action = {
-                        oneofKind: "unitSelectionRect",
-                        unitSelectionRect: ActionSpatialUnitSelectionRect.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).unitSelectionRect)
-                    };
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSpatial, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* SC2APIProtocol.ActionSpatialUnitCommand unit_command = 1; */
-        if (message.action.oneofKind === "unitCommand")
-            ActionSpatialUnitCommand.internalBinaryWrite(message.action.unitCommand, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSpatialCameraMove camera_move = 2; */
-        if (message.action.oneofKind === "cameraMove")
-            ActionSpatialCameraMove.internalBinaryWrite(message.action.cameraMove, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSpatialUnitSelectionPoint unit_selection_point = 3; */
-        if (message.action.oneofKind === "unitSelectionPoint")
-            ActionSpatialUnitSelectionPoint.internalBinaryWrite(message.action.unitSelectionPoint, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSpatialUnitSelectionRect unit_selection_rect = 4; */
-        if (message.action.oneofKind === "unitSelectionRect")
-            ActionSpatialUnitSelectionRect.internalBinaryWrite(message.action.unitSelectionRect, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSpatial,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* SC2APIProtocol.ActionSpatialUnitCommand unit_command = 1; */
+    if (message.action.oneofKind === "unitCommand")
+      ActionSpatialUnitCommand.internalBinaryWrite(
+        message.action.unitCommand,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSpatialCameraMove camera_move = 2; */
+    if (message.action.oneofKind === "cameraMove")
+      ActionSpatialCameraMove.internalBinaryWrite(
+        message.action.cameraMove,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSpatialUnitSelectionPoint unit_selection_point = 3; */
+    if (message.action.oneofKind === "unitSelectionPoint")
+      ActionSpatialUnitSelectionPoint.internalBinaryWrite(
+        message.action.unitSelectionPoint,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSpatialUnitSelectionRect unit_selection_rect = 4; */
+    if (message.action.oneofKind === "unitSelectionRect")
+      ActionSpatialUnitSelectionRect.internalBinaryWrite(
+        message.action.unitSelectionRect,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSpatial
@@ -888,73 +1485,142 @@ class ActionSpatial$Type extends MessageType<ActionSpatial> {
 export const ActionSpatial = new ActionSpatial$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSpatialUnitCommand$Type extends MessageType<ActionSpatialUnitCommand> {
-    constructor() {
-        super("SC2APIProtocol.ActionSpatialUnitCommand", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 2, name: "target_screen_coord", kind: "message", oneof: "target", T: () => PointI },
-            { no: 3, name: "target_minimap_coord", kind: "message", oneof: "target", T: () => PointI },
-            { no: 4, name: "queue_command", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSpatialUnitCommand", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 2,
+        name: "target_screen_coord",
+        kind: "message",
+        oneof: "target",
+        T: () => PointI,
+      },
+      {
+        no: 3,
+        name: "target_minimap_coord",
+        kind: "message",
+        oneof: "target",
+        T: () => PointI,
+      },
+      {
+        no: 4,
+        name: "queue_command",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionSpatialUnitCommand>,
+  ): ActionSpatialUnitCommand {
+    const message = { target: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSpatialUnitCommand>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSpatialUnitCommand,
+  ): ActionSpatialUnitCommand {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional int32 ability_id */ 1:
+          message.abilityId = reader.int32();
+          break;
+        case /* SC2APIProtocol.PointI target_screen_coord */ 2:
+          message.target = {
+            oneofKind: "targetScreenCoord",
+            targetScreenCoord: PointI.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.target as any).targetScreenCoord,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.PointI target_minimap_coord */ 3:
+          message.target = {
+            oneofKind: "targetMinimapCoord",
+            targetMinimapCoord: PointI.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.target as any).targetMinimapCoord,
+            ),
+          };
+          break;
+        case /* optional bool queue_command */ 4:
+          message.queueCommand = reader.bool();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSpatialUnitCommand>): ActionSpatialUnitCommand {
-        const message = { target: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSpatialUnitCommand>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSpatialUnitCommand): ActionSpatialUnitCommand {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional int32 ability_id */ 1:
-                    message.abilityId = reader.int32();
-                    break;
-                case /* SC2APIProtocol.PointI target_screen_coord */ 2:
-                    message.target = {
-                        oneofKind: "targetScreenCoord",
-                        targetScreenCoord: PointI.internalBinaryRead(reader, reader.uint32(), options, (message.target as any).targetScreenCoord)
-                    };
-                    break;
-                case /* SC2APIProtocol.PointI target_minimap_coord */ 3:
-                    message.target = {
-                        oneofKind: "targetMinimapCoord",
-                        targetMinimapCoord: PointI.internalBinaryRead(reader, reader.uint32(), options, (message.target as any).targetMinimapCoord)
-                    };
-                    break;
-                case /* optional bool queue_command */ 4:
-                    message.queueCommand = reader.bool();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSpatialUnitCommand, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional int32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.abilityId);
-        /* SC2APIProtocol.PointI target_screen_coord = 2; */
-        if (message.target.oneofKind === "targetScreenCoord")
-            PointI.internalBinaryWrite(message.target.targetScreenCoord, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.PointI target_minimap_coord = 3; */
-        if (message.target.oneofKind === "targetMinimapCoord")
-            PointI.internalBinaryWrite(message.target.targetMinimapCoord, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional bool queue_command = 4; */
-        if (message.queueCommand !== undefined)
-            writer.tag(4, WireType.Varint).bool(message.queueCommand);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSpatialUnitCommand,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional int32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.abilityId);
+    /* SC2APIProtocol.PointI target_screen_coord = 2; */
+    if (message.target.oneofKind === "targetScreenCoord")
+      PointI.internalBinaryWrite(
+        message.target.targetScreenCoord,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.PointI target_minimap_coord = 3; */
+    if (message.target.oneofKind === "targetMinimapCoord")
+      PointI.internalBinaryWrite(
+        message.target.targetMinimapCoord,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional bool queue_command = 4; */
+    if (message.queueCommand !== undefined)
+      writer.tag(4, WireType.Varint).bool(message.queueCommand);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSpatialUnitCommand
@@ -962,46 +1628,82 @@ class ActionSpatialUnitCommand$Type extends MessageType<ActionSpatialUnitCommand
 export const ActionSpatialUnitCommand = new ActionSpatialUnitCommand$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSpatialCameraMove$Type extends MessageType<ActionSpatialCameraMove> {
-    constructor() {
-        super("SC2APIProtocol.ActionSpatialCameraMove", [
-            { no: 1, name: "center_minimap", kind: "message", T: () => PointI }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSpatialCameraMove", [
+      { no: 1, name: "center_minimap", kind: "message", T: () => PointI },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionSpatialCameraMove>,
+  ): ActionSpatialCameraMove {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSpatialCameraMove>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSpatialCameraMove,
+  ): ActionSpatialCameraMove {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.PointI center_minimap */ 1:
+          message.centerMinimap = PointI.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.centerMinimap,
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSpatialCameraMove>): ActionSpatialCameraMove {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSpatialCameraMove>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSpatialCameraMove): ActionSpatialCameraMove {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.PointI center_minimap */ 1:
-                    message.centerMinimap = PointI.internalBinaryRead(reader, reader.uint32(), options, message.centerMinimap);
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSpatialCameraMove, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.PointI center_minimap = 1; */
-        if (message.centerMinimap)
-            PointI.internalBinaryWrite(message.centerMinimap, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSpatialCameraMove,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.PointI center_minimap = 1; */
+    if (message.centerMinimap)
+      PointI.internalBinaryWrite(
+        message.centerMinimap,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSpatialCameraMove
@@ -1009,109 +1711,214 @@ class ActionSpatialCameraMove$Type extends MessageType<ActionSpatialCameraMove> 
 export const ActionSpatialCameraMove = new ActionSpatialCameraMove$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSpatialUnitSelectionPoint$Type extends MessageType<ActionSpatialUnitSelectionPoint> {
-    constructor() {
-        super("SC2APIProtocol.ActionSpatialUnitSelectionPoint", [
-            { no: 1, name: "selection_screen_coord", kind: "message", T: () => PointI },
-            { no: 2, name: "type", kind: "enum", opt: true, T: () => ["SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type", ActionSpatialUnitSelectionPoint_Type] }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSpatialUnitSelectionPoint", [
+      {
+        no: 1,
+        name: "selection_screen_coord",
+        kind: "message",
+        T: () => PointI,
+      },
+      {
+        no: 2,
+        name: "type",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type",
+          ActionSpatialUnitSelectionPoint_Type,
+        ],
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionSpatialUnitSelectionPoint>,
+  ): ActionSpatialUnitSelectionPoint {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSpatialUnitSelectionPoint>(
+        this,
+        message,
+        value,
+      );
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSpatialUnitSelectionPoint,
+  ): ActionSpatialUnitSelectionPoint {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.PointI selection_screen_coord */ 1:
+          message.selectionScreenCoord = PointI.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.selectionScreenCoord,
+          );
+          break;
+        case /* optional SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type type */ 2:
+          message.type = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSpatialUnitSelectionPoint>): ActionSpatialUnitSelectionPoint {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSpatialUnitSelectionPoint>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSpatialUnitSelectionPoint): ActionSpatialUnitSelectionPoint {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.PointI selection_screen_coord */ 1:
-                    message.selectionScreenCoord = PointI.internalBinaryRead(reader, reader.uint32(), options, message.selectionScreenCoord);
-                    break;
-                case /* optional SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type type */ 2:
-                    message.type = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSpatialUnitSelectionPoint, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.PointI selection_screen_coord = 1; */
-        if (message.selectionScreenCoord)
-            PointI.internalBinaryWrite(message.selectionScreenCoord, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type type = 2; */
-        if (message.type !== undefined)
-            writer.tag(2, WireType.Varint).int32(message.type);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSpatialUnitSelectionPoint,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.PointI selection_screen_coord = 1; */
+    if (message.selectionScreenCoord)
+      PointI.internalBinaryWrite(
+        message.selectionScreenCoord,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional SC2APIProtocol.ActionSpatialUnitSelectionPoint.Type type = 2; */
+    if (message.type !== undefined)
+      writer.tag(2, WireType.Varint).int32(message.type);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSpatialUnitSelectionPoint
  */
-export const ActionSpatialUnitSelectionPoint = new ActionSpatialUnitSelectionPoint$Type();
+export const ActionSpatialUnitSelectionPoint =
+  new ActionSpatialUnitSelectionPoint$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSpatialUnitSelectionRect$Type extends MessageType<ActionSpatialUnitSelectionRect> {
-    constructor() {
-        super("SC2APIProtocol.ActionSpatialUnitSelectionRect", [
-            { no: 1, name: "selection_screen_coord", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => RectangleI },
-            { no: 2, name: "selection_add", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSpatialUnitSelectionRect", [
+      {
+        no: 1,
+        name: "selection_screen_coord",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => RectangleI,
+      },
+      {
+        no: 2,
+        name: "selection_add",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionSpatialUnitSelectionRect>,
+  ): ActionSpatialUnitSelectionRect {
+    const message = { selectionScreenCoord: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSpatialUnitSelectionRect>(
+        this,
+        message,
+        value,
+      );
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSpatialUnitSelectionRect,
+  ): ActionSpatialUnitSelectionRect {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated SC2APIProtocol.RectangleI selection_screen_coord */ 1:
+          message.selectionScreenCoord.push(
+            RectangleI.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional bool selection_add */ 2:
+          message.selectionAdd = reader.bool();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSpatialUnitSelectionRect>): ActionSpatialUnitSelectionRect {
-        const message = { selectionScreenCoord: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSpatialUnitSelectionRect>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSpatialUnitSelectionRect): ActionSpatialUnitSelectionRect {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated SC2APIProtocol.RectangleI selection_screen_coord */ 1:
-                    message.selectionScreenCoord.push(RectangleI.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional bool selection_add */ 2:
-                    message.selectionAdd = reader.bool();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSpatialUnitSelectionRect, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated SC2APIProtocol.RectangleI selection_screen_coord = 1; */
-        for (let i = 0; i < message.selectionScreenCoord.length; i++)
-            RectangleI.internalBinaryWrite(message.selectionScreenCoord[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional bool selection_add = 2; */
-        if (message.selectionAdd !== undefined)
-            writer.tag(2, WireType.Varint).bool(message.selectionAdd);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSpatialUnitSelectionRect,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated SC2APIProtocol.RectangleI selection_screen_coord = 1; */
+    for (let i = 0; i < message.selectionScreenCoord.length; i++)
+      RectangleI.internalBinaryWrite(
+        message.selectionScreenCoord[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional bool selection_add = 2; */
+    if (message.selectionAdd !== undefined)
+      writer.tag(2, WireType.Varint).bool(message.selectionAdd);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSpatialUnitSelectionRect
  */
-export const ActionSpatialUnitSelectionRect = new ActionSpatialUnitSelectionRect$Type();
+export const ActionSpatialUnitSelectionRect =
+  new ActionSpatialUnitSelectionRect$Type();

@@ -3,550 +3,665 @@
 // @generated from protobuf file "s2clientprotocol/ui.proto" (package "SC2APIProtocol", syntax proto2)
 // tslint:disable
 // @ts-nocheck
-import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
-import type { IBinaryWriter } from "@protobuf-ts/runtime";
-import { WireType } from "@protobuf-ts/runtime";
-import type { BinaryReadOptions } from "@protobuf-ts/runtime";
-import type { IBinaryReader } from "@protobuf-ts/runtime";
-import { UnknownFieldHandler } from "@protobuf-ts/runtime";
-import type { PartialMessage } from "@protobuf-ts/runtime";
-import { reflectionMergePartial } from "@protobuf-ts/runtime";
-import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
-import { MessageType } from "@protobuf-ts/runtime";
-// 
+import type {
+  BinaryReadOptions,
+  BinaryWriteOptions,
+  IBinaryReader,
+  IBinaryWriter,
+  PartialMessage,
+} from "@protobuf-ts/runtime";
+import {
+  MessageType,
+  MESSAGE_TYPE,
+  reflectionMergePartial,
+  UnknownFieldHandler,
+  WireType,
+} from "@protobuf-ts/runtime";
+//
 // Observation
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ObservationUI
  */
 export interface ObservationUI {
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.ControlGroup groups = 1;
-     */
-    groups: ControlGroup[];
-    /**
-     * @generated from protobuf oneof: panel
-     */
-    panel: {
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.ControlGroup groups = 1;
+   */
+  groups: ControlGroup[];
+  /**
+   * @generated from protobuf oneof: panel
+   */
+  panel:
+    | {
         oneofKind: "single";
         /**
          * @generated from protobuf field: SC2APIProtocol.SinglePanel single = 2;
          */
         single: SinglePanel;
-    } | {
+      }
+    | {
         oneofKind: "multi";
         /**
          * @generated from protobuf field: SC2APIProtocol.MultiPanel multi = 3;
          */
         multi: MultiPanel;
-    } | {
+      }
+    | {
         oneofKind: "cargo";
         /**
          * @generated from protobuf field: SC2APIProtocol.CargoPanel cargo = 4;
          */
         cargo: CargoPanel;
-    } | {
+      }
+    | {
         oneofKind: "production";
         /**
          * @generated from protobuf field: SC2APIProtocol.ProductionPanel production = 5;
          */
         production: ProductionPanel;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
+      };
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ControlGroup
  */
 export interface ControlGroup {
-    /**
-     * @generated from protobuf field: optional uint32 control_group_index = 1;
-     */
-    controlGroupIndex?: number;
-    /**
-     * @generated from protobuf field: optional uint32 leader_unit_type = 2;
-     */
-    leaderUnitType?: number;
-    /**
-     * @generated from protobuf field: optional uint32 count = 3;
-     */
-    count?: number;
+  /**
+   * @generated from protobuf field: optional uint32 control_group_index = 1;
+   */
+  controlGroupIndex?: number;
+  /**
+   * @generated from protobuf field: optional uint32 leader_unit_type = 2;
+   */
+  leaderUnitType?: number;
+  /**
+   * @generated from protobuf field: optional uint32 count = 3;
+   */
+  count?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.UnitInfo
  */
 export interface UnitInfo {
-    /**
-     * @generated from protobuf field: optional uint32 unit_type = 1;
-     */
-    unitType?: number;
-    /**
-     * @generated from protobuf field: optional uint32 player_relative = 2;
-     */
-    playerRelative?: number;
-    /**
-     * @generated from protobuf field: optional int32 health = 3;
-     */
-    health?: number;
-    /**
-     * @generated from protobuf field: optional int32 shields = 4;
-     */
-    shields?: number;
-    /**
-     * @generated from protobuf field: optional int32 energy = 5;
-     */
-    energy?: number;
-    /**
-     * @generated from protobuf field: optional int32 transport_slots_taken = 6;
-     */
-    transportSlotsTaken?: number;
-    /**
-     * @generated from protobuf field: optional float build_progress = 7;
-     */
-    buildProgress?: number; // Range: [0.0, 1.0]
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.UnitInfo add_on = 8;
-     */
-    addOn?: UnitInfo;
-    /**
-     * @generated from protobuf field: optional int32 max_health = 9;
-     */
-    maxHealth?: number;
-    /**
-     * @generated from protobuf field: optional int32 max_shields = 10;
-     */
-    maxShields?: number;
-    /**
-     * @generated from protobuf field: optional int32 max_energy = 11;
-     */
-    maxEnergy?: number;
+  /**
+   * @generated from protobuf field: optional uint32 unit_type = 1;
+   */
+  unitType?: number;
+  /**
+   * @generated from protobuf field: optional uint32 player_relative = 2;
+   */
+  playerRelative?: number;
+  /**
+   * @generated from protobuf field: optional int32 health = 3;
+   */
+  health?: number;
+  /**
+   * @generated from protobuf field: optional int32 shields = 4;
+   */
+  shields?: number;
+  /**
+   * @generated from protobuf field: optional int32 energy = 5;
+   */
+  energy?: number;
+  /**
+   * @generated from protobuf field: optional int32 transport_slots_taken = 6;
+   */
+  transportSlotsTaken?: number;
+  /**
+   * @generated from protobuf field: optional float build_progress = 7;
+   */
+  buildProgress?: number; // Range: [0.0, 1.0]
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.UnitInfo add_on = 8;
+   */
+  addOn?: UnitInfo;
+  /**
+   * @generated from protobuf field: optional int32 max_health = 9;
+   */
+  maxHealth?: number;
+  /**
+   * @generated from protobuf field: optional int32 max_shields = 10;
+   */
+  maxShields?: number;
+  /**
+   * @generated from protobuf field: optional int32 max_energy = 11;
+   */
+  maxEnergy?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.SinglePanel
  */
 export interface SinglePanel {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.UnitInfo unit = 1;
-     */
-    unit?: UnitInfo;
-    /**
-     * @generated from protobuf field: optional int32 attack_upgrade_level = 2;
-     */
-    attackUpgradeLevel?: number;
-    /**
-     * @generated from protobuf field: optional int32 armor_upgrade_level = 3;
-     */
-    armorUpgradeLevel?: number;
-    /**
-     * @generated from protobuf field: optional int32 shield_upgrade_level = 4;
-     */
-    shieldUpgradeLevel?: number;
-    /**
-     * @generated from protobuf field: repeated int32 buffs = 5;
-     */
-    buffs: number[];
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.UnitInfo unit = 1;
+   */
+  unit?: UnitInfo;
+  /**
+   * @generated from protobuf field: optional int32 attack_upgrade_level = 2;
+   */
+  attackUpgradeLevel?: number;
+  /**
+   * @generated from protobuf field: optional int32 armor_upgrade_level = 3;
+   */
+  armorUpgradeLevel?: number;
+  /**
+   * @generated from protobuf field: optional int32 shield_upgrade_level = 4;
+   */
+  shieldUpgradeLevel?: number;
+  /**
+   * @generated from protobuf field: repeated int32 buffs = 5;
+   */
+  buffs: number[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.MultiPanel
  */
 export interface MultiPanel {
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.UnitInfo units = 1;
-     */
-    units: UnitInfo[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.UnitInfo units = 1;
+   */
+  units: UnitInfo[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.CargoPanel
  */
 export interface CargoPanel {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.UnitInfo unit = 1;
-     */
-    unit?: UnitInfo;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.UnitInfo passengers = 2;
-     */
-    passengers: UnitInfo[];
-    /**
-     * @generated from protobuf field: optional int32 slots_available = 3;
-     */
-    slotsAvailable?: number; // TODO: Change to cargo size
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.UnitInfo unit = 1;
+   */
+  unit?: UnitInfo;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.UnitInfo passengers = 2;
+   */
+  passengers: UnitInfo[];
+  /**
+   * @generated from protobuf field: optional int32 slots_available = 3;
+   */
+  slotsAvailable?: number; // TODO: Change to cargo size
 }
 /**
  * @generated from protobuf message SC2APIProtocol.BuildItem
  */
 export interface BuildItem {
-    /**
-     * @generated from protobuf field: optional uint32 ability_id = 1;
-     */
-    abilityId?: number;
-    /**
-     * @generated from protobuf field: optional float build_progress = 2;
-     */
-    buildProgress?: number; // Range: [0.0, 1.0]
+  /**
+   * @generated from protobuf field: optional uint32 ability_id = 1;
+   */
+  abilityId?: number;
+  /**
+   * @generated from protobuf field: optional float build_progress = 2;
+   */
+  buildProgress?: number; // Range: [0.0, 1.0]
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ProductionPanel
  */
 export interface ProductionPanel {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.UnitInfo unit = 1;
-     */
-    unit?: UnitInfo;
-    /**
-     * build_queue ONLY gives information about units that are being produced.
-     * Use production_queue instead to see both units being trained as well as research in the queue.
-     *
-     * @generated from protobuf field: repeated SC2APIProtocol.UnitInfo build_queue = 2;
-     */
-    buildQueue: UnitInfo[];
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.BuildItem production_queue = 3;
-     */
-    productionQueue: BuildItem[];
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.UnitInfo unit = 1;
+   */
+  unit?: UnitInfo;
+  /**
+   * build_queue ONLY gives information about units that are being produced.
+   * Use production_queue instead to see both units being trained as well as research in the queue.
+   *
+   * @generated from protobuf field: repeated SC2APIProtocol.UnitInfo build_queue = 2;
+   */
+  buildQueue: UnitInfo[];
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.BuildItem production_queue = 3;
+   */
+  productionQueue: BuildItem[];
 }
-// 
+//
 // Action
-// 
+//
 
 /**
  * @generated from protobuf message SC2APIProtocol.ActionUI
  */
 export interface ActionUI {
-    /**
-     * @generated from protobuf oneof: action
-     */
-    action: {
+  /**
+   * @generated from protobuf oneof: action
+   */
+  action:
+    | {
         oneofKind: "controlGroup";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionControlGroup control_group = 1;
          */
         controlGroup: ActionControlGroup;
-    } | {
+      }
+    | {
         oneofKind: "selectArmy";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSelectArmy select_army = 2;
          */
         selectArmy: ActionSelectArmy;
-    } | {
+      }
+    | {
         oneofKind: "selectWarpGates";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSelectWarpGates select_warp_gates = 3;
          */
         selectWarpGates: ActionSelectWarpGates;
-    } | {
+      }
+    | {
         oneofKind: "selectLarva";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSelectLarva select_larva = 4;
          */
         selectLarva: ActionSelectLarva;
-    } | {
+      }
+    | {
         oneofKind: "selectIdleWorker";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionSelectIdleWorker select_idle_worker = 5;
          */
         selectIdleWorker: ActionSelectIdleWorker;
-    } | {
+      }
+    | {
         oneofKind: "multiPanel";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionMultiPanel multi_panel = 6;
          */
         multiPanel: ActionMultiPanel;
-    } | {
+      }
+    | {
         oneofKind: "cargoPanel";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionCargoPanelUnload cargo_panel = 7;
          */
         cargoPanel: ActionCargoPanelUnload;
-    } | {
+      }
+    | {
         oneofKind: "productionPanel";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionProductionPanelRemoveFromQueue production_panel = 8;
          */
         productionPanel: ActionProductionPanelRemoveFromQueue;
-    } | {
+      }
+    | {
         oneofKind: "toggleAutocast";
         /**
          * @generated from protobuf field: SC2APIProtocol.ActionToggleAutocast toggle_autocast = 9;
          */
         toggleAutocast: ActionToggleAutocast;
-    } | {
+      }
+    | {
         oneofKind: undefined;
-    };
+      };
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionControlGroup
  */
 export interface ActionControlGroup {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ActionControlGroup.ControlGroupAction action = 1;
-     */
-    action?: ActionControlGroup_ControlGroupAction;
-    /**
-     * @generated from protobuf field: optional uint32 control_group_index = 2;
-     */
-    controlGroupIndex?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ActionControlGroup.ControlGroupAction action = 1;
+   */
+  action?: ActionControlGroup_ControlGroupAction;
+  /**
+   * @generated from protobuf field: optional uint32 control_group_index = 2;
+   */
+  controlGroupIndex?: number;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.ActionControlGroup.ControlGroupAction
  */
 export enum ActionControlGroup_ControlGroupAction {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Equivalent to number hotkey. Replaces current selection with control group.
-     *
-     * @generated from protobuf enum value: Recall = 1;
-     */
-    Recall = 1,
-    /**
-     * Equivalent to Control + number hotkey. Sets control group to current selection.
-     *
-     * @generated from protobuf enum value: Set = 2;
-     */
-    Set = 2,
-    /**
-     * Equivalent to Shift + number hotkey. Adds current selection into control group.
-     *
-     * @generated from protobuf enum value: Append = 3;
-     */
-    Append = 3,
-    /**
-     * Equivalent to Control + Alt + number hotkey. Sets control group to current selection. Units are removed from other control groups.
-     *
-     * @generated from protobuf enum value: SetAndSteal = 4;
-     */
-    SetAndSteal = 4,
-    /**
-     * Equivalent to Shift + Alt + number hotkey. Adds current selection into control group. Units are removed from other control groups.
-     *
-     * @generated from protobuf enum value: AppendAndSteal = 5;
-     */
-    AppendAndSteal = 5
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Equivalent to number hotkey. Replaces current selection with control group.
+   *
+   * @generated from protobuf enum value: Recall = 1;
+   */
+  Recall = 1,
+  /**
+   * Equivalent to Control + number hotkey. Sets control group to current selection.
+   *
+   * @generated from protobuf enum value: Set = 2;
+   */
+  Set = 2,
+  /**
+   * Equivalent to Shift + number hotkey. Adds current selection into control group.
+   *
+   * @generated from protobuf enum value: Append = 3;
+   */
+  Append = 3,
+  /**
+   * Equivalent to Control + Alt + number hotkey. Sets control group to current selection. Units are removed from other control groups.
+   *
+   * @generated from protobuf enum value: SetAndSteal = 4;
+   */
+  SetAndSteal = 4,
+  /**
+   * Equivalent to Shift + Alt + number hotkey. Adds current selection into control group. Units are removed from other control groups.
+   *
+   * @generated from protobuf enum value: AppendAndSteal = 5;
+   */
+  AppendAndSteal = 5,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSelectArmy
  */
 export interface ActionSelectArmy {
-    /**
-     * @generated from protobuf field: optional bool selection_add = 1;
-     */
-    selectionAdd?: boolean;
+  /**
+   * @generated from protobuf field: optional bool selection_add = 1;
+   */
+  selectionAdd?: boolean;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSelectWarpGates
  */
 export interface ActionSelectWarpGates {
-    /**
-     * @generated from protobuf field: optional bool selection_add = 1;
-     */
-    selectionAdd?: boolean;
+  /**
+   * @generated from protobuf field: optional bool selection_add = 1;
+   */
+  selectionAdd?: boolean;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSelectLarva
  */
-export interface ActionSelectLarva {
-}
+export interface ActionSelectLarva {}
 /**
  * @generated from protobuf message SC2APIProtocol.ActionSelectIdleWorker
  */
 export interface ActionSelectIdleWorker {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ActionSelectIdleWorker.Type type = 1;
-     */
-    type?: ActionSelectIdleWorker_Type;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ActionSelectIdleWorker.Type type = 1;
+   */
+  type?: ActionSelectIdleWorker_Type;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.ActionSelectIdleWorker.Type
  */
 export enum ActionSelectIdleWorker_Type {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Equivalent to click with no modifiers. Replaces selection with single idle worker.
-     *
-     * @generated from protobuf enum value: Set = 1;
-     */
-    Set = 1,
-    /**
-     * Equivalent to shift+click. Adds single idle worker to current selection.
-     *
-     * @generated from protobuf enum value: Add = 2;
-     */
-    Add = 2,
-    /**
-     * Equivalent to control+click. Selects all idle workers.
-     *
-     * @generated from protobuf enum value: All = 3;
-     */
-    All = 3,
-    /**
-     * Equivalent to shift+control+click. Adds all idle workers to current selection.
-     *
-     * @generated from protobuf enum value: AddAll = 4;
-     */
-    AddAll = 4
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Equivalent to click with no modifiers. Replaces selection with single idle worker.
+   *
+   * @generated from protobuf enum value: Set = 1;
+   */
+  Set = 1,
+  /**
+   * Equivalent to shift+click. Adds single idle worker to current selection.
+   *
+   * @generated from protobuf enum value: Add = 2;
+   */
+  Add = 2,
+  /**
+   * Equivalent to control+click. Selects all idle workers.
+   *
+   * @generated from protobuf enum value: All = 3;
+   */
+  All = 3,
+  /**
+   * Equivalent to shift+control+click. Adds all idle workers to current selection.
+   *
+   * @generated from protobuf enum value: AddAll = 4;
+   */
+  AddAll = 4,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionMultiPanel
  */
 export interface ActionMultiPanel {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.ActionMultiPanel.Type type = 1;
-     */
-    type?: ActionMultiPanel_Type;
-    /**
-     * @generated from protobuf field: optional int32 unit_index = 2;
-     */
-    unitIndex?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.ActionMultiPanel.Type type = 1;
+   */
+  type?: ActionMultiPanel_Type;
+  /**
+   * @generated from protobuf field: optional int32 unit_index = 2;
+   */
+  unitIndex?: number;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.ActionMultiPanel.Type
  */
 export enum ActionMultiPanel_Type {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Click on icon
-     *
-     * @generated from protobuf enum value: SingleSelect = 1;
-     */
-    SingleSelect = 1,
-    /**
-     * Shift Click on icon
-     *
-     * @generated from protobuf enum value: DeselectUnit = 2;
-     */
-    DeselectUnit = 2,
-    /**
-     * Control Click on icon.
-     *
-     * @generated from protobuf enum value: SelectAllOfType = 3;
-     */
-    SelectAllOfType = 3,
-    /**
-     * Control+Shift Click on icon.
-     *
-     * @generated from protobuf enum value: DeselectAllOfType = 4;
-     */
-    DeselectAllOfType = 4
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Click on icon
+   *
+   * @generated from protobuf enum value: SingleSelect = 1;
+   */
+  SingleSelect = 1,
+  /**
+   * Shift Click on icon
+   *
+   * @generated from protobuf enum value: DeselectUnit = 2;
+   */
+  DeselectUnit = 2,
+  /**
+   * Control Click on icon.
+   *
+   * @generated from protobuf enum value: SelectAllOfType = 3;
+   */
+  SelectAllOfType = 3,
+  /**
+   * Control+Shift Click on icon.
+   *
+   * @generated from protobuf enum value: DeselectAllOfType = 4;
+   */
+  DeselectAllOfType = 4,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionCargoPanelUnload
  */
 export interface ActionCargoPanelUnload {
-    /**
-     * @generated from protobuf field: optional int32 unit_index = 1;
-     */
-    unitIndex?: number;
+  /**
+   * @generated from protobuf field: optional int32 unit_index = 1;
+   */
+  unitIndex?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionProductionPanelRemoveFromQueue
  */
 export interface ActionProductionPanelRemoveFromQueue {
-    /**
-     * @generated from protobuf field: optional int32 unit_index = 1;
-     */
-    unitIndex?: number;
+  /**
+   * @generated from protobuf field: optional int32 unit_index = 1;
+   */
+  unitIndex?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.ActionToggleAutocast
  */
 export interface ActionToggleAutocast {
-    /**
-     * @generated from protobuf field: optional int32 ability_id = 1;
-     */
-    abilityId?: number;
+  /**
+   * @generated from protobuf field: optional int32 ability_id = 1;
+   */
+  abilityId?: number;
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class ObservationUI$Type extends MessageType<ObservationUI> {
-    constructor() {
-        super("SC2APIProtocol.ObservationUI", [
-            { no: 1, name: "groups", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ControlGroup },
-            { no: 2, name: "single", kind: "message", oneof: "panel", T: () => SinglePanel },
-            { no: 3, name: "multi", kind: "message", oneof: "panel", T: () => MultiPanel },
-            { no: 4, name: "cargo", kind: "message", oneof: "panel", T: () => CargoPanel },
-            { no: 5, name: "production", kind: "message", oneof: "panel", T: () => ProductionPanel }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ObservationUI", [
+      {
+        no: 1,
+        name: "groups",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => ControlGroup,
+      },
+      {
+        no: 2,
+        name: "single",
+        kind: "message",
+        oneof: "panel",
+        T: () => SinglePanel,
+      },
+      {
+        no: 3,
+        name: "multi",
+        kind: "message",
+        oneof: "panel",
+        T: () => MultiPanel,
+      },
+      {
+        no: 4,
+        name: "cargo",
+        kind: "message",
+        oneof: "panel",
+        T: () => CargoPanel,
+      },
+      {
+        no: 5,
+        name: "production",
+        kind: "message",
+        oneof: "panel",
+        T: () => ProductionPanel,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ObservationUI>): ObservationUI {
+    const message = { groups: [], panel: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ObservationUI>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ObservationUI,
+  ): ObservationUI {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated SC2APIProtocol.ControlGroup groups */ 1:
+          message.groups.push(
+            ControlGroup.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* SC2APIProtocol.SinglePanel single */ 2:
+          message.panel = {
+            oneofKind: "single",
+            single: SinglePanel.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.panel as any).single,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.MultiPanel multi */ 3:
+          message.panel = {
+            oneofKind: "multi",
+            multi: MultiPanel.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.panel as any).multi,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.CargoPanel cargo */ 4:
+          message.panel = {
+            oneofKind: "cargo",
+            cargo: CargoPanel.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.panel as any).cargo,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ProductionPanel production */ 5:
+          message.panel = {
+            oneofKind: "production",
+            production: ProductionPanel.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.panel as any).production,
+            ),
+          };
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ObservationUI>): ObservationUI {
-        const message = { groups: [], panel: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ObservationUI>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ObservationUI): ObservationUI {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated SC2APIProtocol.ControlGroup groups */ 1:
-                    message.groups.push(ControlGroup.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* SC2APIProtocol.SinglePanel single */ 2:
-                    message.panel = {
-                        oneofKind: "single",
-                        single: SinglePanel.internalBinaryRead(reader, reader.uint32(), options, (message.panel as any).single)
-                    };
-                    break;
-                case /* SC2APIProtocol.MultiPanel multi */ 3:
-                    message.panel = {
-                        oneofKind: "multi",
-                        multi: MultiPanel.internalBinaryRead(reader, reader.uint32(), options, (message.panel as any).multi)
-                    };
-                    break;
-                case /* SC2APIProtocol.CargoPanel cargo */ 4:
-                    message.panel = {
-                        oneofKind: "cargo",
-                        cargo: CargoPanel.internalBinaryRead(reader, reader.uint32(), options, (message.panel as any).cargo)
-                    };
-                    break;
-                case /* SC2APIProtocol.ProductionPanel production */ 5:
-                    message.panel = {
-                        oneofKind: "production",
-                        production: ProductionPanel.internalBinaryRead(reader, reader.uint32(), options, (message.panel as any).production)
-                    };
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ObservationUI, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated SC2APIProtocol.ControlGroup groups = 1; */
-        for (let i = 0; i < message.groups.length; i++)
-            ControlGroup.internalBinaryWrite(message.groups[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.SinglePanel single = 2; */
-        if (message.panel.oneofKind === "single")
-            SinglePanel.internalBinaryWrite(message.panel.single, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.MultiPanel multi = 3; */
-        if (message.panel.oneofKind === "multi")
-            MultiPanel.internalBinaryWrite(message.panel.multi, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.CargoPanel cargo = 4; */
-        if (message.panel.oneofKind === "cargo")
-            CargoPanel.internalBinaryWrite(message.panel.cargo, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ProductionPanel production = 5; */
-        if (message.panel.oneofKind === "production")
-            ProductionPanel.internalBinaryWrite(message.panel.production, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ObservationUI,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated SC2APIProtocol.ControlGroup groups = 1; */
+    for (let i = 0; i < message.groups.length; i++)
+      ControlGroup.internalBinaryWrite(
+        message.groups[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.SinglePanel single = 2; */
+    if (message.panel.oneofKind === "single")
+      SinglePanel.internalBinaryWrite(
+        message.panel.single,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.MultiPanel multi = 3; */
+    if (message.panel.oneofKind === "multi")
+      MultiPanel.internalBinaryWrite(
+        message.panel.multi,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.CargoPanel cargo = 4; */
+    if (message.panel.oneofKind === "cargo")
+      CargoPanel.internalBinaryWrite(
+        message.panel.cargo,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ProductionPanel production = 5; */
+    if (message.panel.oneofKind === "production")
+      ProductionPanel.internalBinaryWrite(
+        message.panel.production,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ObservationUI
@@ -554,60 +669,103 @@ class ObservationUI$Type extends MessageType<ObservationUI> {
 export const ObservationUI = new ObservationUI$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ControlGroup$Type extends MessageType<ControlGroup> {
-    constructor() {
-        super("SC2APIProtocol.ControlGroup", [
-            { no: 1, name: "control_group_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "leader_unit_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "count", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ControlGroup", [
+      {
+        no: 1,
+        name: "control_group_index",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "leader_unit_type",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 3,
+        name: "count",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ControlGroup>): ControlGroup {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ControlGroup>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ControlGroup,
+  ): ControlGroup {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 control_group_index */ 1:
+          message.controlGroupIndex = reader.uint32();
+          break;
+        case /* optional uint32 leader_unit_type */ 2:
+          message.leaderUnitType = reader.uint32();
+          break;
+        case /* optional uint32 count */ 3:
+          message.count = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ControlGroup>): ControlGroup {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ControlGroup>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ControlGroup): ControlGroup {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 control_group_index */ 1:
-                    message.controlGroupIndex = reader.uint32();
-                    break;
-                case /* optional uint32 leader_unit_type */ 2:
-                    message.leaderUnitType = reader.uint32();
-                    break;
-                case /* optional uint32 count */ 3:
-                    message.count = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ControlGroup, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 control_group_index = 1; */
-        if (message.controlGroupIndex !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.controlGroupIndex);
-        /* optional uint32 leader_unit_type = 2; */
-        if (message.leaderUnitType !== undefined)
-            writer.tag(2, WireType.Varint).uint32(message.leaderUnitType);
-        /* optional uint32 count = 3; */
-        if (message.count !== undefined)
-            writer.tag(3, WireType.Varint).uint32(message.count);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ControlGroup,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 control_group_index = 1; */
+    if (message.controlGroupIndex !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.controlGroupIndex);
+    /* optional uint32 leader_unit_type = 2; */
+    if (message.leaderUnitType !== undefined)
+      writer.tag(2, WireType.Varint).uint32(message.leaderUnitType);
+    /* optional uint32 count = 3; */
+    if (message.count !== undefined)
+      writer.tag(3, WireType.Varint).uint32(message.count);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ControlGroup
@@ -615,116 +773,210 @@ class ControlGroup$Type extends MessageType<ControlGroup> {
 export const ControlGroup = new ControlGroup$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class UnitInfo$Type extends MessageType<UnitInfo> {
-    constructor() {
-        super("SC2APIProtocol.UnitInfo", [
-            { no: 1, name: "unit_type", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "player_relative", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 3, name: "health", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 4, name: "shields", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "energy", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 6, name: "transport_slots_taken", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 7, name: "build_progress", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 8, name: "add_on", kind: "message", T: () => UnitInfo },
-            { no: 9, name: "max_health", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 10, name: "max_shields", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 11, name: "max_energy", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.UnitInfo", [
+      {
+        no: 1,
+        name: "unit_type",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "player_relative",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 3,
+        name: "health",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 4,
+        name: "shields",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 5,
+        name: "energy",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 6,
+        name: "transport_slots_taken",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 7,
+        name: "build_progress",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      { no: 8, name: "add_on", kind: "message", T: () => UnitInfo },
+      {
+        no: 9,
+        name: "max_health",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 10,
+        name: "max_shields",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 11,
+        name: "max_energy",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<UnitInfo>): UnitInfo {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<UnitInfo>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: UnitInfo,
+  ): UnitInfo {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 unit_type */ 1:
+          message.unitType = reader.uint32();
+          break;
+        case /* optional uint32 player_relative */ 2:
+          message.playerRelative = reader.uint32();
+          break;
+        case /* optional int32 health */ 3:
+          message.health = reader.int32();
+          break;
+        case /* optional int32 shields */ 4:
+          message.shields = reader.int32();
+          break;
+        case /* optional int32 energy */ 5:
+          message.energy = reader.int32();
+          break;
+        case /* optional int32 transport_slots_taken */ 6:
+          message.transportSlotsTaken = reader.int32();
+          break;
+        case /* optional float build_progress */ 7:
+          message.buildProgress = reader.float();
+          break;
+        case /* optional SC2APIProtocol.UnitInfo add_on */ 8:
+          message.addOn = UnitInfo.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.addOn,
+          );
+          break;
+        case /* optional int32 max_health */ 9:
+          message.maxHealth = reader.int32();
+          break;
+        case /* optional int32 max_shields */ 10:
+          message.maxShields = reader.int32();
+          break;
+        case /* optional int32 max_energy */ 11:
+          message.maxEnergy = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<UnitInfo>): UnitInfo {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UnitInfo>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UnitInfo): UnitInfo {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 unit_type */ 1:
-                    message.unitType = reader.uint32();
-                    break;
-                case /* optional uint32 player_relative */ 2:
-                    message.playerRelative = reader.uint32();
-                    break;
-                case /* optional int32 health */ 3:
-                    message.health = reader.int32();
-                    break;
-                case /* optional int32 shields */ 4:
-                    message.shields = reader.int32();
-                    break;
-                case /* optional int32 energy */ 5:
-                    message.energy = reader.int32();
-                    break;
-                case /* optional int32 transport_slots_taken */ 6:
-                    message.transportSlotsTaken = reader.int32();
-                    break;
-                case /* optional float build_progress */ 7:
-                    message.buildProgress = reader.float();
-                    break;
-                case /* optional SC2APIProtocol.UnitInfo add_on */ 8:
-                    message.addOn = UnitInfo.internalBinaryRead(reader, reader.uint32(), options, message.addOn);
-                    break;
-                case /* optional int32 max_health */ 9:
-                    message.maxHealth = reader.int32();
-                    break;
-                case /* optional int32 max_shields */ 10:
-                    message.maxShields = reader.int32();
-                    break;
-                case /* optional int32 max_energy */ 11:
-                    message.maxEnergy = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UnitInfo, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 unit_type = 1; */
-        if (message.unitType !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.unitType);
-        /* optional uint32 player_relative = 2; */
-        if (message.playerRelative !== undefined)
-            writer.tag(2, WireType.Varint).uint32(message.playerRelative);
-        /* optional int32 health = 3; */
-        if (message.health !== undefined)
-            writer.tag(3, WireType.Varint).int32(message.health);
-        /* optional int32 shields = 4; */
-        if (message.shields !== undefined)
-            writer.tag(4, WireType.Varint).int32(message.shields);
-        /* optional int32 energy = 5; */
-        if (message.energy !== undefined)
-            writer.tag(5, WireType.Varint).int32(message.energy);
-        /* optional int32 transport_slots_taken = 6; */
-        if (message.transportSlotsTaken !== undefined)
-            writer.tag(6, WireType.Varint).int32(message.transportSlotsTaken);
-        /* optional float build_progress = 7; */
-        if (message.buildProgress !== undefined)
-            writer.tag(7, WireType.Bit32).float(message.buildProgress);
-        /* optional SC2APIProtocol.UnitInfo add_on = 8; */
-        if (message.addOn)
-            UnitInfo.internalBinaryWrite(message.addOn, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        /* optional int32 max_health = 9; */
-        if (message.maxHealth !== undefined)
-            writer.tag(9, WireType.Varint).int32(message.maxHealth);
-        /* optional int32 max_shields = 10; */
-        if (message.maxShields !== undefined)
-            writer.tag(10, WireType.Varint).int32(message.maxShields);
-        /* optional int32 max_energy = 11; */
-        if (message.maxEnergy !== undefined)
-            writer.tag(11, WireType.Varint).int32(message.maxEnergy);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: UnitInfo,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 unit_type = 1; */
+    if (message.unitType !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.unitType);
+    /* optional uint32 player_relative = 2; */
+    if (message.playerRelative !== undefined)
+      writer.tag(2, WireType.Varint).uint32(message.playerRelative);
+    /* optional int32 health = 3; */
+    if (message.health !== undefined)
+      writer.tag(3, WireType.Varint).int32(message.health);
+    /* optional int32 shields = 4; */
+    if (message.shields !== undefined)
+      writer.tag(4, WireType.Varint).int32(message.shields);
+    /* optional int32 energy = 5; */
+    if (message.energy !== undefined)
+      writer.tag(5, WireType.Varint).int32(message.energy);
+    /* optional int32 transport_slots_taken = 6; */
+    if (message.transportSlotsTaken !== undefined)
+      writer.tag(6, WireType.Varint).int32(message.transportSlotsTaken);
+    /* optional float build_progress = 7; */
+    if (message.buildProgress !== undefined)
+      writer.tag(7, WireType.Bit32).float(message.buildProgress);
+    /* optional SC2APIProtocol.UnitInfo add_on = 8; */
+    if (message.addOn)
+      UnitInfo.internalBinaryWrite(
+        message.addOn,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional int32 max_health = 9; */
+    if (message.maxHealth !== undefined)
+      writer.tag(9, WireType.Varint).int32(message.maxHealth);
+    /* optional int32 max_shields = 10; */
+    if (message.maxShields !== undefined)
+      writer.tag(10, WireType.Varint).int32(message.maxShields);
+    /* optional int32 max_energy = 11; */
+    if (message.maxEnergy !== undefined)
+      writer.tag(11, WireType.Varint).int32(message.maxEnergy);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.UnitInfo
@@ -732,78 +984,135 @@ class UnitInfo$Type extends MessageType<UnitInfo> {
 export const UnitInfo = new UnitInfo$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class SinglePanel$Type extends MessageType<SinglePanel> {
-    constructor() {
-        super("SC2APIProtocol.SinglePanel", [
-            { no: 1, name: "unit", kind: "message", T: () => UnitInfo },
-            { no: 2, name: "attack_upgrade_level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 3, name: "armor_upgrade_level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 4, name: "shield_upgrade_level", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ },
-            { no: 5, name: "buffs", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.SinglePanel", [
+      { no: 1, name: "unit", kind: "message", T: () => UnitInfo },
+      {
+        no: 2,
+        name: "attack_upgrade_level",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 3,
+        name: "armor_upgrade_level",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 4,
+        name: "shield_upgrade_level",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+      {
+        no: 5,
+        name: "buffs",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<SinglePanel>): SinglePanel {
+    const message = { buffs: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<SinglePanel>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: SinglePanel,
+  ): SinglePanel {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.UnitInfo unit */ 1:
+          message.unit = UnitInfo.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unit,
+          );
+          break;
+        case /* optional int32 attack_upgrade_level */ 2:
+          message.attackUpgradeLevel = reader.int32();
+          break;
+        case /* optional int32 armor_upgrade_level */ 3:
+          message.armorUpgradeLevel = reader.int32();
+          break;
+        case /* optional int32 shield_upgrade_level */ 4:
+          message.shieldUpgradeLevel = reader.int32();
+          break;
+        case /* repeated int32 buffs */ 5:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.buffs.push(reader.int32());
+          else message.buffs.push(reader.int32());
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<SinglePanel>): SinglePanel {
-        const message = { buffs: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<SinglePanel>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: SinglePanel): SinglePanel {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.UnitInfo unit */ 1:
-                    message.unit = UnitInfo.internalBinaryRead(reader, reader.uint32(), options, message.unit);
-                    break;
-                case /* optional int32 attack_upgrade_level */ 2:
-                    message.attackUpgradeLevel = reader.int32();
-                    break;
-                case /* optional int32 armor_upgrade_level */ 3:
-                    message.armorUpgradeLevel = reader.int32();
-                    break;
-                case /* optional int32 shield_upgrade_level */ 4:
-                    message.shieldUpgradeLevel = reader.int32();
-                    break;
-                case /* repeated int32 buffs */ 5:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.buffs.push(reader.int32());
-                    else
-                        message.buffs.push(reader.int32());
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: SinglePanel, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.UnitInfo unit = 1; */
-        if (message.unit)
-            UnitInfo.internalBinaryWrite(message.unit, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* optional int32 attack_upgrade_level = 2; */
-        if (message.attackUpgradeLevel !== undefined)
-            writer.tag(2, WireType.Varint).int32(message.attackUpgradeLevel);
-        /* optional int32 armor_upgrade_level = 3; */
-        if (message.armorUpgradeLevel !== undefined)
-            writer.tag(3, WireType.Varint).int32(message.armorUpgradeLevel);
-        /* optional int32 shield_upgrade_level = 4; */
-        if (message.shieldUpgradeLevel !== undefined)
-            writer.tag(4, WireType.Varint).int32(message.shieldUpgradeLevel);
-        /* repeated int32 buffs = 5; */
-        for (let i = 0; i < message.buffs.length; i++)
-            writer.tag(5, WireType.Varint).int32(message.buffs[i]);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: SinglePanel,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.UnitInfo unit = 1; */
+    if (message.unit)
+      UnitInfo.internalBinaryWrite(
+        message.unit,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional int32 attack_upgrade_level = 2; */
+    if (message.attackUpgradeLevel !== undefined)
+      writer.tag(2, WireType.Varint).int32(message.attackUpgradeLevel);
+    /* optional int32 armor_upgrade_level = 3; */
+    if (message.armorUpgradeLevel !== undefined)
+      writer.tag(3, WireType.Varint).int32(message.armorUpgradeLevel);
+    /* optional int32 shield_upgrade_level = 4; */
+    if (message.shieldUpgradeLevel !== undefined)
+      writer.tag(4, WireType.Varint).int32(message.shieldUpgradeLevel);
+    /* repeated int32 buffs = 5; */
+    for (let i = 0; i < message.buffs.length; i++)
+      writer.tag(5, WireType.Varint).int32(message.buffs[i]);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.SinglePanel
@@ -811,46 +1120,83 @@ class SinglePanel$Type extends MessageType<SinglePanel> {
 export const SinglePanel = new SinglePanel$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class MultiPanel$Type extends MessageType<MultiPanel> {
-    constructor() {
-        super("SC2APIProtocol.MultiPanel", [
-            { no: 1, name: "units", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => UnitInfo }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.MultiPanel", [
+      {
+        no: 1,
+        name: "units",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => UnitInfo,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<MultiPanel>): MultiPanel {
+    const message = { units: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<MultiPanel>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: MultiPanel,
+  ): MultiPanel {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* repeated SC2APIProtocol.UnitInfo units */ 1:
+          message.units.push(
+            UnitInfo.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<MultiPanel>): MultiPanel {
-        const message = { units: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<MultiPanel>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: MultiPanel): MultiPanel {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* repeated SC2APIProtocol.UnitInfo units */ 1:
-                    message.units.push(UnitInfo.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: MultiPanel, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* repeated SC2APIProtocol.UnitInfo units = 1; */
-        for (let i = 0; i < message.units.length; i++)
-            UnitInfo.internalBinaryWrite(message.units[i], writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: MultiPanel,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* repeated SC2APIProtocol.UnitInfo units = 1; */
+    for (let i = 0; i < message.units.length; i++)
+      UnitInfo.internalBinaryWrite(
+        message.units[i],
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.MultiPanel
@@ -858,60 +1204,112 @@ class MultiPanel$Type extends MessageType<MultiPanel> {
 export const MultiPanel = new MultiPanel$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class CargoPanel$Type extends MessageType<CargoPanel> {
-    constructor() {
-        super("SC2APIProtocol.CargoPanel", [
-            { no: 1, name: "unit", kind: "message", T: () => UnitInfo },
-            { no: 2, name: "passengers", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => UnitInfo },
-            { no: 3, name: "slots_available", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.CargoPanel", [
+      { no: 1, name: "unit", kind: "message", T: () => UnitInfo },
+      {
+        no: 2,
+        name: "passengers",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => UnitInfo,
+      },
+      {
+        no: 3,
+        name: "slots_available",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<CargoPanel>): CargoPanel {
+    const message = { passengers: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<CargoPanel>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: CargoPanel,
+  ): CargoPanel {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.UnitInfo unit */ 1:
+          message.unit = UnitInfo.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unit,
+          );
+          break;
+        case /* repeated SC2APIProtocol.UnitInfo passengers */ 2:
+          message.passengers.push(
+            UnitInfo.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional int32 slots_available */ 3:
+          message.slotsAvailable = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<CargoPanel>): CargoPanel {
-        const message = { passengers: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<CargoPanel>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: CargoPanel): CargoPanel {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.UnitInfo unit */ 1:
-                    message.unit = UnitInfo.internalBinaryRead(reader, reader.uint32(), options, message.unit);
-                    break;
-                case /* repeated SC2APIProtocol.UnitInfo passengers */ 2:
-                    message.passengers.push(UnitInfo.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional int32 slots_available */ 3:
-                    message.slotsAvailable = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: CargoPanel, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.UnitInfo unit = 1; */
-        if (message.unit)
-            UnitInfo.internalBinaryWrite(message.unit, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.UnitInfo passengers = 2; */
-        for (let i = 0; i < message.passengers.length; i++)
-            UnitInfo.internalBinaryWrite(message.passengers[i], writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* optional int32 slots_available = 3; */
-        if (message.slotsAvailable !== undefined)
-            writer.tag(3, WireType.Varint).int32(message.slotsAvailable);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: CargoPanel,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.UnitInfo unit = 1; */
+    if (message.unit)
+      UnitInfo.internalBinaryWrite(
+        message.unit,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.UnitInfo passengers = 2; */
+    for (let i = 0; i < message.passengers.length; i++)
+      UnitInfo.internalBinaryWrite(
+        message.passengers[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional int32 slots_available = 3; */
+    if (message.slotsAvailable !== undefined)
+      writer.tag(3, WireType.Varint).int32(message.slotsAvailable);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.CargoPanel
@@ -919,53 +1317,90 @@ class CargoPanel$Type extends MessageType<CargoPanel> {
 export const CargoPanel = new CargoPanel$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class BuildItem$Type extends MessageType<BuildItem> {
-    constructor() {
-        super("SC2APIProtocol.BuildItem", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "build_progress", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.BuildItem", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "build_progress",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<BuildItem>): BuildItem {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<BuildItem>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: BuildItem,
+  ): BuildItem {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 ability_id */ 1:
+          message.abilityId = reader.uint32();
+          break;
+        case /* optional float build_progress */ 2:
+          message.buildProgress = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<BuildItem>): BuildItem {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<BuildItem>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: BuildItem): BuildItem {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 ability_id */ 1:
-                    message.abilityId = reader.uint32();
-                    break;
-                case /* optional float build_progress */ 2:
-                    message.buildProgress = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: BuildItem, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.abilityId);
-        /* optional float build_progress = 2; */
-        if (message.buildProgress !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.buildProgress);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: BuildItem,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.abilityId);
+    /* optional float build_progress = 2; */
+    if (message.buildProgress !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.buildProgress);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.BuildItem
@@ -973,60 +1408,118 @@ class BuildItem$Type extends MessageType<BuildItem> {
 export const BuildItem = new BuildItem$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ProductionPanel$Type extends MessageType<ProductionPanel> {
-    constructor() {
-        super("SC2APIProtocol.ProductionPanel", [
-            { no: 1, name: "unit", kind: "message", T: () => UnitInfo },
-            { no: 2, name: "build_queue", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => UnitInfo },
-            { no: 3, name: "production_queue", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => BuildItem }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ProductionPanel", [
+      { no: 1, name: "unit", kind: "message", T: () => UnitInfo },
+      {
+        no: 2,
+        name: "build_queue",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => UnitInfo,
+      },
+      {
+        no: 3,
+        name: "production_queue",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => BuildItem,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ProductionPanel>): ProductionPanel {
+    const message = { buildQueue: [], productionQueue: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ProductionPanel>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ProductionPanel,
+  ): ProductionPanel {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.UnitInfo unit */ 1:
+          message.unit = UnitInfo.internalBinaryRead(
+            reader,
+            reader.uint32(),
+            options,
+            message.unit,
+          );
+          break;
+        case /* repeated SC2APIProtocol.UnitInfo build_queue */ 2:
+          message.buildQueue.push(
+            UnitInfo.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* repeated SC2APIProtocol.BuildItem production_queue */ 3:
+          message.productionQueue.push(
+            BuildItem.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ProductionPanel>): ProductionPanel {
-        const message = { buildQueue: [], productionQueue: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ProductionPanel>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ProductionPanel): ProductionPanel {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.UnitInfo unit */ 1:
-                    message.unit = UnitInfo.internalBinaryRead(reader, reader.uint32(), options, message.unit);
-                    break;
-                case /* repeated SC2APIProtocol.UnitInfo build_queue */ 2:
-                    message.buildQueue.push(UnitInfo.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* repeated SC2APIProtocol.BuildItem production_queue */ 3:
-                    message.productionQueue.push(BuildItem.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ProductionPanel, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.UnitInfo unit = 1; */
-        if (message.unit)
-            UnitInfo.internalBinaryWrite(message.unit, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.UnitInfo build_queue = 2; */
-        for (let i = 0; i < message.buildQueue.length; i++)
-            UnitInfo.internalBinaryWrite(message.buildQueue[i], writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* repeated SC2APIProtocol.BuildItem production_queue = 3; */
-        for (let i = 0; i < message.productionQueue.length; i++)
-            BuildItem.internalBinaryWrite(message.productionQueue[i], writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ProductionPanel,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.UnitInfo unit = 1; */
+    if (message.unit)
+      UnitInfo.internalBinaryWrite(
+        message.unit,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.UnitInfo build_queue = 2; */
+    for (let i = 0; i < message.buildQueue.length; i++)
+      UnitInfo.internalBinaryWrite(
+        message.buildQueue[i],
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* repeated SC2APIProtocol.BuildItem production_queue = 3; */
+    for (let i = 0; i < message.productionQueue.length; i++)
+      BuildItem.internalBinaryWrite(
+        message.productionQueue[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ProductionPanel
@@ -1034,129 +1527,290 @@ class ProductionPanel$Type extends MessageType<ProductionPanel> {
 export const ProductionPanel = new ProductionPanel$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionUI$Type extends MessageType<ActionUI> {
-    constructor() {
-        super("SC2APIProtocol.ActionUI", [
-            { no: 1, name: "control_group", kind: "message", oneof: "action", T: () => ActionControlGroup },
-            { no: 2, name: "select_army", kind: "message", oneof: "action", T: () => ActionSelectArmy },
-            { no: 3, name: "select_warp_gates", kind: "message", oneof: "action", T: () => ActionSelectWarpGates },
-            { no: 4, name: "select_larva", kind: "message", oneof: "action", T: () => ActionSelectLarva },
-            { no: 5, name: "select_idle_worker", kind: "message", oneof: "action", T: () => ActionSelectIdleWorker },
-            { no: 6, name: "multi_panel", kind: "message", oneof: "action", T: () => ActionMultiPanel },
-            { no: 7, name: "cargo_panel", kind: "message", oneof: "action", T: () => ActionCargoPanelUnload },
-            { no: 8, name: "production_panel", kind: "message", oneof: "action", T: () => ActionProductionPanelRemoveFromQueue },
-            { no: 9, name: "toggle_autocast", kind: "message", oneof: "action", T: () => ActionToggleAutocast }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionUI", [
+      {
+        no: 1,
+        name: "control_group",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionControlGroup,
+      },
+      {
+        no: 2,
+        name: "select_army",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSelectArmy,
+      },
+      {
+        no: 3,
+        name: "select_warp_gates",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSelectWarpGates,
+      },
+      {
+        no: 4,
+        name: "select_larva",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSelectLarva,
+      },
+      {
+        no: 5,
+        name: "select_idle_worker",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionSelectIdleWorker,
+      },
+      {
+        no: 6,
+        name: "multi_panel",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionMultiPanel,
+      },
+      {
+        no: 7,
+        name: "cargo_panel",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionCargoPanelUnload,
+      },
+      {
+        no: 8,
+        name: "production_panel",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionProductionPanelRemoveFromQueue,
+      },
+      {
+        no: 9,
+        name: "toggle_autocast",
+        kind: "message",
+        oneof: "action",
+        T: () => ActionToggleAutocast,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionUI>): ActionUI {
+    const message = { action: { oneofKind: undefined } };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionUI>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionUI,
+  ): ActionUI {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* SC2APIProtocol.ActionControlGroup control_group */ 1:
+          message.action = {
+            oneofKind: "controlGroup",
+            controlGroup: ActionControlGroup.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).controlGroup,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSelectArmy select_army */ 2:
+          message.action = {
+            oneofKind: "selectArmy",
+            selectArmy: ActionSelectArmy.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).selectArmy,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSelectWarpGates select_warp_gates */ 3:
+          message.action = {
+            oneofKind: "selectWarpGates",
+            selectWarpGates: ActionSelectWarpGates.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).selectWarpGates,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSelectLarva select_larva */ 4:
+          message.action = {
+            oneofKind: "selectLarva",
+            selectLarva: ActionSelectLarva.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).selectLarva,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionSelectIdleWorker select_idle_worker */ 5:
+          message.action = {
+            oneofKind: "selectIdleWorker",
+            selectIdleWorker: ActionSelectIdleWorker.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).selectIdleWorker,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionMultiPanel multi_panel */ 6:
+          message.action = {
+            oneofKind: "multiPanel",
+            multiPanel: ActionMultiPanel.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).multiPanel,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionCargoPanelUnload cargo_panel */ 7:
+          message.action = {
+            oneofKind: "cargoPanel",
+            cargoPanel: ActionCargoPanelUnload.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).cargoPanel,
+            ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionProductionPanelRemoveFromQueue production_panel */ 8:
+          message.action = {
+            oneofKind: "productionPanel",
+            productionPanel:
+              ActionProductionPanelRemoveFromQueue.internalBinaryRead(
+                reader,
+                reader.uint32(),
+                options,
+                (message.action as any).productionPanel,
+              ),
+          };
+          break;
+        case /* SC2APIProtocol.ActionToggleAutocast toggle_autocast */ 9:
+          message.action = {
+            oneofKind: "toggleAutocast",
+            toggleAutocast: ActionToggleAutocast.internalBinaryRead(
+              reader,
+              reader.uint32(),
+              options,
+              (message.action as any).toggleAutocast,
+            ),
+          };
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionUI>): ActionUI {
-        const message = { action: { oneofKind: undefined } };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionUI>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionUI): ActionUI {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* SC2APIProtocol.ActionControlGroup control_group */ 1:
-                    message.action = {
-                        oneofKind: "controlGroup",
-                        controlGroup: ActionControlGroup.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).controlGroup)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSelectArmy select_army */ 2:
-                    message.action = {
-                        oneofKind: "selectArmy",
-                        selectArmy: ActionSelectArmy.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).selectArmy)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSelectWarpGates select_warp_gates */ 3:
-                    message.action = {
-                        oneofKind: "selectWarpGates",
-                        selectWarpGates: ActionSelectWarpGates.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).selectWarpGates)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSelectLarva select_larva */ 4:
-                    message.action = {
-                        oneofKind: "selectLarva",
-                        selectLarva: ActionSelectLarva.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).selectLarva)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionSelectIdleWorker select_idle_worker */ 5:
-                    message.action = {
-                        oneofKind: "selectIdleWorker",
-                        selectIdleWorker: ActionSelectIdleWorker.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).selectIdleWorker)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionMultiPanel multi_panel */ 6:
-                    message.action = {
-                        oneofKind: "multiPanel",
-                        multiPanel: ActionMultiPanel.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).multiPanel)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionCargoPanelUnload cargo_panel */ 7:
-                    message.action = {
-                        oneofKind: "cargoPanel",
-                        cargoPanel: ActionCargoPanelUnload.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).cargoPanel)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionProductionPanelRemoveFromQueue production_panel */ 8:
-                    message.action = {
-                        oneofKind: "productionPanel",
-                        productionPanel: ActionProductionPanelRemoveFromQueue.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).productionPanel)
-                    };
-                    break;
-                case /* SC2APIProtocol.ActionToggleAutocast toggle_autocast */ 9:
-                    message.action = {
-                        oneofKind: "toggleAutocast",
-                        toggleAutocast: ActionToggleAutocast.internalBinaryRead(reader, reader.uint32(), options, (message.action as any).toggleAutocast)
-                    };
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionUI, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* SC2APIProtocol.ActionControlGroup control_group = 1; */
-        if (message.action.oneofKind === "controlGroup")
-            ActionControlGroup.internalBinaryWrite(message.action.controlGroup, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSelectArmy select_army = 2; */
-        if (message.action.oneofKind === "selectArmy")
-            ActionSelectArmy.internalBinaryWrite(message.action.selectArmy, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSelectWarpGates select_warp_gates = 3; */
-        if (message.action.oneofKind === "selectWarpGates")
-            ActionSelectWarpGates.internalBinaryWrite(message.action.selectWarpGates, writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSelectLarva select_larva = 4; */
-        if (message.action.oneofKind === "selectLarva")
-            ActionSelectLarva.internalBinaryWrite(message.action.selectLarva, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionSelectIdleWorker select_idle_worker = 5; */
-        if (message.action.oneofKind === "selectIdleWorker")
-            ActionSelectIdleWorker.internalBinaryWrite(message.action.selectIdleWorker, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionMultiPanel multi_panel = 6; */
-        if (message.action.oneofKind === "multiPanel")
-            ActionMultiPanel.internalBinaryWrite(message.action.multiPanel, writer.tag(6, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionCargoPanelUnload cargo_panel = 7; */
-        if (message.action.oneofKind === "cargoPanel")
-            ActionCargoPanelUnload.internalBinaryWrite(message.action.cargoPanel, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionProductionPanelRemoveFromQueue production_panel = 8; */
-        if (message.action.oneofKind === "productionPanel")
-            ActionProductionPanelRemoveFromQueue.internalBinaryWrite(message.action.productionPanel, writer.tag(8, WireType.LengthDelimited).fork(), options).join();
-        /* SC2APIProtocol.ActionToggleAutocast toggle_autocast = 9; */
-        if (message.action.oneofKind === "toggleAutocast")
-            ActionToggleAutocast.internalBinaryWrite(message.action.toggleAutocast, writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionUI,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* SC2APIProtocol.ActionControlGroup control_group = 1; */
+    if (message.action.oneofKind === "controlGroup")
+      ActionControlGroup.internalBinaryWrite(
+        message.action.controlGroup,
+        writer.tag(1, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSelectArmy select_army = 2; */
+    if (message.action.oneofKind === "selectArmy")
+      ActionSelectArmy.internalBinaryWrite(
+        message.action.selectArmy,
+        writer.tag(2, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSelectWarpGates select_warp_gates = 3; */
+    if (message.action.oneofKind === "selectWarpGates")
+      ActionSelectWarpGates.internalBinaryWrite(
+        message.action.selectWarpGates,
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSelectLarva select_larva = 4; */
+    if (message.action.oneofKind === "selectLarva")
+      ActionSelectLarva.internalBinaryWrite(
+        message.action.selectLarva,
+        writer.tag(4, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionSelectIdleWorker select_idle_worker = 5; */
+    if (message.action.oneofKind === "selectIdleWorker")
+      ActionSelectIdleWorker.internalBinaryWrite(
+        message.action.selectIdleWorker,
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionMultiPanel multi_panel = 6; */
+    if (message.action.oneofKind === "multiPanel")
+      ActionMultiPanel.internalBinaryWrite(
+        message.action.multiPanel,
+        writer.tag(6, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionCargoPanelUnload cargo_panel = 7; */
+    if (message.action.oneofKind === "cargoPanel")
+      ActionCargoPanelUnload.internalBinaryWrite(
+        message.action.cargoPanel,
+        writer.tag(7, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionProductionPanelRemoveFromQueue production_panel = 8; */
+    if (message.action.oneofKind === "productionPanel")
+      ActionProductionPanelRemoveFromQueue.internalBinaryWrite(
+        message.action.productionPanel,
+        writer.tag(8, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* SC2APIProtocol.ActionToggleAutocast toggle_autocast = 9; */
+    if (message.action.oneofKind === "toggleAutocast")
+      ActionToggleAutocast.internalBinaryWrite(
+        message.action.toggleAutocast,
+        writer.tag(9, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionUI
@@ -1164,53 +1818,93 @@ class ActionUI$Type extends MessageType<ActionUI> {
 export const ActionUI = new ActionUI$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionControlGroup$Type extends MessageType<ActionControlGroup> {
-    constructor() {
-        super("SC2APIProtocol.ActionControlGroup", [
-            { no: 1, name: "action", kind: "enum", opt: true, T: () => ["SC2APIProtocol.ActionControlGroup.ControlGroupAction", ActionControlGroup_ControlGroupAction] },
-            { no: 2, name: "control_group_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionControlGroup", [
+      {
+        no: 1,
+        name: "action",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.ActionControlGroup.ControlGroupAction",
+          ActionControlGroup_ControlGroupAction,
+        ],
+      },
+      {
+        no: 2,
+        name: "control_group_index",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionControlGroup>): ActionControlGroup {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionControlGroup>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionControlGroup,
+  ): ActionControlGroup {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ActionControlGroup.ControlGroupAction action */ 1:
+          message.action = reader.int32();
+          break;
+        case /* optional uint32 control_group_index */ 2:
+          message.controlGroupIndex = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionControlGroup>): ActionControlGroup {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionControlGroup>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionControlGroup): ActionControlGroup {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ActionControlGroup.ControlGroupAction action */ 1:
-                    message.action = reader.int32();
-                    break;
-                case /* optional uint32 control_group_index */ 2:
-                    message.controlGroupIndex = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionControlGroup, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ActionControlGroup.ControlGroupAction action = 1; */
-        if (message.action !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.action);
-        /* optional uint32 control_group_index = 2; */
-        if (message.controlGroupIndex !== undefined)
-            writer.tag(2, WireType.Varint).uint32(message.controlGroupIndex);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionControlGroup,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ActionControlGroup.ControlGroupAction action = 1; */
+    if (message.action !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.action);
+    /* optional uint32 control_group_index = 2; */
+    if (message.controlGroupIndex !== undefined)
+      writer.tag(2, WireType.Varint).uint32(message.controlGroupIndex);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionControlGroup
@@ -1218,46 +1912,77 @@ class ActionControlGroup$Type extends MessageType<ActionControlGroup> {
 export const ActionControlGroup = new ActionControlGroup$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSelectArmy$Type extends MessageType<ActionSelectArmy> {
-    constructor() {
-        super("SC2APIProtocol.ActionSelectArmy", [
-            { no: 1, name: "selection_add", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSelectArmy", [
+      {
+        no: 1,
+        name: "selection_add",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionSelectArmy>): ActionSelectArmy {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSelectArmy>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSelectArmy,
+  ): ActionSelectArmy {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional bool selection_add */ 1:
+          message.selectionAdd = reader.bool();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSelectArmy>): ActionSelectArmy {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSelectArmy>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSelectArmy): ActionSelectArmy {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional bool selection_add */ 1:
-                    message.selectionAdd = reader.bool();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSelectArmy, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional bool selection_add = 1; */
-        if (message.selectionAdd !== undefined)
-            writer.tag(1, WireType.Varint).bool(message.selectionAdd);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSelectArmy,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional bool selection_add = 1; */
+    if (message.selectionAdd !== undefined)
+      writer.tag(1, WireType.Varint).bool(message.selectionAdd);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSelectArmy
@@ -1265,46 +1990,77 @@ class ActionSelectArmy$Type extends MessageType<ActionSelectArmy> {
 export const ActionSelectArmy = new ActionSelectArmy$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSelectWarpGates$Type extends MessageType<ActionSelectWarpGates> {
-    constructor() {
-        super("SC2APIProtocol.ActionSelectWarpGates", [
-            { no: 1, name: "selection_add", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSelectWarpGates", [
+      {
+        no: 1,
+        name: "selection_add",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionSelectWarpGates>): ActionSelectWarpGates {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSelectWarpGates>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSelectWarpGates,
+  ): ActionSelectWarpGates {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional bool selection_add */ 1:
+          message.selectionAdd = reader.bool();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSelectWarpGates>): ActionSelectWarpGates {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSelectWarpGates>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSelectWarpGates): ActionSelectWarpGates {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional bool selection_add */ 1:
-                    message.selectionAdd = reader.bool();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSelectWarpGates, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional bool selection_add = 1; */
-        if (message.selectionAdd !== undefined)
-            writer.tag(1, WireType.Varint).bool(message.selectionAdd);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSelectWarpGates,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional bool selection_add = 1; */
+    if (message.selectionAdd !== undefined)
+      writer.tag(1, WireType.Varint).bool(message.selectionAdd);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSelectWarpGates
@@ -1312,25 +2068,41 @@ class ActionSelectWarpGates$Type extends MessageType<ActionSelectWarpGates> {
 export const ActionSelectWarpGates = new ActionSelectWarpGates$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSelectLarva$Type extends MessageType<ActionSelectLarva> {
-    constructor() {
-        super("SC2APIProtocol.ActionSelectLarva", []);
-    }
-    create(value?: PartialMessage<ActionSelectLarva>): ActionSelectLarva {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSelectLarva>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSelectLarva): ActionSelectLarva {
-        return target ?? this.create();
-    }
-    internalBinaryWrite(message: ActionSelectLarva, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+  constructor() {
+    super("SC2APIProtocol.ActionSelectLarva", []);
+  }
+  create(value?: PartialMessage<ActionSelectLarva>): ActionSelectLarva {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSelectLarva>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSelectLarva,
+  ): ActionSelectLarva {
+    return target ?? this.create();
+  }
+  internalBinaryWrite(
+    message: ActionSelectLarva,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSelectLarva
@@ -1338,46 +2110,82 @@ class ActionSelectLarva$Type extends MessageType<ActionSelectLarva> {
 export const ActionSelectLarva = new ActionSelectLarva$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionSelectIdleWorker$Type extends MessageType<ActionSelectIdleWorker> {
-    constructor() {
-        super("SC2APIProtocol.ActionSelectIdleWorker", [
-            { no: 1, name: "type", kind: "enum", opt: true, T: () => ["SC2APIProtocol.ActionSelectIdleWorker.Type", ActionSelectIdleWorker_Type] }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionSelectIdleWorker", [
+      {
+        no: 1,
+        name: "type",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.ActionSelectIdleWorker.Type",
+          ActionSelectIdleWorker_Type,
+        ],
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionSelectIdleWorker>,
+  ): ActionSelectIdleWorker {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionSelectIdleWorker>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionSelectIdleWorker,
+  ): ActionSelectIdleWorker {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ActionSelectIdleWorker.Type type */ 1:
+          message.type = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionSelectIdleWorker>): ActionSelectIdleWorker {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionSelectIdleWorker>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionSelectIdleWorker): ActionSelectIdleWorker {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ActionSelectIdleWorker.Type type */ 1:
-                    message.type = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionSelectIdleWorker, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ActionSelectIdleWorker.Type type = 1; */
-        if (message.type !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.type);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionSelectIdleWorker,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ActionSelectIdleWorker.Type type = 1; */
+    if (message.type !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.type);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionSelectIdleWorker
@@ -1385,53 +2193,93 @@ class ActionSelectIdleWorker$Type extends MessageType<ActionSelectIdleWorker> {
 export const ActionSelectIdleWorker = new ActionSelectIdleWorker$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionMultiPanel$Type extends MessageType<ActionMultiPanel> {
-    constructor() {
-        super("SC2APIProtocol.ActionMultiPanel", [
-            { no: 1, name: "type", kind: "enum", opt: true, T: () => ["SC2APIProtocol.ActionMultiPanel.Type", ActionMultiPanel_Type] },
-            { no: 2, name: "unit_index", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionMultiPanel", [
+      {
+        no: 1,
+        name: "type",
+        kind: "enum",
+        opt: true,
+        T: () => [
+          "SC2APIProtocol.ActionMultiPanel.Type",
+          ActionMultiPanel_Type,
+        ],
+      },
+      {
+        no: 2,
+        name: "unit_index",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionMultiPanel>): ActionMultiPanel {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionMultiPanel>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionMultiPanel,
+  ): ActionMultiPanel {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.ActionMultiPanel.Type type */ 1:
+          message.type = reader.int32();
+          break;
+        case /* optional int32 unit_index */ 2:
+          message.unitIndex = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionMultiPanel>): ActionMultiPanel {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionMultiPanel>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionMultiPanel): ActionMultiPanel {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.ActionMultiPanel.Type type */ 1:
-                    message.type = reader.int32();
-                    break;
-                case /* optional int32 unit_index */ 2:
-                    message.unitIndex = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionMultiPanel, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.ActionMultiPanel.Type type = 1; */
-        if (message.type !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.type);
-        /* optional int32 unit_index = 2; */
-        if (message.unitIndex !== undefined)
-            writer.tag(2, WireType.Varint).int32(message.unitIndex);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionMultiPanel,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.ActionMultiPanel.Type type = 1; */
+    if (message.type !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.type);
+    /* optional int32 unit_index = 2; */
+    if (message.unitIndex !== undefined)
+      writer.tag(2, WireType.Varint).int32(message.unitIndex);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionMultiPanel
@@ -1439,46 +2287,79 @@ class ActionMultiPanel$Type extends MessageType<ActionMultiPanel> {
 export const ActionMultiPanel = new ActionMultiPanel$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionCargoPanelUnload$Type extends MessageType<ActionCargoPanelUnload> {
-    constructor() {
-        super("SC2APIProtocol.ActionCargoPanelUnload", [
-            { no: 1, name: "unit_index", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionCargoPanelUnload", [
+      {
+        no: 1,
+        name: "unit_index",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionCargoPanelUnload>,
+  ): ActionCargoPanelUnload {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionCargoPanelUnload>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionCargoPanelUnload,
+  ): ActionCargoPanelUnload {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional int32 unit_index */ 1:
+          message.unitIndex = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionCargoPanelUnload>): ActionCargoPanelUnload {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionCargoPanelUnload>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionCargoPanelUnload): ActionCargoPanelUnload {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional int32 unit_index */ 1:
-                    message.unitIndex = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionCargoPanelUnload, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional int32 unit_index = 1; */
-        if (message.unitIndex !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.unitIndex);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionCargoPanelUnload,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional int32 unit_index = 1; */
+    if (message.unitIndex !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.unitIndex);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionCargoPanelUnload
@@ -1486,93 +2367,162 @@ class ActionCargoPanelUnload$Type extends MessageType<ActionCargoPanelUnload> {
 export const ActionCargoPanelUnload = new ActionCargoPanelUnload$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionProductionPanelRemoveFromQueue$Type extends MessageType<ActionProductionPanelRemoveFromQueue> {
-    constructor() {
-        super("SC2APIProtocol.ActionProductionPanelRemoveFromQueue", [
-            { no: 1, name: "unit_index", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionProductionPanelRemoveFromQueue", [
+      {
+        no: 1,
+        name: "unit_index",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(
+    value?: PartialMessage<ActionProductionPanelRemoveFromQueue>,
+  ): ActionProductionPanelRemoveFromQueue {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionProductionPanelRemoveFromQueue>(
+        this,
+        message,
+        value,
+      );
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionProductionPanelRemoveFromQueue,
+  ): ActionProductionPanelRemoveFromQueue {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional int32 unit_index */ 1:
+          message.unitIndex = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionProductionPanelRemoveFromQueue>): ActionProductionPanelRemoveFromQueue {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionProductionPanelRemoveFromQueue>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionProductionPanelRemoveFromQueue): ActionProductionPanelRemoveFromQueue {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional int32 unit_index */ 1:
-                    message.unitIndex = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionProductionPanelRemoveFromQueue, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional int32 unit_index = 1; */
-        if (message.unitIndex !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.unitIndex);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionProductionPanelRemoveFromQueue,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional int32 unit_index = 1; */
+    if (message.unitIndex !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.unitIndex);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionProductionPanelRemoveFromQueue
  */
-export const ActionProductionPanelRemoveFromQueue = new ActionProductionPanelRemoveFromQueue$Type();
+export const ActionProductionPanelRemoveFromQueue =
+  new ActionProductionPanelRemoveFromQueue$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class ActionToggleAutocast$Type extends MessageType<ActionToggleAutocast> {
-    constructor() {
-        super("SC2APIProtocol.ActionToggleAutocast", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 5 /*ScalarType.INT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.ActionToggleAutocast", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 5 /*ScalarType.INT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<ActionToggleAutocast>): ActionToggleAutocast {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<ActionToggleAutocast>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: ActionToggleAutocast,
+  ): ActionToggleAutocast {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional int32 ability_id */ 1:
+          message.abilityId = reader.int32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<ActionToggleAutocast>): ActionToggleAutocast {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<ActionToggleAutocast>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ActionToggleAutocast): ActionToggleAutocast {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional int32 ability_id */ 1:
-                    message.abilityId = reader.int32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: ActionToggleAutocast, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional int32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.abilityId);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: ActionToggleAutocast,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional int32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.abilityId);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.ActionToggleAutocast

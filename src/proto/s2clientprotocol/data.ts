@@ -3,16 +3,20 @@
 // @generated from protobuf file "s2clientprotocol/data.proto" (package "SC2APIProtocol", syntax proto2)
 // tslint:disable
 // @ts-nocheck
-import type { BinaryWriteOptions } from "@protobuf-ts/runtime";
-import type { IBinaryWriter } from "@protobuf-ts/runtime";
-import { WireType } from "@protobuf-ts/runtime";
-import type { BinaryReadOptions } from "@protobuf-ts/runtime";
-import type { IBinaryReader } from "@protobuf-ts/runtime";
-import { UnknownFieldHandler } from "@protobuf-ts/runtime";
-import type { PartialMessage } from "@protobuf-ts/runtime";
-import { reflectionMergePartial } from "@protobuf-ts/runtime";
-import { MESSAGE_TYPE } from "@protobuf-ts/runtime";
-import { MessageType } from "@protobuf-ts/runtime";
+import type {
+  BinaryReadOptions,
+  BinaryWriteOptions,
+  IBinaryReader,
+  IBinaryWriter,
+  PartialMessage,
+} from "@protobuf-ts/runtime";
+import {
+  MessageType,
+  MESSAGE_TYPE,
+  reflectionMergePartial,
+  UnknownFieldHandler,
+  WireType,
+} from "@protobuf-ts/runtime";
 import { Race } from "./common";
 /**
  * May not relevant: queueable (everything is queueable).
@@ -23,520 +27,635 @@ import { Race } from "./common";
  * @generated from protobuf message SC2APIProtocol.AbilityData
  */
 export interface AbilityData {
-    /**
-     * @generated from protobuf field: optional uint32 ability_id = 1;
-     */
-    abilityId?: number; // Stable ID.
-    /**
-     * @generated from protobuf field: optional string link_name = 2;
-     */
-    linkName?: string; // Catalog name of the ability.
-    /**
-     * @generated from protobuf field: optional uint32 link_index = 3;
-     */
-    linkIndex?: number; // Catalog index of the ability.
-    /**
-     * @generated from protobuf field: optional string button_name = 4;
-     */
-    buttonName?: string; // Name used for the command card. May not always be set.
-    /**
-     * @generated from protobuf field: optional string friendly_name = 5;
-     */
-    friendlyName?: string; // A human friendly name when the button name or link name isn't descriptive.
-    /**
-     * @generated from protobuf field: optional string hotkey = 6;
-     */
-    hotkey?: string; // Hotkey. May not always be set.
-    /**
-     * @generated from protobuf field: optional uint32 remaps_to_ability_id = 7;
-     */
-    remapsToAbilityId?: number; // This ability id may be represented by the given more generic id.
-    /**
-     * @generated from protobuf field: optional bool available = 8;
-     */
-    available?: boolean; // If true, the ability may be used by this set of mods/map.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.AbilityData.Target target = 9;
-     */
-    target?: AbilityData_Target; // Determines if a point is optional or required.
-    /**
-     * @generated from protobuf field: optional bool allow_minimap = 10;
-     */
-    allowMinimap?: boolean; // Can be cast in the minimap.
-    /**
-     * @generated from protobuf field: optional bool allow_autocast = 11;
-     */
-    allowAutocast?: boolean; // Autocast can be set.
-    /**
-     * @generated from protobuf field: optional bool is_building = 12;
-     */
-    isBuilding?: boolean; // Requires placement to construct a building.
-    /**
-     * @generated from protobuf field: optional float footprint_radius = 13;
-     */
-    footprintRadius?: number; // Estimation of the footprint size. Need a better footprint.
-    /**
-     * @generated from protobuf field: optional bool is_instant_placement = 14;
-     */
-    isInstantPlacement?: boolean; // Placement next to an existing structure, e.g., an add-on like a Tech Lab.
-    /**
-     * @generated from protobuf field: optional float cast_range = 15;
-     */
-    castRange?: number; // Range unit can cast ability without needing to approach target.
+  /**
+   * @generated from protobuf field: optional uint32 ability_id = 1;
+   */
+  abilityId?: number; // Stable ID.
+  /**
+   * @generated from protobuf field: optional string link_name = 2;
+   */
+  linkName?: string; // Catalog name of the ability.
+  /**
+   * @generated from protobuf field: optional uint32 link_index = 3;
+   */
+  linkIndex?: number; // Catalog index of the ability.
+  /**
+   * @generated from protobuf field: optional string button_name = 4;
+   */
+  buttonName?: string; // Name used for the command card. May not always be set.
+  /**
+   * @generated from protobuf field: optional string friendly_name = 5;
+   */
+  friendlyName?: string; // A human friendly name when the button name or link name isn't descriptive.
+  /**
+   * @generated from protobuf field: optional string hotkey = 6;
+   */
+  hotkey?: string; // Hotkey. May not always be set.
+  /**
+   * @generated from protobuf field: optional uint32 remaps_to_ability_id = 7;
+   */
+  remapsToAbilityId?: number; // This ability id may be represented by the given more generic id.
+  /**
+   * @generated from protobuf field: optional bool available = 8;
+   */
+  available?: boolean; // If true, the ability may be used by this set of mods/map.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.AbilityData.Target target = 9;
+   */
+  target?: AbilityData_Target; // Determines if a point is optional or required.
+  /**
+   * @generated from protobuf field: optional bool allow_minimap = 10;
+   */
+  allowMinimap?: boolean; // Can be cast in the minimap.
+  /**
+   * @generated from protobuf field: optional bool allow_autocast = 11;
+   */
+  allowAutocast?: boolean; // Autocast can be set.
+  /**
+   * @generated from protobuf field: optional bool is_building = 12;
+   */
+  isBuilding?: boolean; // Requires placement to construct a building.
+  /**
+   * @generated from protobuf field: optional float footprint_radius = 13;
+   */
+  footprintRadius?: number; // Estimation of the footprint size. Need a better footprint.
+  /**
+   * @generated from protobuf field: optional bool is_instant_placement = 14;
+   */
+  isInstantPlacement?: boolean; // Placement next to an existing structure, e.g., an add-on like a Tech Lab.
+  /**
+   * @generated from protobuf field: optional float cast_range = 15;
+   */
+  castRange?: number; // Range unit can cast ability without needing to approach target.
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.AbilityData.Target
  */
 export enum AbilityData_Target {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * Does not require a target.
-     *
-     * @generated from protobuf enum value: None = 1;
-     */
-    None = 1,
-    /**
-     * Requires a target position.
-     *
-     * @generated from protobuf enum value: Point = 2;
-     */
-    Point = 2,
-    /**
-     * Requires a unit to target. Given by position using feature layers.
-     *
-     * @generated from protobuf enum value: Unit = 3;
-     */
-    Unit = 3,
-    /**
-     * Requires either a target point or target unit.
-     *
-     * @generated from protobuf enum value: PointOrUnit = 4;
-     */
-    PointOrUnit = 4,
-    /**
-     * Requires either a target point or no target. (eg. building add-ons)
-     *
-     * @generated from protobuf enum value: PointOrNone = 5;
-     */
-    PointOrNone = 5
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * Does not require a target.
+   *
+   * @generated from protobuf enum value: None = 1;
+   */
+  None = 1,
+  /**
+   * Requires a target position.
+   *
+   * @generated from protobuf enum value: Point = 2;
+   */
+  Point = 2,
+  /**
+   * Requires a unit to target. Given by position using feature layers.
+   *
+   * @generated from protobuf enum value: Unit = 3;
+   */
+  Unit = 3,
+  /**
+   * Requires either a target point or target unit.
+   *
+   * @generated from protobuf enum value: PointOrUnit = 4;
+   */
+  PointOrUnit = 4,
+  /**
+   * Requires either a target point or no target. (eg. building add-ons)
+   *
+   * @generated from protobuf enum value: PointOrNone = 5;
+   */
+  PointOrNone = 5,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.DamageBonus
  */
 export interface DamageBonus {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Attribute attribute = 1;
-     */
-    attribute?: Attribute;
-    /**
-     * @generated from protobuf field: optional float bonus = 2;
-     */
-    bonus?: number;
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Attribute attribute = 1;
+   */
+  attribute?: Attribute;
+  /**
+   * @generated from protobuf field: optional float bonus = 2;
+   */
+  bonus?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.Weapon
  */
 export interface Weapon {
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Weapon.TargetType type = 1;
-     */
-    type?: Weapon_TargetType;
-    /**
-     * @generated from protobuf field: optional float damage = 2;
-     */
-    damage?: number;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.DamageBonus damage_bonus = 3;
-     */
-    damageBonus: DamageBonus[];
-    /**
-     * @generated from protobuf field: optional uint32 attacks = 4;
-     */
-    attacks?: number; // Number of hits per attack. (eg. Colossus has 2 beams)
-    /**
-     * @generated from protobuf field: optional float range = 5;
-     */
-    range?: number;
-    /**
-     * @generated from protobuf field: optional float speed = 6;
-     */
-    speed?: number; // Time between attacks.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Weapon.TargetType type = 1;
+   */
+  type?: Weapon_TargetType;
+  /**
+   * @generated from protobuf field: optional float damage = 2;
+   */
+  damage?: number;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.DamageBonus damage_bonus = 3;
+   */
+  damageBonus: DamageBonus[];
+  /**
+   * @generated from protobuf field: optional uint32 attacks = 4;
+   */
+  attacks?: number; // Number of hits per attack. (eg. Colossus has 2 beams)
+  /**
+   * @generated from protobuf field: optional float range = 5;
+   */
+  range?: number;
+  /**
+   * @generated from protobuf field: optional float speed = 6;
+   */
+  speed?: number; // Time between attacks.
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.Weapon.TargetType
  */
 export enum Weapon_TargetType {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: Ground = 1;
-     */
-    Ground = 1,
-    /**
-     * @generated from protobuf enum value: Air = 2;
-     */
-    Air = 2,
-    /**
-     * @generated from protobuf enum value: Any = 3;
-     */
-    Any = 3
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: Ground = 1;
+   */
+  Ground = 1,
+  /**
+   * @generated from protobuf enum value: Air = 2;
+   */
+  Air = 2,
+  /**
+   * @generated from protobuf enum value: Any = 3;
+   */
+  Any = 3,
 }
 /**
  * @generated from protobuf message SC2APIProtocol.UnitTypeData
  */
 export interface UnitTypeData {
-    /**
-     * @generated from protobuf field: optional uint32 unit_id = 1;
-     */
-    unitId?: number; // Stable ID.
-    /**
-     * @generated from protobuf field: optional string name = 2;
-     */
-    name?: string; // Catalog name of the unit.
-    /**
-     * @generated from protobuf field: optional bool available = 3;
-     */
-    available?: boolean; // If true, the ability may be used by this set of mods/map.
-    /**
-     * @generated from protobuf field: optional uint32 cargo_size = 4;
-     */
-    cargoSize?: number; // Number of cargo slots it occupies in transports.
-    /**
-     * @generated from protobuf field: optional uint32 mineral_cost = 12;
-     */
-    mineralCost?: number;
-    /**
-     * @generated from protobuf field: optional uint32 vespene_cost = 13;
-     */
-    vespeneCost?: number;
-    /**
-     * @generated from protobuf field: optional float food_required = 14;
-     */
-    foodRequired?: number;
-    /**
-     * @generated from protobuf field: optional float food_provided = 18;
-     */
-    foodProvided?: number;
-    /**
-     * @generated from protobuf field: optional uint32 ability_id = 15;
-     */
-    abilityId?: number; // The ability that builds this unit.
-    /**
-     * @generated from protobuf field: optional SC2APIProtocol.Race race = 16;
-     */
-    race?: Race;
-    /**
-     * @generated from protobuf field: optional float build_time = 17;
-     */
-    buildTime?: number;
-    /**
-     * @generated from protobuf field: optional bool has_vespene = 19;
-     */
-    hasVespene?: boolean;
-    /**
-     * @generated from protobuf field: optional bool has_minerals = 20;
-     */
-    hasMinerals?: boolean;
-    /**
-     * @generated from protobuf field: optional float sight_range = 25;
-     */
-    sightRange?: number; // Range unit reveals vision.
-    /**
-     * @generated from protobuf field: repeated uint32 tech_alias = 21;
-     */
-    techAlias: number[]; // Other units that satisfy the same tech requirement.
-    /**
-     * @generated from protobuf field: optional uint32 unit_alias = 22;
-     */
-    unitAlias?: number; // The morphed variant of this unit.
-    /**
-     * @generated from protobuf field: optional uint32 tech_requirement = 23;
-     */
-    techRequirement?: number; // Structure required to build this unit. (Or any with the same tech_alias)
-    /**
-     * @generated from protobuf field: optional bool require_attached = 24;
-     */
-    requireAttached?: boolean; // Whether tech_requirement is an add-on.
-    /**
-     * Values include changes from upgrades
-     *
-     * @generated from protobuf field: repeated SC2APIProtocol.Attribute attributes = 8;
-     */
-    attributes: Attribute[];
-    /**
-     * @generated from protobuf field: optional float movement_speed = 9;
-     */
-    movementSpeed?: number;
-    /**
-     * @generated from protobuf field: optional float armor = 10;
-     */
-    armor?: number;
-    /**
-     * @generated from protobuf field: repeated SC2APIProtocol.Weapon weapons = 11;
-     */
-    weapons: Weapon[];
+  /**
+   * @generated from protobuf field: optional uint32 unit_id = 1;
+   */
+  unitId?: number; // Stable ID.
+  /**
+   * @generated from protobuf field: optional string name = 2;
+   */
+  name?: string; // Catalog name of the unit.
+  /**
+   * @generated from protobuf field: optional bool available = 3;
+   */
+  available?: boolean; // If true, the ability may be used by this set of mods/map.
+  /**
+   * @generated from protobuf field: optional uint32 cargo_size = 4;
+   */
+  cargoSize?: number; // Number of cargo slots it occupies in transports.
+  /**
+   * @generated from protobuf field: optional uint32 mineral_cost = 12;
+   */
+  mineralCost?: number;
+  /**
+   * @generated from protobuf field: optional uint32 vespene_cost = 13;
+   */
+  vespeneCost?: number;
+  /**
+   * @generated from protobuf field: optional float food_required = 14;
+   */
+  foodRequired?: number;
+  /**
+   * @generated from protobuf field: optional float food_provided = 18;
+   */
+  foodProvided?: number;
+  /**
+   * @generated from protobuf field: optional uint32 ability_id = 15;
+   */
+  abilityId?: number; // The ability that builds this unit.
+  /**
+   * @generated from protobuf field: optional SC2APIProtocol.Race race = 16;
+   */
+  race?: Race;
+  /**
+   * @generated from protobuf field: optional float build_time = 17;
+   */
+  buildTime?: number;
+  /**
+   * @generated from protobuf field: optional bool has_vespene = 19;
+   */
+  hasVespene?: boolean;
+  /**
+   * @generated from protobuf field: optional bool has_minerals = 20;
+   */
+  hasMinerals?: boolean;
+  /**
+   * @generated from protobuf field: optional float sight_range = 25;
+   */
+  sightRange?: number; // Range unit reveals vision.
+  /**
+   * @generated from protobuf field: repeated uint32 tech_alias = 21;
+   */
+  techAlias: number[]; // Other units that satisfy the same tech requirement.
+  /**
+   * @generated from protobuf field: optional uint32 unit_alias = 22;
+   */
+  unitAlias?: number; // The morphed variant of this unit.
+  /**
+   * @generated from protobuf field: optional uint32 tech_requirement = 23;
+   */
+  techRequirement?: number; // Structure required to build this unit. (Or any with the same tech_alias)
+  /**
+   * @generated from protobuf field: optional bool require_attached = 24;
+   */
+  requireAttached?: boolean; // Whether tech_requirement is an add-on.
+  /**
+   * Values include changes from upgrades
+   *
+   * @generated from protobuf field: repeated SC2APIProtocol.Attribute attributes = 8;
+   */
+  attributes: Attribute[];
+  /**
+   * @generated from protobuf field: optional float movement_speed = 9;
+   */
+  movementSpeed?: number;
+  /**
+   * @generated from protobuf field: optional float armor = 10;
+   */
+  armor?: number;
+  /**
+   * @generated from protobuf field: repeated SC2APIProtocol.Weapon weapons = 11;
+   */
+  weapons: Weapon[];
 }
 /**
  * @generated from protobuf message SC2APIProtocol.UpgradeData
  */
 export interface UpgradeData {
-    /**
-     * @generated from protobuf field: optional uint32 upgrade_id = 1;
-     */
-    upgradeId?: number; // Stable ID.
-    /**
-     * @generated from protobuf field: optional string name = 2;
-     */
-    name?: string;
-    /**
-     * @generated from protobuf field: optional uint32 mineral_cost = 3;
-     */
-    mineralCost?: number;
-    /**
-     * @generated from protobuf field: optional uint32 vespene_cost = 4;
-     */
-    vespeneCost?: number;
-    /**
-     * @generated from protobuf field: optional float research_time = 5;
-     */
-    researchTime?: number;
-    /**
-     * @generated from protobuf field: optional uint32 ability_id = 6;
-     */
-    abilityId?: number;
+  /**
+   * @generated from protobuf field: optional uint32 upgrade_id = 1;
+   */
+  upgradeId?: number; // Stable ID.
+  /**
+   * @generated from protobuf field: optional string name = 2;
+   */
+  name?: string;
+  /**
+   * @generated from protobuf field: optional uint32 mineral_cost = 3;
+   */
+  mineralCost?: number;
+  /**
+   * @generated from protobuf field: optional uint32 vespene_cost = 4;
+   */
+  vespeneCost?: number;
+  /**
+   * @generated from protobuf field: optional float research_time = 5;
+   */
+  researchTime?: number;
+  /**
+   * @generated from protobuf field: optional uint32 ability_id = 6;
+   */
+  abilityId?: number;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.BuffData
  */
 export interface BuffData {
-    /**
-     * @generated from protobuf field: optional uint32 buff_id = 1;
-     */
-    buffId?: number; // Stable ID.
-    /**
-     * @generated from protobuf field: optional string name = 2;
-     */
-    name?: string;
+  /**
+   * @generated from protobuf field: optional uint32 buff_id = 1;
+   */
+  buffId?: number; // Stable ID.
+  /**
+   * @generated from protobuf field: optional string name = 2;
+   */
+  name?: string;
 }
 /**
  * @generated from protobuf message SC2APIProtocol.EffectData
  */
 export interface EffectData {
-    /**
-     * @generated from protobuf field: optional uint32 effect_id = 1;
-     */
-    effectId?: number; // Stable ID.
-    /**
-     * @generated from protobuf field: optional string name = 2;
-     */
-    name?: string;
-    /**
-     * @generated from protobuf field: optional string friendly_name = 3;
-     */
-    friendlyName?: string;
-    /**
-     * @generated from protobuf field: optional float radius = 4;
-     */
-    radius?: number;
+  /**
+   * @generated from protobuf field: optional uint32 effect_id = 1;
+   */
+  effectId?: number; // Stable ID.
+  /**
+   * @generated from protobuf field: optional string name = 2;
+   */
+  name?: string;
+  /**
+   * @generated from protobuf field: optional string friendly_name = 3;
+   */
+  friendlyName?: string;
+  /**
+   * @generated from protobuf field: optional float radius = 4;
+   */
+  radius?: number;
 }
 /**
  * @generated from protobuf enum SC2APIProtocol.Attribute
  */
 export enum Attribute {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: Light = 1;
-     */
-    Light = 1,
-    /**
-     * @generated from protobuf enum value: Armored = 2;
-     */
-    Armored = 2,
-    /**
-     * @generated from protobuf enum value: Biological = 3;
-     */
-    Biological = 3,
-    /**
-     * @generated from protobuf enum value: Mechanical = 4;
-     */
-    Mechanical = 4,
-    /**
-     * @generated from protobuf enum value: Robotic = 5;
-     */
-    Robotic = 5,
-    /**
-     * @generated from protobuf enum value: Psionic = 6;
-     */
-    Psionic = 6,
-    /**
-     * @generated from protobuf enum value: Massive = 7;
-     */
-    Massive = 7,
-    /**
-     * @generated from protobuf enum value: Structure = 8;
-     */
-    Structure = 8,
-    /**
-     * @generated from protobuf enum value: Hover = 9;
-     */
-    Hover = 9,
-    /**
-     * @generated from protobuf enum value: Heroic = 10;
-     */
-    Heroic = 10,
-    /**
-     * @generated from protobuf enum value: Summoned = 11;
-     */
-    Summoned = 11
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: Light = 1;
+   */
+  Light = 1,
+  /**
+   * @generated from protobuf enum value: Armored = 2;
+   */
+  Armored = 2,
+  /**
+   * @generated from protobuf enum value: Biological = 3;
+   */
+  Biological = 3,
+  /**
+   * @generated from protobuf enum value: Mechanical = 4;
+   */
+  Mechanical = 4,
+  /**
+   * @generated from protobuf enum value: Robotic = 5;
+   */
+  Robotic = 5,
+  /**
+   * @generated from protobuf enum value: Psionic = 6;
+   */
+  Psionic = 6,
+  /**
+   * @generated from protobuf enum value: Massive = 7;
+   */
+  Massive = 7,
+  /**
+   * @generated from protobuf enum value: Structure = 8;
+   */
+  Structure = 8,
+  /**
+   * @generated from protobuf enum value: Hover = 9;
+   */
+  Hover = 9,
+  /**
+   * @generated from protobuf enum value: Heroic = 10;
+   */
+  Heroic = 10,
+  /**
+   * @generated from protobuf enum value: Summoned = 11;
+   */
+  Summoned = 11,
 }
 // @generated message type with reflection information, may provide speed optimized methods
 class AbilityData$Type extends MessageType<AbilityData> {
-    constructor() {
-        super("SC2APIProtocol.AbilityData", [
-            { no: 1, name: "ability_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "link_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "link_index", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "button_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 5, name: "friendly_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 6, name: "hotkey", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 7, name: "remaps_to_ability_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 8, name: "available", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 9, name: "target", kind: "enum", opt: true, T: () => ["SC2APIProtocol.AbilityData.Target", AbilityData_Target] },
-            { no: 10, name: "allow_minimap", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 11, name: "allow_autocast", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 12, name: "is_building", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 13, name: "footprint_radius", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 14, name: "is_instant_placement", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 15, name: "cast_range", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.AbilityData", [
+      {
+        no: 1,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "link_name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 3,
+        name: "link_index",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 4,
+        name: "button_name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 5,
+        name: "friendly_name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 6,
+        name: "hotkey",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 7,
+        name: "remaps_to_ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 8,
+        name: "available",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 9,
+        name: "target",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.AbilityData.Target", AbilityData_Target],
+      },
+      {
+        no: 10,
+        name: "allow_minimap",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 11,
+        name: "allow_autocast",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 12,
+        name: "is_building",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 13,
+        name: "footprint_radius",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 14,
+        name: "is_instant_placement",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 15,
+        name: "cast_range",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<AbilityData>): AbilityData {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<AbilityData>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: AbilityData,
+  ): AbilityData {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 ability_id */ 1:
+          message.abilityId = reader.uint32();
+          break;
+        case /* optional string link_name */ 2:
+          message.linkName = reader.string();
+          break;
+        case /* optional uint32 link_index */ 3:
+          message.linkIndex = reader.uint32();
+          break;
+        case /* optional string button_name */ 4:
+          message.buttonName = reader.string();
+          break;
+        case /* optional string friendly_name */ 5:
+          message.friendlyName = reader.string();
+          break;
+        case /* optional string hotkey */ 6:
+          message.hotkey = reader.string();
+          break;
+        case /* optional uint32 remaps_to_ability_id */ 7:
+          message.remapsToAbilityId = reader.uint32();
+          break;
+        case /* optional bool available */ 8:
+          message.available = reader.bool();
+          break;
+        case /* optional SC2APIProtocol.AbilityData.Target target */ 9:
+          message.target = reader.int32();
+          break;
+        case /* optional bool allow_minimap */ 10:
+          message.allowMinimap = reader.bool();
+          break;
+        case /* optional bool allow_autocast */ 11:
+          message.allowAutocast = reader.bool();
+          break;
+        case /* optional bool is_building */ 12:
+          message.isBuilding = reader.bool();
+          break;
+        case /* optional float footprint_radius */ 13:
+          message.footprintRadius = reader.float();
+          break;
+        case /* optional bool is_instant_placement */ 14:
+          message.isInstantPlacement = reader.bool();
+          break;
+        case /* optional float cast_range */ 15:
+          message.castRange = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<AbilityData>): AbilityData {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<AbilityData>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: AbilityData): AbilityData {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 ability_id */ 1:
-                    message.abilityId = reader.uint32();
-                    break;
-                case /* optional string link_name */ 2:
-                    message.linkName = reader.string();
-                    break;
-                case /* optional uint32 link_index */ 3:
-                    message.linkIndex = reader.uint32();
-                    break;
-                case /* optional string button_name */ 4:
-                    message.buttonName = reader.string();
-                    break;
-                case /* optional string friendly_name */ 5:
-                    message.friendlyName = reader.string();
-                    break;
-                case /* optional string hotkey */ 6:
-                    message.hotkey = reader.string();
-                    break;
-                case /* optional uint32 remaps_to_ability_id */ 7:
-                    message.remapsToAbilityId = reader.uint32();
-                    break;
-                case /* optional bool available */ 8:
-                    message.available = reader.bool();
-                    break;
-                case /* optional SC2APIProtocol.AbilityData.Target target */ 9:
-                    message.target = reader.int32();
-                    break;
-                case /* optional bool allow_minimap */ 10:
-                    message.allowMinimap = reader.bool();
-                    break;
-                case /* optional bool allow_autocast */ 11:
-                    message.allowAutocast = reader.bool();
-                    break;
-                case /* optional bool is_building */ 12:
-                    message.isBuilding = reader.bool();
-                    break;
-                case /* optional float footprint_radius */ 13:
-                    message.footprintRadius = reader.float();
-                    break;
-                case /* optional bool is_instant_placement */ 14:
-                    message.isInstantPlacement = reader.bool();
-                    break;
-                case /* optional float cast_range */ 15:
-                    message.castRange = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: AbilityData, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 ability_id = 1; */
-        if (message.abilityId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.abilityId);
-        /* optional string link_name = 2; */
-        if (message.linkName !== undefined)
-            writer.tag(2, WireType.LengthDelimited).string(message.linkName);
-        /* optional uint32 link_index = 3; */
-        if (message.linkIndex !== undefined)
-            writer.tag(3, WireType.Varint).uint32(message.linkIndex);
-        /* optional string button_name = 4; */
-        if (message.buttonName !== undefined)
-            writer.tag(4, WireType.LengthDelimited).string(message.buttonName);
-        /* optional string friendly_name = 5; */
-        if (message.friendlyName !== undefined)
-            writer.tag(5, WireType.LengthDelimited).string(message.friendlyName);
-        /* optional string hotkey = 6; */
-        if (message.hotkey !== undefined)
-            writer.tag(6, WireType.LengthDelimited).string(message.hotkey);
-        /* optional uint32 remaps_to_ability_id = 7; */
-        if (message.remapsToAbilityId !== undefined)
-            writer.tag(7, WireType.Varint).uint32(message.remapsToAbilityId);
-        /* optional bool available = 8; */
-        if (message.available !== undefined)
-            writer.tag(8, WireType.Varint).bool(message.available);
-        /* optional SC2APIProtocol.AbilityData.Target target = 9; */
-        if (message.target !== undefined)
-            writer.tag(9, WireType.Varint).int32(message.target);
-        /* optional bool allow_minimap = 10; */
-        if (message.allowMinimap !== undefined)
-            writer.tag(10, WireType.Varint).bool(message.allowMinimap);
-        /* optional bool allow_autocast = 11; */
-        if (message.allowAutocast !== undefined)
-            writer.tag(11, WireType.Varint).bool(message.allowAutocast);
-        /* optional bool is_building = 12; */
-        if (message.isBuilding !== undefined)
-            writer.tag(12, WireType.Varint).bool(message.isBuilding);
-        /* optional float footprint_radius = 13; */
-        if (message.footprintRadius !== undefined)
-            writer.tag(13, WireType.Bit32).float(message.footprintRadius);
-        /* optional bool is_instant_placement = 14; */
-        if (message.isInstantPlacement !== undefined)
-            writer.tag(14, WireType.Varint).bool(message.isInstantPlacement);
-        /* optional float cast_range = 15; */
-        if (message.castRange !== undefined)
-            writer.tag(15, WireType.Bit32).float(message.castRange);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: AbilityData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 ability_id = 1; */
+    if (message.abilityId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.abilityId);
+    /* optional string link_name = 2; */
+    if (message.linkName !== undefined)
+      writer.tag(2, WireType.LengthDelimited).string(message.linkName);
+    /* optional uint32 link_index = 3; */
+    if (message.linkIndex !== undefined)
+      writer.tag(3, WireType.Varint).uint32(message.linkIndex);
+    /* optional string button_name = 4; */
+    if (message.buttonName !== undefined)
+      writer.tag(4, WireType.LengthDelimited).string(message.buttonName);
+    /* optional string friendly_name = 5; */
+    if (message.friendlyName !== undefined)
+      writer.tag(5, WireType.LengthDelimited).string(message.friendlyName);
+    /* optional string hotkey = 6; */
+    if (message.hotkey !== undefined)
+      writer.tag(6, WireType.LengthDelimited).string(message.hotkey);
+    /* optional uint32 remaps_to_ability_id = 7; */
+    if (message.remapsToAbilityId !== undefined)
+      writer.tag(7, WireType.Varint).uint32(message.remapsToAbilityId);
+    /* optional bool available = 8; */
+    if (message.available !== undefined)
+      writer.tag(8, WireType.Varint).bool(message.available);
+    /* optional SC2APIProtocol.AbilityData.Target target = 9; */
+    if (message.target !== undefined)
+      writer.tag(9, WireType.Varint).int32(message.target);
+    /* optional bool allow_minimap = 10; */
+    if (message.allowMinimap !== undefined)
+      writer.tag(10, WireType.Varint).bool(message.allowMinimap);
+    /* optional bool allow_autocast = 11; */
+    if (message.allowAutocast !== undefined)
+      writer.tag(11, WireType.Varint).bool(message.allowAutocast);
+    /* optional bool is_building = 12; */
+    if (message.isBuilding !== undefined)
+      writer.tag(12, WireType.Varint).bool(message.isBuilding);
+    /* optional float footprint_radius = 13; */
+    if (message.footprintRadius !== undefined)
+      writer.tag(13, WireType.Bit32).float(message.footprintRadius);
+    /* optional bool is_instant_placement = 14; */
+    if (message.isInstantPlacement !== undefined)
+      writer.tag(14, WireType.Varint).bool(message.isInstantPlacement);
+    /* optional float cast_range = 15; */
+    if (message.castRange !== undefined)
+      writer.tag(15, WireType.Bit32).float(message.castRange);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.AbilityData
@@ -544,53 +663,90 @@ class AbilityData$Type extends MessageType<AbilityData> {
 export const AbilityData = new AbilityData$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class DamageBonus$Type extends MessageType<DamageBonus> {
-    constructor() {
-        super("SC2APIProtocol.DamageBonus", [
-            { no: 1, name: "attribute", kind: "enum", opt: true, T: () => ["SC2APIProtocol.Attribute", Attribute] },
-            { no: 2, name: "bonus", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.DamageBonus", [
+      {
+        no: 1,
+        name: "attribute",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.Attribute", Attribute],
+      },
+      {
+        no: 2,
+        name: "bonus",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<DamageBonus>): DamageBonus {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<DamageBonus>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: DamageBonus,
+  ): DamageBonus {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Attribute attribute */ 1:
+          message.attribute = reader.int32();
+          break;
+        case /* optional float bonus */ 2:
+          message.bonus = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<DamageBonus>): DamageBonus {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<DamageBonus>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: DamageBonus): DamageBonus {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Attribute attribute */ 1:
-                    message.attribute = reader.int32();
-                    break;
-                case /* optional float bonus */ 2:
-                    message.bonus = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: DamageBonus, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Attribute attribute = 1; */
-        if (message.attribute !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.attribute);
-        /* optional float bonus = 2; */
-        if (message.bonus !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.bonus);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: DamageBonus,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Attribute attribute = 1; */
+    if (message.attribute !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.attribute);
+    /* optional float bonus = 2; */
+    if (message.bonus !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.bonus);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.DamageBonus
@@ -598,81 +754,148 @@ class DamageBonus$Type extends MessageType<DamageBonus> {
 export const DamageBonus = new DamageBonus$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class Weapon$Type extends MessageType<Weapon> {
-    constructor() {
-        super("SC2APIProtocol.Weapon", [
-            { no: 1, name: "type", kind: "enum", opt: true, T: () => ["SC2APIProtocol.Weapon.TargetType", Weapon_TargetType] },
-            { no: 2, name: "damage", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 3, name: "damage_bonus", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => DamageBonus },
-            { no: 4, name: "attacks", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "range", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 6, name: "speed", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.Weapon", [
+      {
+        no: 1,
+        name: "type",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.Weapon.TargetType", Weapon_TargetType],
+      },
+      {
+        no: 2,
+        name: "damage",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 3,
+        name: "damage_bonus",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => DamageBonus,
+      },
+      {
+        no: 4,
+        name: "attacks",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 5,
+        name: "range",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 6,
+        name: "speed",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<Weapon>): Weapon {
+    const message = { damageBonus: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<Weapon>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: Weapon,
+  ): Weapon {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional SC2APIProtocol.Weapon.TargetType type */ 1:
+          message.type = reader.int32();
+          break;
+        case /* optional float damage */ 2:
+          message.damage = reader.float();
+          break;
+        case /* repeated SC2APIProtocol.DamageBonus damage_bonus */ 3:
+          message.damageBonus.push(
+            DamageBonus.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        case /* optional uint32 attacks */ 4:
+          message.attacks = reader.uint32();
+          break;
+        case /* optional float range */ 5:
+          message.range = reader.float();
+          break;
+        case /* optional float speed */ 6:
+          message.speed = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<Weapon>): Weapon {
-        const message = { damageBonus: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<Weapon>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Weapon): Weapon {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional SC2APIProtocol.Weapon.TargetType type */ 1:
-                    message.type = reader.int32();
-                    break;
-                case /* optional float damage */ 2:
-                    message.damage = reader.float();
-                    break;
-                case /* repeated SC2APIProtocol.DamageBonus damage_bonus */ 3:
-                    message.damageBonus.push(DamageBonus.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                case /* optional uint32 attacks */ 4:
-                    message.attacks = reader.uint32();
-                    break;
-                case /* optional float range */ 5:
-                    message.range = reader.float();
-                    break;
-                case /* optional float speed */ 6:
-                    message.speed = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: Weapon, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional SC2APIProtocol.Weapon.TargetType type = 1; */
-        if (message.type !== undefined)
-            writer.tag(1, WireType.Varint).int32(message.type);
-        /* optional float damage = 2; */
-        if (message.damage !== undefined)
-            writer.tag(2, WireType.Bit32).float(message.damage);
-        /* repeated SC2APIProtocol.DamageBonus damage_bonus = 3; */
-        for (let i = 0; i < message.damageBonus.length; i++)
-            DamageBonus.internalBinaryWrite(message.damageBonus[i], writer.tag(3, WireType.LengthDelimited).fork(), options).join();
-        /* optional uint32 attacks = 4; */
-        if (message.attacks !== undefined)
-            writer.tag(4, WireType.Varint).uint32(message.attacks);
-        /* optional float range = 5; */
-        if (message.range !== undefined)
-            writer.tag(5, WireType.Bit32).float(message.range);
-        /* optional float speed = 6; */
-        if (message.speed !== undefined)
-            writer.tag(6, WireType.Bit32).float(message.speed);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: Weapon,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional SC2APIProtocol.Weapon.TargetType type = 1; */
+    if (message.type !== undefined)
+      writer.tag(1, WireType.Varint).int32(message.type);
+    /* optional float damage = 2; */
+    if (message.damage !== undefined)
+      writer.tag(2, WireType.Bit32).float(message.damage);
+    /* repeated SC2APIProtocol.DamageBonus damage_bonus = 3; */
+    for (let i = 0; i < message.damageBonus.length; i++)
+      DamageBonus.internalBinaryWrite(
+        message.damageBonus[i],
+        writer.tag(3, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    /* optional uint32 attacks = 4; */
+    if (message.attacks !== undefined)
+      writer.tag(4, WireType.Varint).uint32(message.attacks);
+    /* optional float range = 5; */
+    if (message.range !== undefined)
+      writer.tag(5, WireType.Bit32).float(message.range);
+    /* optional float speed = 6; */
+    if (message.speed !== undefined)
+      writer.tag(6, WireType.Bit32).float(message.speed);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.Weapon
@@ -680,201 +903,362 @@ class Weapon$Type extends MessageType<Weapon> {
 export const Weapon = new Weapon$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class UnitTypeData$Type extends MessageType<UnitTypeData> {
-    constructor() {
-        super("SC2APIProtocol.UnitTypeData", [
-            { no: 1, name: "unit_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "available", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 4, name: "cargo_size", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 12, name: "mineral_cost", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 13, name: "vespene_cost", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 14, name: "food_required", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 18, name: "food_provided", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 15, name: "ability_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 16, name: "race", kind: "enum", opt: true, T: () => ["SC2APIProtocol.Race", Race] },
-            { no: 17, name: "build_time", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 19, name: "has_vespene", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 20, name: "has_minerals", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 25, name: "sight_range", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 21, name: "tech_alias", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 13 /*ScalarType.UINT32*/ },
-            { no: 22, name: "unit_alias", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 23, name: "tech_requirement", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 24, name: "require_attached", kind: "scalar", opt: true, T: 8 /*ScalarType.BOOL*/ },
-            { no: 8, name: "attributes", kind: "enum", repeat: 2 /*RepeatType.UNPACKED*/, T: () => ["SC2APIProtocol.Attribute", Attribute] },
-            { no: 9, name: "movement_speed", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 10, name: "armor", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 11, name: "weapons", kind: "message", repeat: 2 /*RepeatType.UNPACKED*/, T: () => Weapon }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.UnitTypeData", [
+      {
+        no: 1,
+        name: "unit_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 3,
+        name: "available",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 4,
+        name: "cargo_size",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 12,
+        name: "mineral_cost",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 13,
+        name: "vespene_cost",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 14,
+        name: "food_required",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 18,
+        name: "food_provided",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 15,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 16,
+        name: "race",
+        kind: "enum",
+        opt: true,
+        T: () => ["SC2APIProtocol.Race", Race],
+      },
+      {
+        no: 17,
+        name: "build_time",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 19,
+        name: "has_vespene",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 20,
+        name: "has_minerals",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 25,
+        name: "sight_range",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 21,
+        name: "tech_alias",
+        kind: "scalar",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 22,
+        name: "unit_alias",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 23,
+        name: "tech_requirement",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 24,
+        name: "require_attached",
+        kind: "scalar",
+        opt: true,
+        T: 8 /*ScalarType.BOOL*/,
+      },
+      {
+        no: 8,
+        name: "attributes",
+        kind: "enum",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => ["SC2APIProtocol.Attribute", Attribute],
+      },
+      {
+        no: 9,
+        name: "movement_speed",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 10,
+        name: "armor",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 11,
+        name: "weapons",
+        kind: "message",
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: () => Weapon,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<UnitTypeData>): UnitTypeData {
+    const message = { techAlias: [], attributes: [], weapons: [] };
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<UnitTypeData>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: UnitTypeData,
+  ): UnitTypeData {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 unit_id */ 1:
+          message.unitId = reader.uint32();
+          break;
+        case /* optional string name */ 2:
+          message.name = reader.string();
+          break;
+        case /* optional bool available */ 3:
+          message.available = reader.bool();
+          break;
+        case /* optional uint32 cargo_size */ 4:
+          message.cargoSize = reader.uint32();
+          break;
+        case /* optional uint32 mineral_cost */ 12:
+          message.mineralCost = reader.uint32();
+          break;
+        case /* optional uint32 vespene_cost */ 13:
+          message.vespeneCost = reader.uint32();
+          break;
+        case /* optional float food_required */ 14:
+          message.foodRequired = reader.float();
+          break;
+        case /* optional float food_provided */ 18:
+          message.foodProvided = reader.float();
+          break;
+        case /* optional uint32 ability_id */ 15:
+          message.abilityId = reader.uint32();
+          break;
+        case /* optional SC2APIProtocol.Race race */ 16:
+          message.race = reader.int32();
+          break;
+        case /* optional float build_time */ 17:
+          message.buildTime = reader.float();
+          break;
+        case /* optional bool has_vespene */ 19:
+          message.hasVespene = reader.bool();
+          break;
+        case /* optional bool has_minerals */ 20:
+          message.hasMinerals = reader.bool();
+          break;
+        case /* optional float sight_range */ 25:
+          message.sightRange = reader.float();
+          break;
+        case /* repeated uint32 tech_alias */ 21:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.techAlias.push(reader.uint32());
+          else message.techAlias.push(reader.uint32());
+          break;
+        case /* optional uint32 unit_alias */ 22:
+          message.unitAlias = reader.uint32();
+          break;
+        case /* optional uint32 tech_requirement */ 23:
+          message.techRequirement = reader.uint32();
+          break;
+        case /* optional bool require_attached */ 24:
+          message.requireAttached = reader.bool();
+          break;
+        case /* repeated SC2APIProtocol.Attribute attributes */ 8:
+          if (wireType === WireType.LengthDelimited)
+            for (let e = reader.int32() + reader.pos; reader.pos < e; )
+              message.attributes.push(reader.int32());
+          else message.attributes.push(reader.int32());
+          break;
+        case /* optional float movement_speed */ 9:
+          message.movementSpeed = reader.float();
+          break;
+        case /* optional float armor */ 10:
+          message.armor = reader.float();
+          break;
+        case /* repeated SC2APIProtocol.Weapon weapons */ 11:
+          message.weapons.push(
+            Weapon.internalBinaryRead(reader, reader.uint32(), options),
+          );
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<UnitTypeData>): UnitTypeData {
-        const message = { techAlias: [], attributes: [], weapons: [] };
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UnitTypeData>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UnitTypeData): UnitTypeData {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 unit_id */ 1:
-                    message.unitId = reader.uint32();
-                    break;
-                case /* optional string name */ 2:
-                    message.name = reader.string();
-                    break;
-                case /* optional bool available */ 3:
-                    message.available = reader.bool();
-                    break;
-                case /* optional uint32 cargo_size */ 4:
-                    message.cargoSize = reader.uint32();
-                    break;
-                case /* optional uint32 mineral_cost */ 12:
-                    message.mineralCost = reader.uint32();
-                    break;
-                case /* optional uint32 vespene_cost */ 13:
-                    message.vespeneCost = reader.uint32();
-                    break;
-                case /* optional float food_required */ 14:
-                    message.foodRequired = reader.float();
-                    break;
-                case /* optional float food_provided */ 18:
-                    message.foodProvided = reader.float();
-                    break;
-                case /* optional uint32 ability_id */ 15:
-                    message.abilityId = reader.uint32();
-                    break;
-                case /* optional SC2APIProtocol.Race race */ 16:
-                    message.race = reader.int32();
-                    break;
-                case /* optional float build_time */ 17:
-                    message.buildTime = reader.float();
-                    break;
-                case /* optional bool has_vespene */ 19:
-                    message.hasVespene = reader.bool();
-                    break;
-                case /* optional bool has_minerals */ 20:
-                    message.hasMinerals = reader.bool();
-                    break;
-                case /* optional float sight_range */ 25:
-                    message.sightRange = reader.float();
-                    break;
-                case /* repeated uint32 tech_alias */ 21:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.techAlias.push(reader.uint32());
-                    else
-                        message.techAlias.push(reader.uint32());
-                    break;
-                case /* optional uint32 unit_alias */ 22:
-                    message.unitAlias = reader.uint32();
-                    break;
-                case /* optional uint32 tech_requirement */ 23:
-                    message.techRequirement = reader.uint32();
-                    break;
-                case /* optional bool require_attached */ 24:
-                    message.requireAttached = reader.bool();
-                    break;
-                case /* repeated SC2APIProtocol.Attribute attributes */ 8:
-                    if (wireType === WireType.LengthDelimited)
-                        for (let e = reader.int32() + reader.pos; reader.pos < e;)
-                            message.attributes.push(reader.int32());
-                    else
-                        message.attributes.push(reader.int32());
-                    break;
-                case /* optional float movement_speed */ 9:
-                    message.movementSpeed = reader.float();
-                    break;
-                case /* optional float armor */ 10:
-                    message.armor = reader.float();
-                    break;
-                case /* repeated SC2APIProtocol.Weapon weapons */ 11:
-                    message.weapons.push(Weapon.internalBinaryRead(reader, reader.uint32(), options));
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UnitTypeData, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 unit_id = 1; */
-        if (message.unitId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.unitId);
-        /* optional string name = 2; */
-        if (message.name !== undefined)
-            writer.tag(2, WireType.LengthDelimited).string(message.name);
-        /* optional bool available = 3; */
-        if (message.available !== undefined)
-            writer.tag(3, WireType.Varint).bool(message.available);
-        /* optional uint32 cargo_size = 4; */
-        if (message.cargoSize !== undefined)
-            writer.tag(4, WireType.Varint).uint32(message.cargoSize);
-        /* optional uint32 mineral_cost = 12; */
-        if (message.mineralCost !== undefined)
-            writer.tag(12, WireType.Varint).uint32(message.mineralCost);
-        /* optional uint32 vespene_cost = 13; */
-        if (message.vespeneCost !== undefined)
-            writer.tag(13, WireType.Varint).uint32(message.vespeneCost);
-        /* optional float food_required = 14; */
-        if (message.foodRequired !== undefined)
-            writer.tag(14, WireType.Bit32).float(message.foodRequired);
-        /* optional float food_provided = 18; */
-        if (message.foodProvided !== undefined)
-            writer.tag(18, WireType.Bit32).float(message.foodProvided);
-        /* optional uint32 ability_id = 15; */
-        if (message.abilityId !== undefined)
-            writer.tag(15, WireType.Varint).uint32(message.abilityId);
-        /* optional SC2APIProtocol.Race race = 16; */
-        if (message.race !== undefined)
-            writer.tag(16, WireType.Varint).int32(message.race);
-        /* optional float build_time = 17; */
-        if (message.buildTime !== undefined)
-            writer.tag(17, WireType.Bit32).float(message.buildTime);
-        /* optional bool has_vespene = 19; */
-        if (message.hasVespene !== undefined)
-            writer.tag(19, WireType.Varint).bool(message.hasVespene);
-        /* optional bool has_minerals = 20; */
-        if (message.hasMinerals !== undefined)
-            writer.tag(20, WireType.Varint).bool(message.hasMinerals);
-        /* optional float sight_range = 25; */
-        if (message.sightRange !== undefined)
-            writer.tag(25, WireType.Bit32).float(message.sightRange);
-        /* repeated uint32 tech_alias = 21; */
-        for (let i = 0; i < message.techAlias.length; i++)
-            writer.tag(21, WireType.Varint).uint32(message.techAlias[i]);
-        /* optional uint32 unit_alias = 22; */
-        if (message.unitAlias !== undefined)
-            writer.tag(22, WireType.Varint).uint32(message.unitAlias);
-        /* optional uint32 tech_requirement = 23; */
-        if (message.techRequirement !== undefined)
-            writer.tag(23, WireType.Varint).uint32(message.techRequirement);
-        /* optional bool require_attached = 24; */
-        if (message.requireAttached !== undefined)
-            writer.tag(24, WireType.Varint).bool(message.requireAttached);
-        /* repeated SC2APIProtocol.Attribute attributes = 8; */
-        for (let i = 0; i < message.attributes.length; i++)
-            writer.tag(8, WireType.Varint).int32(message.attributes[i]);
-        /* optional float movement_speed = 9; */
-        if (message.movementSpeed !== undefined)
-            writer.tag(9, WireType.Bit32).float(message.movementSpeed);
-        /* optional float armor = 10; */
-        if (message.armor !== undefined)
-            writer.tag(10, WireType.Bit32).float(message.armor);
-        /* repeated SC2APIProtocol.Weapon weapons = 11; */
-        for (let i = 0; i < message.weapons.length; i++)
-            Weapon.internalBinaryWrite(message.weapons[i], writer.tag(11, WireType.LengthDelimited).fork(), options).join();
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: UnitTypeData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 unit_id = 1; */
+    if (message.unitId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.unitId);
+    /* optional string name = 2; */
+    if (message.name !== undefined)
+      writer.tag(2, WireType.LengthDelimited).string(message.name);
+    /* optional bool available = 3; */
+    if (message.available !== undefined)
+      writer.tag(3, WireType.Varint).bool(message.available);
+    /* optional uint32 cargo_size = 4; */
+    if (message.cargoSize !== undefined)
+      writer.tag(4, WireType.Varint).uint32(message.cargoSize);
+    /* optional uint32 mineral_cost = 12; */
+    if (message.mineralCost !== undefined)
+      writer.tag(12, WireType.Varint).uint32(message.mineralCost);
+    /* optional uint32 vespene_cost = 13; */
+    if (message.vespeneCost !== undefined)
+      writer.tag(13, WireType.Varint).uint32(message.vespeneCost);
+    /* optional float food_required = 14; */
+    if (message.foodRequired !== undefined)
+      writer.tag(14, WireType.Bit32).float(message.foodRequired);
+    /* optional float food_provided = 18; */
+    if (message.foodProvided !== undefined)
+      writer.tag(18, WireType.Bit32).float(message.foodProvided);
+    /* optional uint32 ability_id = 15; */
+    if (message.abilityId !== undefined)
+      writer.tag(15, WireType.Varint).uint32(message.abilityId);
+    /* optional SC2APIProtocol.Race race = 16; */
+    if (message.race !== undefined)
+      writer.tag(16, WireType.Varint).int32(message.race);
+    /* optional float build_time = 17; */
+    if (message.buildTime !== undefined)
+      writer.tag(17, WireType.Bit32).float(message.buildTime);
+    /* optional bool has_vespene = 19; */
+    if (message.hasVespene !== undefined)
+      writer.tag(19, WireType.Varint).bool(message.hasVespene);
+    /* optional bool has_minerals = 20; */
+    if (message.hasMinerals !== undefined)
+      writer.tag(20, WireType.Varint).bool(message.hasMinerals);
+    /* optional float sight_range = 25; */
+    if (message.sightRange !== undefined)
+      writer.tag(25, WireType.Bit32).float(message.sightRange);
+    /* repeated uint32 tech_alias = 21; */
+    for (let i = 0; i < message.techAlias.length; i++)
+      writer.tag(21, WireType.Varint).uint32(message.techAlias[i]);
+    /* optional uint32 unit_alias = 22; */
+    if (message.unitAlias !== undefined)
+      writer.tag(22, WireType.Varint).uint32(message.unitAlias);
+    /* optional uint32 tech_requirement = 23; */
+    if (message.techRequirement !== undefined)
+      writer.tag(23, WireType.Varint).uint32(message.techRequirement);
+    /* optional bool require_attached = 24; */
+    if (message.requireAttached !== undefined)
+      writer.tag(24, WireType.Varint).bool(message.requireAttached);
+    /* repeated SC2APIProtocol.Attribute attributes = 8; */
+    for (let i = 0; i < message.attributes.length; i++)
+      writer.tag(8, WireType.Varint).int32(message.attributes[i]);
+    /* optional float movement_speed = 9; */
+    if (message.movementSpeed !== undefined)
+      writer.tag(9, WireType.Bit32).float(message.movementSpeed);
+    /* optional float armor = 10; */
+    if (message.armor !== undefined)
+      writer.tag(10, WireType.Bit32).float(message.armor);
+    /* repeated SC2APIProtocol.Weapon weapons = 11; */
+    for (let i = 0; i < message.weapons.length; i++)
+      Weapon.internalBinaryWrite(
+        message.weapons[i],
+        writer.tag(11, WireType.LengthDelimited).fork(),
+        options,
+      ).join();
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.UnitTypeData
@@ -882,81 +1266,142 @@ class UnitTypeData$Type extends MessageType<UnitTypeData> {
 export const UnitTypeData = new UnitTypeData$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class UpgradeData$Type extends MessageType<UpgradeData> {
-    constructor() {
-        super("SC2APIProtocol.UpgradeData", [
-            { no: 1, name: "upgrade_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "mineral_cost", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 4, name: "vespene_cost", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 5, name: "research_time", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
-            { no: 6, name: "ability_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.UpgradeData", [
+      {
+        no: 1,
+        name: "upgrade_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 3,
+        name: "mineral_cost",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 4,
+        name: "vespene_cost",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 5,
+        name: "research_time",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+      {
+        no: 6,
+        name: "ability_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<UpgradeData>): UpgradeData {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<UpgradeData>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: UpgradeData,
+  ): UpgradeData {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 upgrade_id */ 1:
+          message.upgradeId = reader.uint32();
+          break;
+        case /* optional string name */ 2:
+          message.name = reader.string();
+          break;
+        case /* optional uint32 mineral_cost */ 3:
+          message.mineralCost = reader.uint32();
+          break;
+        case /* optional uint32 vespene_cost */ 4:
+          message.vespeneCost = reader.uint32();
+          break;
+        case /* optional float research_time */ 5:
+          message.researchTime = reader.float();
+          break;
+        case /* optional uint32 ability_id */ 6:
+          message.abilityId = reader.uint32();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<UpgradeData>): UpgradeData {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<UpgradeData>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: UpgradeData): UpgradeData {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 upgrade_id */ 1:
-                    message.upgradeId = reader.uint32();
-                    break;
-                case /* optional string name */ 2:
-                    message.name = reader.string();
-                    break;
-                case /* optional uint32 mineral_cost */ 3:
-                    message.mineralCost = reader.uint32();
-                    break;
-                case /* optional uint32 vespene_cost */ 4:
-                    message.vespeneCost = reader.uint32();
-                    break;
-                case /* optional float research_time */ 5:
-                    message.researchTime = reader.float();
-                    break;
-                case /* optional uint32 ability_id */ 6:
-                    message.abilityId = reader.uint32();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: UpgradeData, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 upgrade_id = 1; */
-        if (message.upgradeId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.upgradeId);
-        /* optional string name = 2; */
-        if (message.name !== undefined)
-            writer.tag(2, WireType.LengthDelimited).string(message.name);
-        /* optional uint32 mineral_cost = 3; */
-        if (message.mineralCost !== undefined)
-            writer.tag(3, WireType.Varint).uint32(message.mineralCost);
-        /* optional uint32 vespene_cost = 4; */
-        if (message.vespeneCost !== undefined)
-            writer.tag(4, WireType.Varint).uint32(message.vespeneCost);
-        /* optional float research_time = 5; */
-        if (message.researchTime !== undefined)
-            writer.tag(5, WireType.Bit32).float(message.researchTime);
-        /* optional uint32 ability_id = 6; */
-        if (message.abilityId !== undefined)
-            writer.tag(6, WireType.Varint).uint32(message.abilityId);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: UpgradeData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 upgrade_id = 1; */
+    if (message.upgradeId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.upgradeId);
+    /* optional string name = 2; */
+    if (message.name !== undefined)
+      writer.tag(2, WireType.LengthDelimited).string(message.name);
+    /* optional uint32 mineral_cost = 3; */
+    if (message.mineralCost !== undefined)
+      writer.tag(3, WireType.Varint).uint32(message.mineralCost);
+    /* optional uint32 vespene_cost = 4; */
+    if (message.vespeneCost !== undefined)
+      writer.tag(4, WireType.Varint).uint32(message.vespeneCost);
+    /* optional float research_time = 5; */
+    if (message.researchTime !== undefined)
+      writer.tag(5, WireType.Bit32).float(message.researchTime);
+    /* optional uint32 ability_id = 6; */
+    if (message.abilityId !== undefined)
+      writer.tag(6, WireType.Varint).uint32(message.abilityId);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.UpgradeData
@@ -964,53 +1409,90 @@ class UpgradeData$Type extends MessageType<UpgradeData> {
 export const UpgradeData = new UpgradeData$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class BuffData$Type extends MessageType<BuffData> {
-    constructor() {
-        super("SC2APIProtocol.BuffData", [
-            { no: 1, name: "buff_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.BuffData", [
+      {
+        no: 1,
+        name: "buff_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<BuffData>): BuffData {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<BuffData>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: BuffData,
+  ): BuffData {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 buff_id */ 1:
+          message.buffId = reader.uint32();
+          break;
+        case /* optional string name */ 2:
+          message.name = reader.string();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<BuffData>): BuffData {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<BuffData>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: BuffData): BuffData {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 buff_id */ 1:
-                    message.buffId = reader.uint32();
-                    break;
-                case /* optional string name */ 2:
-                    message.name = reader.string();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: BuffData, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 buff_id = 1; */
-        if (message.buffId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.buffId);
-        /* optional string name = 2; */
-        if (message.name !== undefined)
-            writer.tag(2, WireType.LengthDelimited).string(message.name);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: BuffData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 buff_id = 1; */
+    if (message.buffId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.buffId);
+    /* optional string name = 2; */
+    if (message.name !== undefined)
+      writer.tag(2, WireType.LengthDelimited).string(message.name);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.BuffData
@@ -1018,67 +1500,116 @@ class BuffData$Type extends MessageType<BuffData> {
 export const BuffData = new BuffData$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class EffectData$Type extends MessageType<EffectData> {
-    constructor() {
-        super("SC2APIProtocol.EffectData", [
-            { no: 1, name: "effect_id", kind: "scalar", opt: true, T: 13 /*ScalarType.UINT32*/ },
-            { no: 2, name: "name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 3, name: "friendly_name", kind: "scalar", opt: true, T: 9 /*ScalarType.STRING*/ },
-            { no: 4, name: "radius", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
-        ]);
+  constructor() {
+    super("SC2APIProtocol.EffectData", [
+      {
+        no: 1,
+        name: "effect_id",
+        kind: "scalar",
+        opt: true,
+        T: 13 /*ScalarType.UINT32*/,
+      },
+      {
+        no: 2,
+        name: "name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 3,
+        name: "friendly_name",
+        kind: "scalar",
+        opt: true,
+        T: 9 /*ScalarType.STRING*/,
+      },
+      {
+        no: 4,
+        name: "radius",
+        kind: "scalar",
+        opt: true,
+        T: 2 /*ScalarType.FLOAT*/,
+      },
+    ]);
+  }
+  create(value?: PartialMessage<EffectData>): EffectData {
+    const message = {};
+    globalThis.Object.defineProperty(message, MESSAGE_TYPE, {
+      enumerable: false,
+      value: this,
+    });
+    if (value !== undefined)
+      reflectionMergePartial<EffectData>(this, message, value);
+    return message;
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: EffectData,
+  ): EffectData {
+    let message = target ?? this.create(),
+      end = reader.pos + length;
+    while (reader.pos < end) {
+      let [fieldNo, wireType] = reader.tag();
+      switch (fieldNo) {
+        case /* optional uint32 effect_id */ 1:
+          message.effectId = reader.uint32();
+          break;
+        case /* optional string name */ 2:
+          message.name = reader.string();
+          break;
+        case /* optional string friendly_name */ 3:
+          message.friendlyName = reader.string();
+          break;
+        case /* optional float radius */ 4:
+          message.radius = reader.float();
+          break;
+        default:
+          let u = options.readUnknownField;
+          if (u === "throw")
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`,
+            );
+          let d = reader.skip(wireType);
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d,
+            );
+      }
     }
-    create(value?: PartialMessage<EffectData>): EffectData {
-        const message = {};
-        globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
-        if (value !== undefined)
-            reflectionMergePartial<EffectData>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: EffectData): EffectData {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
-            switch (fieldNo) {
-                case /* optional uint32 effect_id */ 1:
-                    message.effectId = reader.uint32();
-                    break;
-                case /* optional string name */ 2:
-                    message.name = reader.string();
-                    break;
-                case /* optional string friendly_name */ 3:
-                    message.friendlyName = reader.string();
-                    break;
-                case /* optional float radius */ 4:
-                    message.radius = reader.float();
-                    break;
-                default:
-                    let u = options.readUnknownField;
-                    if (u === "throw")
-                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
-                    if (u !== false)
-                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
-            }
-        }
-        return message;
-    }
-    internalBinaryWrite(message: EffectData, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* optional uint32 effect_id = 1; */
-        if (message.effectId !== undefined)
-            writer.tag(1, WireType.Varint).uint32(message.effectId);
-        /* optional string name = 2; */
-        if (message.name !== undefined)
-            writer.tag(2, WireType.LengthDelimited).string(message.name);
-        /* optional string friendly_name = 3; */
-        if (message.friendlyName !== undefined)
-            writer.tag(3, WireType.LengthDelimited).string(message.friendlyName);
-        /* optional float radius = 4; */
-        if (message.radius !== undefined)
-            writer.tag(4, WireType.Bit32).float(message.radius);
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
+    return message;
+  }
+  internalBinaryWrite(
+    message: EffectData,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions,
+  ): IBinaryWriter {
+    /* optional uint32 effect_id = 1; */
+    if (message.effectId !== undefined)
+      writer.tag(1, WireType.Varint).uint32(message.effectId);
+    /* optional string name = 2; */
+    if (message.name !== undefined)
+      writer.tag(2, WireType.LengthDelimited).string(message.name);
+    /* optional string friendly_name = 3; */
+    if (message.friendlyName !== undefined)
+      writer.tag(3, WireType.LengthDelimited).string(message.friendlyName);
+    /* optional float radius = 4; */
+    if (message.radius !== undefined)
+      writer.tag(4, WireType.Bit32).float(message.radius);
+    let u = options.writeUnknownFields;
+    if (u !== false)
+      (u == true ? UnknownFieldHandler.onWrite : u)(
+        this.typeName,
+        message,
+        writer,
+      );
+    return writer;
+  }
 }
 /**
  * @generated MessageType for protobuf message SC2APIProtocol.EffectData

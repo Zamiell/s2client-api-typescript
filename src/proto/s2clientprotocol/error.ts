@@ -7,864 +7,864 @@
  * @generated from protobuf enum SC2APIProtocol.ActionResult
  */
 export enum ActionResult {
-    /**
-     * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
-     */
-    UNSPECIFIED$ = 0,
-    /**
-     * @generated from protobuf enum value: Success = 1;
-     */
-    Success = 1,
-    /**
-     * @generated from protobuf enum value: NotSupported = 2;
-     */
-    NotSupported = 2,
-    /**
-     * @generated from protobuf enum value: Error = 3;
-     */
-    Error = 3,
-    /**
-     * @generated from protobuf enum value: CantQueueThatOrder = 4;
-     */
-    CantQueueThatOrder = 4,
-    /**
-     * @generated from protobuf enum value: Retry = 5;
-     */
-    Retry = 5,
-    /**
-     * @generated from protobuf enum value: Cooldown = 6;
-     */
-    Cooldown = 6,
-    /**
-     * @generated from protobuf enum value: QueueIsFull = 7;
-     */
-    QueueIsFull = 7,
-    /**
-     * @generated from protobuf enum value: RallyQueueIsFull = 8;
-     */
-    RallyQueueIsFull = 8,
-    /**
-     * @generated from protobuf enum value: NotEnoughMinerals = 9;
-     */
-    NotEnoughMinerals = 9,
-    /**
-     * @generated from protobuf enum value: NotEnoughVespene = 10;
-     */
-    NotEnoughVespene = 10,
-    /**
-     * @generated from protobuf enum value: NotEnoughTerrazine = 11;
-     */
-    NotEnoughTerrazine = 11,
-    /**
-     * @generated from protobuf enum value: NotEnoughCustom = 12;
-     */
-    NotEnoughCustom = 12,
-    /**
-     * @generated from protobuf enum value: NotEnoughFood = 13;
-     */
-    NotEnoughFood = 13,
-    /**
-     * @generated from protobuf enum value: FoodUsageImpossible = 14;
-     */
-    FoodUsageImpossible = 14,
-    /**
-     * @generated from protobuf enum value: NotEnoughLife = 15;
-     */
-    NotEnoughLife = 15,
-    /**
-     * @generated from protobuf enum value: NotEnoughShields = 16;
-     */
-    NotEnoughShields = 16,
-    /**
-     * @generated from protobuf enum value: NotEnoughEnergy = 17;
-     */
-    NotEnoughEnergy = 17,
-    /**
-     * @generated from protobuf enum value: LifeSuppressed = 18;
-     */
-    LifeSuppressed = 18,
-    /**
-     * @generated from protobuf enum value: ShieldsSuppressed = 19;
-     */
-    ShieldsSuppressed = 19,
-    /**
-     * @generated from protobuf enum value: EnergySuppressed = 20;
-     */
-    EnergySuppressed = 20,
-    /**
-     * @generated from protobuf enum value: NotEnoughCharges = 21;
-     */
-    NotEnoughCharges = 21,
-    /**
-     * @generated from protobuf enum value: CantAddMoreCharges = 22;
-     */
-    CantAddMoreCharges = 22,
-    /**
-     * @generated from protobuf enum value: TooMuchMinerals = 23;
-     */
-    TooMuchMinerals = 23,
-    /**
-     * @generated from protobuf enum value: TooMuchVespene = 24;
-     */
-    TooMuchVespene = 24,
-    /**
-     * @generated from protobuf enum value: TooMuchTerrazine = 25;
-     */
-    TooMuchTerrazine = 25,
-    /**
-     * @generated from protobuf enum value: TooMuchCustom = 26;
-     */
-    TooMuchCustom = 26,
-    /**
-     * @generated from protobuf enum value: TooMuchFood = 27;
-     */
-    TooMuchFood = 27,
-    /**
-     * @generated from protobuf enum value: TooMuchLife = 28;
-     */
-    TooMuchLife = 28,
-    /**
-     * @generated from protobuf enum value: TooMuchShields = 29;
-     */
-    TooMuchShields = 29,
-    /**
-     * @generated from protobuf enum value: TooMuchEnergy = 30;
-     */
-    TooMuchEnergy = 30,
-    /**
-     * @generated from protobuf enum value: MustTargetUnitWithLife = 31;
-     */
-    MustTargetUnitWithLife = 31,
-    /**
-     * @generated from protobuf enum value: MustTargetUnitWithShields = 32;
-     */
-    MustTargetUnitWithShields = 32,
-    /**
-     * @generated from protobuf enum value: MustTargetUnitWithEnergy = 33;
-     */
-    MustTargetUnitWithEnergy = 33,
-    /**
-     * @generated from protobuf enum value: CantTrade = 34;
-     */
-    CantTrade = 34,
-    /**
-     * @generated from protobuf enum value: CantSpend = 35;
-     */
-    CantSpend = 35,
-    /**
-     * @generated from protobuf enum value: CantTargetThatUnit = 36;
-     */
-    CantTargetThatUnit = 36,
-    /**
-     * @generated from protobuf enum value: CouldntAllocateUnit = 37;
-     */
-    CouldntAllocateUnit = 37,
-    /**
-     * @generated from protobuf enum value: UnitCantMove = 38;
-     */
-    UnitCantMove = 38,
-    /**
-     * @generated from protobuf enum value: TransportIsHoldingPosition = 39;
-     */
-    TransportIsHoldingPosition = 39,
-    /**
-     * @generated from protobuf enum value: BuildTechRequirementsNotMet = 40;
-     */
-    BuildTechRequirementsNotMet = 40,
-    /**
-     * @generated from protobuf enum value: CantFindPlacementLocation = 41;
-     */
-    CantFindPlacementLocation = 41,
-    /**
-     * @generated from protobuf enum value: CantBuildOnThat = 42;
-     */
-    CantBuildOnThat = 42,
-    /**
-     * @generated from protobuf enum value: CantBuildTooCloseToDropOff = 43;
-     */
-    CantBuildTooCloseToDropOff = 43,
-    /**
-     * @generated from protobuf enum value: CantBuildLocationInvalid = 44;
-     */
-    CantBuildLocationInvalid = 44,
-    /**
-     * @generated from protobuf enum value: CantSeeBuildLocation = 45;
-     */
-    CantSeeBuildLocation = 45,
-    /**
-     * @generated from protobuf enum value: CantBuildTooCloseToCreepSource = 46;
-     */
-    CantBuildTooCloseToCreepSource = 46,
-    /**
-     * @generated from protobuf enum value: CantBuildTooCloseToResources = 47;
-     */
-    CantBuildTooCloseToResources = 47,
-    /**
-     * @generated from protobuf enum value: CantBuildTooFarFromWater = 48;
-     */
-    CantBuildTooFarFromWater = 48,
-    /**
-     * @generated from protobuf enum value: CantBuildTooFarFromCreepSource = 49;
-     */
-    CantBuildTooFarFromCreepSource = 49,
-    /**
-     * @generated from protobuf enum value: CantBuildTooFarFromBuildPowerSource = 50;
-     */
-    CantBuildTooFarFromBuildPowerSource = 50,
-    /**
-     * @generated from protobuf enum value: CantBuildOnDenseTerrain = 51;
-     */
-    CantBuildOnDenseTerrain = 51,
-    /**
-     * @generated from protobuf enum value: CantTrainTooFarFromTrainPowerSource = 52;
-     */
-    CantTrainTooFarFromTrainPowerSource = 52,
-    /**
-     * @generated from protobuf enum value: CantLandLocationInvalid = 53;
-     */
-    CantLandLocationInvalid = 53,
-    /**
-     * @generated from protobuf enum value: CantSeeLandLocation = 54;
-     */
-    CantSeeLandLocation = 54,
-    /**
-     * @generated from protobuf enum value: CantLandTooCloseToCreepSource = 55;
-     */
-    CantLandTooCloseToCreepSource = 55,
-    /**
-     * @generated from protobuf enum value: CantLandTooCloseToResources = 56;
-     */
-    CantLandTooCloseToResources = 56,
-    /**
-     * @generated from protobuf enum value: CantLandTooFarFromWater = 57;
-     */
-    CantLandTooFarFromWater = 57,
-    /**
-     * @generated from protobuf enum value: CantLandTooFarFromCreepSource = 58;
-     */
-    CantLandTooFarFromCreepSource = 58,
-    /**
-     * @generated from protobuf enum value: CantLandTooFarFromBuildPowerSource = 59;
-     */
-    CantLandTooFarFromBuildPowerSource = 59,
-    /**
-     * @generated from protobuf enum value: CantLandTooFarFromTrainPowerSource = 60;
-     */
-    CantLandTooFarFromTrainPowerSource = 60,
-    /**
-     * @generated from protobuf enum value: CantLandOnDenseTerrain = 61;
-     */
-    CantLandOnDenseTerrain = 61,
-    /**
-     * @generated from protobuf enum value: AddOnTooFarFromBuilding = 62;
-     */
-    AddOnTooFarFromBuilding = 62,
-    /**
-     * @generated from protobuf enum value: MustBuildRefineryFirst = 63;
-     */
-    MustBuildRefineryFirst = 63,
-    /**
-     * @generated from protobuf enum value: BuildingIsUnderConstruction = 64;
-     */
-    BuildingIsUnderConstruction = 64,
-    /**
-     * @generated from protobuf enum value: CantFindDropOff = 65;
-     */
-    CantFindDropOff = 65,
-    /**
-     * @generated from protobuf enum value: CantLoadOtherPlayersUnits = 66;
-     */
-    CantLoadOtherPlayersUnits = 66,
-    /**
-     * @generated from protobuf enum value: NotEnoughRoomToLoadUnit = 67;
-     */
-    NotEnoughRoomToLoadUnit = 67,
-    /**
-     * @generated from protobuf enum value: CantUnloadUnitsThere = 68;
-     */
-    CantUnloadUnitsThere = 68,
-    /**
-     * @generated from protobuf enum value: CantWarpInUnitsThere = 69;
-     */
-    CantWarpInUnitsThere = 69,
-    /**
-     * @generated from protobuf enum value: CantLoadImmobileUnits = 70;
-     */
-    CantLoadImmobileUnits = 70,
-    /**
-     * @generated from protobuf enum value: CantRechargeImmobileUnits = 71;
-     */
-    CantRechargeImmobileUnits = 71,
-    /**
-     * @generated from protobuf enum value: CantRechargeUnderConstructionUnits = 72;
-     */
-    CantRechargeUnderConstructionUnits = 72,
-    /**
-     * @generated from protobuf enum value: CantLoadThatUnit = 73;
-     */
-    CantLoadThatUnit = 73,
-    /**
-     * @generated from protobuf enum value: NoCargoToUnload = 74;
-     */
-    NoCargoToUnload = 74,
-    /**
-     * @generated from protobuf enum value: LoadAllNoTargetsFound = 75;
-     */
-    LoadAllNoTargetsFound = 75,
-    /**
-     * @generated from protobuf enum value: NotWhileOccupied = 76;
-     */
-    NotWhileOccupied = 76,
-    /**
-     * @generated from protobuf enum value: CantAttackWithoutAmmo = 77;
-     */
-    CantAttackWithoutAmmo = 77,
-    /**
-     * @generated from protobuf enum value: CantHoldAnyMoreAmmo = 78;
-     */
-    CantHoldAnyMoreAmmo = 78,
-    /**
-     * @generated from protobuf enum value: TechRequirementsNotMet = 79;
-     */
-    TechRequirementsNotMet = 79,
-    /**
-     * @generated from protobuf enum value: MustLockdownUnitFirst = 80;
-     */
-    MustLockdownUnitFirst = 80,
-    /**
-     * @generated from protobuf enum value: MustTargetUnit = 81;
-     */
-    MustTargetUnit = 81,
-    /**
-     * @generated from protobuf enum value: MustTargetInventory = 82;
-     */
-    MustTargetInventory = 82,
-    /**
-     * @generated from protobuf enum value: MustTargetVisibleUnit = 83;
-     */
-    MustTargetVisibleUnit = 83,
-    /**
-     * @generated from protobuf enum value: MustTargetVisibleLocation = 84;
-     */
-    MustTargetVisibleLocation = 84,
-    /**
-     * @generated from protobuf enum value: MustTargetWalkableLocation = 85;
-     */
-    MustTargetWalkableLocation = 85,
-    /**
-     * @generated from protobuf enum value: MustTargetPawnableUnit = 86;
-     */
-    MustTargetPawnableUnit = 86,
-    /**
-     * @generated from protobuf enum value: YouCantControlThatUnit = 87;
-     */
-    YouCantControlThatUnit = 87,
-    /**
-     * @generated from protobuf enum value: YouCantIssueCommandsToThatUnit = 88;
-     */
-    YouCantIssueCommandsToThatUnit = 88,
-    /**
-     * @generated from protobuf enum value: MustTargetResources = 89;
-     */
-    MustTargetResources = 89,
-    /**
-     * @generated from protobuf enum value: RequiresHealTarget = 90;
-     */
-    RequiresHealTarget = 90,
-    /**
-     * @generated from protobuf enum value: RequiresRepairTarget = 91;
-     */
-    RequiresRepairTarget = 91,
-    /**
-     * @generated from protobuf enum value: NoItemsToDrop = 92;
-     */
-    NoItemsToDrop = 92,
-    /**
-     * @generated from protobuf enum value: CantHoldAnyMoreItems = 93;
-     */
-    CantHoldAnyMoreItems = 93,
-    /**
-     * @generated from protobuf enum value: CantHoldThat = 94;
-     */
-    CantHoldThat = 94,
-    /**
-     * @generated from protobuf enum value: TargetHasNoInventory = 95;
-     */
-    TargetHasNoInventory = 95,
-    /**
-     * @generated from protobuf enum value: CantDropThisItem = 96;
-     */
-    CantDropThisItem = 96,
-    /**
-     * @generated from protobuf enum value: CantMoveThisItem = 97;
-     */
-    CantMoveThisItem = 97,
-    /**
-     * @generated from protobuf enum value: CantPawnThisUnit = 98;
-     */
-    CantPawnThisUnit = 98,
-    /**
-     * @generated from protobuf enum value: MustTargetCaster = 99;
-     */
-    MustTargetCaster = 99,
-    /**
-     * @generated from protobuf enum value: CantTargetCaster = 100;
-     */
-    CantTargetCaster = 100,
-    /**
-     * @generated from protobuf enum value: MustTargetOuter = 101;
-     */
-    MustTargetOuter = 101,
-    /**
-     * @generated from protobuf enum value: CantTargetOuter = 102;
-     */
-    CantTargetOuter = 102,
-    /**
-     * @generated from protobuf enum value: MustTargetYourOwnUnits = 103;
-     */
-    MustTargetYourOwnUnits = 103,
-    /**
-     * @generated from protobuf enum value: CantTargetYourOwnUnits = 104;
-     */
-    CantTargetYourOwnUnits = 104,
-    /**
-     * @generated from protobuf enum value: MustTargetFriendlyUnits = 105;
-     */
-    MustTargetFriendlyUnits = 105,
-    /**
-     * @generated from protobuf enum value: CantTargetFriendlyUnits = 106;
-     */
-    CantTargetFriendlyUnits = 106,
-    /**
-     * @generated from protobuf enum value: MustTargetNeutralUnits = 107;
-     */
-    MustTargetNeutralUnits = 107,
-    /**
-     * @generated from protobuf enum value: CantTargetNeutralUnits = 108;
-     */
-    CantTargetNeutralUnits = 108,
-    /**
-     * @generated from protobuf enum value: MustTargetEnemyUnits = 109;
-     */
-    MustTargetEnemyUnits = 109,
-    /**
-     * @generated from protobuf enum value: CantTargetEnemyUnits = 110;
-     */
-    CantTargetEnemyUnits = 110,
-    /**
-     * @generated from protobuf enum value: MustTargetAirUnits = 111;
-     */
-    MustTargetAirUnits = 111,
-    /**
-     * @generated from protobuf enum value: CantTargetAirUnits = 112;
-     */
-    CantTargetAirUnits = 112,
-    /**
-     * @generated from protobuf enum value: MustTargetGroundUnits = 113;
-     */
-    MustTargetGroundUnits = 113,
-    /**
-     * @generated from protobuf enum value: CantTargetGroundUnits = 114;
-     */
-    CantTargetGroundUnits = 114,
-    /**
-     * @generated from protobuf enum value: MustTargetStructures = 115;
-     */
-    MustTargetStructures = 115,
-    /**
-     * @generated from protobuf enum value: CantTargetStructures = 116;
-     */
-    CantTargetStructures = 116,
-    /**
-     * @generated from protobuf enum value: MustTargetLightUnits = 117;
-     */
-    MustTargetLightUnits = 117,
-    /**
-     * @generated from protobuf enum value: CantTargetLightUnits = 118;
-     */
-    CantTargetLightUnits = 118,
-    /**
-     * @generated from protobuf enum value: MustTargetArmoredUnits = 119;
-     */
-    MustTargetArmoredUnits = 119,
-    /**
-     * @generated from protobuf enum value: CantTargetArmoredUnits = 120;
-     */
-    CantTargetArmoredUnits = 120,
-    /**
-     * @generated from protobuf enum value: MustTargetBiologicalUnits = 121;
-     */
-    MustTargetBiologicalUnits = 121,
-    /**
-     * @generated from protobuf enum value: CantTargetBiologicalUnits = 122;
-     */
-    CantTargetBiologicalUnits = 122,
-    /**
-     * @generated from protobuf enum value: MustTargetHeroicUnits = 123;
-     */
-    MustTargetHeroicUnits = 123,
-    /**
-     * @generated from protobuf enum value: CantTargetHeroicUnits = 124;
-     */
-    CantTargetHeroicUnits = 124,
-    /**
-     * @generated from protobuf enum value: MustTargetRoboticUnits = 125;
-     */
-    MustTargetRoboticUnits = 125,
-    /**
-     * @generated from protobuf enum value: CantTargetRoboticUnits = 126;
-     */
-    CantTargetRoboticUnits = 126,
-    /**
-     * @generated from protobuf enum value: MustTargetMechanicalUnits = 127;
-     */
-    MustTargetMechanicalUnits = 127,
-    /**
-     * @generated from protobuf enum value: CantTargetMechanicalUnits = 128;
-     */
-    CantTargetMechanicalUnits = 128,
-    /**
-     * @generated from protobuf enum value: MustTargetPsionicUnits = 129;
-     */
-    MustTargetPsionicUnits = 129,
-    /**
-     * @generated from protobuf enum value: CantTargetPsionicUnits = 130;
-     */
-    CantTargetPsionicUnits = 130,
-    /**
-     * @generated from protobuf enum value: MustTargetMassiveUnits = 131;
-     */
-    MustTargetMassiveUnits = 131,
-    /**
-     * @generated from protobuf enum value: CantTargetMassiveUnits = 132;
-     */
-    CantTargetMassiveUnits = 132,
-    /**
-     * @generated from protobuf enum value: MustTargetMissile = 133;
-     */
-    MustTargetMissile = 133,
-    /**
-     * @generated from protobuf enum value: CantTargetMissile = 134;
-     */
-    CantTargetMissile = 134,
-    /**
-     * @generated from protobuf enum value: MustTargetWorkerUnits = 135;
-     */
-    MustTargetWorkerUnits = 135,
-    /**
-     * @generated from protobuf enum value: CantTargetWorkerUnits = 136;
-     */
-    CantTargetWorkerUnits = 136,
-    /**
-     * @generated from protobuf enum value: MustTargetEnergyCapableUnits = 137;
-     */
-    MustTargetEnergyCapableUnits = 137,
-    /**
-     * @generated from protobuf enum value: CantTargetEnergyCapableUnits = 138;
-     */
-    CantTargetEnergyCapableUnits = 138,
-    /**
-     * @generated from protobuf enum value: MustTargetShieldCapableUnits = 139;
-     */
-    MustTargetShieldCapableUnits = 139,
-    /**
-     * @generated from protobuf enum value: CantTargetShieldCapableUnits = 140;
-     */
-    CantTargetShieldCapableUnits = 140,
-    /**
-     * @generated from protobuf enum value: MustTargetFlyers = 141;
-     */
-    MustTargetFlyers = 141,
-    /**
-     * @generated from protobuf enum value: CantTargetFlyers = 142;
-     */
-    CantTargetFlyers = 142,
-    /**
-     * @generated from protobuf enum value: MustTargetBuriedUnits = 143;
-     */
-    MustTargetBuriedUnits = 143,
-    /**
-     * @generated from protobuf enum value: CantTargetBuriedUnits = 144;
-     */
-    CantTargetBuriedUnits = 144,
-    /**
-     * @generated from protobuf enum value: MustTargetCloakedUnits = 145;
-     */
-    MustTargetCloakedUnits = 145,
-    /**
-     * @generated from protobuf enum value: CantTargetCloakedUnits = 146;
-     */
-    CantTargetCloakedUnits = 146,
-    /**
-     * @generated from protobuf enum value: MustTargetUnitsInAStasisField = 147;
-     */
-    MustTargetUnitsInAStasisField = 147,
-    /**
-     * @generated from protobuf enum value: CantTargetUnitsInAStasisField = 148;
-     */
-    CantTargetUnitsInAStasisField = 148,
-    /**
-     * @generated from protobuf enum value: MustTargetUnderConstructionUnits = 149;
-     */
-    MustTargetUnderConstructionUnits = 149,
-    /**
-     * @generated from protobuf enum value: CantTargetUnderConstructionUnits = 150;
-     */
-    CantTargetUnderConstructionUnits = 150,
-    /**
-     * @generated from protobuf enum value: MustTargetDeadUnits = 151;
-     */
-    MustTargetDeadUnits = 151,
-    /**
-     * @generated from protobuf enum value: CantTargetDeadUnits = 152;
-     */
-    CantTargetDeadUnits = 152,
-    /**
-     * @generated from protobuf enum value: MustTargetRevivableUnits = 153;
-     */
-    MustTargetRevivableUnits = 153,
-    /**
-     * @generated from protobuf enum value: CantTargetRevivableUnits = 154;
-     */
-    CantTargetRevivableUnits = 154,
-    /**
-     * @generated from protobuf enum value: MustTargetHiddenUnits = 155;
-     */
-    MustTargetHiddenUnits = 155,
-    /**
-     * @generated from protobuf enum value: CantTargetHiddenUnits = 156;
-     */
-    CantTargetHiddenUnits = 156,
-    /**
-     * @generated from protobuf enum value: CantRechargeOtherPlayersUnits = 157;
-     */
-    CantRechargeOtherPlayersUnits = 157,
-    /**
-     * @generated from protobuf enum value: MustTargetHallucinations = 158;
-     */
-    MustTargetHallucinations = 158,
-    /**
-     * @generated from protobuf enum value: CantTargetHallucinations = 159;
-     */
-    CantTargetHallucinations = 159,
-    /**
-     * @generated from protobuf enum value: MustTargetInvulnerableUnits = 160;
-     */
-    MustTargetInvulnerableUnits = 160,
-    /**
-     * @generated from protobuf enum value: CantTargetInvulnerableUnits = 161;
-     */
-    CantTargetInvulnerableUnits = 161,
-    /**
-     * @generated from protobuf enum value: MustTargetDetectedUnits = 162;
-     */
-    MustTargetDetectedUnits = 162,
-    /**
-     * @generated from protobuf enum value: CantTargetDetectedUnits = 163;
-     */
-    CantTargetDetectedUnits = 163,
-    /**
-     * @generated from protobuf enum value: CantTargetUnitWithEnergy = 164;
-     */
-    CantTargetUnitWithEnergy = 164,
-    /**
-     * @generated from protobuf enum value: CantTargetUnitWithShields = 165;
-     */
-    CantTargetUnitWithShields = 165,
-    /**
-     * @generated from protobuf enum value: MustTargetUncommandableUnits = 166;
-     */
-    MustTargetUncommandableUnits = 166,
-    /**
-     * @generated from protobuf enum value: CantTargetUncommandableUnits = 167;
-     */
-    CantTargetUncommandableUnits = 167,
-    /**
-     * @generated from protobuf enum value: MustTargetPreventDefeatUnits = 168;
-     */
-    MustTargetPreventDefeatUnits = 168,
-    /**
-     * @generated from protobuf enum value: CantTargetPreventDefeatUnits = 169;
-     */
-    CantTargetPreventDefeatUnits = 169,
-    /**
-     * @generated from protobuf enum value: MustTargetPreventRevealUnits = 170;
-     */
-    MustTargetPreventRevealUnits = 170,
-    /**
-     * @generated from protobuf enum value: CantTargetPreventRevealUnits = 171;
-     */
-    CantTargetPreventRevealUnits = 171,
-    /**
-     * @generated from protobuf enum value: MustTargetPassiveUnits = 172;
-     */
-    MustTargetPassiveUnits = 172,
-    /**
-     * @generated from protobuf enum value: CantTargetPassiveUnits = 173;
-     */
-    CantTargetPassiveUnits = 173,
-    /**
-     * @generated from protobuf enum value: MustTargetStunnedUnits = 174;
-     */
-    MustTargetStunnedUnits = 174,
-    /**
-     * @generated from protobuf enum value: CantTargetStunnedUnits = 175;
-     */
-    CantTargetStunnedUnits = 175,
-    /**
-     * @generated from protobuf enum value: MustTargetSummonedUnits = 176;
-     */
-    MustTargetSummonedUnits = 176,
-    /**
-     * @generated from protobuf enum value: CantTargetSummonedUnits = 177;
-     */
-    CantTargetSummonedUnits = 177,
-    /**
-     * @generated from protobuf enum value: MustTargetUser1 = 178;
-     */
-    MustTargetUser1 = 178,
-    /**
-     * @generated from protobuf enum value: CantTargetUser1 = 179;
-     */
-    CantTargetUser1 = 179,
-    /**
-     * @generated from protobuf enum value: MustTargetUnstoppableUnits = 180;
-     */
-    MustTargetUnstoppableUnits = 180,
-    /**
-     * @generated from protobuf enum value: CantTargetUnstoppableUnits = 181;
-     */
-    CantTargetUnstoppableUnits = 181,
-    /**
-     * @generated from protobuf enum value: MustTargetResistantUnits = 182;
-     */
-    MustTargetResistantUnits = 182,
-    /**
-     * @generated from protobuf enum value: CantTargetResistantUnits = 183;
-     */
-    CantTargetResistantUnits = 183,
-    /**
-     * @generated from protobuf enum value: MustTargetDazedUnits = 184;
-     */
-    MustTargetDazedUnits = 184,
-    /**
-     * @generated from protobuf enum value: CantTargetDazedUnits = 185;
-     */
-    CantTargetDazedUnits = 185,
-    /**
-     * @generated from protobuf enum value: CantLockdown = 186;
-     */
-    CantLockdown = 186,
-    /**
-     * @generated from protobuf enum value: CantMindControl = 187;
-     */
-    CantMindControl = 187,
-    /**
-     * @generated from protobuf enum value: MustTargetDestructibles = 188;
-     */
-    MustTargetDestructibles = 188,
-    /**
-     * @generated from protobuf enum value: CantTargetDestructibles = 189;
-     */
-    CantTargetDestructibles = 189,
-    /**
-     * @generated from protobuf enum value: MustTargetItems = 190;
-     */
-    MustTargetItems = 190,
-    /**
-     * @generated from protobuf enum value: CantTargetItems = 191;
-     */
-    CantTargetItems = 191,
-    /**
-     * @generated from protobuf enum value: NoCalldownAvailable = 192;
-     */
-    NoCalldownAvailable = 192,
-    /**
-     * @generated from protobuf enum value: WaypointListFull = 193;
-     */
-    WaypointListFull = 193,
-    /**
-     * @generated from protobuf enum value: MustTargetRace = 194;
-     */
-    MustTargetRace = 194,
-    /**
-     * @generated from protobuf enum value: CantTargetRace = 195;
-     */
-    CantTargetRace = 195,
-    /**
-     * @generated from protobuf enum value: MustTargetSimilarUnits = 196;
-     */
-    MustTargetSimilarUnits = 196,
-    /**
-     * @generated from protobuf enum value: CantTargetSimilarUnits = 197;
-     */
-    CantTargetSimilarUnits = 197,
-    /**
-     * @generated from protobuf enum value: CantFindEnoughTargets = 198;
-     */
-    CantFindEnoughTargets = 198,
-    /**
-     * @generated from protobuf enum value: AlreadySpawningLarva = 199;
-     */
-    AlreadySpawningLarva = 199,
-    /**
-     * @generated from protobuf enum value: CantTargetExhaustedResources = 200;
-     */
-    CantTargetExhaustedResources = 200,
-    /**
-     * @generated from protobuf enum value: CantUseMinimap = 201;
-     */
-    CantUseMinimap = 201,
-    /**
-     * @generated from protobuf enum value: CantUseInfoPanel = 202;
-     */
-    CantUseInfoPanel = 202,
-    /**
-     * @generated from protobuf enum value: OrderQueueIsFull = 203;
-     */
-    OrderQueueIsFull = 203,
-    /**
-     * @generated from protobuf enum value: CantHarvestThatResource = 204;
-     */
-    CantHarvestThatResource = 204,
-    /**
-     * @generated from protobuf enum value: HarvestersNotRequired = 205;
-     */
-    HarvestersNotRequired = 205,
-    /**
-     * @generated from protobuf enum value: AlreadyTargeted = 206;
-     */
-    AlreadyTargeted = 206,
-    /**
-     * @generated from protobuf enum value: CantAttackWeaponsDisabled = 207;
-     */
-    CantAttackWeaponsDisabled = 207,
-    /**
-     * @generated from protobuf enum value: CouldntReachTarget = 208;
-     */
-    CouldntReachTarget = 208,
-    /**
-     * @generated from protobuf enum value: TargetIsOutOfRange = 209;
-     */
-    TargetIsOutOfRange = 209,
-    /**
-     * @generated from protobuf enum value: TargetIsTooClose = 210;
-     */
-    TargetIsTooClose = 210,
-    /**
-     * @generated from protobuf enum value: TargetIsOutOfArc = 211;
-     */
-    TargetIsOutOfArc = 211,
-    /**
-     * @generated from protobuf enum value: CantFindTeleportLocation = 212;
-     */
-    CantFindTeleportLocation = 212,
-    /**
-     * @generated from protobuf enum value: InvalidItemClass = 213;
-     */
-    InvalidItemClass = 213,
-    /**
-     * @generated from protobuf enum value: CantFindCancelOrder = 214;
-     */
-    CantFindCancelOrder = 214
+  /**
+   * @generated synthetic value - protobuf-ts requires all enums to have a 0 value
+   */
+  UNSPECIFIED$ = 0,
+  /**
+   * @generated from protobuf enum value: Success = 1;
+   */
+  Success = 1,
+  /**
+   * @generated from protobuf enum value: NotSupported = 2;
+   */
+  NotSupported = 2,
+  /**
+   * @generated from protobuf enum value: Error = 3;
+   */
+  Error = 3,
+  /**
+   * @generated from protobuf enum value: CantQueueThatOrder = 4;
+   */
+  CantQueueThatOrder = 4,
+  /**
+   * @generated from protobuf enum value: Retry = 5;
+   */
+  Retry = 5,
+  /**
+   * @generated from protobuf enum value: Cooldown = 6;
+   */
+  Cooldown = 6,
+  /**
+   * @generated from protobuf enum value: QueueIsFull = 7;
+   */
+  QueueIsFull = 7,
+  /**
+   * @generated from protobuf enum value: RallyQueueIsFull = 8;
+   */
+  RallyQueueIsFull = 8,
+  /**
+   * @generated from protobuf enum value: NotEnoughMinerals = 9;
+   */
+  NotEnoughMinerals = 9,
+  /**
+   * @generated from protobuf enum value: NotEnoughVespene = 10;
+   */
+  NotEnoughVespene = 10,
+  /**
+   * @generated from protobuf enum value: NotEnoughTerrazine = 11;
+   */
+  NotEnoughTerrazine = 11,
+  /**
+   * @generated from protobuf enum value: NotEnoughCustom = 12;
+   */
+  NotEnoughCustom = 12,
+  /**
+   * @generated from protobuf enum value: NotEnoughFood = 13;
+   */
+  NotEnoughFood = 13,
+  /**
+   * @generated from protobuf enum value: FoodUsageImpossible = 14;
+   */
+  FoodUsageImpossible = 14,
+  /**
+   * @generated from protobuf enum value: NotEnoughLife = 15;
+   */
+  NotEnoughLife = 15,
+  /**
+   * @generated from protobuf enum value: NotEnoughShields = 16;
+   */
+  NotEnoughShields = 16,
+  /**
+   * @generated from protobuf enum value: NotEnoughEnergy = 17;
+   */
+  NotEnoughEnergy = 17,
+  /**
+   * @generated from protobuf enum value: LifeSuppressed = 18;
+   */
+  LifeSuppressed = 18,
+  /**
+   * @generated from protobuf enum value: ShieldsSuppressed = 19;
+   */
+  ShieldsSuppressed = 19,
+  /**
+   * @generated from protobuf enum value: EnergySuppressed = 20;
+   */
+  EnergySuppressed = 20,
+  /**
+   * @generated from protobuf enum value: NotEnoughCharges = 21;
+   */
+  NotEnoughCharges = 21,
+  /**
+   * @generated from protobuf enum value: CantAddMoreCharges = 22;
+   */
+  CantAddMoreCharges = 22,
+  /**
+   * @generated from protobuf enum value: TooMuchMinerals = 23;
+   */
+  TooMuchMinerals = 23,
+  /**
+   * @generated from protobuf enum value: TooMuchVespene = 24;
+   */
+  TooMuchVespene = 24,
+  /**
+   * @generated from protobuf enum value: TooMuchTerrazine = 25;
+   */
+  TooMuchTerrazine = 25,
+  /**
+   * @generated from protobuf enum value: TooMuchCustom = 26;
+   */
+  TooMuchCustom = 26,
+  /**
+   * @generated from protobuf enum value: TooMuchFood = 27;
+   */
+  TooMuchFood = 27,
+  /**
+   * @generated from protobuf enum value: TooMuchLife = 28;
+   */
+  TooMuchLife = 28,
+  /**
+   * @generated from protobuf enum value: TooMuchShields = 29;
+   */
+  TooMuchShields = 29,
+  /**
+   * @generated from protobuf enum value: TooMuchEnergy = 30;
+   */
+  TooMuchEnergy = 30,
+  /**
+   * @generated from protobuf enum value: MustTargetUnitWithLife = 31;
+   */
+  MustTargetUnitWithLife = 31,
+  /**
+   * @generated from protobuf enum value: MustTargetUnitWithShields = 32;
+   */
+  MustTargetUnitWithShields = 32,
+  /**
+   * @generated from protobuf enum value: MustTargetUnitWithEnergy = 33;
+   */
+  MustTargetUnitWithEnergy = 33,
+  /**
+   * @generated from protobuf enum value: CantTrade = 34;
+   */
+  CantTrade = 34,
+  /**
+   * @generated from protobuf enum value: CantSpend = 35;
+   */
+  CantSpend = 35,
+  /**
+   * @generated from protobuf enum value: CantTargetThatUnit = 36;
+   */
+  CantTargetThatUnit = 36,
+  /**
+   * @generated from protobuf enum value: CouldntAllocateUnit = 37;
+   */
+  CouldntAllocateUnit = 37,
+  /**
+   * @generated from protobuf enum value: UnitCantMove = 38;
+   */
+  UnitCantMove = 38,
+  /**
+   * @generated from protobuf enum value: TransportIsHoldingPosition = 39;
+   */
+  TransportIsHoldingPosition = 39,
+  /**
+   * @generated from protobuf enum value: BuildTechRequirementsNotMet = 40;
+   */
+  BuildTechRequirementsNotMet = 40,
+  /**
+   * @generated from protobuf enum value: CantFindPlacementLocation = 41;
+   */
+  CantFindPlacementLocation = 41,
+  /**
+   * @generated from protobuf enum value: CantBuildOnThat = 42;
+   */
+  CantBuildOnThat = 42,
+  /**
+   * @generated from protobuf enum value: CantBuildTooCloseToDropOff = 43;
+   */
+  CantBuildTooCloseToDropOff = 43,
+  /**
+   * @generated from protobuf enum value: CantBuildLocationInvalid = 44;
+   */
+  CantBuildLocationInvalid = 44,
+  /**
+   * @generated from protobuf enum value: CantSeeBuildLocation = 45;
+   */
+  CantSeeBuildLocation = 45,
+  /**
+   * @generated from protobuf enum value: CantBuildTooCloseToCreepSource = 46;
+   */
+  CantBuildTooCloseToCreepSource = 46,
+  /**
+   * @generated from protobuf enum value: CantBuildTooCloseToResources = 47;
+   */
+  CantBuildTooCloseToResources = 47,
+  /**
+   * @generated from protobuf enum value: CantBuildTooFarFromWater = 48;
+   */
+  CantBuildTooFarFromWater = 48,
+  /**
+   * @generated from protobuf enum value: CantBuildTooFarFromCreepSource = 49;
+   */
+  CantBuildTooFarFromCreepSource = 49,
+  /**
+   * @generated from protobuf enum value: CantBuildTooFarFromBuildPowerSource = 50;
+   */
+  CantBuildTooFarFromBuildPowerSource = 50,
+  /**
+   * @generated from protobuf enum value: CantBuildOnDenseTerrain = 51;
+   */
+  CantBuildOnDenseTerrain = 51,
+  /**
+   * @generated from protobuf enum value: CantTrainTooFarFromTrainPowerSource = 52;
+   */
+  CantTrainTooFarFromTrainPowerSource = 52,
+  /**
+   * @generated from protobuf enum value: CantLandLocationInvalid = 53;
+   */
+  CantLandLocationInvalid = 53,
+  /**
+   * @generated from protobuf enum value: CantSeeLandLocation = 54;
+   */
+  CantSeeLandLocation = 54,
+  /**
+   * @generated from protobuf enum value: CantLandTooCloseToCreepSource = 55;
+   */
+  CantLandTooCloseToCreepSource = 55,
+  /**
+   * @generated from protobuf enum value: CantLandTooCloseToResources = 56;
+   */
+  CantLandTooCloseToResources = 56,
+  /**
+   * @generated from protobuf enum value: CantLandTooFarFromWater = 57;
+   */
+  CantLandTooFarFromWater = 57,
+  /**
+   * @generated from protobuf enum value: CantLandTooFarFromCreepSource = 58;
+   */
+  CantLandTooFarFromCreepSource = 58,
+  /**
+   * @generated from protobuf enum value: CantLandTooFarFromBuildPowerSource = 59;
+   */
+  CantLandTooFarFromBuildPowerSource = 59,
+  /**
+   * @generated from protobuf enum value: CantLandTooFarFromTrainPowerSource = 60;
+   */
+  CantLandTooFarFromTrainPowerSource = 60,
+  /**
+   * @generated from protobuf enum value: CantLandOnDenseTerrain = 61;
+   */
+  CantLandOnDenseTerrain = 61,
+  /**
+   * @generated from protobuf enum value: AddOnTooFarFromBuilding = 62;
+   */
+  AddOnTooFarFromBuilding = 62,
+  /**
+   * @generated from protobuf enum value: MustBuildRefineryFirst = 63;
+   */
+  MustBuildRefineryFirst = 63,
+  /**
+   * @generated from protobuf enum value: BuildingIsUnderConstruction = 64;
+   */
+  BuildingIsUnderConstruction = 64,
+  /**
+   * @generated from protobuf enum value: CantFindDropOff = 65;
+   */
+  CantFindDropOff = 65,
+  /**
+   * @generated from protobuf enum value: CantLoadOtherPlayersUnits = 66;
+   */
+  CantLoadOtherPlayersUnits = 66,
+  /**
+   * @generated from protobuf enum value: NotEnoughRoomToLoadUnit = 67;
+   */
+  NotEnoughRoomToLoadUnit = 67,
+  /**
+   * @generated from protobuf enum value: CantUnloadUnitsThere = 68;
+   */
+  CantUnloadUnitsThere = 68,
+  /**
+   * @generated from protobuf enum value: CantWarpInUnitsThere = 69;
+   */
+  CantWarpInUnitsThere = 69,
+  /**
+   * @generated from protobuf enum value: CantLoadImmobileUnits = 70;
+   */
+  CantLoadImmobileUnits = 70,
+  /**
+   * @generated from protobuf enum value: CantRechargeImmobileUnits = 71;
+   */
+  CantRechargeImmobileUnits = 71,
+  /**
+   * @generated from protobuf enum value: CantRechargeUnderConstructionUnits = 72;
+   */
+  CantRechargeUnderConstructionUnits = 72,
+  /**
+   * @generated from protobuf enum value: CantLoadThatUnit = 73;
+   */
+  CantLoadThatUnit = 73,
+  /**
+   * @generated from protobuf enum value: NoCargoToUnload = 74;
+   */
+  NoCargoToUnload = 74,
+  /**
+   * @generated from protobuf enum value: LoadAllNoTargetsFound = 75;
+   */
+  LoadAllNoTargetsFound = 75,
+  /**
+   * @generated from protobuf enum value: NotWhileOccupied = 76;
+   */
+  NotWhileOccupied = 76,
+  /**
+   * @generated from protobuf enum value: CantAttackWithoutAmmo = 77;
+   */
+  CantAttackWithoutAmmo = 77,
+  /**
+   * @generated from protobuf enum value: CantHoldAnyMoreAmmo = 78;
+   */
+  CantHoldAnyMoreAmmo = 78,
+  /**
+   * @generated from protobuf enum value: TechRequirementsNotMet = 79;
+   */
+  TechRequirementsNotMet = 79,
+  /**
+   * @generated from protobuf enum value: MustLockdownUnitFirst = 80;
+   */
+  MustLockdownUnitFirst = 80,
+  /**
+   * @generated from protobuf enum value: MustTargetUnit = 81;
+   */
+  MustTargetUnit = 81,
+  /**
+   * @generated from protobuf enum value: MustTargetInventory = 82;
+   */
+  MustTargetInventory = 82,
+  /**
+   * @generated from protobuf enum value: MustTargetVisibleUnit = 83;
+   */
+  MustTargetVisibleUnit = 83,
+  /**
+   * @generated from protobuf enum value: MustTargetVisibleLocation = 84;
+   */
+  MustTargetVisibleLocation = 84,
+  /**
+   * @generated from protobuf enum value: MustTargetWalkableLocation = 85;
+   */
+  MustTargetWalkableLocation = 85,
+  /**
+   * @generated from protobuf enum value: MustTargetPawnableUnit = 86;
+   */
+  MustTargetPawnableUnit = 86,
+  /**
+   * @generated from protobuf enum value: YouCantControlThatUnit = 87;
+   */
+  YouCantControlThatUnit = 87,
+  /**
+   * @generated from protobuf enum value: YouCantIssueCommandsToThatUnit = 88;
+   */
+  YouCantIssueCommandsToThatUnit = 88,
+  /**
+   * @generated from protobuf enum value: MustTargetResources = 89;
+   */
+  MustTargetResources = 89,
+  /**
+   * @generated from protobuf enum value: RequiresHealTarget = 90;
+   */
+  RequiresHealTarget = 90,
+  /**
+   * @generated from protobuf enum value: RequiresRepairTarget = 91;
+   */
+  RequiresRepairTarget = 91,
+  /**
+   * @generated from protobuf enum value: NoItemsToDrop = 92;
+   */
+  NoItemsToDrop = 92,
+  /**
+   * @generated from protobuf enum value: CantHoldAnyMoreItems = 93;
+   */
+  CantHoldAnyMoreItems = 93,
+  /**
+   * @generated from protobuf enum value: CantHoldThat = 94;
+   */
+  CantHoldThat = 94,
+  /**
+   * @generated from protobuf enum value: TargetHasNoInventory = 95;
+   */
+  TargetHasNoInventory = 95,
+  /**
+   * @generated from protobuf enum value: CantDropThisItem = 96;
+   */
+  CantDropThisItem = 96,
+  /**
+   * @generated from protobuf enum value: CantMoveThisItem = 97;
+   */
+  CantMoveThisItem = 97,
+  /**
+   * @generated from protobuf enum value: CantPawnThisUnit = 98;
+   */
+  CantPawnThisUnit = 98,
+  /**
+   * @generated from protobuf enum value: MustTargetCaster = 99;
+   */
+  MustTargetCaster = 99,
+  /**
+   * @generated from protobuf enum value: CantTargetCaster = 100;
+   */
+  CantTargetCaster = 100,
+  /**
+   * @generated from protobuf enum value: MustTargetOuter = 101;
+   */
+  MustTargetOuter = 101,
+  /**
+   * @generated from protobuf enum value: CantTargetOuter = 102;
+   */
+  CantTargetOuter = 102,
+  /**
+   * @generated from protobuf enum value: MustTargetYourOwnUnits = 103;
+   */
+  MustTargetYourOwnUnits = 103,
+  /**
+   * @generated from protobuf enum value: CantTargetYourOwnUnits = 104;
+   */
+  CantTargetYourOwnUnits = 104,
+  /**
+   * @generated from protobuf enum value: MustTargetFriendlyUnits = 105;
+   */
+  MustTargetFriendlyUnits = 105,
+  /**
+   * @generated from protobuf enum value: CantTargetFriendlyUnits = 106;
+   */
+  CantTargetFriendlyUnits = 106,
+  /**
+   * @generated from protobuf enum value: MustTargetNeutralUnits = 107;
+   */
+  MustTargetNeutralUnits = 107,
+  /**
+   * @generated from protobuf enum value: CantTargetNeutralUnits = 108;
+   */
+  CantTargetNeutralUnits = 108,
+  /**
+   * @generated from protobuf enum value: MustTargetEnemyUnits = 109;
+   */
+  MustTargetEnemyUnits = 109,
+  /**
+   * @generated from protobuf enum value: CantTargetEnemyUnits = 110;
+   */
+  CantTargetEnemyUnits = 110,
+  /**
+   * @generated from protobuf enum value: MustTargetAirUnits = 111;
+   */
+  MustTargetAirUnits = 111,
+  /**
+   * @generated from protobuf enum value: CantTargetAirUnits = 112;
+   */
+  CantTargetAirUnits = 112,
+  /**
+   * @generated from protobuf enum value: MustTargetGroundUnits = 113;
+   */
+  MustTargetGroundUnits = 113,
+  /**
+   * @generated from protobuf enum value: CantTargetGroundUnits = 114;
+   */
+  CantTargetGroundUnits = 114,
+  /**
+   * @generated from protobuf enum value: MustTargetStructures = 115;
+   */
+  MustTargetStructures = 115,
+  /**
+   * @generated from protobuf enum value: CantTargetStructures = 116;
+   */
+  CantTargetStructures = 116,
+  /**
+   * @generated from protobuf enum value: MustTargetLightUnits = 117;
+   */
+  MustTargetLightUnits = 117,
+  /**
+   * @generated from protobuf enum value: CantTargetLightUnits = 118;
+   */
+  CantTargetLightUnits = 118,
+  /**
+   * @generated from protobuf enum value: MustTargetArmoredUnits = 119;
+   */
+  MustTargetArmoredUnits = 119,
+  /**
+   * @generated from protobuf enum value: CantTargetArmoredUnits = 120;
+   */
+  CantTargetArmoredUnits = 120,
+  /**
+   * @generated from protobuf enum value: MustTargetBiologicalUnits = 121;
+   */
+  MustTargetBiologicalUnits = 121,
+  /**
+   * @generated from protobuf enum value: CantTargetBiologicalUnits = 122;
+   */
+  CantTargetBiologicalUnits = 122,
+  /**
+   * @generated from protobuf enum value: MustTargetHeroicUnits = 123;
+   */
+  MustTargetHeroicUnits = 123,
+  /**
+   * @generated from protobuf enum value: CantTargetHeroicUnits = 124;
+   */
+  CantTargetHeroicUnits = 124,
+  /**
+   * @generated from protobuf enum value: MustTargetRoboticUnits = 125;
+   */
+  MustTargetRoboticUnits = 125,
+  /**
+   * @generated from protobuf enum value: CantTargetRoboticUnits = 126;
+   */
+  CantTargetRoboticUnits = 126,
+  /**
+   * @generated from protobuf enum value: MustTargetMechanicalUnits = 127;
+   */
+  MustTargetMechanicalUnits = 127,
+  /**
+   * @generated from protobuf enum value: CantTargetMechanicalUnits = 128;
+   */
+  CantTargetMechanicalUnits = 128,
+  /**
+   * @generated from protobuf enum value: MustTargetPsionicUnits = 129;
+   */
+  MustTargetPsionicUnits = 129,
+  /**
+   * @generated from protobuf enum value: CantTargetPsionicUnits = 130;
+   */
+  CantTargetPsionicUnits = 130,
+  /**
+   * @generated from protobuf enum value: MustTargetMassiveUnits = 131;
+   */
+  MustTargetMassiveUnits = 131,
+  /**
+   * @generated from protobuf enum value: CantTargetMassiveUnits = 132;
+   */
+  CantTargetMassiveUnits = 132,
+  /**
+   * @generated from protobuf enum value: MustTargetMissile = 133;
+   */
+  MustTargetMissile = 133,
+  /**
+   * @generated from protobuf enum value: CantTargetMissile = 134;
+   */
+  CantTargetMissile = 134,
+  /**
+   * @generated from protobuf enum value: MustTargetWorkerUnits = 135;
+   */
+  MustTargetWorkerUnits = 135,
+  /**
+   * @generated from protobuf enum value: CantTargetWorkerUnits = 136;
+   */
+  CantTargetWorkerUnits = 136,
+  /**
+   * @generated from protobuf enum value: MustTargetEnergyCapableUnits = 137;
+   */
+  MustTargetEnergyCapableUnits = 137,
+  /**
+   * @generated from protobuf enum value: CantTargetEnergyCapableUnits = 138;
+   */
+  CantTargetEnergyCapableUnits = 138,
+  /**
+   * @generated from protobuf enum value: MustTargetShieldCapableUnits = 139;
+   */
+  MustTargetShieldCapableUnits = 139,
+  /**
+   * @generated from protobuf enum value: CantTargetShieldCapableUnits = 140;
+   */
+  CantTargetShieldCapableUnits = 140,
+  /**
+   * @generated from protobuf enum value: MustTargetFlyers = 141;
+   */
+  MustTargetFlyers = 141,
+  /**
+   * @generated from protobuf enum value: CantTargetFlyers = 142;
+   */
+  CantTargetFlyers = 142,
+  /**
+   * @generated from protobuf enum value: MustTargetBuriedUnits = 143;
+   */
+  MustTargetBuriedUnits = 143,
+  /**
+   * @generated from protobuf enum value: CantTargetBuriedUnits = 144;
+   */
+  CantTargetBuriedUnits = 144,
+  /**
+   * @generated from protobuf enum value: MustTargetCloakedUnits = 145;
+   */
+  MustTargetCloakedUnits = 145,
+  /**
+   * @generated from protobuf enum value: CantTargetCloakedUnits = 146;
+   */
+  CantTargetCloakedUnits = 146,
+  /**
+   * @generated from protobuf enum value: MustTargetUnitsInAStasisField = 147;
+   */
+  MustTargetUnitsInAStasisField = 147,
+  /**
+   * @generated from protobuf enum value: CantTargetUnitsInAStasisField = 148;
+   */
+  CantTargetUnitsInAStasisField = 148,
+  /**
+   * @generated from protobuf enum value: MustTargetUnderConstructionUnits = 149;
+   */
+  MustTargetUnderConstructionUnits = 149,
+  /**
+   * @generated from protobuf enum value: CantTargetUnderConstructionUnits = 150;
+   */
+  CantTargetUnderConstructionUnits = 150,
+  /**
+   * @generated from protobuf enum value: MustTargetDeadUnits = 151;
+   */
+  MustTargetDeadUnits = 151,
+  /**
+   * @generated from protobuf enum value: CantTargetDeadUnits = 152;
+   */
+  CantTargetDeadUnits = 152,
+  /**
+   * @generated from protobuf enum value: MustTargetRevivableUnits = 153;
+   */
+  MustTargetRevivableUnits = 153,
+  /**
+   * @generated from protobuf enum value: CantTargetRevivableUnits = 154;
+   */
+  CantTargetRevivableUnits = 154,
+  /**
+   * @generated from protobuf enum value: MustTargetHiddenUnits = 155;
+   */
+  MustTargetHiddenUnits = 155,
+  /**
+   * @generated from protobuf enum value: CantTargetHiddenUnits = 156;
+   */
+  CantTargetHiddenUnits = 156,
+  /**
+   * @generated from protobuf enum value: CantRechargeOtherPlayersUnits = 157;
+   */
+  CantRechargeOtherPlayersUnits = 157,
+  /**
+   * @generated from protobuf enum value: MustTargetHallucinations = 158;
+   */
+  MustTargetHallucinations = 158,
+  /**
+   * @generated from protobuf enum value: CantTargetHallucinations = 159;
+   */
+  CantTargetHallucinations = 159,
+  /**
+   * @generated from protobuf enum value: MustTargetInvulnerableUnits = 160;
+   */
+  MustTargetInvulnerableUnits = 160,
+  /**
+   * @generated from protobuf enum value: CantTargetInvulnerableUnits = 161;
+   */
+  CantTargetInvulnerableUnits = 161,
+  /**
+   * @generated from protobuf enum value: MustTargetDetectedUnits = 162;
+   */
+  MustTargetDetectedUnits = 162,
+  /**
+   * @generated from protobuf enum value: CantTargetDetectedUnits = 163;
+   */
+  CantTargetDetectedUnits = 163,
+  /**
+   * @generated from protobuf enum value: CantTargetUnitWithEnergy = 164;
+   */
+  CantTargetUnitWithEnergy = 164,
+  /**
+   * @generated from protobuf enum value: CantTargetUnitWithShields = 165;
+   */
+  CantTargetUnitWithShields = 165,
+  /**
+   * @generated from protobuf enum value: MustTargetUncommandableUnits = 166;
+   */
+  MustTargetUncommandableUnits = 166,
+  /**
+   * @generated from protobuf enum value: CantTargetUncommandableUnits = 167;
+   */
+  CantTargetUncommandableUnits = 167,
+  /**
+   * @generated from protobuf enum value: MustTargetPreventDefeatUnits = 168;
+   */
+  MustTargetPreventDefeatUnits = 168,
+  /**
+   * @generated from protobuf enum value: CantTargetPreventDefeatUnits = 169;
+   */
+  CantTargetPreventDefeatUnits = 169,
+  /**
+   * @generated from protobuf enum value: MustTargetPreventRevealUnits = 170;
+   */
+  MustTargetPreventRevealUnits = 170,
+  /**
+   * @generated from protobuf enum value: CantTargetPreventRevealUnits = 171;
+   */
+  CantTargetPreventRevealUnits = 171,
+  /**
+   * @generated from protobuf enum value: MustTargetPassiveUnits = 172;
+   */
+  MustTargetPassiveUnits = 172,
+  /**
+   * @generated from protobuf enum value: CantTargetPassiveUnits = 173;
+   */
+  CantTargetPassiveUnits = 173,
+  /**
+   * @generated from protobuf enum value: MustTargetStunnedUnits = 174;
+   */
+  MustTargetStunnedUnits = 174,
+  /**
+   * @generated from protobuf enum value: CantTargetStunnedUnits = 175;
+   */
+  CantTargetStunnedUnits = 175,
+  /**
+   * @generated from protobuf enum value: MustTargetSummonedUnits = 176;
+   */
+  MustTargetSummonedUnits = 176,
+  /**
+   * @generated from protobuf enum value: CantTargetSummonedUnits = 177;
+   */
+  CantTargetSummonedUnits = 177,
+  /**
+   * @generated from protobuf enum value: MustTargetUser1 = 178;
+   */
+  MustTargetUser1 = 178,
+  /**
+   * @generated from protobuf enum value: CantTargetUser1 = 179;
+   */
+  CantTargetUser1 = 179,
+  /**
+   * @generated from protobuf enum value: MustTargetUnstoppableUnits = 180;
+   */
+  MustTargetUnstoppableUnits = 180,
+  /**
+   * @generated from protobuf enum value: CantTargetUnstoppableUnits = 181;
+   */
+  CantTargetUnstoppableUnits = 181,
+  /**
+   * @generated from protobuf enum value: MustTargetResistantUnits = 182;
+   */
+  MustTargetResistantUnits = 182,
+  /**
+   * @generated from protobuf enum value: CantTargetResistantUnits = 183;
+   */
+  CantTargetResistantUnits = 183,
+  /**
+   * @generated from protobuf enum value: MustTargetDazedUnits = 184;
+   */
+  MustTargetDazedUnits = 184,
+  /**
+   * @generated from protobuf enum value: CantTargetDazedUnits = 185;
+   */
+  CantTargetDazedUnits = 185,
+  /**
+   * @generated from protobuf enum value: CantLockdown = 186;
+   */
+  CantLockdown = 186,
+  /**
+   * @generated from protobuf enum value: CantMindControl = 187;
+   */
+  CantMindControl = 187,
+  /**
+   * @generated from protobuf enum value: MustTargetDestructibles = 188;
+   */
+  MustTargetDestructibles = 188,
+  /**
+   * @generated from protobuf enum value: CantTargetDestructibles = 189;
+   */
+  CantTargetDestructibles = 189,
+  /**
+   * @generated from protobuf enum value: MustTargetItems = 190;
+   */
+  MustTargetItems = 190,
+  /**
+   * @generated from protobuf enum value: CantTargetItems = 191;
+   */
+  CantTargetItems = 191,
+  /**
+   * @generated from protobuf enum value: NoCalldownAvailable = 192;
+   */
+  NoCalldownAvailable = 192,
+  /**
+   * @generated from protobuf enum value: WaypointListFull = 193;
+   */
+  WaypointListFull = 193,
+  /**
+   * @generated from protobuf enum value: MustTargetRace = 194;
+   */
+  MustTargetRace = 194,
+  /**
+   * @generated from protobuf enum value: CantTargetRace = 195;
+   */
+  CantTargetRace = 195,
+  /**
+   * @generated from protobuf enum value: MustTargetSimilarUnits = 196;
+   */
+  MustTargetSimilarUnits = 196,
+  /**
+   * @generated from protobuf enum value: CantTargetSimilarUnits = 197;
+   */
+  CantTargetSimilarUnits = 197,
+  /**
+   * @generated from protobuf enum value: CantFindEnoughTargets = 198;
+   */
+  CantFindEnoughTargets = 198,
+  /**
+   * @generated from protobuf enum value: AlreadySpawningLarva = 199;
+   */
+  AlreadySpawningLarva = 199,
+  /**
+   * @generated from protobuf enum value: CantTargetExhaustedResources = 200;
+   */
+  CantTargetExhaustedResources = 200,
+  /**
+   * @generated from protobuf enum value: CantUseMinimap = 201;
+   */
+  CantUseMinimap = 201,
+  /**
+   * @generated from protobuf enum value: CantUseInfoPanel = 202;
+   */
+  CantUseInfoPanel = 202,
+  /**
+   * @generated from protobuf enum value: OrderQueueIsFull = 203;
+   */
+  OrderQueueIsFull = 203,
+  /**
+   * @generated from protobuf enum value: CantHarvestThatResource = 204;
+   */
+  CantHarvestThatResource = 204,
+  /**
+   * @generated from protobuf enum value: HarvestersNotRequired = 205;
+   */
+  HarvestersNotRequired = 205,
+  /**
+   * @generated from protobuf enum value: AlreadyTargeted = 206;
+   */
+  AlreadyTargeted = 206,
+  /**
+   * @generated from protobuf enum value: CantAttackWeaponsDisabled = 207;
+   */
+  CantAttackWeaponsDisabled = 207,
+  /**
+   * @generated from protobuf enum value: CouldntReachTarget = 208;
+   */
+  CouldntReachTarget = 208,
+  /**
+   * @generated from protobuf enum value: TargetIsOutOfRange = 209;
+   */
+  TargetIsOutOfRange = 209,
+  /**
+   * @generated from protobuf enum value: TargetIsTooClose = 210;
+   */
+  TargetIsTooClose = 210,
+  /**
+   * @generated from protobuf enum value: TargetIsOutOfArc = 211;
+   */
+  TargetIsOutOfArc = 211,
+  /**
+   * @generated from protobuf enum value: CantFindTeleportLocation = 212;
+   */
+  CantFindTeleportLocation = 212,
+  /**
+   * @generated from protobuf enum value: InvalidItemClass = 213;
+   */
+  InvalidItemClass = 213,
+  /**
+   * @generated from protobuf enum value: CantFindCancelOrder = 214;
+   */
+  CantFindCancelOrder = 214,
 }

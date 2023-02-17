@@ -11,3 +11,4 @@ cd "$REPO_ROOT"
 
 # "--ts_nocheck" is necessary to prevent errors with "override".
 npx protoc --ts_opt "ts_nocheck" --ts_opt "eslint_disable" --ts_out "src/proto" --proto_path "proto" "proto/sc2api.proto" "proto/s2clientprotocol/*.proto"
+npx prettier --write "src/proto"

@@ -23,9 +23,15 @@ StarCraft 2 exposes its API via a [WebSocket](https://en.wikipedia.org/wiki/WebS
 For example:
 
 ```ts
-import { StarCraft2Client } from "s2client-api-typescript";
+import { launchStarCraft2, StarCraft2Client } from "s2client-api-typescript";
+
+main().catch((err) => {
+  console.error("Failed to run the program:", err);
+});
 
 async function main() {
+  await launchStarCraft2();
+
   const client = new StarCraft2Client();
   await client.connect(); // Establishes a WebSocket connection with the game.
 
