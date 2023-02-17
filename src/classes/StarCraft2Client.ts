@@ -53,7 +53,6 @@ import {
 import { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject";
 import { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject";
 import { ResponseObject } from "../types/ResponseObject";
-import { log } from "../utils";
 import { DeferredTask } from "./DeferredTask";
 
 type RequestResolver = (value: ResponseObject) => void;
@@ -70,7 +69,7 @@ type RequestResolver = (value: ResponseObject) => void;
  *
  * Before using this class, you must connect to the game with the `connect` method.
  */
-export class SC2Client {
+export class StarCraft2Client {
   /** The "ws" library is used to handle the underlying WebSocket connection to StarCraft 2. */
   private ws: WebSocket | undefined;
 
@@ -103,6 +102,12 @@ export class SC2Client {
    */
   private lastStatus = Status.unknown;
 
+  private verbose: boolean;
+
+  constructor(verbose = false) {
+    this.verbose = verbose;
+  }
+
   /**
    * Connects to StarCraft 2 via a WebSocket connection.
    *
@@ -114,12 +119,14 @@ export class SC2Client {
     this.ws = new WebSocket(WEBSOCKET_URL);
 
     this.ws.on("open", () => {
-      log(`WebSocket connection established: ${WEBSOCKET_URL}`);
+      console.log(
+        `${GAME_NAME} WebSocket connection established: ${WEBSOCKET_URL}`,
+      );
       this.connecting.finish();
     });
 
     this.ws.on("close", () => {
-      log("WebSocket connection closed.");
+      console.log(`${GAME_NAME} WebSocket connection closed.`);
     });
 
     this.ws.on("message", (data: Buffer) => {
@@ -130,7 +137,9 @@ export class SC2Client {
       // Messages from StarCraft 2 are sent as binary data; we must decode it to a JavaScript
       // object.
       const response = Response.fromBinary(uint8Array);
-      log("Got a WebSocket message:", response);
+      if (this.verbose) {
+        console.log("Got a WebSocket message:", response);
+      }
 
       // The first error field is located at the base of the response.
       if (response.error.length > 0) {
@@ -181,7 +190,7 @@ export class SC2Client {
       }
       this.requestResolvers.delete(response.id);
 
-      requestResolver(response.response);
+      requestResolver(responseData);
     });
 
     this.ws.on("error", (err) => {
@@ -225,10 +234,9 @@ export class SC2Client {
         [requestType]: requestObject,
       },
     } as unknown as Request;
-    console.log(
-      "Sending WebSocket data:",
-      JSON.stringify(request, undefined, 2),
-    );
+    if (this.verbose) {
+      console.log("Sending WebSocket data:", request);
+    }
     const binaryData = Request.toBinary(request);
     this.ws.send(binaryData);
 
@@ -291,7 +299,7 @@ export class SC2Client {
   }
 
   public observation(
-    request: RequestObservation,
+    request: RequestObservation = {},
   ): Promise<ResponseObservation> {
     return this.send(RequestType.Observation, request);
   }
@@ -306,7 +314,8 @@ export class SC2Client {
     return this.send(RequestType.ObsAction, request);
   }
 
-  public step(request: RequestStep): Promise<ResponseStep> {
+  /** Tell StarCraft 2 to advance the game. By default, this will only advance one step. */
+  public step(request: RequestStep = {}): Promise<ResponseStep> {
     return this.send(RequestType.Step, request);
   }
 

@@ -15,7 +15,7 @@
   "main": "dist/index",
   "scripts": {
     "build": "tsc",
-    "start": "tsx src/main.ts"
+    "start": "yarn run build && node dist/main.js"
   },
   "dependencies": {
     "@protobuf-ts/runtime": "^2.8.2",

@@ -1,4 +1,4 @@
-export * from "./classes/SC2Client";
+export * from "./classes/StarCraft2Client";
 export * from "./proto/s2clientprotocol/common";
 export * from "./proto/s2clientprotocol/data";
 export * from "./proto/s2clientprotocol/debug";

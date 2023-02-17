@@ -9,7 +9,7 @@ import {
   GAME_NAME,
 } from "./constants";
 import { readFile } from "./file";
-import { error, log } from "./utils";
+import { error } from "./utils";
 
 const PLATFORM = os.platform();
 const IS_WINDOWS_OS = PLATFORM === "win32";
@@ -38,11 +38,11 @@ const EXECUTE_INFO_PATH = path.join(HOME_DIR, EXECUTE_INFO_SUB_PATH);
 
 export async function launchStarCraft2(): Promise<void> {
   if (await isStarCraft2Open()) {
-    log("StarCraft 2 is open. Skipping launch.");
+    console.log("StarCraft 2 is open. Skipping launch.");
     return;
   }
 
-  log(`Launching a new ${GAME_NAME} process.`);
+  console.log(`Launching a new ${GAME_NAME} process.`);
   const executablePath = getStarCraft2ExecutablePath();
   const starCraft2Directory = getStarCraft2Directory();
 
@@ -66,7 +66,7 @@ export async function launchStarCraft2(): Promise<void> {
   starCraft2Process.unref();
 
   await waitUntilStarCraft2IsOpen();
-  log(`${GAME_NAME} is launched successfully.`);
+  console.log(`${GAME_NAME} is launched successfully.`);
 }
 
 /** Specifically checks for versions of StarCraft 2 that are listening on the WebSocket port. */

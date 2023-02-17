@@ -27,6 +27,7 @@ module.exports = {
         definedTags: ["generated"],
       },
     ],
+    "no-await-in-loop": "off",
     // @template-customization-end
   },
 };
