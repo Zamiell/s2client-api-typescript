@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "id": "starcraft2",
+  "name": "starcraft2",
+  "description": "Words for StarCraft 2",
+  "readonly": true,
+  "dictionaryDefinitions": [
+    {
+      "name": "starcraft2",
+      "path": "./starcraft2.txt",
+      "description": "Words from the StarCraft 2 API"
+    }
+  ],
+  "languageSettings": [
+    {
+      "languageId": "*",
+      "locale": "*",
+      "includeRegExpList": [],
+      "dictionaries": ["starcraft2"]
+    }
+  ]
+}

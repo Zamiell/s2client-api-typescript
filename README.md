@@ -50,6 +50,8 @@ import { Race } from "s2client-api-typescript";
 const MY_RACE = Race.Protoss;
 ```
 
+Additionally, this library includes enums that were parsed from the "stableid.json" file (which maps unit/ability/upgrade numbers to names).
+
 ### 3) Helper Functions
 
 When writing your bot, this library offers some helper functions that can get you up and running faster:
@@ -58,6 +60,14 @@ When writing your bot, this library offers some helper functions that can get yo
 - `getMapPath`
 
 The helper functions are described in more detail in the documentation; see below.
+
+### 4) CSpell Dictionary
+
+If you use [CSpell](https://cspell.org/), then you can import the StarCraft 2 dictionary by adding an "import" line to your "cspell.json" file:
+
+```json
+"import": ["s2client-api-typescript/dictionaries/cspell-starcraft2.json"],
+```
 
 <br>
 

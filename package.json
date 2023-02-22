@@ -12,7 +12,16 @@
   },
   "license": "MIT",
   "author": "Zamiell",
-  "main": "dist/index",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dictionaries",
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "src"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "yarn run build && node dist/main.js"
@@ -33,6 +42,7 @@
     "isaacscript-lint": "^4.12.0",
     "isaacscript-tsconfig": "^4.0.0",
     "npm-check-updates": "^16.7.5",
+    "tsx": "^3.12.3",
     "typedoc": "^0.23.25",
     "typescript": "^4.9.5"
   }

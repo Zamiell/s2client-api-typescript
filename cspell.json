@@ -1,8 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
-  "files": ["**"],
-  "enableFiletypes": ["*"],
+  "import": [
+    "./dictionaries/cspell-starcraft2.json"
+  ],
+  "files": [
+    "**"
+  ],
+  "enableFiletypes": [
+    "*"
+  ],
   "enableGlobDot": true,
   "useGitignore": true,
   "ignorePaths": [
@@ -15,53 +22,16 @@
     "yarn.lock"
   ],
   "words": [
-    "Abil",
-    "Autocast",
     "autocrlf",
-    "battlenet",
-    "broodling",
     "bufferutil",
-    "buildable",
-    "Calldown",
-    "Chrono",
-    "clientprotocol",
-    "Cooldown",
-    "Couldnt",
+    "buttonname",
     "dbaeumer",
-    "Destructibles",
     "esbenp",
-    "gameplay",
-    "isaacscript",
-    "Lockdown",
     "loglevel",
-    "Mothership",
-    "nocheck",
-    "Nydus",
-    "oneof",
-    "pathable",
-    "pathing",
     "pbjs",
-    "pnpm",
-    "proto",
-    "protobuf",
     "protoc",
-    "Protoss",
-    "Psionic",
-    "Psistorm",
-    "queueable",
-    "Reinitializes",
     "sarisia",
-    "singleplayer",
-    "stim",
-    "targetfilters",
     "technote",
-    "Terrazine",
-    "typedoc",
-    "Uncommandable",
-    "Varint",
-    "Vespene",
-    "Zamiel",
-    "Zamiell",
-    "Zerg"
+    "typedoc"
   ]
 }

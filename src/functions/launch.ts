@@ -16,6 +16,9 @@ import {
  * Helper function to launch StarCraft 2 and wait until it is open. Flags are provided to enable the
  * WebSocket API.
  *
+ * If you get an error related to "icuuc52.dll", then try opening the Battle.net launcher (and
+ * making sure you are logged in).
+ *
  * @param hostname Optional. If not specified, "127.0.0.1" will be used.
  * @param port Optional. If not specified, 5000 will be used.
  * @param displayMode Optional. If not specified, 0 (windowed) will be used.
