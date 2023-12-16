@@ -6618,7 +6618,6 @@ __metadata:
     isaacscript-common-ts: "npm:^13.1.8"
     isaacscript-lint: "npm:^6.12.1"
     isaacscript-tsconfig: "npm:^5.0.0"
-    npm-check-updates: "npm:^16.14.12"
     tsx: "npm:^4.6.2"
     typedoc: "npm:^0.25.4"
     typescript: "npm:^5.3.3"
