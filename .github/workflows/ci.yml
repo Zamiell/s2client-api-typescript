@@ -28,8 +28,8 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - name: Create the docs locally in CI
-        run: npm run docs
+      - uses: ./.github/workflows/setup
+      - run: npm run docs
       - uses: actions/upload-pages-artifact@v2
         with:
           path: "./docs"
