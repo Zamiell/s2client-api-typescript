@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/knip@3/schema-jsonc.json",
+  "ignore": [".eslintrc.cjs", "prettier.config.mjs"],
+  "ignoreDependencies": [
+    "isaacscript-lint",
+
+    // Used for generating docs.
+    "typedoc",
+
+    // Used for the initial generation of the TypeScript definitions from the proto files.
+    "@protobuf-ts/plugin",
+  ],
+}

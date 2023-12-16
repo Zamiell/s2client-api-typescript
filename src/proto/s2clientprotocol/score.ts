@@ -11,11 +11,11 @@ import type {
   PartialMessage,
 } from "@protobuf-ts/runtime";
 import {
-  MessageType,
   MESSAGE_TYPE,
-  reflectionMergePartial,
+  MessageType,
   UnknownFieldHandler,
   WireType,
+  reflectionMergePartial,
 } from "@protobuf-ts/runtime";
 /**
  * @generated from protobuf message SC2APIProtocol.Score

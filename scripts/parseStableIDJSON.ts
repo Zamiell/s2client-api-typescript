@@ -1,6 +1,7 @@
 // This script converts the values in the "C:\Users\[username]\Documents\StarCraft II\stableid.json"
 // file to TypeScript enums.
 
+import type { ReadonlyRecord } from "isaacscript-common-ts";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as url from "node:url";
@@ -16,7 +17,6 @@ interface StableIDArrayElement {
   index?: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle
 export const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const REPO_ROOT = path.join(__dirname, "..");
@@ -30,10 +30,10 @@ function main() {
 }
 
 function getStableIDs(): Record<string, StableIDArrayElement[]> {
-  const userProfile = process.env.USERPROFILE;
+  const userProfile = process.env["USERPROFILE"];
   if (userProfile === undefined || userProfile === "") {
     throw new Error(
-      `Failed to parse the "USERPROFILE" environment variable. (This script will only work on Windows.)`,
+      'Failed to parse the "USERPROFILE" environment variable. (This script will only work on Windows.)',
     );
   }
 
@@ -65,11 +65,13 @@ function getStableIDs(): Record<string, StableIDArrayElement[]> {
 
   for (const [key, value] of Object.entries(stableIDs)) {
     if (typeof key !== "string") {
-      throw new Error(`Failed to parse the key of: ${key}`);
+      throw new TypeError(`Failed to parse the key of: ${key}`);
     }
 
     if (!Array.isArray(value)) {
-      throw new Error(`Failed to parse the value of key "${key}": ${value}`);
+      throw new TypeError(
+        `Failed to parse the value of key "${key}": ${value}`,
+      );
     }
 
     for (const elementAny of value) {
@@ -98,7 +100,9 @@ function getStableIDs(): Record<string, StableIDArrayElement[]> {
   return stableIdJSON as Record<string, StableIDArrayElement[]>;
 }
 
-function createEnums(stableIDs: Record<string, StableIDArrayElement[]>) {
+function createEnums(
+  stableIDs: ReadonlyRecord<string, StableIDArrayElement[]>,
+) {
   if (!fs.existsSync(GENERATED_ENUMS_PATH)) {
     fs.mkdirSync(GENERATED_ENUMS_PATH);
   }
@@ -114,7 +118,7 @@ function createEnums(stableIDs: Record<string, StableIDArrayElement[]>) {
 
 function getEnumFileContents(
   enumName: string,
-  array: StableIDArrayElement[],
+  array: readonly StableIDArrayElement[],
 ): string {
   let enumFileContents = `export enum ${enumName} {\n`;
 
@@ -154,7 +158,7 @@ function getSafeEnumName(
 
   // Some names have symbols in them which are not allowed in enum names. Replace them with an
   // underscore if this is the case.
-  safeEnumEnum = safeEnumEnum.replace(/@/g, "_");
+  safeEnumEnum = safeEnumEnum.replaceAll("@", "_");
 
   // Some names have leading numbers, which are not allowed. Add an "N" at the beginning if this is
   // the case.
@@ -178,5 +182,5 @@ function capitalizeFirstLetter(string: string): string {
 }
 
 function removeWhitespace(string: string): string {
-  return string.replace(/\s/g, "");
+  return string.replaceAll(/\s/g, "");
 }

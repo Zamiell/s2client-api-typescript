@@ -3,53 +3,41 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build_and_lint:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - run: npm run build
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: lts/*
-
-      - name: Retrieve the cached "node_modules" directory (if present)
-        uses: actions/cache@v3
-        id: node-cache
-        with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
-
-      - name: Install dependencies (if the cached directory was not found)
-        if: steps.node-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
-
-      - name: Test to see if the project compiles
-        run: bash build.sh
-
-      - name: Perform automated checks
-        run: bash lint.sh
-
-      # @template-customization-start
-
-      - name: Create the docs locally in CI
-        if: github.event_name != 'pull_request'
-        run: bash docs.sh
-
-      - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages
-          folder: docs
-
-      # @template-customization-end
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/setup
+      - run: npm run lint
 
   # @template-customization-start
+
+  deploy_website:
+    if: "needs.pr-check.outputs.number != 'null'"
+    needs: [build, lint]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create the docs locally in CI
+        run: bash docs.sh
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: "./docs"
+      - uses: actions/deploy-pages@v2
+
   discord:
     name: Discord Failure Notification
-    needs: [build_and_lint]
+    needs: [build, lint, deploy_website]
     if: always() # This is needed to always run this job, even if the other jobs fail.
     runs-on: ubuntu-latest
     steps:
@@ -60,4 +48,5 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           status: ${{ env.WORKFLOW_CONCLUSION }}
           title: ""
+
   # @template-customization-end

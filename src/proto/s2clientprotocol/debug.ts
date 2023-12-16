@@ -11,11 +11,11 @@ import type {
   PartialMessage,
 } from "@protobuf-ts/runtime";
 import {
-  MessageType,
   MESSAGE_TYPE,
-  reflectionMergePartial,
+  MessageType,
   UnknownFieldHandler,
   WireType,
+  reflectionMergePartial,
 } from "@protobuf-ts/runtime";
 import { Point, Point2D } from "./common";
 /**

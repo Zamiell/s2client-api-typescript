@@ -1,3 +1,5 @@
+/* eslint-disable isaacscript/consistent-enum-values */
+
 /**
  * This matches the possible Request/Response types from "sc2api.ts".
  *

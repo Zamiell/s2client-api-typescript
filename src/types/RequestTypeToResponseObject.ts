@@ -1,6 +1,6 @@
-import { RequestType } from "../enums/RequestType.js";
-import { ResponseQuery } from "../proto/s2clientprotocol/query.js";
-import {
+import type { RequestType } from "../enums/RequestType.js";
+import type { ResponseQuery } from "../proto/s2clientprotocol/query.js";
+import type {
   ResponseAction,
   ResponseAvailableMaps,
   ResponseCreateGame,

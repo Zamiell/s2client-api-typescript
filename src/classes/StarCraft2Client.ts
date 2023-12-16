@@ -1,14 +1,13 @@
 import WebSocket from "ws";
 import { DEFAULT_HOSTNAME, DEFAULT_PORT, GAME_NAME } from "../constants.js";
 import { RequestType } from "../enums/RequestType.js";
-import { StarCraft2ClientOptions } from "../interfaces/StarCraft2ClientOptions.js";
+import type { StarCraft2ClientOptions } from "../interfaces/StarCraft2ClientOptions.js";
 import { REQUEST_TYPE_TO_ERROR_ENUM } from "../objects/requestTypeToErrorEnum.js";
-import {
+import type {
   RequestQuery,
   ResponseQuery,
 } from "../proto/s2clientprotocol/query.js";
-import {
-  Request,
+import type {
   RequestAction,
   RequestAvailableMaps,
   RequestCreateGame,
@@ -30,7 +29,6 @@ import {
   RequestSaveReplay,
   RequestStartReplay,
   RequestStep,
-  Response,
   ResponseAction,
   ResponseAvailableMaps,
   ResponseCreateGame,
@@ -52,11 +50,11 @@ import {
   ResponseSaveReplay,
   ResponseStartReplay,
   ResponseStep,
-  Status,
 } from "../proto/sc2api.js";
-import { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject.js";
-import { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject.js";
-import { ResponseObject } from "../types/ResponseObject.js";
+import { Request, Response, Status } from "../proto/sc2api.js";
+import type { RequestTypeToRequestObject } from "../types/RequestTypeToRequestObject.js";
+import type { RequestTypeToResponseObject } from "../types/RequestTypeToResponseObject.js";
+import type { ResponseObject } from "../types/ResponseObject.js";
 import { DeferredTask } from "./DeferredTask.js";
 
 type RequestResolver = (value: ResponseObject) => void;
@@ -83,7 +81,7 @@ export class StarCraft2Client {
    * A `DeferredTask` object is used to detect when the WebSocket connection has successfully
    * connected.
    */
-  private connecting = new DeferredTask();
+  private readonly connecting = new DeferredTask();
 
   /** Starts at 0 and is incremented with each request sent to StarCraft 2. */
   private IDCounter = 0;
@@ -98,7 +96,7 @@ export class StarCraft2Client {
    * After the response is received and the resolver is retrieved/fired, the resolver is removed
    * from the map.
    */
-  private requestResolvers = new Map<number, RequestResolver>();
+  private readonly requestResolvers = new Map<number, RequestResolver>();
 
   /**
    * The status of StarCraft 2 is returned with each API response object and we record it. This is
@@ -108,7 +106,7 @@ export class StarCraft2Client {
    */
   private lastStatus = Status.unknown;
 
-  private verbose: boolean;
+  private readonly verbose: boolean;
 
   constructor(options: StarCraft2ClientOptions = {}) {
     this.verbose = options.verbose ?? false;
@@ -218,7 +216,7 @@ export class StarCraft2Client {
     return this.lastStatus;
   }
 
-  private send<T extends RequestType>(
+  private async send<T extends RequestType>(
     requestType: T,
     requestObject: RequestTypeToRequestObject[T],
   ): Promise<RequestTypeToResponseObject[T]> {
@@ -270,104 +268,118 @@ export class StarCraft2Client {
 
   // Only methods with empty interfaces for request objects are given a default value.
 
-  public createGame(request: RequestCreateGame): Promise<ResponseCreateGame> {
+  public async createGame(
+    request: RequestCreateGame,
+  ): Promise<ResponseCreateGame> {
     return this.send(RequestType.CreateGame, request);
   }
 
-  public joinGame(request: RequestJoinGame): Promise<ResponseJoinGame> {
+  public async joinGame(request: RequestJoinGame): Promise<ResponseJoinGame> {
     return this.send(RequestType.JoinGame, request);
   }
 
-  public restartGame(
+  public async restartGame(
     request: RequestRestartGame = {},
   ): Promise<ResponseRestartGame> {
     return this.send(RequestType.RestartGame, request);
   }
 
-  public startReplay(
+  public async startReplay(
     request: RequestStartReplay,
   ): Promise<ResponseStartReplay> {
     return this.send(RequestType.StartReplay, request);
   }
 
-  public leaveGame(request: RequestLeaveGame = {}): Promise<ResponseLeaveGame> {
+  public async leaveGame(
+    request: RequestLeaveGame = {},
+  ): Promise<ResponseLeaveGame> {
     return this.send(RequestType.LeaveGame, request);
   }
 
-  public quickSave(request: RequestQuickSave = {}): Promise<ResponseQuickSave> {
+  public async quickSave(
+    request: RequestQuickSave = {},
+  ): Promise<ResponseQuickSave> {
     return this.send(RequestType.QuickSave, request);
   }
 
-  public quickLoad(request: RequestQuickLoad = {}): Promise<ResponseQuickLoad> {
+  public async quickLoad(
+    request: RequestQuickLoad = {},
+  ): Promise<ResponseQuickLoad> {
     return this.send(RequestType.QuickLoad, request);
   }
 
-  public quit(request: RequestQuit = {}): Promise<ResponseQuit> {
+  public async quit(request: RequestQuit = {}): Promise<ResponseQuit> {
     return this.send(RequestType.Quit, request);
   }
 
-  public gameInfo(request: RequestGameInfo = {}): Promise<ResponseGameInfo> {
+  public async gameInfo(
+    request: RequestGameInfo = {},
+  ): Promise<ResponseGameInfo> {
     return this.send(RequestType.GameInfo, request);
   }
 
-  public observation(
+  public async observation(
     request: RequestObservation = {},
   ): Promise<ResponseObservation> {
     return this.send(RequestType.Observation, request);
   }
 
-  public action(request: RequestAction): Promise<ResponseAction> {
+  public async action(request: RequestAction): Promise<ResponseAction> {
     return this.send(RequestType.Action, request);
   }
 
-  public obsAction(
+  public async obsAction(
     request: RequestObserverAction,
   ): Promise<ResponseObserverAction> {
     return this.send(RequestType.ObsAction, request);
   }
 
   /** Tell StarCraft 2 to advance the game. By default, this will only advance one step. */
-  public step(request: RequestStep = {}): Promise<ResponseStep> {
+  public async step(request: RequestStep = {}): Promise<ResponseStep> {
     return this.send(RequestType.Step, request);
   }
 
-  public data(request: RequestData): Promise<ResponseData> {
+  public async data(request: RequestData): Promise<ResponseData> {
     return this.send(RequestType.Data, request);
   }
 
-  public query(request: RequestQuery): Promise<ResponseQuery> {
+  public async query(request: RequestQuery): Promise<ResponseQuery> {
     return this.send(RequestType.Query, request);
   }
 
-  public saveReplay(
+  public async saveReplay(
     request: RequestSaveReplay = {},
   ): Promise<ResponseSaveReplay> {
     return this.send(RequestType.SaveReplay, request);
   }
 
-  public replayInfo(request: RequestReplayInfo): Promise<ResponseReplayInfo> {
+  public async replayInfo(
+    request: RequestReplayInfo,
+  ): Promise<ResponseReplayInfo> {
     return this.send(RequestType.ReplayInfo, request);
   }
 
-  public availableMaps(
+  public async availableMaps(
     request: RequestAvailableMaps = {},
   ): Promise<ResponseAvailableMaps> {
     return this.send(RequestType.AvailableMaps, request);
   }
 
-  public saveMap(request: RequestSaveMap): Promise<ResponseSaveMap> {
+  public async saveMap(request: RequestSaveMap): Promise<ResponseSaveMap> {
     return this.send(RequestType.SaveMap, request);
   }
 
-  public mapCommand(request: RequestMapCommand): Promise<ResponseMapCommand> {
+  public async mapCommand(
+    request: RequestMapCommand,
+  ): Promise<ResponseMapCommand> {
     return this.send(RequestType.MapCommand, request);
   }
 
-  public ping(request: RequestPing = {}): Promise<ResponsePing> {
+  public async ping(request: RequestPing = {}): Promise<ResponsePing> {
     return this.send(RequestType.Ping, request);
   }
 
-  public debug(request: RequestDebug): Promise<ResponseDebug> {
+  public async debug(request: RequestDebug): Promise<ResponseDebug> {
     return this.send(RequestType.Debug, request);
   }
 }

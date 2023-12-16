@@ -1,33 +1,39 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
-  // @template-customization-start
+  // @template-ignore-next-line
   "import": ["./dictionaries/cspell-starcraft2.json"],
-  // @template-customization-end
   "files": ["**"],
   "enableFiletypes": ["*"],
   "enableGlobDot": true,
   "useGitignore": true,
   "ignorePaths": [
+    "*.min.js",
+    "*.mp3",
     "*.pyc",
+    "*.svg",
     ".git/**",
+    ".yarn/**",
     "dist/**",
+    "LICENSE",
     "node_modules/**",
     "package-lock.json",
     "pnpm-lock.yaml",
-    "yarn.lock"
+    "yarn.lock",
   ],
   "words": [
     "autocrlf",
     "bufferutil",
     "buttonname",
+    "corepack",
     "dbaeumer",
     "esbenp",
-    "loglevel",
+    "IDJSON",
+    "knip",
+    "packagejson",
     "pbjs",
     "protoc",
     "sarisia",
     "technote",
-    "typedoc"
-  ]
+  ],
 }
