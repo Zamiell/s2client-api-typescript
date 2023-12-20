@@ -35,18 +35,18 @@
     "@protobuf-ts/runtime": "^2.9.3",
     "bufferutil": "^4.0.8",
     "find-process": "^1.4.7",
-    "isaacscript-common-ts": "^13.1.8",
+    "isaacscript-common-ts": "^13.5.1",
     "utf-8-validate": "^6.0.3",
     "ws": "^8.15.1"
   },
   "devDependencies": {
     "@protobuf-ts/plugin": "^2.9.3",
     "@types/ws": "^8.5.10",
-    "isaacscript": "^3.36.0",
+    "isaacscript": "^3.36.1",
     "isaacscript-common-node": "^3.0.0",
-    "isaacscript-lint": "^6.12.1",
+    "isaacscript-lint": "^6.13.0",
     "isaacscript-tsconfig": "^5.0.0",
-    "tsx": "^4.6.2",
+    "tsx": "^4.7.0",
     "typedoc": "^0.25.4",
     "typescript": "^5.3.3"
   },
