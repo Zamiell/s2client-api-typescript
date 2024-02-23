@@ -1,6 +1,7 @@
 /** A small wrapper around a `Promise` to await the completion of an asynchronous event. */
 export class DeferredTask {
   private resolver: (() => void) | undefined;
+
   // eslint-disable-next-line unicorn/consistent-function-scoping
   private readonly promise = new Promise<void>((resolve) => {
     this.resolver = resolve;
